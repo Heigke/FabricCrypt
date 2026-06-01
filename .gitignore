@@ -1,0 +1,31 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.log
+.env
+/tmp/
+
+# signature artifacts are produced into data/ at runtime;
+# don't commit large rollouts — but keep the data/README.md
+data/*.npz
+data/*.pt
+data/*.json
+!data/README.md
+
+# don't commit cached calibration
+src/protocol/_cal/
+
+# heavy media — link out instead
+demo_video/*.mp4
+demo_video/*.mov
+
+# C binaries
+src/signature/tsc_inter_core
+src/signature/cacheline_pingpong
+
+# IDE
+.vscode/
+.idea/
+.DS_Store

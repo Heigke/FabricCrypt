@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+title: "FabricCrypt: Software-discoverable vendor-key-free per-die attestation for AI inference on commodity AMD hardware"
+message: "If you use this software, please cite the paper draft in paper/fabriccrypt.md."
+authors:
+  - family-names: "FabricCrypt contributors"
+    given-names: ""
+license: MIT
+repository-code: "https://github.com/Heigke/FabricCrypt"
+date-released: 2026-06-01
+keywords:
+  - hardware-attestation
+  - PUF
+  - side-channel
+  - AMD
+  - Strix-Halo
+  - confidential-computing
+preferred-citation:
+  type: article
+  title: "FabricCrypt: Software-discoverable vendor-key-free per-die attestation for AI inference on commodity GPUs"
+  year: 2026
+  authors:
+    - family-names: "FabricCrypt contributors"
+      given-names: ""
+  notes: "Draft v2, n=2 chassis. See paper/fabriccrypt.md for limitations."
