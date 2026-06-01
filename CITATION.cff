@@ -1,7 +1,7 @@
 cff-version: 1.2.0
-title: "FabricCrypt: Software-discoverable vendor-key-free per-die attestation for AI inference on commodity AMD hardware"
-message: "If you use this software, please cite the preprint (arXiv:XXXX.XXXXX) and the draft in paper/fabriccrypt.md."
-version: "0.2.0"
+title: "FabricCrypt: Software-discoverable vendor-key-free per-die attestation primitive for AI inference on commodity AMD hardware (at n=2 chassi)"
+message: "If you use this software, please cite the preprint (arXiv:XXXX.XXXXX) and the draft in paper/fabriccrypt_v3_1.md."
+version: "0.2.1"
 authors:
   - family-names: "FabricCrypt contributors"
     given-names: ""
@@ -19,9 +19,9 @@ keywords:
   - vendor-key-free
 preferred-citation:
   type: article
-  title: "FabricCrypt: Software-discoverable vendor-key-free per-die attestation for AI inference on commodity AMD hardware"
+  title: "FabricCrypt: Software-discoverable vendor-key-free per-die attestation primitive for AI inference on commodity AMD hardware (at n=2 chassi)"
   year: 2026
   authors:
     - family-names: "FabricCrypt contributors"
       given-names: ""
-  notes: "Draft v0.2 (Phase 19 + Phase 22 + Tier-2), N=2 chassis. See paper/fabriccrypt.md for limitations and docs/CHANGELOG.md for v0.2 changes."
+  notes: "Draft v3.1 (O116 mandatory pre-launch edits applied). v0.2.1; N=2 chassis. All bit-security figures are empirical operating points, not formal cryptographic reductions. See paper/fabriccrypt_v3_1.md and paper/fabriccrypt_v3_1_EDIT_LOG.md."
