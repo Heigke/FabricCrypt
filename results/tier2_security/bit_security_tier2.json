@@ -1,0 +1,92 @@
+{
+  "tier": "Tier-2",
+  "date": "2026-06-01",
+  "modules": [
+    "reverse_fuzzy",
+    "controlled_puf",
+    "multiround",
+    "zkml"
+  ],
+  "security_vectors": [
+    {
+      "vector": "V0",
+      "name": "Brute-force K_chip",
+      "bits": 256,
+      "status": "mitigated"
+    },
+    {
+      "vector": "V1",
+      "name": "Fingerprint brute-force",
+      "bits": [
+        60,
+        80
+      ],
+      "status": "mitigated"
+    },
+    {
+      "vector": "V2",
+      "name": "ML modeling attack (controlled PUF)",
+      "bits": 128,
+      "status": "mitigated_T2.2"
+    },
+    {
+      "vector": "V3",
+      "name": "Generative attacker w/ 10^5 (n,r) pairs",
+      "bits": 128,
+      "status": "mitigated_T2.2"
+    },
+    {
+      "vector": "V4",
+      "name": "K_chip leak + multi-round protocol",
+      "bits": [
+        40,
+        60
+      ],
+      "status": "partially_mitigated_T2.3"
+    },
+    {
+      "vector": "V5",
+      "name": "Helper-data leakage (classical FE)",
+      "bits": 256,
+      "status": "eliminated_T2.1"
+    },
+    {
+      "vector": "V6",
+      "name": "Relay/distance attack",
+      "bits": 0,
+      "status": "UNMITIGATED \u2014 see gap analysis"
+    },
+    {
+      "vector": "V7",
+      "name": "Chosen-challenge ML",
+      "bits": 128,
+      "status": "mitigated_T2.2"
+    }
+  ],
+  "prior_estimate": {
+    "unprotected": [
+      30,
+      40
+    ],
+    "with_K_chip_leak": [
+      15,
+      20
+    ]
+  },
+  "new_estimate": {
+    "unprotected": [
+      60,
+      80
+    ],
+    "with_K_chip_leak": [
+      40,
+      60
+    ],
+    "with_relay_attack": 0
+  },
+  "notes": [
+    "Unprotected: assumes attacker has source code + many (nonce, response) pairs from network observation, but no physical chip access and no calibration-file leak.",
+    "With K_chip leak: attacker has the per-die secret but not the physical chip.  T2.3 multi-round forces full per-die noise emulation, raising the attack to \u2265 2^40.",
+    "Relay attack is NOT mitigated \u2014 would require RTT distance bounding in hardware (Brands-Chaum 1993)."
+  ]
+}

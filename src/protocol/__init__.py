@@ -25,3 +25,20 @@ __all__ = [
     "NonceSig",
     "plan_consistency_score", "gated_accept",
 ]
+
+# -------------------------------------------------------------------------
+# Tier 2 cryptographic hardening (additive — bumps unprotected security
+# from ~2^30-2^40 to ~2^60-2^80).  See docs/PROTOCOL.md "Tier 2".
+#
+#   reverse_fuzzy         — Van Herrewege FC'12 reverse fuzzy extractor
+#                           (BCH code-offset; helper P kept PRIVATE on verifier
+#                           — eliminates helper-data leakage attack)
+#   controlled_puf        — Suh-Devadas DAC'07 controlled-PUF wrap
+#                           (SHAKE256 H_in/H_out with strict domain separation;
+#                           defeats Ruehrmair CCS'10 ML modeling attack)
+#   multiround_protocol   — 3-round commit/challenge/open (50-sample raw S +
+#                           5 SHAKE-derived constraints; forces full per-die
+#                           noise emulation by adversary)
+#   zk_inference_binding  — Pedersen-style commitment + HMAC inference tag
+#                           (interface-compatible with future zk-SNARK swap-in)
+# -------------------------------------------------------------------------

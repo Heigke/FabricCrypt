@@ -16,6 +16,52 @@ result is a stateless challenge-response primitive that:
 - needs no Secure Enclave, no TPM EK, no vendor key material,
 - runs end-to-end in sub-millisecond (median 1.12 ms, p99 2.79 ms).
 
+### Extended signature (Phase 19 + Phase 22)
+
+In addition to the base 290-dim signature, `src/signature/` ships eleven
+optional additive modules covering 198 further dims (488-dim extended
+signature, or ~466-dim after pruning constant features):
+
+- **Phase 19** (3 cross-host KS-verified signals, p_bonf < 0.01):
+  `gpu_clock_jitter`, `thermal_spread`, `jacobian_dynamics`.
+- **Phase 22** (8 light deterministic discovery-class signals):
+  `pci_topology`, `pcie_link_state`, `usb_descriptor`, `dmi_smbios`,
+  `kernel_boot_timing`, `ucsi_descriptors`, `amdgpu_safe_reads`,
+  `hpet_drift`.
+
+Each module exposes a uniform `run(reps, out_dir)` and saves a
+`(reps, dim)` `.npz`.  Leave-one-out 1-NN accuracy on the full extended
+signature: **1.00 on N=2** (Phase 19 ablation).
+
+### Tier 2 cryptographic hardening (60-80 bits, ML modeling defeated)
+
+The Phase 14C base protocol provided ~2^30 — 2^40 unprotected bit-security.
+`src/protocol/` now adds four Tier-2 modules that lift unprotected security
+to **~2^60 — 2^80** and reduce the with-K_chip-leak attack to ~2^40 — 2^60:
+
+- `reverse_fuzzy` — Van Herrewege FC'12 reverse fuzzy extractor over
+  BCH code-offset (helper data kept PRIVATE on the verifier — closes
+  the classical-FE helper-leakage channel).
+- `controlled_puf` — Suh-Devadas DAC'07 controlled-PUF wrap with
+  SHAKE256 H_in/H_out and strict domain separation (defeats the
+  Ruehrmair CCS'10 ML modeling attack: 0/40 forgery rate at N=160
+  training pairs).
+- `multiround_protocol` — 3-round commit/challenge/open protocol over
+  50 raw micro-samples + 5 SHAKE-derived post-hoc constraints (forces
+  adversary to emulate the chip's full per-die noise process).
+- `zk_inference_binding` — Pedersen-style commitment + HMAC inference
+  tag, interface-compatible with a future zk-SNARK swap-in.
+
+Bit-security analysis and ML-modeling-attack results are in
+[`results/tier2_security/`](results/tier2_security/) and
+[`docs/PROTOCOL.md`](docs/PROTOCOL.md) "Tier 2".
+
+### Honest non-results
+
+A separate Phase 21b stylometry investigation (Linux build artefact ->
+per-host attribution) reached **66.4% accuracy** — better than chance
+(50%) but well below a usable signal. Reported here for honesty.
+
 This repo is the reproduction package. See [`paper/fabriccrypt.md`](paper/fabriccrypt.md)
 for the full draft.
 

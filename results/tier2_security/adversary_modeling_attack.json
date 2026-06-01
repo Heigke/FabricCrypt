@@ -1,0 +1,326 @@
+{
+  "hostA": [
+    {
+      "attack": "A_uncontrolled",
+      "model": "linear",
+      "N_train": 50,
+      "pearson_mean": 0.3476496069934849,
+      "pearson_med": 0.3652202254121503,
+      "forgery_rate_r085": 0.0,
+      "forgery_rate_r050": 0.1,
+      "t_sec": 0.013780355453491211
+    },
+    {
+      "attack": "A_uncontrolled",
+      "model": "mlp",
+      "N_train": 50,
+      "pearson_mean": 0.5321413695812225,
+      "pearson_med": 0.5333578884601593,
+      "forgery_rate_r085": 0.0,
+      "forgery_rate_r050": 0.775,
+      "t_sec": 3.7547667026519775
+    },
+    {
+      "attack": "B_controlled",
+      "model": "linear",
+      "N_train": 50,
+      "hamming_mean": 129.8,
+      "hamming_min": 111,
+      "forgery_rate_t24": 0.0,
+      "forgery_rate_t48": 0.0,
+      "t_sec": 0.03437161445617676
+    },
+    {
+      "attack": "B_controlled",
+      "model": "mlp",
+      "N_train": 50,
+      "hamming_mean": 129.05,
+      "hamming_min": 110,
+      "forgery_rate_t24": 0.0,
+      "forgery_rate_t48": 0.0,
+      "t_sec": 0.10216307640075684
+    },
+    {
+      "attack": "A_uncontrolled",
+      "model": "linear",
+      "N_train": 100,
+      "pearson_mean": 0.150146181558579,
+      "pearson_med": 0.13824963197001666,
+      "forgery_rate_r085": 0.0,
+      "forgery_rate_r050": 0.0,
+      "t_sec": 0.027173280715942383
+    },
+    {
+      "attack": "A_uncontrolled",
+      "model": "mlp",
+      "N_train": 100,
+      "pearson_mean": 0.5087652176618576,
+      "pearson_med": 0.5118767321109772,
+      "forgery_rate_r085": 0.0,
+      "forgery_rate_r050": 0.575,
+      "t_sec": 0.11396098136901855
+    },
+    {
+      "attack": "B_controlled",
+      "model": "linear",
+      "N_train": 100,
+      "hamming_mean": 128.6,
+      "hamming_min": 108,
+      "forgery_rate_t24": 0.0,
+      "forgery_rate_t48": 0.0,
+      "t_sec": 0.04753565788269043
+    },
+    {
+      "attack": "B_controlled",
+      "model": "mlp",
+      "N_train": 100,
+      "hamming_mean": 129.875,
+      "hamming_min": 116,
+      "forgery_rate_t24": 0.0,
+      "forgery_rate_t48": 0.0,
+      "t_sec": 0.11521172523498535
+    },
+    {
+      "attack": "A_uncontrolled",
+      "model": "linear",
+      "N_train": 150,
+      "pearson_mean": 0.1525683924673112,
+      "pearson_med": 0.15210817259199946,
+      "forgery_rate_r085": 0.0,
+      "forgery_rate_r050": 0.0,
+      "t_sec": 0.03788948059082031
+    },
+    {
+      "attack": "A_uncontrolled",
+      "model": "mlp",
+      "N_train": 150,
+      "pearson_mean": 0.4701102152466774,
+      "pearson_med": 0.47841018438339233,
+      "forgery_rate_r085": 0.0,
+      "forgery_rate_r050": 0.4,
+      "t_sec": 0.12357187271118164
+    },
+    {
+      "attack": "B_controlled",
+      "model": "linear",
+      "N_train": 150,
+      "hamming_mean": 130.15,
+      "hamming_min": 113,
+      "forgery_rate_t24": 0.0,
+      "forgery_rate_t48": 0.0,
+      "t_sec": 0.02423834800720215
+    },
+    {
+      "attack": "B_controlled",
+      "model": "mlp",
+      "N_train": 150,
+      "hamming_mean": 130.1,
+      "hamming_min": 117,
+      "forgery_rate_t24": 0.0,
+      "forgery_rate_t48": 0.0,
+      "t_sec": 0.14023971557617188
+    },
+    {
+      "attack": "A_uncontrolled",
+      "model": "linear",
+      "N_train": 160,
+      "pearson_mean": 0.1660435525493896,
+      "pearson_med": 0.18109335543533495,
+      "forgery_rate_r085": 0.0,
+      "forgery_rate_r050": 0.025,
+      "t_sec": 0.05097007751464844
+    },
+    {
+      "attack": "A_uncontrolled",
+      "model": "mlp",
+      "N_train": 160,
+      "pearson_mean": 0.4688177026808262,
+      "pearson_med": 0.467458114027977,
+      "forgery_rate_r085": 0.0,
+      "forgery_rate_r050": 0.375,
+      "t_sec": 0.12365388870239258
+    },
+    {
+      "attack": "B_controlled",
+      "model": "linear",
+      "N_train": 160,
+      "hamming_mean": 128.4,
+      "hamming_min": 108,
+      "forgery_rate_t24": 0.0,
+      "forgery_rate_t48": 0.0,
+      "t_sec": 0.03191852569580078
+    },
+    {
+      "attack": "B_controlled",
+      "model": "mlp",
+      "N_train": 160,
+      "hamming_mean": 127.375,
+      "hamming_min": 114,
+      "forgery_rate_t24": 0.0,
+      "forgery_rate_t48": 0.0,
+      "t_sec": 0.11906743049621582
+    }
+  ],
+  "hostB": [
+    {
+      "attack": "A_uncontrolled",
+      "model": "linear",
+      "N_train": 50,
+      "pearson_mean": 0.2500295987559076,
+      "pearson_med": 0.2572852737427677,
+      "forgery_rate_r085": 0.0,
+      "forgery_rate_r050": 0.025,
+      "t_sec": 0.03292965888977051
+    },
+    {
+      "attack": "A_uncontrolled",
+      "model": "mlp",
+      "N_train": 50,
+      "pearson_mean": 0.42634453997015953,
+      "pearson_med": 0.42110756039619446,
+      "forgery_rate_r085": 0.0,
+      "forgery_rate_r050": 0.2,
+      "t_sec": 0.10088586807250977
+    },
+    {
+      "attack": "B_controlled",
+      "model": "linear",
+      "N_train": 50,
+      "hamming_mean": 127.925,
+      "hamming_min": 112,
+      "forgery_rate_t24": 0.0,
+      "forgery_rate_t48": 0.0,
+      "t_sec": 0.0438082218170166
+    },
+    {
+      "attack": "B_controlled",
+      "model": "mlp",
+      "N_train": 50,
+      "hamming_mean": 128.125,
+      "hamming_min": 112,
+      "forgery_rate_t24": 0.0,
+      "forgery_rate_t48": 0.0,
+      "t_sec": 0.1025383472442627
+    },
+    {
+      "attack": "A_uncontrolled",
+      "model": "linear",
+      "N_train": 100,
+      "pearson_mean": 0.1491425111818211,
+      "pearson_med": 0.12680925473649382,
+      "forgery_rate_r085": 0.0,
+      "forgery_rate_r050": 0.0,
+      "t_sec": 0.021625518798828125
+    },
+    {
+      "attack": "A_uncontrolled",
+      "model": "mlp",
+      "N_train": 100,
+      "pearson_mean": 0.4000363737344742,
+      "pearson_med": 0.3999466896057129,
+      "forgery_rate_r085": 0.0,
+      "forgery_rate_r050": 0.1,
+      "t_sec": 0.11507344245910645
+    },
+    {
+      "attack": "B_controlled",
+      "model": "linear",
+      "N_train": 100,
+      "hamming_mean": 127.95,
+      "hamming_min": 112,
+      "forgery_rate_t24": 0.0,
+      "forgery_rate_t48": 0.0,
+      "t_sec": 0.03662562370300293
+    },
+    {
+      "attack": "B_controlled",
+      "model": "mlp",
+      "N_train": 100,
+      "hamming_mean": 128.375,
+      "hamming_min": 118,
+      "forgery_rate_t24": 0.0,
+      "forgery_rate_t48": 0.0,
+      "t_sec": 0.11985921859741211
+    },
+    {
+      "attack": "A_uncontrolled",
+      "model": "linear",
+      "N_train": 150,
+      "pearson_mean": 0.13913607917650578,
+      "pearson_med": 0.13903704152800866,
+      "forgery_rate_r085": 0.0,
+      "forgery_rate_r050": 0.0,
+      "t_sec": 0.04642176628112793
+    },
+    {
+      "attack": "A_uncontrolled",
+      "model": "mlp",
+      "N_train": 150,
+      "pearson_mean": 0.3553606826812029,
+      "pearson_med": 0.3633410185575485,
+      "forgery_rate_r085": 0.0,
+      "forgery_rate_r050": 0.05,
+      "t_sec": 0.12534403800964355
+    },
+    {
+      "attack": "B_controlled",
+      "model": "linear",
+      "N_train": 150,
+      "hamming_mean": 126.35,
+      "hamming_min": 110,
+      "forgery_rate_t24": 0.0,
+      "forgery_rate_t48": 0.0,
+      "t_sec": 0.02920365333557129
+    },
+    {
+      "attack": "B_controlled",
+      "model": "mlp",
+      "N_train": 150,
+      "hamming_mean": 129.175,
+      "hamming_min": 110,
+      "forgery_rate_t24": 0.0,
+      "forgery_rate_t48": 0.0,
+      "t_sec": 0.12961053848266602
+    },
+    {
+      "attack": "A_uncontrolled",
+      "model": "linear",
+      "N_train": 160,
+      "pearson_mean": 0.12422325920204122,
+      "pearson_med": 0.1560875193914968,
+      "forgery_rate_r085": 0.0,
+      "forgery_rate_r050": 0.0,
+      "t_sec": 0.0235140323638916
+    },
+    {
+      "attack": "A_uncontrolled",
+      "model": "mlp",
+      "N_train": 160,
+      "pearson_mean": 0.35719916969537735,
+      "pearson_med": 0.3663932830095291,
+      "forgery_rate_r085": 0.0,
+      "forgery_rate_r050": 0.075,
+      "t_sec": 0.12585234642028809
+    },
+    {
+      "attack": "B_controlled",
+      "model": "linear",
+      "N_train": 160,
+      "hamming_mean": 128.075,
+      "hamming_min": 112,
+      "forgery_rate_t24": 0.0,
+      "forgery_rate_t48": 0.0,
+      "t_sec": 0.009459972381591797
+    },
+    {
+      "attack": "B_controlled",
+      "model": "mlp",
+      "N_train": 160,
+      "hamming_mean": 128.025,
+      "hamming_min": 116,
+      "forgery_rate_t24": 0.0,
+      "forgery_rate_t48": 0.0,
+      "t_sec": 0.133040189743042
+    }
+  ]
+}

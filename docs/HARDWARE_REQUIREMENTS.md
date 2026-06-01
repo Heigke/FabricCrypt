@@ -55,3 +55,39 @@ re-running.
 
 A complete reproduction (10 captures + 400-pair training set + classifier
 weights) is under 50 MB on disk.
+
+## Extended signature requirements (Phase 19 + Phase 22)
+
+The 11 modules under `src/signature/` for the extended 488-dim signature
+require additional system surfaces (all read-only, all standard Linux):
+
+| Module                | Sysfs / tool requirement                              | Sudo? |
+|-----------------------|--------------------------------------------------------|-------|
+| `gpu_clock_jitter`    | `/sys/class/hwmon/hwmon*/freq*_input`, `temp1_input`, `in0_input` | no    |
+| `thermal_spread`      | `/sys/class/hwmon/hwmon*/temp*_input` + `/sys/class/thermal/thermal_zone*/temp` | no |
+| `jacobian_dynamics`   | `/sys/class/powercap/intel-rapl*/energy_uj` + hwmon temp/freq | no    |
+| `pci_topology`        | `lspci -mn`, `lspci -t`                                | no    |
+| `pcie_link_state`     | `/sys/bus/pci/devices/*/current_link_speed`+`width`    | no    |
+| `usb_descriptor`      | `lsusb`, `lsusb -t`, `/sys/bus/usb/devices/*/speed`    | no    |
+| `dmi_smbios`          | `dmidecode -t {0,1,2,3,4,16,17,19}` (best with sudo); falls back to `/sys/class/dmi/id/*` | optional sudo |
+| `kernel_boot_timing`  | `journalctl -k --boot=0` (or `dmesg --ctime` fallback) | no    |
+| `ucsi_descriptors`    | `/sys/class/power_supply/ucsi-source-psy-*`            | no    |
+| `amdgpu_safe_reads`   | `umr` binary at `/opt/amdgpu/bin/umr`, sudo for read-only ops only | yes   |
+| `hpet_drift`          | `clock_gettime(CLOCK_REALTIME/MONOTONIC)`              | no    |
+
+UMR safety: `amdgpu_safe_reads` uses only read-only operations
+(`--clock-scan`, `-lt`, `--list-ip-versions`).  Writes to the SMU
+mailbox or reads of `amdgpu_regs_didt` are NOT performed — those are
+known to cause GPU driver hangs / Data Fabric sync floods on
+`gfx1151`.
+
+## Crypto requirements
+
+The Tier 2 protocol modules add one dependency:
+
+```
+bchlib>=2.0    # BCH(t=16, m=8) for reverse_fuzzy
+```
+
+`controlled_puf`, `multiround_protocol`, and `zk_inference_binding` use
+only `numpy` + `hashlib` (already in the base requirements).

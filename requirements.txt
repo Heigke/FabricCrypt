@@ -5,3 +5,5 @@ fastapi>=0.110
 uvicorn>=0.27
 pydantic>=2.5
 matplotlib>=3.7
+# Tier 2 cryptographic hardening (src/protocol/reverse_fuzzy.py)
+bchlib>=2.0
