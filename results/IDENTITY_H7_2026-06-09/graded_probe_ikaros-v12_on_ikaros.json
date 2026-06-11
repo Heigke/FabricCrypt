@@ -1,0 +1,21 @@
+{
+  "host": "ikaros",
+  "ckpt": "results/IDENTITY_EMBODIED_V12_2026-06-11/v12_best_ikaros.pt",
+  "tag": "ikaros-v12",
+  "stats": "results/IDENTITY_H7_2026-06-09/global_substrate_stats.npz",
+  "n": 200,
+  "r_real": 0.914029250859761,
+  "r_shuffle": -0.22161226759061414,
+  "r_pairing_null": 0.013903723643324208,
+  "ratio_real_over_shuffle": 4.124452408691804,
+  "slope_feat_to_entropy": 2.099612177108031,
+  "grad_beta_trained": 0.6,
+  "median_ppl_real": 21.54037346350422,
+  "coherent": true,
+  "feat_std": 0.08579352745423907,
+  "feat_range": [
+    -0.5939400792121887,
+    -0.11556951701641083
+  ],
+  "PASS": true
+}

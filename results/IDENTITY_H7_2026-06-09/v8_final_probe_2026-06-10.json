@@ -1,0 +1,23 @@
+{
+  "ckpt": "results/IDENTITY_EMBODIED_V11_2026-06-10/v11_best_ikaros.pt",
+  "ppl_base": 19.848229988887006,
+  "ppl": {
+    "real": 46.96173603595723,
+    "knock": 239.1712478091673,
+    "zero": 19.839198299804,
+    "shuffle": 82792.20104508358,
+    "daedalus": 84789.18706725734
+  },
+  "ratios": {
+    "knock": 5.0928962171679695,
+    "zero": 0.4224545337211066,
+    "shuffle": 1762.9714749406198,
+    "daedalus": 1805.4951589169689
+  },
+  "kkl_ratio": 31552.72708853318,
+  "T1": false,
+  "T2": false,
+  "T3": true,
+  "T4": true,
+  "embodied": false
+}

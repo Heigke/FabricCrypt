@@ -1,0 +1,24 @@
+{
+  "host": "ikaros",
+  "ckpt": "results/IDENTITY_H7_2026-06-09/../IDENTITY_EMBODIED_V12_2026-06-11/v12_best_ikaros.pt",
+  "tag": "ikaros-v12",
+  "stats": "results/IDENTITY_H7_2026-06-09/global_substrate_stats.npz",
+  "ppl_base": 19.848229988887006,
+  "real_local_live": {
+    "median": 25.003799013007626,
+    "min": 21.106454730643886,
+    "max": 26.085036542834132
+  },
+  "knock": {
+    "median": 2027.2613995474235,
+    "min": 24.485334361265746,
+    "max": 3892.595345238629
+  },
+  "shuffle": {
+    "median": 3938.6747342256695,
+    "min": 3697.193030179812,
+    "max": 4008.728398830366
+  },
+  "zero": 19.847789900394428,
+  "n_win": 12
+}

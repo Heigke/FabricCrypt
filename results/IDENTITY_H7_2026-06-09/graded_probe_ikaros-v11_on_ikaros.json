@@ -1,0 +1,21 @@
+{
+  "host": "ikaros",
+  "ckpt": "results/IDENTITY_EMBODIED_V11_2026-06-10/v11_best_ikaros.pt",
+  "tag": "ikaros-v11",
+  "stats": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/IDENTITY_H7_2026-06-09/global_substrate_stats.npz",
+  "n": 240,
+  "r_real": 0.0952131525322802,
+  "r_shuffle": 0.0011351479939371181,
+  "r_pairing_null": -0.02413278892111231,
+  "ratio_real_over_shuffle": 83.87730325985544,
+  "slope_feat_to_entropy": 1529622.2284247177,
+  "grad_beta_trained": 0.6,
+  "median_ppl_real": 20.027069952677618,
+  "coherent": true,
+  "feat_std": 1.971238338250362e-08,
+  "feat_range": [
+    -0.7615941762924194,
+    -0.7615941166877747
+  ],
+  "PASS": false
+}

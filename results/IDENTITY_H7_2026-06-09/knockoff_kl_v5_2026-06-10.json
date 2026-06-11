@@ -1,0 +1,17 @@
+{
+  "ckpt": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/IDENTITY_EMBODIED_2026-06-10/embodied_v5_ikaros.pt",
+  "gate_alphas": [
+    0.047486428171396255,
+    0.05582328140735626
+  ],
+  "n_windows": 16,
+  "n_prompts": 32,
+  "median_D_rk": 3.807908797170967e-07,
+  "median_D_rr": 2.743990989984013e-07,
+  "ratio": 1.3877264215044498,
+  "q90_D_rk": 1.0544815722823841e-06,
+  "q90_D_rr": 1.3904140132581233e-06,
+  "mean_D_rk": 5.260877173896006e-07,
+  "mean_D_rr": 5.411726533566252e-07,
+  "verdict": "MARGINAL"
+}

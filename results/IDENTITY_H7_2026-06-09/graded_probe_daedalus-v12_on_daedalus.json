@@ -1,0 +1,21 @@
+{
+  "host": "daedalus",
+  "ckpt": "results/IDENTITY_EMBODIED_V12_2026-06-11/v12_best_daedalus.pt",
+  "tag": "daedalus-v12",
+  "stats": "results/IDENTITY_H7_2026-06-09/daedalus_substrate_stats.npz",
+  "n": 200,
+  "r_real": -0.06781770494861367,
+  "r_shuffle": -0.09047595678510847,
+  "r_pairing_null": 0.054660993331610654,
+  "ratio_real_over_shuffle": 0.74956604338199,
+  "slope_feat_to_entropy": -3.5054378990775574,
+  "grad_beta_trained": 0.6,
+  "median_ppl_real": 4183748106.6869936,
+  "coherent": false,
+  "feat_std": 0.012947708770980643,
+  "feat_range": [
+    -0.6126545071601868,
+    -0.5522305965423584
+  ],
+  "PASS": false
+}

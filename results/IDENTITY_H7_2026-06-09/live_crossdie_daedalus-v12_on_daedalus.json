@@ -1,0 +1,24 @@
+{
+  "host": "daedalus",
+  "ckpt": "results/IDENTITY_EMBODIED_V12_2026-06-11/v12_best_daedalus.pt",
+  "tag": "daedalus-v12",
+  "stats": "results/IDENTITY_H7_2026-06-09/daedalus_substrate_stats.npz",
+  "ppl_base": 19.84820632796715,
+  "real_local_live": {
+    "median": 21.331081549811753,
+    "min": 20.9762180120885,
+    "max": 3925139482.9605722
+  },
+  "knock": {
+    "median": 124358588090.32538,
+    "min": 9440394685.161665,
+    "max": 233660598940.01642
+  },
+  "shuffle": {
+    "median": 127880049839.47934,
+    "min": 12842817821.405828,
+    "max": 225717378214.93747
+  },
+  "zero": 19.848201595786563,
+  "n_win": 12
+}

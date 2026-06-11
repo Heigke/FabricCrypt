@@ -1,0 +1,22 @@
+{
+  "trained_on": "ikaros",
+  "eval_host": "ikaros",
+  "transplant": false,
+  "results": {
+    "native": {
+      "ppl": 636.426505757997,
+      "loss": 6.4558689451217655,
+      "TCR_vs_native": 1.0
+    },
+    "spoof": {
+      "ppl": 635.5879667044326,
+      "loss": 6.454550502300262,
+      "TCR_vs_native": 0.9986824259423863
+    },
+    "zero": {
+      "ppl": 631.984764658905,
+      "loss": 6.448865287303924,
+      "TCR_vs_native": 0.9930208106373543
+    }
+  }
+}

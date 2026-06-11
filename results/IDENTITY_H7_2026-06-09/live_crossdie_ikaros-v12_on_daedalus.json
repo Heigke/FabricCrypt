@@ -1,0 +1,24 @@
+{
+  "host": "daedalus",
+  "ckpt": "/tmp/v12_best_ikaros.pt",
+  "tag": "ikaros-v12",
+  "stats": "results/IDENTITY_H7_2026-06-09/global_substrate_stats.npz",
+  "ppl_base": 19.84820632796715,
+  "real_local_live": {
+    "median": 198.27589896924206,
+    "min": 21.131847230940878,
+    "max": 2591.929781446183
+  },
+  "knock": {
+    "median": 4327.223572051144,
+    "min": 3931.428771843998,
+    "max": 4385.779716815328
+  },
+  "shuffle": {
+    "median": 3689.5110401501433,
+    "min": 20.87030253398285,
+    "max": 4274.735240942679
+  },
+  "zero": 19.847789900394428,
+  "n_win": 12
+}
