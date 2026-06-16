@@ -1,0 +1,15 @@
+{
+  "host": "daedalus",
+  "ppl": {
+    "own": 5.443823995678071,
+    "wrong": 26270.496245255847,
+    "shuffle": 2932852.685751177,
+    "zero": 4430.739263907376
+  },
+  "gen": {
+    "own": "The machine wakes and thinks: it is doing exactly what it is doing. It is doing exactly what it is doing. It is doing exactly what it is doing. It is doing exactly what it is doing. It is doing exactly what it is doing. It is doing exactly what",
+    "wrong": "The machine wakes and thinks: that the, that the, the, the, the, the, the, the, the, the, the, the, the, the, the, the, the, the, the, the, the, the, the, the,",
+    "shuffle": "The machine wakes and thinks: and and and and and and and and and, and, and, and, and, and, and, and, and, and, and,,,,,,,,,,,,,,,,,,,,,",
+    "zero": "The machine wakes and thinks: and the day of the day, and the day, and the day, and the day, and the day, and the day, and the day, and the day, and the day, and the day, and the day, and the day"
+  }
+}

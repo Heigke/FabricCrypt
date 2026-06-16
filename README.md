@@ -27,6 +27,23 @@ The result is a stateless challenge-response primitive that:
 
 ---
 
+## Update — June 2026: substrate-rooted LLM + optional TPM hard root
+
+New work extends FabricCrypt from a per-die *attestation* primitive to an end-to-end demo that an
+**LLM's behaviour can be bound to one specific chip**, plus an optional **hardware-sealed key tier**:
+
+- **Embodiment LOCK** — a frozen GPT-2 + FiLM adapter conditioned on the per-core Vcore fingerprint,
+  trained multi-negative. Same weights, different fingerprints: own die → fluent (perplexity **5.44**),
+  wrong die → 26 270, shuffled → 2 932 853. First break of the "shuffle wall" with a *physical* signal.
+- **TPM hard root** — model key AES-sealed to each box's TPM owner-hierarchy. Cross-die transplant
+  matrix (real, N=2): own die **UNLOCK**, foreign die **REFUSED** (integrity mismatch) on both AMD boxes.
+- **Two honest tiers**: substrate-dependence (science) + uncopyability (security). Still **N=2**;
+  reboot-invariance untested; fingerprint key-gating closed only by the TPM tier. Full write-up,
+  honest limits and a 36-second explainer video:
+  [`docs/EMBODIMENT_2026-06.md`](docs/EMBODIMENT_2026-06.md) · [`media/embodiment_2026-06.mp4`](media/embodiment_2026-06.mp4).
+
+---
+
 ## What's new in v0.2.1
 
 - **Paper v3.1** ([`paper/fabriccrypt_v3_1.md`](paper/fabriccrypt_v3_1.md), 10,309 words) — O116 mandatory pre-launch edits applied. Full diff/audit in [`paper/fabriccrypt_v3_1_EDIT_LOG.md`](paper/fabriccrypt_v3_1_EDIT_LOG.md).
