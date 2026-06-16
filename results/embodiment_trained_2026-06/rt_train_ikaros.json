@@ -1,0 +1,22 @@
+{
+  "die": "ikaros",
+  "channels": [
+    "vcore",
+    "cur_freq",
+    "power"
+  ],
+  "fp_dim": 98,
+  "val_ppl": {
+    "own": 47.21802507753179,
+    "zero": 8736.254909898678,
+    "foreign": 56072.35415779883,
+    "random_median": 46317.17390572822,
+    "plain": 64.85814289275145
+  },
+  "null_gate": {
+    "own_below_all_random": true,
+    "own_below_zero": true,
+    "own_below_foreign": true,
+    "own_near_plain": true
+  }
+}

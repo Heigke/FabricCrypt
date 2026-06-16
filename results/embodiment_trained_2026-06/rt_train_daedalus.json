@@ -1,0 +1,22 @@
+{
+  "die": "daedalus",
+  "channels": [
+    "vcore",
+    "cur_freq",
+    "power"
+  ],
+  "fp_dim": 98,
+  "val_ppl": {
+    "own": 37.75331236437105,
+    "zero": 7557.626573428077,
+    "foreign": 83562.14537828742,
+    "random_median": 49180.62740191381,
+    "plain": 66.60427169564453
+  },
+  "null_gate": {
+    "own_below_all_random": true,
+    "own_below_zero": true,
+    "own_below_foreign": true,
+    "own_near_plain": true
+  }
+}

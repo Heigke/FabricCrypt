@@ -67,3 +67,22 @@ mixing into the adapter.
 
 *Early, small, and full of honest limitations — but it runs on real silicon, and the method, the
 caveats and the code are open.*
+
+## Update — real-time-signals-only (the embodiment is the live silicon, TPM is just the lock)
+
+A channel inventory found which signals genuinely *move* on both dies: **per-core Vcore (16) + per-core
+clock `scaling_cur_freq` (32) + power draw (1)**. CPPC is the only fused constant (dropped). A model
+trained on **live signals only — no fused constants, no TPM in the conditioning** still binds behaviour
+to the body, on held-out text:
+
+| key | ikaros | daedalus |
+|---|---|---|
+| **own live body** | **47.2** | **37.8** |
+| plain GPT-2 | 64.9 | 66.6 |
+| zero | 8 736 | 7 558 |
+| foreign die | 56 072 | 83 562 |
+| random | ~46 317 | ~49 181 |
+
+own *beats* plain GPT-2; wrong body 150–2200× worse. So the **live hardware signals alone carry the
+embodiment**; the TPM is only the cryptographic lock. **Layers of embodiment** (each verified): identity
+· freshness · real-time coupling · behaviour binding · crypto lock · liveness.
