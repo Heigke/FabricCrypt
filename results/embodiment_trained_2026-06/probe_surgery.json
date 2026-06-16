@@ -1,0 +1,112 @@
+{
+  "alpha": 6.0,
+  "wfresh": 0.5,
+  "fp_dim": 64,
+  "seq_len": 92,
+  "probes": {
+    "P1_determinism_max_abs_logit_diff_rerun": 0.0,
+    "P2_distribution": {
+      "own_fresh": {
+        "meanKL_vs_baseline": 0.6843,
+        "argmax_flip_rate_distrib": 0.391
+      },
+      "own_stale": {
+        "meanKL_vs_baseline": 0.6843,
+        "argmax_flip_rate_distrib": 0.413
+      },
+      "foreign_fresh": {
+        "meanKL_vs_baseline": 0.8206,
+        "argmax_flip_rate_distrib": 0.435
+      },
+      "pair_own_vs_foreign_meanKL": 0.7506,
+      "pair_own_vs_stale_meanKL": 0.048
+    },
+    "P3_dose_response": {
+      "alpha=0.0": {
+        "meanKL": 0.0,
+        "flip": 0.0
+      },
+      "alpha=1.0": {
+        "meanKL": 0.0169,
+        "flip": 0.022
+      },
+      "alpha=2.0": {
+        "meanKL": 0.0673,
+        "flip": 0.098
+      },
+      "alpha=4.0": {
+        "meanKL": 0.2792,
+        "flip": 0.239
+      },
+      "alpha=6.0": {
+        "meanKL": 0.6843,
+        "flip": 0.391
+      },
+      "alpha=8.0": {
+        "meanKL": 1.2545,
+        "flip": 0.543
+      },
+      "alpha=10.0": {
+        "meanKL": 1.9502,
+        "flip": 0.663
+      }
+    },
+    "P3_monotone_increasing": true,
+    "P4_structure": {
+      "own_perposition_shift_consistency_cos": 0.083,
+      "foreign_perposition_shift_consistency_cos": 0.092,
+      "own_vs_foreign_shift_direction_cos": 0.713
+    },
+    "P5_null_random_fp_meanKL": {
+      "mean": 0.6838,
+      "std": 0.1236,
+      "own_meanKL": 0.6843
+    },
+    "logit_lens": {
+      "own_fresh": {
+        "promotes": [
+          "attribution",
+          "advertisement",
+          "expenditures",
+          "Cost",
+          "advertisements",
+          "cost",
+          "CrossRef",
+          "expenditure"
+        ],
+        "suppresses": [
+          "Plymouth",
+          "aah",
+          "wip",
+          "Ryder",
+          "Merlin",
+          "glim",
+          "!'",
+          "WARN"
+        ]
+      },
+      "foreign_fresh": {
+        "promotes": [
+          "\u3011",
+          "\\)",
+          "Referred",
+          "\"},\"",
+          "\u795e",
+          "include",
+          "Interstitial",
+          "\u300f"
+        ],
+        "suppresses": [
+          "nings",
+          "Fargo",
+          "Airl",
+          "sucker",
+          "fins",
+          "JFK",
+          "Amtrak",
+          "planes"
+        ]
+      }
+    }
+  }
+}

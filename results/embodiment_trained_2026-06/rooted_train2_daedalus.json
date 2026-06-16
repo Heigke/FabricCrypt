@@ -1,0 +1,20 @@
+{
+  "die": "daedalus",
+  "host": "daedalus",
+  "fp_dim": 64,
+  "steps": 450,
+  "val_ppl": {
+    "own": 43.54816674986875,
+    "zero": 7628.561609129184,
+    "foreign": 41471.1338930021,
+    "random_median": 30884.725109532705,
+    "plain": 65.66162246683433
+  },
+  "null_gate": {
+    "own_below_all_random": true,
+    "own_below_zero": true,
+    "own_below_foreign": true,
+    "own_near_plain": true,
+    "random_breaks_x": 709.2
+  }
+}

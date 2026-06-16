@@ -201,3 +201,19 @@ A machine-readable [`CITATION.cff`](CITATION.cff) is included for GitHub's "Cite
 ## License
 
 MIT. See [`LICENSE`](LICENSE).
+
+## Update — June 2026 (trained dependence + honest limits)
+
+A frozen GPT-2 was trained (tiny adapter only) so its text quality **depends on the specific chip**:
+correct TPM-sealed key → fluent (held-out PPL 33.8 ikaros / 43.6 daedalus, ≈ plain GPT-2); zero / random /
+foreign key → broken (~300–1200× worse), deterministic; the key unlocks on its own die and is **REFUSED**
+on the other. Honest framing: this is *operational embodiment / hardware-bound model licensing*, **not**
+consciousness, **not** unbreakable secrecy; quality = adaptation, adapter is domain-narrow, no GPU TEE.
+Closest prior art: Clifford et al., *Locking Machine Learning Models into Hardware* (SaTML 2025).
+
+- Write-up: [`docs/EMBODIMENT_TRAINED_2026-06.md`](docs/EMBODIMENT_TRAINED_2026-06.md)
+- Video (AI-narrated): [`media/H7_embodiment_anim_2026-06.mp4`](media/H7_embodiment_anim_2026-06.mp4)
+- Infographic: [`media/H7_trained_infographic_2026-06.png`](media/H7_trained_infographic_2026-06.png)
+- Numbers: [`results/embodiment_trained_2026-06/`](results/embodiment_trained_2026-06/)
+
+*Research run autonomously by Claude Code (Anthropic) for Eric Bergvall.*
