@@ -1,0 +1,9 @@
+model  pdiode  diode
++level   = 1            tnom    = 25
++is      = 5.3675e-007  isw     = 1.3664e-013  rsw     = 0.46493      ns      = 1.0851     
++nz      = 1.3664e-013  imax    = 1e+030       imelt   = 1e+030       bvj     = 1e+031     
++ik      = 97740        bv      = 11           ibv     = 97740        ikp     = 1.1946e+005
++n       = 1.0535       rs      = 7.4155e-008
++cj      = 0.00073279   cjsw    = 1.0522e-010  vj      = 0.21918      vjsw    = 0.65166        
++m       = 0.24097      fcs     = 0.5          mjsw    = 0.26029      fc      = 0.5        
++xti     = 6.5          eg      = 1.11         tlev    = 1            tlevc   = 1

@@ -1,0 +1,4 @@
+timestamp	epoch	train_loss	val_loss	steps	skipped	secs	apu_peak	new_best	notes
+2026-06-05T_init	5	?	0.9320	546	?	?	?	yes	prior best (from user msg)
+2026-06-05T_t0	6	0.9482	0.9235	546	0	2054	84.0	yes	first observed completion in watch
+2026-06-05T09:59Z	7	0.9418	0.9226	546	0	2384	86.0	yes	marginal improvement -0.0009

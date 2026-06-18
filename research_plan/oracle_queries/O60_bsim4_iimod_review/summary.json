@@ -1,0 +1,93 @@
+{
+  "script": "z325_iii_instrument",
+  "elapsed_s": 0.8961336612701416,
+  "bias": {
+    "V_G1": 0.6,
+    "V_G2": 0.2,
+    "V_d": 2.0
+  },
+  "solver": {
+    "Id_A": 8.72958812357137e-13,
+    "Vsint_V": 1.8663296959256948,
+    "Vb_V": 1.9999999964432678,
+    "converged": true
+  },
+  "components_at_Vb_node_A": {
+    "Iii_M1_raw": 7.493425965531349e-48,
+    "Iii_M2_raw": 9.056805997002132e-16,
+    "Iii_M1_manual_recompute": 4.3050840189161375e-49,
+    "Igidl_M1": 3.0941270272968556e-46,
+    "Igisl_M1": 0.0,
+    "Igidl_M2": 1.2378077412136202e-15,
+    "Igisl_M2": 0.0,
+    "Igb_M1": 0.0,
+    "Igb_M2": 0.0,
+    "Ibs_M1": 4.776078055035827e-17,
+    "Ibd_M1": -8.911018032264905e-25,
+    "Ibs_M2": 0.0,
+    "Ibd_M2": -6.479999999999989e-17,
+    "I_well_body": 0.0,
+    "I_body_pdiode": -2.32625001705955e-15,
+    "I_tat": -2.32625001705955e-15,
+    "Ib_Q1": 8.729587428728817e-17,
+    "Ic_Q1": 8.729588123562459e-13,
+    "Ib_lat_pair": 0.0,
+    "R_B_residual": -7.614723080867588e-17,
+    "R_Sint_residual": 4.982727063481631e-13
+  },
+  "dominant_term": {
+    "name": "-I_body_pdiode",
+    "value_A": 2.32625001705955e-15
+  },
+  "iii_routing": {
+    "routed_into_R_B": true,
+    "code_path_used": "m2_body_gnd branch, nsram/nsram/bsim4_port/nsram_cell_2T.py lines 833-846",
+    "term_in_residual": "iii_to_body_factor * iii_gain * m1[\"Iii\"]",
+    "source_grep_hits_line_col": [
+      [
+        816,
+        "iii_to_body_factor * iii_gain * m1[\"Iii\"]   # bulk fraction stays"
+      ],
+      [
+        825,
+        "iii_to_body_factor * iii_gain * (m1[\"Iii\"] + m2[\"Iii\"])"
+      ],
+      [
+        838,
+        "iii_to_body_factor * iii_gain * m1[\"Iii\"]"
+      ],
+      [
+        849,
+        "iii_to_body_factor * iii_gain * (m1[\"Iii\"] + m2[\"Iii\"])"
+      ]
+    ],
+    "iii_gain_at_OP": 0.9999546021312976,
+    "eta_lat_at_OP": 0.0,
+    "iii_to_body_factor_at_OP": 1.0,
+    "iii_effective_into_Vb_A": 7.493085779963236e-48
+  },
+  "bsim4_params": {
+    "alpha0_used": 7.842e-05,
+    "beta0_used": 20.0,
+    "Vdseff": 0.03894898119058654,
+    "Vds_minus_Vdseff": 0.0947213228837187,
+    "Idsa": 5.262411857517794e-36
+  },
+  "verdict": {
+    "Iii_M1_value_A": 7.493425965531349e-48,
+    "Iii_manual_recompute_A": 4.3050840189161375e-49,
+    "Iii_routed_into_R_B": true,
+    "iii_gain_at_Vd_2_0": 0.9999546021312976,
+    "iii_effective_into_Vb_A": 7.493085779963236e-48,
+    "dominant_R_B_term": "-I_body_pdiode",
+    "dominant_R_B_value_A": 2.32625001705955e-15,
+    "hypothesis_b_status": "FALSE \u2014 Iii IS routed (m2_body_gnd branch, line ~838); Iii is zero at OP because Vds-Vdseff and Ids are tiny"
+  },
+  "code_changes": {
+    "loc_changed": 0,
+    "rationale": "Iii IS already routed into R_B via `iii_to_body_factor * iii_gain * m1[\"Iii\"]` at line ~838 (m2_body_gnd branch). Hypothesis (b) wiring-bug is FALSE. Hypothesis (ii) is true: Iii \u2248 0 at the OP because the BSIM4 formula `T1\u00b7Idsa\u00b7Vdseff` produces a tiny value when Vds-Vdseff is small and/or Ids is in subthreshold."
+  },
+  "z324_baseline_VG1_0_6_median_dec": 3.248,
+  "post_fix_VG1_0_6_median_dec": null,
+  "delta_dec": 0.0
+}

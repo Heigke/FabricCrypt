@@ -1,0 +1,48 @@
+{
+  "script": "z313b",
+  "elapsed_s": 224.66338729858398,
+  "device": "cuda",
+  "config": {
+    "bf": 500,
+    "alpha0": 0.0001,
+    "rbody_table": null,
+    "enable_avalanche": false,
+    "Vbr_av": null,
+    "N_av": null
+  },
+  "z304_baseline_median": 0.99,
+  "cell_wide_median_log_rmse": 2.905213705009267,
+  "improvement_dec_vs_z304": -1.9152137050092668,
+  "per_branch": {
+    "0.2": {
+      "median_log_rmse": 2.0397151776682594,
+      "signed_dec_median": -1.475136200811308,
+      "p90_log_rmse": 2.096471794008936,
+      "n_finite": 7,
+      "n_total": 7,
+      "R_body": 1000000000.0,
+      "avalanche": false
+    },
+    "0.4": {
+      "median_log_rmse": 2.905213705009267,
+      "signed_dec_median": -3.153471777015567,
+      "p90_log_rmse": 3.060350811390647,
+      "n_finite": 7,
+      "n_total": 7,
+      "R_body": 1000000000.0,
+      "avalanche": false
+    },
+    "0.6": {
+      "median_log_rmse": 4.492558946729095,
+      "signed_dec_median": -4.611168144808767,
+      "p90_log_rmse": 4.808017386583,
+      "n_finite": 11,
+      "n_total": 11,
+      "R_body": 1000000000.0,
+      "avalanche": false
+    }
+  },
+  "gate_lt_0_95": false,
+  "gate_PASS_conservative_lt_0_70": false,
+  "gate_AMBITIOUS_lt_0_50": false
+}

@@ -1,0 +1,20 @@
+{
+  "id": "job_1778653702_7f4093e9",
+  "title": "z308 transient validate v2",
+  "script": "scripts/z308_transient_validate.py",
+  "args": [],
+  "node_pref": "cpu",
+  "wall_estimate_min": 20,
+  "needs_surrogate": null,
+  "env_vars": {},
+  "out_dir": "results/z308_transient_validate",
+  "submitted_at": 1778653702.0177538,
+  "submitted_iso": "2026-05-13T08:28:22",
+  "retry_count": 0,
+  "failed_at": 1778653715.6433344,
+  "failed_iso": "2026-05-13T08:28:35",
+  "worker": "daedalus_0",
+  "error": "rc=1 see log /home/daedalus/AMD_gfx1151_energy/results/queue_logs/daedalus_job_1778653702_7f4093e9.log",
+  "log_tail": "[z308] device=cpu dtype=torch.float64 Cb=5.00e-15 Vb_max=0.8\n[z308] using z294 MEP-7 pyport (Newton on Vsint @ fixed Vb)\nTraceback (most recent call last):\n  File \"/home/daedalus/AMD_gfx1151_energy/scripts/z308_transient_validate.py\", line 418, in <module>\n    main()\n  File \"/home/daedalus/AMD_gfx1151_energy/scripts/z308_transient_validate.py\", line 274, in main\n    api_tag, mod, cfg, M1, M2, bjt = _load_solver()\n                                     ^^^^^^^^^^^^^^\n  File \"/home/daedalus/AMD_gfx1151_energy/scripts/z308_transient_validate.py\", line 87, in _load_solver\n    mep7 = importlib.util.module_from_spec(sp); sp.loader.exec_module(mep7)\n                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap_external>\", line 991, in exec_module\n  File \"<frozen importlib._bootstrap_external>\", line 1128, in get_code\n  File \"<frozen importlib._bootstrap_external>\", line 1186, in get_data\nFileNotFoundError: [Errno 2] No such file or directory: '/home/daedalus/AMD_gfx1151_energy/scripts/z294_mep7_gpu_pyport.py'\n",
+  "duration_sec": 1
+}

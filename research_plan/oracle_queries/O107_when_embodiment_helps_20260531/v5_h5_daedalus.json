@@ -1,0 +1,15 @@
+{
+  "host": "daedalus",
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "own_test_mse_per_seed": [
+    0.17428623139858246,
+    0.19388169050216675,
+    0.19632457196712494
+  ],
+  "own_test_mse_med": 0.19388169050216675,
+  "adapter_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/IDENTITY_BENCHMARK_2026-05-30/embodiment4/v5_h5_daedalus_adapter.npz"
+}

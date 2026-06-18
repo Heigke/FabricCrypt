@@ -1,0 +1,33 @@
+{
+  "n_samples": 20,
+  "n_features": 290,
+  "pca_standardized_var_explained_pc12_pct": [
+    41.377731830773904,
+    10.263270634325195
+  ],
+  "pca_raw_var_explained_pc12_pct": [
+    61.82695827743385,
+    24.977010608688214
+  ],
+  "lda_fisher_score": 41.606104182493965,
+  "top6_feature_indices": [
+    272,
+    59,
+    47,
+    281,
+    32,
+    49
+  ],
+  "top6_feature_importances": [
+    0.03,
+    0.028,
+    0.024,
+    0.024,
+    0.022,
+    0.02
+  ],
+  "raw_feature_std_min": 0.0,
+  "raw_feature_std_median": 1.7492616352558863e-05,
+  "raw_feature_std_max": 55519.281881019066,
+  "raw_feature_std_ratio_max_min": 5.551928188101906e+34
+}

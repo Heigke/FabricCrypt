@@ -1,0 +1,33 @@
+{
+  "bias": {
+    "VDS": 2.0,
+    "VGS": 0.6,
+    "VBS": 0.7,
+    "V_nwell": 2.0
+  },
+  "geometry": {
+    "W_m": 3.6e-07,
+    "L_m": 1.8e-07,
+    "AS_m2": 6.48e-14,
+    "PS_m": 1.08e-06,
+    "NWELL_AREA_m2": 3.24e-13
+  },
+  "components_fF": {
+    "M1 Cjs (S-body, fwd 0.7V)": 0.508,
+    "M1 Cjd (D-body, rev 1.3V)": 0.14,
+    "M1 Cgb (Meyer + overlap)": 0.028,
+    "Parasitic NPN Cbe (fwd)": 1.17,
+    "Parasitic NPN Cbc (rev)": 0.707,
+    "Deep N-well diode (rev 1.3V, 5xWL)": 0.021,
+    "Channel-body depletion": 0.083
+  },
+  "C_eff_total_fF": 2.657,
+  "z448_claim_fF": 12.1,
+  "ratio_z451_over_z448": 0.22,
+  "notes": [
+    "NWELL_AREA=5xWL chosen as plausible 130nm DNW footprint; varies \u00b12x with layout.",
+    "CJE/CJC of parasitic NPN are TOTAL caps (not per-area); Pazos card units.",
+    "Cgb in inversion is small; 0.05*Cox*WL is conservative upper bound.",
+    "Cjs uses BSIM4 forward extrapolation (FC=0.5) since VBS=0.7 > FC*PB=0.37."
+  ]
+}

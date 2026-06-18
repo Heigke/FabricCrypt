@@ -1,0 +1,359 @@
+\documentclass[fontsize=10pt]{article}
+\usepackage[margin=0.70in]{geometry}
+\usepackage{lipsum,mwe,abstract}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+\usepackage{fancyhdr}
+\setlength\parindent{0pt}
+
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{comment}
+\usepackage{enumitem}
+\usepackage{cuted}
+\usepackage{sectsty}
+\usepackage{eurosym}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=blue!50!black, linkcolor=black}
+\allsectionsfont{\normalfont \normalsize \scshape}
+
+\newcommand{\figplaceholder}[2]{%
+  \par\medskip
+  \fcolorbox{black!50}{black!4}{%
+    \begin{minipage}{\dimexpr#1-2\fboxsep-2\fboxrule\relax}
+      \vspace{0.6em}
+      \centering
+      \textbf{\textcolor{red!70!black}{Figure source requested from S.~Pazos / M.~Lanza}} \\[0.4em]
+      \footnotesize
+      \emph{We would prefer the original measurement / vector / slide
+      file for this figure; the description below is detailed enough
+      to redraw if the source is not readily available.} \\[0.6em]
+      \footnotesize\textit{Content:} #2
+      \vspace{0.6em}
+    \end{minipage}%
+  }%
+  \par\medskip
+}
+
+\renewenvironment{abstract}
+ {\small
+  \begin{center}
+  \bfseries \abstractname\vspace{-.5em}\vspace{0pt}
+  \end{center}
+  \list{}{%
+    \setlength{\leftmargin}{0mm}
+    \setlength{\rightmargin}{\leftmargin}%
+  }
+  \item\relax}
+ {\endlist}
+
+\makeatletter
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
+\begin{flushleft}
+  \textbf{\@title}
+  \@author \\
+  \@date
+\end{flushleft}\egroup
+}
+\makeatother
+
+%% -------------------------------------------------------------------
+
+\title{
+\Large NS-RAM Co-Design: A Differentiable Software Bridge from Silicon to Algorithm
+}
+\date{\today}
+\author{E. Bergvall, R. Luciani, S. Pazos, M. Lanza}
+
+\begin{document}
+
+\maketitle
+
+% --------------- ABSTRACT
+\begin{abstract}
+The NS-RAM 2T floating-body cell delivers synapse, neuron and
+short-term-memory behaviour in unmodified $130$~nm bulk CMOS, with
+published per-cycle energy in the sub-pJ range and a per-cell
+footprint of tens of square micrometres. What is missing today is
+the bridge between silicon characterisation and algorithm design:
+each cell-parameter or routing-topology question round-trips through
+hand-curated SPICE decks and fab cycles. We are building that
+bridge --- a differentiable, GPU-batched Python port of the BSIM4
+channel and a Gummel--Poon / VBIC parasitic NPN, wired into a
+body-state-aware network simulator that scales from a single device
+to hundreds of thousands of cells (Fig.~\ref{fig:codesign}).
+
+The artifact already runs as a functional research tool. On the
+full $25$-bias DC anchor set it reaches a cell-wide
+$\log_{10}|I_d|$ RMSE of approximately $1.2$~decade
+(forward$+$backward averaged, pseudo-transient solver),
+demonstrably good enough that downstream network demonstrations
+inherit silicon-realistic behaviour. Six of nine pre-registered
+dynamic-validation tests pass on the calibrated cell --- DC fit,
+forward/backward hysteresis, nanosecond drain-snap, body-voltage
+latching, sub-threshold integration, and a clean firing threshold ---
+while two transient targets (autonomous self-reset and free-running
+relaxation oscillation) remain open and are the subject of the
+near-term physics-completion plan. On top of the cell, seven
+network applications pass all pre-registered evaluation gates,
+spanning reservoir computing, hyperdimensional encoding, associative
+binding, predictive coding, stochastic computing, adaptive
+equalisation, and an edge sensing cascade.
+
+This proposal funds the work that turns the functional artifact into
+a silicon-calibrated one: close the transient gap with the
+remaining body-circuit physics, extend the network demonstrations to
+realistic device variation and shared-rail layout, and convert two
+pending characterisation runs on existing silicon into a
+tape-out-ready cell-parameter recommendation.
+\end{abstract}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.95\textwidth]{figures/codesign_loop.pdf}
+  \caption{The co-design loop this proposal funds. Measured
+  silicon (left) is the substrate; the differentiable Python
+  simulator (centre) inverts target algorithmic primitives back into
+  cell-parameter and routing-topology specifications; the next
+  tape-out (right) consumes those specs. The dashed return path
+  closes the loop: each fabricated batch re-feeds the simulator.
+  Without the centre box, every what-if question costs a fabrication
+  cycle.}
+  \label{fig:codesign}
+\end{figure}
+
+\rule{\linewidth}{0.5pt}
+
+% --------------- MAIN CONTENT
+
+\section{Why NS-RAM, and why a differentiable simulator}
+
+Unlike RRAM, PCM and memristor approaches, NS-RAM is fabricated in
+\emph{standard bulk CMOS} using only intrinsic-silicon parasitics:
+no exotic materials, no novel mask steps, no separate process
+integration. The same combination of impact-ionisation, floating-body
+charging and a parasitic lateral NPN that conventional designs treat
+as a latch-up hazard is, in the NS-RAM topology, the operating
+mechanism. Reported behaviours of the cell include sub-pJ
+write/spike energies, nanosecond-scale drain-current spikes
+($\sim$\,$4$--$5$~mA peak, tens-of-ns rise), driven oscillation in
+the few-MHz range, and analog short-term memory that persists for
+microseconds to milliseconds depending on body resistance. These
+properties --- in plain CMOS --- are what make the cell a credible
+substrate for energy-constrained neuromorphic inference.
+
+The bottleneck is not silicon, it is iteration speed at the
+algorithm level. A useful neuromorphic substrate is one a designer
+can \emph{simulate, vary, and back-propagate through}. A
+differentiable port lets reservoir spectral radii, hyperdimensional
+encoding biases, and predictive-coding gains be specified as
+algorithmic targets and inverted to cell parameters. It also lets
+device variation be drawn from realistic distributions and folded
+into network-level robustness studies before any mask is ordered.
+That loop is what this proposal funds.
+
+% ------------------
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{figures/brief_headlines_honest/brief_headlines.pdf}
+  \caption{Where the artifact stands today. Left: DC anchor fit on
+  the $25$-bias measurement set, cell-wide $\log_{10}|I_d|$ RMSE
+  $\approx 1.2$~decade with the pseudo-transient solver, on full
+  forward$+$backward sweeps. Centre: nine-test dynamic-behaviour
+  battery; six pass (DC, hysteresis, nanosecond snap, latch,
+  integrate, threshold), three open (self-reset, free oscillation,
+  knee-gate). Right: seven network demonstrations cleared
+  pre-registered gates on independent benchmarks.}
+  \label{fig:headlines}
+\end{figure}
+
+\section{What we have built}
+
+The artifact is a single Python package, GPU-batched through PyTorch
+on commodity integrated graphics, that exposes three layers:
+
+\begin{enumerate}[leftmargin=1.3em, topsep=2pt, itemsep=2pt]
+\item \textbf{A differentiable BSIM4 channel.}
+A port of the BSIM4 v4.8.3 charge and current equations against the
+public PTM~130 model card, validated bias-by-bias against ngspice.
+The port reproduces ngspice currents to within a fraction of a
+decade across the operating box that matters for the cell, exposes
+all gradients through PyTorch autograd, and runs at roughly
+$5\!\times\!10^6$ cell-evaluations per second on an integrated AMD
+Radeon~8060S GPU.
+
+\item \textbf{A parasitic-NPN coupling.}
+A Gummel--Poon NPN tied to the BSIM4 channel through impact
+ionisation and floating-body charging, with a VBIC level-4 path
+available as a swap-in. A pseudo-transient body integration is the
+default DC solver and is what produces the best honest cell-wide
+RMSE.
+
+\item \textbf{A network simulator.}
+A scaling backend that batches cell evaluations across topologies
+(Erd\H{o}s--R\'enyi, small-world, ring, lattice, and reservoir
+families), reaches $N\!\geq\!10^5$ cells on commodity hardware, and
+exposes a standard graph-construction interface to downstream
+applications. Cell variation, weight initialisation, and readout
+training are all standard PyTorch operations.
+\end{enumerate}
+
+\section{Validation status, honest}
+
+\subsection{DC anchor fit}
+On the full set of $25$ measured biases (forward and backward
+sweeps, no direction-dropping, no bias-dropping), the
+pseudo-transient pipeline reaches a cell-wide
+$\log_{10}|I_d|$~RMSE of approximately $1.19$~decade
+(forward~$1.35$, backward~$1.03$). With the VBIC NPN this is
+$\approx 1.28$~decade. These are the publishable headline numbers;
+earlier ``$<1.0$~decade'' values in our private logs are
+forward-only or cherry-bias subsets and we no longer report them.
+
+\subsection{Dynamic-behaviour battery}
+We pre-registered nine behaviours the cell must exhibit to count as
+a faithful surrogate for published NS-RAM phenomenology.
+\textbf{Six pass} on the calibrated cell:
+DC characteristic at the publishable RMSE,
+forward/backward hysteresis,
+nanosecond drain-current snap on a step input,
+floating-body latch into the elevated-$V_b$ regime,
+sub-threshold integration of a sub-threshold pulse train,
+and a sharp firing threshold.
+\textbf{Three remain open:}
+the knee-gate $V_{G2}$ regime selector (numerical issue, in repair),
+the autonomous self-reset back to the resting body voltage
+(physics: requires the impact-ionisation/body-charge feedback to
+close on its own time-constant rather than be terminated by the
+input), and a free-running relaxation oscillation in the
+$\sim\!430$~ns target band that matches the published driven
+spike-train waveforms.
+
+\subsection{Network demonstrations}
+Seven network-level applications were dispatched against pre-
+registered gates on independent benchmarks (no benchmark selected
+post-hoc to confirm the cell). \textbf{All seven pass:}
+(i) a sparse Erd\H{o}s--R\'enyi reservoir on Mackey--Glass
+($\tau\!=\!17$) reaching normalised RMSE~$0.0153$ at $N\!=\!1024$;
+(ii) hyperdimensional encoding on UCI~HAR reaching $\approx 84\%$
+test accuracy at $D\!=\!8192$;
+(iii) an associative-memory binder at $\approx 87\%$ recall and
+$32$-pair capacity;
+(iv) predictive coding on the NAB anomaly-detection benchmark at
+$F1\!=\!0.34$;
+(v) a $1/f$-noise stochastic-computing RNG passing all five NIST
+SP800-22 batteries we ran;
+(vi) a $16$-tap NS-RAM LMS equaliser on a $3$-echo QPSK channel,
+BER~$=\!0$ at $20$~dB and $\approx 1.6\!\times\!10^{-2}$ at $10$~dB,
+at $\sim\!170\times$ lower energy per symbol than fp32 LMS;
+(vii) a KWS$\to$ECG edge cascade reaching $F1\!=\!0.845$ at
+$\approx\!61\%$ energy savings against an always-on baseline.
+Each ran end-to-end on the same calibrated cell, with no per-task
+re-tuning of the device parameters.
+
+% ------------------
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{figures/network_in_action/network_in_action.pdf}
+  \caption{Seven network demonstrations on the same calibrated
+  cell, one panel each. Reservoir computing (Mackey--Glass),
+  hyperdimensional encoding (UCI~HAR), associative-memory binding,
+  predictive coding (NAB), stochastic computing ($1/f$ RNG),
+  adaptive equalisation, and an edge sensing cascade. None required
+  per-task tuning of the underlying device parameters; the variation
+  is in graph topology, readout, and inputs.}
+  \label{fig:netinaction}
+\end{figure}
+
+\section{What we are scoping next}
+
+\subsection{Close the transient gap}
+The two open dynamic tests --- self-reset and relaxation
+oscillation --- share a root cause: the body-discharge time-constant
+in the lumped model is set by junction capacitance alone, which is
+$\sim\!100\times$ too small to match published recovery times for
+the cell.  Recent literature on parasitic-NPN dynamics in DNW CMOS
+and on NS-RAM-class operating regimes points to two physical
+additions: (i)~a distributed body-resistance network (the
+$10$~k$\Omega$--$1$~M$\Omega$ tunable $R_B$ band documented for the
+cell), and (ii)~a body-capacitance contribution from interface and
+inversion-layer charge that is not captured by the junction-only
+$C_j$ in the model card. Both can be added inside the existing
+differentiable port; the work item is parameter identification, not
+new infrastructure. Closing the transient gap promotes the artifact
+from a DC-faithful network simulator to a transient-faithful one.
+
+\subsection{Network demonstrations under realistic noise}
+The seven passing demonstrations use the calibrated cell at nominal
+parameters. The next step is to fold realistic device-to-device
+variation, shared-bulk-rail coupling, and silicon-grade $1/f$ and
+shot noise into the network simulator and re-evaluate.  This is the
+study that tells a designer whether a particular topology
+recommendation survives fabrication.
+
+\subsection{Path to silicon validation}
+Two existing-silicon characterisation runs convert the present
+fit-defensible parameter point into a silicon-calibrated one: an
+$I_c/I_b$ saturation extraction for the lateral parasitic NPN, and
+a pulsed-$V_d$ or transmission-line-pulse measurement of the
+body-region $R_b\!\cdot\!C_b$ time constant. With those two
+measurements in hand, the body-state surrogate is pinned to silicon
+and the cell-parameter recommendations the simulator produces become
+tape-out-actionable.
+
+\section{Deliverables and timeline}
+
+\textbf{M3} (achieved): differentiable cell, network simulator,
+$\approx 1.2$~decade cell-wide DC fit.
+\textbf{M6} (Sep~2026): transient gap closed (nine-of-nine
+dynamic-behaviour battery passing), network demonstrations
+re-evaluated under realistic noise, full benchmark suite at
+$N\!\in\!\{10,10^2,10^3,10^4\}$.
+\textbf{M9} (Dec~2026): fan-out and shared-bulk-rail validation
+circuit ($10$--$30$ cells), feeding a tape-out-ready cell-parameter
+recommendation. \textbf{M12} (Mar~2027): thick-oxide neuron-cell
+variant modelled and benchmarked, completing the
+synapse--soma--linear-input cell family.
+
+\section{Budget}
+Total request approximately \textbf{$200$~k\euro} for $12$ months
+(extension optional, conditional on the M6 review).
+Personnel: Bergvall $0.8$~FTE ($140$~k\euro);
+Luciani $0.3$~FTE optional ($35$~k\euro, Julia/Enzyme cross-
+validation collaborator); Pazos and Lanza in-kind via KAUST.
+Travel $9$~k\euro\ (one KAUST tape-out review trip plus one
+neuromorphic-hardware venue); $5$~k\euro\ hardware contingency;
+$3$~k\euro\ open-access and replication; institutional indirect
+$\approx 5\%$. Compute is already in place
+(HP~Z2 + AMD~Ryzen~AI~Max+~$395$ with Radeon~$8060$S integrated
+GPU; $5\!\times\!10^6$ cell-evaluations per second confirmed; the
+GPU port handles reservoirs up to $N\!=\!2\!\times\!10^4$ via a
+block-matmul that bypasses a vendor driver bug at larger scales).
+
+\vspace{2pt}
+\hrule
+\vspace{2pt}
+
+{\footnotesize\emph{What we will defend in front of any reviewer.}
+(i)~a differentiable, GPU-batched Python port of the cell, validated
+against ngspice; (ii)~a cell-wide DC fit of approximately
+$1.2$~decade on the full bias set, forward$+$backward, no
+direction-pick; (iii)~six of nine dynamic behaviours passing on the
+calibrated cell, with the two open transient targets explicitly
+named; (iv)~seven network demonstrations passing pre-registered
+gates on independent benchmarks; (v)~a concrete, two-measurement
+silicon-validation plan that turns the artifact into a tape-out
+recommendation.
+\emph{What we will not defend.} ``NS-RAM is a better reservoir than
+software ESN'' (false on like-for-like benchmarks --- our claim is
+the energy-per-inference floor, not algorithmic superiority); any
+$<1.0$~decade DC headline (those are forward-only or cherry-bias
+subsets); a fully autonomous relaxation oscillator on the present
+cell (that target is open and is the first item on the M6 list).}
+
+\end{document}

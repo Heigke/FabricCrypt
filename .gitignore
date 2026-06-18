@@ -1,6 +1,167 @@
-*.pt
-*.npz
-*.npy
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Large trace files (keep JSON summaries only)
+results/**/trace_*.csv
+
+# Temporary files
+*.tmp
 *.log
+
+# Claude Flow local config
+.claude-flow/
+.swarm/
+
+# Large training artifacts
+**/optimizer.pt
+**/scheduler.pt
+**/rng_state.pth
+wandb/
+# Large model files (use git-lfs or download separately)
+**/adapter_model.safetensors
+# Large tokenizer files (use base model's tokenizer)
+**/tokenizer.json
+**/vocab.json
+**/merges.txt
+
+# z47: Large checkpoint files
+models/
+*.pt
+*.safetensors
+model.safetensors
+
+# Archive files
+*.zip
+!results/z2038_paper_overleaf.zip
+
+# Extracted archive folders
+feel_z*/
+z*_package*/
+v7_*_analysis*/
+
+# Sensitive files
+daedalus_env
+
+# Large data files
+data/ouroboros/*.jsonl
+data/*.json
+data/FashionMNIST/
+data/cifar-10-batches-py/
+data/cifar-10-python.tar.gz
+results/data/
+
+# Temporary folders
+Untitled/
+.validated_checkpoints/
+
+# GPU crash logs
+gpu_crash_log.txt
+# Temp files
+atom_log_*.jsonl
+*.output
+Untitled
+zi*
+amd_smi_check_results.json
+.validated_checkpoints
+
+# Large result directories (keep packaged zips)
+results/z*_*/
+results/grpo_*/
+results/comparison/
+results/minos_*/
+results/natural_expression/
+results/proprioception/
+results/body_report_deep/
+
+# Logs (keep in results/packaged)
+logs/*.log
+logs/*.json
+logs/*.csv
+
+# Pycache
 __pycache__/
 *.pyc
+docs/FPGAs_AdaptiveSoCs_Unified_SDI_2025.2_1114_2157_Lin64.bin
+*.bin
+
+# Vivado backup journals
+vivado_*.backup.jou
+src/fpga/vivado_*.backup.jou
+
+# FPGA build directories
+build_*/
+src/fpga/build_*/
+src/fpga/litedram/build_*/
+
+# Vivado implementation artifacts
+**/*.backup.jou
+**/*.backup.vdi
+
+# Large FPGA bitstreams (keep primary ones)
+src/fpga/litedram/*/gateware/
+src/fpga/litedram/*/software/
+
+# Secrets — NEVER COMMIT
+.env
+.env.*
+claude_config_backup/
+
+# Local config
+.claude/
+.cursorignore
+.Xil/
+
+# Large data/results — keep code, exclude raw
+data/cifar-100-python/
+data/cifar-100-python.tar.gz
+data/dvs_gesture/
+data/mitdb/
+data/speech_commands/
+data/text8
+data/uci_har/
+data/nsram_zenodo/
+
+# Large compiled artifacts
+*.npz
+*.npy
+*.pt
+*.bin
+*.mp3
+*.wav
+
+# Large logs
+logs/
+*.log
+
+# OS misc
+clockInfo.txt
+scripts/voice/private*.key
+scripts/.env
+scripts/private*.key
+results/IDENTITY_H7_2026-06-09/*.pt

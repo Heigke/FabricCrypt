@@ -1,0 +1,43 @@
+{
+  "host": "ikaros",
+  "device": "cuda",
+  "ctx": 24,
+  "steps": 2000,
+  "gate_cell_means": {
+    "00": 2,
+    "01": 165,
+    "10": 209,
+    "11": 119
+  },
+  "gate_thr": 141.9,
+  "gate_truth_table_fidelity": 1.0,
+  "results": {
+    "native": {
+      "acc": 1.0,
+      "ce": 0.0544,
+      "ppl": 1.056,
+      "bit_read_acc": 0.725
+    },
+    "xor_sim": {
+      "acc": 1.0,
+      "ce": 0.0544,
+      "ppl": 1.056,
+      "bit_read_acc": 0.725
+    },
+    "random": {
+      "acc": 0.45,
+      "ce": 1.6352,
+      "ppl": 5.13,
+      "bit_read_acc": 0.725
+    },
+    "frozen": {
+      "acc": 0.558,
+      "ce": 1.3411,
+      "ppl": 3.823,
+      "bit_read_acc": 0.725
+    }
+  },
+  "LOAD_BEARING": true,
+  "function_generic_xor_sim_ok": true,
+  "verdict": "DEEP: physical body computation is load-bearing for the LM output (no margin loss); function is generic XOR (uniqueness NOT claimed here)"
+}

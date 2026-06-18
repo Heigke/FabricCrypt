@@ -1,0 +1,62 @@
+{
+  "host": "ikaros",
+  "L": 3000,
+  "sizes": [
+    "cold16MB",
+    "cold64MB",
+    "cold256MB"
+  ],
+  "ns_hot": 32768,
+  "task_suite": {
+    "RECALL_t3": {
+      "chance": 0.5,
+      "reservoir": 0.8738317757009346,
+      "baseline_u_linear": 1.0,
+      "baseline_u_nonlinear": 0.905373831775701
+    },
+    "XOR_t1t2": {
+      "chance": 0.5,
+      "reservoir": 0.5829439252336449,
+      "baseline_u_linear": 0.522196261682243,
+      "baseline_u_nonlinear": 0.9030373831775701
+    },
+    "XOR_t2t5": {
+      "chance": 0.5,
+      "reservoir": 0.5537383177570093,
+      "baseline_u_linear": 0.514018691588785,
+      "baseline_u_nonlinear": 0.7745327102803738
+    },
+    "PAR_2bit": {
+      "chance": 0.25,
+      "reservoir": 0.32242990654205606,
+      "baseline_u_linear": 0.27686915887850466,
+      "baseline_u_nonlinear": 0.719626168224299
+    },
+    "PAR_4bit": {
+      "chance": 0.0625,
+      "reservoir": 0.07009345794392523,
+      "baseline_u_linear": 0.11448598130841121,
+      "baseline_u_nonlinear": 0.17990654205607476
+    }
+  },
+  "latency_fingerprint": {
+    "cold16MB": {
+      "mean": 1518.1966666666667,
+      "std": 211.59689346070803,
+      "p99_over_med": 1.3126266666657769
+    },
+    "cold64MB": {
+      "mean": 1542.6473333333333,
+      "std": 543.3169341733751,
+      "p99_over_med": 1.7499999999988334
+    },
+    "cold256MB": {
+      "mean": 1714.0283333333334,
+      "std": 460.3311179979279,
+      "p99_over_med": 2.0557202133953436
+    }
+  },
+  "any_nonlinear_gain_over_readout": false,
+  "verdict": "FAIL",
+  "pass_rule": "PAR_4bit reservoir>=0.70 AND baseline_u_nonlinear<=0.30"
+}

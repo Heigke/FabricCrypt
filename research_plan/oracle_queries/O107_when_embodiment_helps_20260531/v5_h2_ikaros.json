@@ -1,0 +1,47 @@
+{
+  "host": "ikaros",
+  "densities": [
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "per_density": {
+    "0.10": {
+      "nrmse_med": 0.5835051209999292,
+      "wall_med": 0.028029825999965396,
+      "power_uw_med": 22505500.0,
+      "temp_mc_max": 45000.0
+    },
+    "0.20": {
+      "nrmse_med": 0.5766383664390593,
+      "wall_med": 0.027374675000146453,
+      "power_uw_med": 25551000.0,
+      "temp_mc_max": 45000.0
+    },
+    "0.30": {
+      "nrmse_med": 0.5747884164555698,
+      "wall_med": 0.021037631000126567,
+      "power_uw_med": 28576000.0,
+      "temp_mc_max": 45000.0
+    },
+    "0.40": {
+      "nrmse_med": 0.5754307309985814,
+      "wall_med": 0.021010199000102148,
+      "power_uw_med": 33529500.0,
+      "temp_mc_max": 46000.0
+    },
+    "0.50": {
+      "nrmse_med": 0.5754093798256571,
+      "wall_med": 0.0205793340001037,
+      "power_uw_med": 37532500.0,
+      "temp_mc_max": 46000.0
+    }
+  },
+  "own_optimal_density": "0.30",
+  "own_optimal_nrmse": 0.5747884164555698,
+  "generic_nrmse": 0.5747884164555698,
+  "accuracy_gain_pct_vs_generic": 0.0,
+  "WIN": false
+}

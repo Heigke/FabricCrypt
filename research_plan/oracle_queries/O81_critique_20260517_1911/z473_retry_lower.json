@@ -1,0 +1,108 @@
+{
+  "1e+07": {
+    "R_body": 10000000.0,
+    "V6": {
+      "test": "V6",
+      "Vb_post_mean": 0.27362244051830636,
+      "t_reset_ns": 40.749833222148254,
+      "passed": true,
+      "gate": "t_reset<100\u00b5s AND Vb_post<0.3V"
+    },
+    "V7": {
+      "test": "V7",
+      "n_cycles": 0,
+      "period_ns": NaN,
+      "passed": false,
+      "gate": ">=3 cycles AND period in [100,1000]ns"
+    },
+    "mario": {
+      "target": {
+        "t_rise_ns": 26.0,
+        "t_fall_ns": 76.0,
+        "Vb_swing_V_lo": 0.5,
+        "Vb_swing_V_hi": 0.7,
+        "osc_period_ns": 430.0
+      },
+      "single_pulse": {
+        "Vb_peak": 0.6195093622050484,
+        "Vb_floor": 0.0,
+        "swing": 0.6195093622050484,
+        "t_rise": 3.0627313656828417e-09,
+        "t_fall": 6.814577288644322e-08,
+        "Vb_post_peak": 0.6119044473851882,
+        "Vb_post_floor": 2.364796501512564e-05,
+        "self_reset_post_pulse": true,
+        "Id_peak_A": 0.004298404469514249
+      },
+      "two_pulse": {
+        "Vb_inter_min_V": 4.039768100376911e-08,
+        "self_reset_between_pulses": true
+      },
+      "oscillation": {
+        "period_ns": NaN
+      },
+      "match_scores": {
+        "t_rise_match": false,
+        "t_fall_match": true,
+        "Vb_swing_match": true,
+        "self_reset_match": true,
+        "osc_period_match": false
+      },
+      "n_metrics_matched": 3,
+      "R_body": 10000000.0
+    }
+  },
+  "1e+06": {
+    "R_body": 1000000.0,
+    "V6": {
+      "test": "V6",
+      "Vb_post_mean": 0.03369326873410158,
+      "t_reset_ns": 5.199733155437116,
+      "passed": true,
+      "gate": "t_reset<100\u00b5s AND Vb_post<0.3V"
+    },
+    "V7": {
+      "test": "V7",
+      "n_cycles": 0,
+      "period_ns": NaN,
+      "passed": false,
+      "gate": ">=3 cycles AND period in [100,1000]ns"
+    },
+    "mario": {
+      "target": {
+        "t_rise_ns": 26.0,
+        "t_fall_ns": 76.0,
+        "Vb_swing_V_lo": 0.5,
+        "Vb_swing_V_hi": 0.7,
+        "osc_period_ns": 430.0
+      },
+      "single_pulse": {
+        "Vb_peak": 0.6178808978033619,
+        "Vb_floor": 0.0,
+        "swing": 0.6178808978033619,
+        "t_rise": 1.2250925462731365e-08,
+        "t_fall": 6.891145572786392e-09,
+        "Vb_post_peak": 0.6089657036427214,
+        "Vb_post_floor": 3.846555682640523e-09,
+        "self_reset_post_pulse": true,
+        "Id_peak_A": 0.004165017482102251
+      },
+      "two_pulse": {
+        "Vb_inter_min_V": 3.846555682640523e-09,
+        "self_reset_between_pulses": true
+      },
+      "oscillation": {
+        "period_ns": NaN
+      },
+      "match_scores": {
+        "t_rise_match": false,
+        "t_fall_match": false,
+        "Vb_swing_match": true,
+        "self_reset_match": true,
+        "osc_period_match": false
+      },
+      "n_metrics_matched": 2,
+      "R_body": 1000000.0
+    }
+  }
+}

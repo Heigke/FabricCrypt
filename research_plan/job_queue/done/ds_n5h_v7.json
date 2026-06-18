@@ -1,0 +1,33 @@
+{
+  "id": "ds_n5h_v7",
+  "title": "HDC ds_n5h_v7",
+  "script": "scripts/z292_nsram_hdc_vd_bit.py",
+  "args": [
+    "--vg1",
+    "0.50",
+    "--seeds",
+    "0",
+    "1",
+    "2",
+    "3",
+    "--out_dir",
+    "results/z292h_hdc_vg1_lift"
+  ],
+  "node_pref": "any",
+  "wall_estimate_min": 30,
+  "needs_surrogate": "results/z278_mep2_surrogate_v3/surrogate_4d_v3.npz",
+  "env_vars": {
+    "HSA_OVERRIDE_GFX_VERSION": "11.0.0",
+    "PYTHONUNBUFFERED": "1"
+  },
+  "out_dir": "results/",
+  "submitted_at": 1778591267.9872396,
+  "submitted_iso": "2026-05-12T15:07:47",
+  "retry_count": 0,
+  "completed_at": 1778591348.172795,
+  "completed_iso": "2026-05-12T15:09:08",
+  "duration_sec": 71,
+  "worker": "daedalus_0",
+  "log_path": "/home/daedalus/AMD_gfx1151_energy/results/queue_logs/daedalus_ds_n5h_v7.log",
+  "return_code": 0
+}

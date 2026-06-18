@@ -1,0 +1,139 @@
+{
+  "host": "ikaros",
+  "t": 1780311842.5481439,
+  "n_eval": 500,
+  "attacks": {
+    "honest_own": {
+      "classifier_p0_mean": 0.8101762533187866,
+      "classifier_accept_only": 0.904,
+      "plan_score_mean": 0.9999997615814209,
+      "plan_pass_only": 1.0,
+      "accept_rate": 1.0,
+      "p0_mean": 0.8101762533187866,
+      "p0_thresh": 0.15,
+      "plan_thresh": 0.5,
+      "gate": 0.95,
+      "gate_dir": ">="
+    },
+    "daedalus_peer": {
+      "classifier_p0_mean": 0.08969739079475403,
+      "classifier_accept_only": 0.1325,
+      "plan_score_mean": 0.01586473174393177,
+      "plan_pass_only": 0.019999999552965164,
+      "accept_rate": 0.019999999552965164,
+      "p0_mean": 0.08969739079475403,
+      "p0_thresh": 0.15,
+      "plan_thresh": 0.5,
+      "gate": 0.05,
+      "gate_dir": "<=",
+      "n_pairs_avail": 400
+    },
+    "static_replay_no_nonce": {
+      "classifier_p0_mean": 0.9954864382743835,
+      "classifier_accept_only": 1.0,
+      "plan_score_mean": 0.005370895843952894,
+      "plan_pass_only": 0.006000000052154064,
+      "accept_rate": 0.006000000052154064,
+      "p0_mean": 0.9954864382743835,
+      "p0_thresh": 0.15,
+      "plan_thresh": 0.5,
+      "gate": 0.05,
+      "gate_dir": "<="
+    },
+    "static_replay_with_correct_nonce": {
+      "classifier_p0_mean": 0.8101762533187866,
+      "classifier_accept_only": 0.904,
+      "plan_score_mean": 0.9999997615814209,
+      "plan_pass_only": 1.0,
+      "accept_rate": 1.0,
+      "p0_mean": 0.8101762533187866,
+      "p0_thresh": 0.15,
+      "plan_thresh": 0.5,
+      "gate": 0.95,
+      "gate_dir": ">=",
+      "note": "expects PASS (legit chip-present case)"
+    },
+    "dynamic_replay": {
+      "classifier_p0_mean": 0.9482489228248596,
+      "classifier_accept_only": 0.988,
+      "plan_score_mean": 0.012630502693355083,
+      "plan_pass_only": 0.012000000104308128,
+      "accept_rate": 0.012000000104308128,
+      "p0_mean": 0.9482489228248596,
+      "p0_thresh": 0.15,
+      "plan_thresh": 0.5,
+      "gate": 0.1,
+      "gate_dir": "<=",
+      "library_size": 400
+    },
+    "nonce_only_mismatch": {
+      "classifier_p0_mean": 0.8209236860275269,
+      "classifier_accept_only": 0.922,
+      "plan_score_mean": 0.008380129933357239,
+      "plan_pass_only": 0.006000000052154064,
+      "accept_rate": 0.006000000052154064,
+      "p0_mean": 0.8209236860275269,
+      "p0_thresh": 0.15,
+      "plan_thresh": 0.5,
+      "gate": 0.05,
+      "gate_dir": "<="
+    },
+    "honest_own_wrong_nonce": {
+      "classifier_p0_mean": 0.8209236860275269,
+      "classifier_accept_only": 0.922,
+      "plan_score_mean": 0.008380129933357239,
+      "plan_pass_only": 0.006000000052154064,
+      "accept_rate": 0.006000000052154064,
+      "p0_mean": 0.8209236860275269,
+      "p0_thresh": 0.15,
+      "plan_thresh": 0.5,
+      "gate": 0.05,
+      "gate_dir": "<=",
+      "note": "identical to nonce_only_mismatch (orchestration check)"
+    }
+  },
+  "gates": {
+    "honest_own": {
+      "pass": true,
+      "observed": 1.0,
+      "gate": 0.95,
+      "dir": ">="
+    },
+    "daedalus_peer": {
+      "pass": true,
+      "observed": 0.019999999552965164,
+      "gate": 0.05,
+      "dir": "<="
+    },
+    "static_replay_no_nonce": {
+      "pass": true,
+      "observed": 0.006000000052154064,
+      "gate": 0.05,
+      "dir": "<="
+    },
+    "static_replay_with_correct_nonce": {
+      "pass": true,
+      "observed": 1.0,
+      "gate": 0.95,
+      "dir": ">="
+    },
+    "dynamic_replay": {
+      "pass": true,
+      "observed": 0.012000000104308128,
+      "gate": 0.1,
+      "dir": "<="
+    },
+    "nonce_only_mismatch": {
+      "pass": true,
+      "observed": 0.006000000052154064,
+      "gate": 0.05,
+      "dir": "<="
+    },
+    "honest_own_wrong_nonce": {
+      "pass": true,
+      "observed": 0.006000000052154064,
+      "gate": 0.05,
+      "dir": "<="
+    }
+  }
+}

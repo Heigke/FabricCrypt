@@ -1,0 +1,37 @@
+{
+  "id": "z312b_N16384_s0p05_seed9",
+  "title": "z312b_N16384_s0p05_seed9",
+  "script": "scripts/z293_hdc_envelope_sweep.py",
+  "args": [
+    "--N",
+    "16384",
+    "--vg1",
+    "0.30",
+    "--vg2",
+    "0.30",
+    "--vd_high",
+    "2.0",
+    "--vd_low",
+    "0.5",
+    "--sigma_noise",
+    "0.05",
+    "--seeds",
+    "9"
+  ],
+  "node_pref": "gpu",
+  "wall_estimate_min": 30,
+  "needs_surrogate": "results/z278_mep2_surrogate_v3/surrogate_4d_v3.npz",
+  "env_vars": {
+    "HSA_OVERRIDE_GFX_VERSION": "11.0.0"
+  },
+  "out_dir": "results/z312b_n10/N16384_s0p05/seed9",
+  "submitted_at": 1778663276.843297,
+  "submitted_iso": "2026-05-13T11:07:56",
+  "retry_count": 0,
+  "completed_at": 1778664799.3535068,
+  "completed_iso": "2026-05-13T09:33:19",
+  "duration_sec": 301,
+  "worker": "zgx_0",
+  "log_path": "/home/naorw/nsram_queue_sandbox/results/queue_logs/zgx_z312b_N16384_s0p05_seed9.log",
+  "return_code": 0
+}

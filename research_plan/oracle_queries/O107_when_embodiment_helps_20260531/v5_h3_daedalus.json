@@ -1,0 +1,12 @@
+{
+  "host": "daedalus",
+  "n_samples": 1000000,
+  "batch": 4096,
+  "prng_err_med": 0.0008886535897931758,
+  "chip_err_med": 0.001463346410206956,
+  "prng_wall_med": 0.017576756999915233,
+  "chip_wall_med": 0.3410538609996365,
+  "latency_reduction_pct": -1840.368527603137,
+  "err_ratio": 1.6467006120433652,
+  "WIN": false
+}

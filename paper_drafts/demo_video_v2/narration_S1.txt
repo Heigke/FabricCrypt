@@ -1,0 +1,1 @@
+We have two physically identical machines: same model, same memory, same storage, same microcode. Inside each one runs an AI that reads its own physical state. Temperature. Microsecond-level timing variations. Memory refresh patterns. Five signals nobody can hide. Together they form a hardware fingerprint, unique to the silicon itself, born from manufacturing tolerances.

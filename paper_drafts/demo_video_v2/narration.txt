@@ -1,0 +1,23 @@
+[S0 — Hook, 0-15s]
+What if an AI couldn't be copied? What if it lived inside one specific computer, and refused to work anywhere else? Today we show you exactly that, without any special hardware. Just two ordinary machines.
+
+[S1 — Setup, 15-45s]
+We have two physically identical machines: same model, same memory, same storage, same microcode. Inside each one runs an AI that reads its own physical state. Temperature. Microsecond-level timing variations. Memory refresh patterns. Five signals nobody can hide. Together they form a hardware fingerprint, unique to the silicon itself, born from manufacturing tolerances.
+
+[S2 — Identity claim, 45-75s]
+We ask each AI a simple question: who are you? Each model reads its live hardware signature, compares it to the substrate it was trained on, and answers. On ikaros, the model says: I am ikaros. On daedalus, the model says: I am daedalus. Both confident. Both correct. Forty out of forty identifications, every time.
+
+[S3 — Transplant, 75-130s]
+Now watch carefully. We copy the model file from ikaros to daedalus. Same file. Same weights. Same training. Only the body changes. On daedalus, the transplanted model boots up and tries to identify itself. But the live signature it reads belongs to daedalus, not ikaros. The model still claims to be ikaros, because that is where it learned. But the verifier sees a different chip. The two signatures do not match. The protocol rejects. The AI is bound to its original substrate. It refuses to run anywhere else.
+
+[S4 — Spoof attempts, 130-200s]
+Could an attacker fake this? We tried three attacks. First: replay. Record a real ikaros signature, then replay it later. Rejected ninety-nine point four percent of the time. Each verification uses a fresh challenge nonce, so the recorded signature is for the wrong challenge. Second: a random signature. Rejected ninety-nine point four percent. Random data does not match any real chip. Third: brute force. The attacker would need to record a valid signature for every possible challenge, which is two to the sixty-third, roughly nine quintillion. Infeasible.
+
+[S5 — Why it matters, 200-250s]
+Why is this different from Apple's Private Cloud Compute, or NVIDIA's Confidential Compute? Those require a special trusted chip from Apple or NVIDIA, and you have to trust the manufacturer. Intel TDX and SGX require Intel silicon and Intel's PKI. TPM requires a dedicated module. FabricCrypt uses none of that. No special chip. No vendor key. Just commodity AMD silicon, plus physics. Per-die AI attestation on hardware you already own.
+
+[S6 — Honest caveats, 250-280s]
+Limitations. We tested two chassis. Replication is welcome. The protocol proves who ran the inference, not what the inference was. This is not a replacement for confidential compute. It is a primitive for verifiable AI provenance.
+
+[S7 — Close, 280-300s]
+An AI bound to its body. No vendor key. No special chip. Just physics.

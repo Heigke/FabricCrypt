@@ -1,0 +1,976 @@
+{
+  "config": {
+    "n_seeds": 8,
+    "lambdas": [
+      0.0,
+      0.1,
+      1.0,
+      10.0
+    ],
+    "n_res": 128,
+    "sub_dim": 128,
+    "t_train": 1500,
+    "t_test": 800,
+    "seg_len": 100,
+    "n_segments_per_host": 1000
+  },
+  "gate": {
+    "n_segments_per_host": 1000,
+    "seg_len": 100,
+    "feature_dim": 640,
+    "train_acc": 1.0,
+    "test_acc": 1.0,
+    "gate_passed": true
+  },
+  "matrix": {
+    "lambdas": {
+      "lambda_0.0": {
+        "per_seed": [
+          {
+            "seed": 0,
+            "evals": {
+              "self": {
+                "nrmse": 0.7113074249312306,
+                "id_acc": 0.99625,
+                "frac_pred_ikaros": 0.99625
+              },
+              "daedalus": {
+                "nrmse": 19.819078599487984,
+                "id_acc": 0.3725,
+                "frac_pred_ikaros": 0.6275
+              },
+              "sw_matched": {
+                "nrmse": 20.031498315215018,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.895
+              },
+              "shuffle": {
+                "nrmse": 53.667116810789764,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.92625
+              }
+            }
+          },
+          {
+            "seed": 1,
+            "evals": {
+              "self": {
+                "nrmse": 0.6753461079539989,
+                "id_acc": 0.68875,
+                "frac_pred_ikaros": 0.68875
+              },
+              "daedalus": {
+                "nrmse": 24.278942858930485,
+                "id_acc": 0.56625,
+                "frac_pred_ikaros": 0.43375
+              },
+              "sw_matched": {
+                "nrmse": 12.229805004381468,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.8525
+              },
+              "shuffle": {
+                "nrmse": 6.591382539397396,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.75875
+              }
+            }
+          },
+          {
+            "seed": 2,
+            "evals": {
+              "self": {
+                "nrmse": 0.629406875641779,
+                "id_acc": 0.695,
+                "frac_pred_ikaros": 0.695
+              },
+              "daedalus": {
+                "nrmse": 27.167947427811956,
+                "id_acc": 0.65625,
+                "frac_pred_ikaros": 0.34375
+              },
+              "sw_matched": {
+                "nrmse": 16.170453647977403,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.78375
+              },
+              "shuffle": {
+                "nrmse": 40.61184073927083,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.7475
+              }
+            }
+          },
+          {
+            "seed": 3,
+            "evals": {
+              "self": {
+                "nrmse": 0.5887935523608208,
+                "id_acc": 0.85875,
+                "frac_pred_ikaros": 0.85875
+              },
+              "daedalus": {
+                "nrmse": 16.503658660198308,
+                "id_acc": 0.8225,
+                "frac_pred_ikaros": 0.1775
+              },
+              "sw_matched": {
+                "nrmse": 13.015515291748791,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.45375
+              },
+              "shuffle": {
+                "nrmse": 25.09224309853881,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.095
+              }
+            }
+          },
+          {
+            "seed": 4,
+            "evals": {
+              "self": {
+                "nrmse": 0.5909559510560212,
+                "id_acc": 0.675,
+                "frac_pred_ikaros": 0.675
+              },
+              "daedalus": {
+                "nrmse": 7.4696809304539835,
+                "id_acc": 0.6625,
+                "frac_pred_ikaros": 0.3375
+              },
+              "sw_matched": {
+                "nrmse": 10.847199874555566,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.52625
+              },
+              "shuffle": {
+                "nrmse": 40.325231124800425,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.31375
+              }
+            }
+          },
+          {
+            "seed": 5,
+            "evals": {
+              "self": {
+                "nrmse": 0.6398784604335396,
+                "id_acc": 0.50625,
+                "frac_pred_ikaros": 0.50625
+              },
+              "daedalus": {
+                "nrmse": 5.256646880519231,
+                "id_acc": 0.605,
+                "frac_pred_ikaros": 0.395
+              },
+              "sw_matched": {
+                "nrmse": 12.278143123104543,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.12125
+              },
+              "shuffle": {
+                "nrmse": 27.396163500648306,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.435
+              }
+            }
+          },
+          {
+            "seed": 6,
+            "evals": {
+              "self": {
+                "nrmse": 0.6755433369433558,
+                "id_acc": 0.65625,
+                "frac_pred_ikaros": 0.65625
+              },
+              "daedalus": {
+                "nrmse": 17.22483832559307,
+                "id_acc": 0.80125,
+                "frac_pred_ikaros": 0.19875
+              },
+              "sw_matched": {
+                "nrmse": 13.589862466511685,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.3025
+              },
+              "shuffle": {
+                "nrmse": 17.386981932989624,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.36
+              }
+            }
+          },
+          {
+            "seed": 7,
+            "evals": {
+              "self": {
+                "nrmse": 0.6261242988097937,
+                "id_acc": 0.7325,
+                "frac_pred_ikaros": 0.7325
+              },
+              "daedalus": {
+                "nrmse": 50.35079843146093,
+                "id_acc": 0.72875,
+                "frac_pred_ikaros": 0.27125
+              },
+              "sw_matched": {
+                "nrmse": 10.06546427677797,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.515
+              },
+              "shuffle": {
+                "nrmse": 9.238583158714452,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.725
+              }
+            }
+          }
+        ],
+        "aggregate": {
+          "self": {
+            "nrmse_mean": 0.6421695010163174,
+            "nrmse_std": 0.0401434214369359,
+            "id_acc_mean": 0.72609375
+          },
+          "daedalus": {
+            "nrmse_mean": 21.008949014306992,
+            "nrmse_std": 13.119879847316959,
+            "id_acc_mean": 0.651875
+          },
+          "sw_matched": {
+            "nrmse_mean": 13.528492750034054,
+            "nrmse_std": 2.9993293546806137,
+            "id_acc_mean": null
+          },
+          "shuffle": {
+            "nrmse_mean": 27.5386928631437,
+            "nrmse_std": 15.41040145879,
+            "id_acc_mean": null
+          }
+        }
+      },
+      "lambda_0.1": {
+        "per_seed": [
+          {
+            "seed": 0,
+            "evals": {
+              "self": {
+                "nrmse": 0.9601831345633817,
+                "id_acc": 1.0,
+                "frac_pred_ikaros": 1.0
+              },
+              "daedalus": {
+                "nrmse": 9.009429240627703,
+                "id_acc": 0.525,
+                "frac_pred_ikaros": 0.475
+              },
+              "sw_matched": {
+                "nrmse": 23.24672271362628,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.62625
+              },
+              "shuffle": {
+                "nrmse": 27.897331163835904,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.48875
+              }
+            }
+          },
+          {
+            "seed": 1,
+            "evals": {
+              "self": {
+                "nrmse": 0.9771737622493138,
+                "id_acc": 0.71,
+                "frac_pred_ikaros": 0.71
+              },
+              "daedalus": {
+                "nrmse": 8.568817375599345,
+                "id_acc": 0.6,
+                "frac_pred_ikaros": 0.4
+              },
+              "sw_matched": {
+                "nrmse": 19.58877848685898,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.685
+              },
+              "shuffle": {
+                "nrmse": 31.51052058551276,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.7675
+              }
+            }
+          },
+          {
+            "seed": 2,
+            "evals": {
+              "self": {
+                "nrmse": 0.8330040921818352,
+                "id_acc": 0.76,
+                "frac_pred_ikaros": 0.76
+              },
+              "daedalus": {
+                "nrmse": 8.631720994219936,
+                "id_acc": 0.69375,
+                "frac_pred_ikaros": 0.30625
+              },
+              "sw_matched": {
+                "nrmse": 20.16905854759026,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.6225
+              },
+              "shuffle": {
+                "nrmse": 17.10347161012875,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.61
+              }
+            }
+          },
+          {
+            "seed": 3,
+            "evals": {
+              "self": {
+                "nrmse": 0.816535455872046,
+                "id_acc": 0.8625,
+                "frac_pred_ikaros": 0.8625
+              },
+              "daedalus": {
+                "nrmse": 8.194502331255212,
+                "id_acc": 0.90875,
+                "frac_pred_ikaros": 0.09125
+              },
+              "sw_matched": {
+                "nrmse": 16.36898043927843,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.1675
+              },
+              "shuffle": {
+                "nrmse": 20.68814770695539,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.5875
+              }
+            }
+          },
+          {
+            "seed": 4,
+            "evals": {
+              "self": {
+                "nrmse": 0.8369392883079471,
+                "id_acc": 0.71625,
+                "frac_pred_ikaros": 0.71625
+              },
+              "daedalus": {
+                "nrmse": 8.232776020551732,
+                "id_acc": 0.71875,
+                "frac_pred_ikaros": 0.28125
+              },
+              "sw_matched": {
+                "nrmse": 16.398079452337647,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.71875
+              },
+              "shuffle": {
+                "nrmse": 14.329194465592943,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.41125
+              }
+            }
+          },
+          {
+            "seed": 5,
+            "evals": {
+              "self": {
+                "nrmse": 0.9303029930340339,
+                "id_acc": 0.54875,
+                "frac_pred_ikaros": 0.54875
+              },
+              "daedalus": {
+                "nrmse": 8.543622989817049,
+                "id_acc": 0.60125,
+                "frac_pred_ikaros": 0.39875
+              },
+              "sw_matched": {
+                "nrmse": 24.327652304047596,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.53125
+              },
+              "shuffle": {
+                "nrmse": 13.976486902345707,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.5275
+              }
+            }
+          },
+          {
+            "seed": 6,
+            "evals": {
+              "self": {
+                "nrmse": 1.0391823148394945,
+                "id_acc": 0.82,
+                "frac_pred_ikaros": 0.82
+              },
+              "daedalus": {
+                "nrmse": 8.719762898718901,
+                "id_acc": 0.8575,
+                "frac_pred_ikaros": 0.1425
+              },
+              "sw_matched": {
+                "nrmse": 25.307171066398357,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.50875
+              },
+              "shuffle": {
+                "nrmse": 49.32712959878672,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.4025
+              }
+            }
+          },
+          {
+            "seed": 7,
+            "evals": {
+              "self": {
+                "nrmse": 0.8315082141016622,
+                "id_acc": 0.73375,
+                "frac_pred_ikaros": 0.73375
+              },
+              "daedalus": {
+                "nrmse": 7.617191466478157,
+                "id_acc": 0.75,
+                "frac_pred_ikaros": 0.25
+              },
+              "sw_matched": {
+                "nrmse": 19.195837745794094,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.4475
+              },
+              "shuffle": {
+                "nrmse": 34.48729764058076,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.695
+              }
+            }
+          }
+        ],
+        "aggregate": {
+          "self": {
+            "nrmse_mean": 0.9031036568937143,
+            "nrmse_std": 0.07898835817155002,
+            "id_acc_mean": 0.76890625
+          },
+          "daedalus": {
+            "nrmse_mean": 8.439727914658505,
+            "nrmse_std": 0.3947831197460602,
+            "id_acc_mean": 0.7068749999999999
+          },
+          "sw_matched": {
+            "nrmse_mean": 20.575285094491456,
+            "nrmse_std": 3.1974739950243642,
+            "id_acc_mean": null
+          },
+          "shuffle": {
+            "nrmse_mean": 26.164947459217366,
+            "nrmse_std": 11.391190670420077,
+            "id_acc_mean": null
+          }
+        }
+      },
+      "lambda_1.0": {
+        "per_seed": [
+          {
+            "seed": 0,
+            "evals": {
+              "self": {
+                "nrmse": 3.271575178301647,
+                "id_acc": 1.0,
+                "frac_pred_ikaros": 1.0
+              },
+              "daedalus": {
+                "nrmse": 13.099478848701843,
+                "id_acc": 0.525,
+                "frac_pred_ikaros": 0.475
+              },
+              "sw_matched": {
+                "nrmse": 45.39631244514109,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.62625
+              },
+              "shuffle": {
+                "nrmse": 41.592299287935084,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.48875
+              }
+            }
+          },
+          {
+            "seed": 1,
+            "evals": {
+              "self": {
+                "nrmse": 3.2505995310498172,
+                "id_acc": 0.71,
+                "frac_pred_ikaros": 0.71
+              },
+              "daedalus": {
+                "nrmse": 12.450053005933565,
+                "id_acc": 0.6,
+                "frac_pred_ikaros": 0.4
+              },
+              "sw_matched": {
+                "nrmse": 34.80184641987749,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.685
+              },
+              "shuffle": {
+                "nrmse": 70.45648689433668,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.7675
+              }
+            }
+          },
+          {
+            "seed": 2,
+            "evals": {
+              "self": {
+                "nrmse": 3.017705116684832,
+                "id_acc": 0.76,
+                "frac_pred_ikaros": 0.76
+              },
+              "daedalus": {
+                "nrmse": 12.555412293844187,
+                "id_acc": 0.69375,
+                "frac_pred_ikaros": 0.30625
+              },
+              "sw_matched": {
+                "nrmse": 37.097438588772,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.6225
+              },
+              "shuffle": {
+                "nrmse": 31.042205719519657,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.61
+              }
+            }
+          },
+          {
+            "seed": 3,
+            "evals": {
+              "self": {
+                "nrmse": 2.9361652754116228,
+                "id_acc": 0.8625,
+                "frac_pred_ikaros": 0.8625
+              },
+              "daedalus": {
+                "nrmse": 12.005952782476625,
+                "id_acc": 0.90875,
+                "frac_pred_ikaros": 0.09125
+              },
+              "sw_matched": {
+                "nrmse": 31.054351070872936,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.1675
+              },
+              "shuffle": {
+                "nrmse": 29.964912591969078,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.5875
+              }
+            }
+          },
+          {
+            "seed": 4,
+            "evals": {
+              "self": {
+                "nrmse": 2.8368442770168745,
+                "id_acc": 0.71625,
+                "frac_pred_ikaros": 0.71625
+              },
+              "daedalus": {
+                "nrmse": 11.922717731786857,
+                "id_acc": 0.71875,
+                "frac_pred_ikaros": 0.28125
+              },
+              "sw_matched": {
+                "nrmse": 35.23243872206373,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.71875
+              },
+              "shuffle": {
+                "nrmse": 25.261880758411994,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.41125
+              }
+            }
+          },
+          {
+            "seed": 5,
+            "evals": {
+              "self": {
+                "nrmse": 3.1418517685675793,
+                "id_acc": 0.54875,
+                "frac_pred_ikaros": 0.54875
+              },
+              "daedalus": {
+                "nrmse": 12.641273147731685,
+                "id_acc": 0.60125,
+                "frac_pred_ikaros": 0.39875
+              },
+              "sw_matched": {
+                "nrmse": 46.123174124785876,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.53125
+              },
+              "shuffle": {
+                "nrmse": 23.380457649092488,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.5275
+              }
+            }
+          },
+          {
+            "seed": 6,
+            "evals": {
+              "self": {
+                "nrmse": 3.270566148207773,
+                "id_acc": 0.82,
+                "frac_pred_ikaros": 0.82
+              },
+              "daedalus": {
+                "nrmse": 12.730139352332706,
+                "id_acc": 0.8575,
+                "frac_pred_ikaros": 0.1425
+              },
+              "sw_matched": {
+                "nrmse": 47.87135648355556,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.50875
+              },
+              "shuffle": {
+                "nrmse": 123.41583299762172,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.4025
+              }
+            }
+          },
+          {
+            "seed": 7,
+            "evals": {
+              "self": {
+                "nrmse": 2.6087022311977264,
+                "id_acc": 0.73375,
+                "frac_pred_ikaros": 0.73375
+              },
+              "daedalus": {
+                "nrmse": 11.111291424326469,
+                "id_acc": 0.75,
+                "frac_pred_ikaros": 0.25
+              },
+              "sw_matched": {
+                "nrmse": 34.47716083405043,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.4475
+              },
+              "shuffle": {
+                "nrmse": 66.20381055092095,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.695
+              }
+            }
+          }
+        ],
+        "aggregate": {
+          "self": {
+            "nrmse_mean": 3.041751190804734,
+            "nrmse_std": 0.22362299434446453,
+            "id_acc_mean": 0.76890625
+          },
+          "daedalus": {
+            "nrmse_mean": 12.31453982339174,
+            "nrmse_std": 0.5775538394765621,
+            "id_acc_mean": 0.7068749999999999
+          },
+          "sw_matched": {
+            "nrmse_mean": 39.00675983613989,
+            "nrmse_std": 6.014370137615321,
+            "id_acc_mean": null
+          },
+          "shuffle": {
+            "nrmse_mean": 51.41473580622596,
+            "nrmse_std": 32.02922639798403,
+            "id_acc_mean": null
+          }
+        }
+      },
+      "lambda_10.0": {
+        "per_seed": [
+          {
+            "seed": 0,
+            "evals": {
+              "self": {
+                "nrmse": 5.746791923511538,
+                "id_acc": 1.0,
+                "frac_pred_ikaros": 1.0
+              },
+              "daedalus": {
+                "nrmse": 13.878255481948063,
+                "id_acc": 0.525,
+                "frac_pred_ikaros": 0.475
+              },
+              "sw_matched": {
+                "nrmse": 60.12228487445824,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.62625
+              },
+              "shuffle": {
+                "nrmse": 48.13626413901828,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.48875
+              }
+            }
+          },
+          {
+            "seed": 1,
+            "evals": {
+              "self": {
+                "nrmse": 5.662694266597154,
+                "id_acc": 0.71,
+                "frac_pred_ikaros": 0.71
+              },
+              "daedalus": {
+                "nrmse": 13.200125142848833,
+                "id_acc": 0.6,
+                "frac_pred_ikaros": 0.4
+              },
+              "sw_matched": {
+                "nrmse": 44.592570517750836,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.685
+              },
+              "shuffle": {
+                "nrmse": 96.16049212926946,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.7675
+              }
+            }
+          },
+          {
+            "seed": 2,
+            "evals": {
+              "self": {
+                "nrmse": 5.412299366308607,
+                "id_acc": 0.76,
+                "frac_pred_ikaros": 0.76
+              },
+              "daedalus": {
+                "nrmse": 13.32702192764893,
+                "id_acc": 0.69375,
+                "frac_pred_ikaros": 0.30625
+              },
+              "sw_matched": {
+                "nrmse": 48.82918148430195,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.6225
+              },
+              "shuffle": {
+                "nrmse": 44.80834658532318,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.61
+              }
+            }
+          },
+          {
+            "seed": 3,
+            "evals": {
+              "self": {
+                "nrmse": 5.240660736374917,
+                "id_acc": 0.8625,
+                "frac_pred_ikaros": 0.8625
+              },
+              "daedalus": {
+                "nrmse": 12.793919703375124,
+                "id_acc": 0.90875,
+                "frac_pred_ikaros": 0.09125
+              },
+              "sw_matched": {
+                "nrmse": 40.70389844742415,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.1675
+              },
+              "shuffle": {
+                "nrmse": 33.3262111480954,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.5875
+              }
+            }
+          },
+          {
+            "seed": 4,
+            "evals": {
+              "self": {
+                "nrmse": 5.013412969299751,
+                "id_acc": 0.71625,
+                "frac_pred_ikaros": 0.71625
+              },
+              "daedalus": {
+                "nrmse": 12.669457095915808,
+                "id_acc": 0.71875,
+                "frac_pred_ikaros": 0.28125
+              },
+              "sw_matched": {
+                "nrmse": 47.4319141306661,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.71875
+              },
+              "shuffle": {
+                "nrmse": 31.04066610876319,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.41125
+              }
+            }
+          },
+          {
+            "seed": 5,
+            "evals": {
+              "self": {
+                "nrmse": 5.572810316980065,
+                "id_acc": 0.54875,
+                "frac_pred_ikaros": 0.54875
+              },
+              "daedalus": {
+                "nrmse": 13.52280491012834,
+                "id_acc": 0.60125,
+                "frac_pred_ikaros": 0.39875
+              },
+              "sw_matched": {
+                "nrmse": 60.54183285105469,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.53125
+              },
+              "shuffle": {
+                "nrmse": 43.011761113374035,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.5275
+              }
+            }
+          },
+          {
+            "seed": 6,
+            "evals": {
+              "self": {
+                "nrmse": 5.683037969681259,
+                "id_acc": 0.82,
+                "frac_pred_ikaros": 0.82
+              },
+              "daedalus": {
+                "nrmse": 13.465498206788613,
+                "id_acc": 0.8575,
+                "frac_pred_ikaros": 0.1425
+              },
+              "sw_matched": {
+                "nrmse": 60.50440148928799,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.50875
+              },
+              "shuffle": {
+                "nrmse": 160.21684671526612,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.4025
+              }
+            }
+          },
+          {
+            "seed": 7,
+            "evals": {
+              "self": {
+                "nrmse": 4.650737127212572,
+                "id_acc": 0.73375,
+                "frac_pred_ikaros": 0.73375
+              },
+              "daedalus": {
+                "nrmse": 11.820861190387463,
+                "id_acc": 0.75,
+                "frac_pred_ikaros": 0.25
+              },
+              "sw_matched": {
+                "nrmse": 43.31180218930191,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.4475
+              },
+              "shuffle": {
+                "nrmse": 84.48394628587835,
+                "id_acc": null,
+                "frac_pred_ikaros": 0.695
+              }
+            }
+          }
+        ],
+        "aggregate": {
+          "self": {
+            "nrmse_mean": 5.372805584495733,
+            "nrmse_std": 0.3587678887808977,
+            "id_acc_mean": 0.76890625
+          },
+          "daedalus": {
+            "nrmse_mean": 13.084742957380147,
+            "nrmse_std": 0.6013510561581978,
+            "id_acc_mean": 0.7068749999999999
+          },
+          "sw_matched": {
+            "nrmse_mean": 50.75473574803073,
+            "nrmse_std": 7.808104778512796,
+            "id_acc_mean": null
+          },
+          "shuffle": {
+            "nrmse_mean": 67.6480667781235,
+            "nrmse_std": 41.371467571913,
+            "id_acc_mean": null
+          }
+        }
+      }
+    },
+    "per_seed_seeds": []
+  },
+  "diag": {
+    "gate_acc": 1.0,
+    "verdicts_per_lambda": {
+      "lambda_0.0": {
+        "nrmse_daedalus": 21.008949014306992,
+        "nrmse_sw_matched": 13.528492750034054,
+        "gap": 7.480456264272938,
+        "z_gap": 0.5558226274115375,
+        "verdict": "SHUFFLE_INDISTINGUISHABLE",
+        "id_acc_daedalus": 0.651875,
+        "id_acc_self": 0.72609375
+      },
+      "lambda_0.1": {
+        "nrmse_daedalus": 8.439727914658505,
+        "nrmse_sw_matched": 20.575285094491456,
+        "gap": -12.13555717983295,
+        "z_gap": -3.766755688248281,
+        "verdict": "WEAK_SEPARATION",
+        "id_acc_daedalus": 0.7068749999999999,
+        "id_acc_self": 0.76890625
+      },
+      "lambda_1.0": {
+        "nrmse_daedalus": 12.31453982339174,
+        "nrmse_sw_matched": 39.00675983613989,
+        "gap": -26.69222001274815,
+        "z_gap": -4.41775149824588,
+        "verdict": "WEAK_SEPARATION",
+        "id_acc_daedalus": 0.7068749999999999,
+        "id_acc_self": 0.76890625
+      },
+      "lambda_10.0": {
+        "nrmse_daedalus": 13.084742957380147,
+        "nrmse_sw_matched": 50.75473574803073,
+        "gap": -37.66999279065058,
+        "z_gap": -4.810228415162313,
+        "verdict": "WEAK_SEPARATION",
+        "id_acc_daedalus": 0.7068749999999999,
+        "id_acc_self": 0.76890625
+      }
+    }
+  },
+  "wall_s": 5.409045934677124
+}

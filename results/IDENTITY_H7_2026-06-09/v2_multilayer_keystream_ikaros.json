@@ -1,0 +1,56 @@
+{
+  "host": "ikaros",
+  "frozen_LLM": "gpt2-124M",
+  "micro_gate_fidelity": 1.0,
+  "meso_table": {
+    "00": 0,
+    "01": 0,
+    "10": 0,
+    "11": 1
+  },
+  "macro_table": {
+    "00": 0,
+    "01": 1,
+    "10": 1,
+    "11": 1
+  },
+  "fingerprint_own": [
+    231,
+    236,
+    216,
+    211,
+    206,
+    236,
+    221,
+    226,
+    166,
+    181,
+    196,
+    191,
+    176,
+    186,
+    171,
+    201
+  ],
+  "fingerprint_dist_vs_daedalus": 0.75,
+  "trained_with": "LIVE micro cache-XOR (per step) XOR meso GPU-droop XOR macro CPU->GPU SMU XOR per-die fp",
+  "query_acc": {
+    "native": 1.0,
+    "no_micro": 0.537,
+    "no_meso": 0.767,
+    "no_macro": 0.263,
+    "no_body": 0.5,
+    "foreign_die": 0.333,
+    "replay_old": 0.5,
+    "random": 0.537
+  },
+  "MICRO_load_bearing": true,
+  "MESO_load_bearing": true,
+  "MACRO_load_bearing": true,
+  "WHOLE_BODY_load_bearing": true,
+  "UNIQUE_per_die": true,
+  "FRESH_replay_proof": true,
+  "honest_scope": "micro/meso/macro are real nonlinear physical computations, all load-bearing & trained against LIVE silicon, but generic across like-silicon; per-die uniqueness from FUSED prefcore fingerprint (remote-attestation grade, n=2). Novelty = the integration: a real LLM made dependent on a fused MULTI-LAYER live physical computation across the macro->micro stack + per-die binding + fresh nonce.",
+  "ALL_GREEN": true,
+  "verdict": "MULTI-LAYER EMBODIMENT GREEN: a real GPT-2 needs EACH of its body's three physical computation layers (micro cache, meso GPU droop, macro CPU->GPU power), its own die's fingerprint, and a fresh nonce. Remove any layer -> it fails."
+}

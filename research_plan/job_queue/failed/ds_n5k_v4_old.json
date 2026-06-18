@@ -1,0 +1,32 @@
+{
+  "id": "ds_n5k_v4",
+  "title": "DS-N5k extra-wide {0.20,2.80}",
+  "script": "scripts/z292_nsram_hdc_vd_bit.py",
+  "args": [
+    "--vd_high",
+    "2.80",
+    "--vd_low",
+    "0.20",
+    "--seeds",
+    "0",
+    "1",
+    "2",
+    "3",
+    "--out_dir",
+    "results/z292k_hdc_extrawide"
+  ],
+  "node_pref": "any",
+  "wall_estimate_min": 30,
+  "needs_surrogate": null,
+  "env_vars": {},
+  "out_dir": "results/",
+  "submitted_at": 1778590835.5966902,
+  "submitted_iso": "2026-05-12T15:00:35",
+  "retry_count": 0,
+  "failed_at": 1778590853.5403445,
+  "failed_iso": "2026-05-12T15:00:53",
+  "worker": "daedalus_0",
+  "error": "rc=1 see log /home/daedalus/AMD_gfx1151_energy/results/queue_logs/daedalus_ds_n5k_v4.log",
+  "log_tail": "[z292] config: V_G1=0.3 V_G2=0.3 V_d_HIGH=2.8 V_d_LOW=0.2\n[z292] device=cuda\nTraceback (most recent call last):\n  File \"/home/daedalus/AMD_gfx1151_energy/scripts/z292_nsram_hdc_vd_bit.py\", line 336, in <module>\n    main()\n  File \"/home/daedalus/AMD_gfx1151_energy/scripts/z292_nsram_hdc_vd_bit.py\", line 244, in main\n    surr = load_surrogate_torch(args.surrogate, device)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/daedalus/AMD_gfx1151_energy/scripts/z285_nsram_hdc.py\", line 53, in load_surrogate_torch\n    z = np.load(path)\n        ^^^^^^^^^^^^^\n  File \"/home/daedalus/venvs/torch-rocm/lib/python3.12/site-packages/numpy/lib/_npyio_impl.py\", line 454, in load\n    fid = stack.enter_context(open(os.fspath(file), \"rb\"))\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'results/z278_mep2_surrogate_v3/surrogate_4d_v3.npz'\n",
+  "duration_sec": 1
+}

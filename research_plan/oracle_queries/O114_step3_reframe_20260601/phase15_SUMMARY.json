@@ -1,0 +1,73 @@
+{
+  "phase": 15,
+  "question": "Does the chip's physics genuinely augment AI computation, beyond merely providing info?",
+  "experiments": {
+    "E1_free_entropy_reg": {
+      "n_seeds": 30,
+      "metric": "test_acc on noisy classification",
+      "vanilla_mean": 0.6201,
+      "embodied_mean": 0.6177,
+      "synthetic_mean": 0.6212,
+      "delta_emb_minus_syn_pp": -0.35,
+      "ci95_pp": [-0.58, -0.13],
+      "gate_threshold_pp": 1.5,
+      "gate_pass": false,
+      "verdict": "EMBODIED LOSES — chip jitter is significantly worse regularizer than matched synthetic by 0.35pp; CI excludes zero on the wrong side. The chip's temporal autocorrelation makes its noise structured rather than uniformly random, which is suboptimal as a regularizer."
+    },
+    "E2_attention_bias_dram": {
+      "n_seeds": 30,
+      "metric": "test_acc on text classification",
+      "vanilla_mean": 0.7649,
+      "embodied_mean": 0.7580,
+      "random_mean": 0.7566,
+      "delta_emb_minus_rnd_pp": 0.14,
+      "ci95_pp": [-0.14, 0.43],
+      "gate_threshold_pp": 1.5,
+      "gate_pass": false,
+      "verdict": "NULL — embodied marginally beats random bias by 0.14pp but CI spans zero. Both embodied and random bias are slightly worse than no bias. DRAM-latency carries no useful per-token attention signal at this model scale."
+    },
+    "E3_thermal_inference_budget": {
+      "n_seeds": 12,
+      "metric": "qps at iso-accuracy",
+      "all_seeds_qps_ratio_mean": 33.85,
+      "clean_seeds_qps_ratio_mean": 1.055,
+      "clean_seeds_ci95": [0.982, 1.116],
+      "acc_gap_pp": -0.17,
+      "gate_threshold_ratio": 1.15,
+      "gate_pass": false,
+      "skip_rate_when_active": "1.00 (always skipped) when chip warm",
+      "verdict": "PARTIAL — when thermal threshold triggers (chip ≥58C), embodied skips layer 4 and delivers ~12% qps gain with iso-accuracy. Cold-start contamination and noisy timing make the full-population CI just miss the 15% bar. The mechanism works; the gate doesn't pass at the pre-registered threshold."
+    },
+    "E4_predictive_scheduling": {
+      "n_seeds": 12,
+      "metric": "batch latency reduction (%) vs arrival order",
+      "rel_improvement_mean_pct": 2.84,
+      "ci95_pct": [-0.02, 5.35],
+      "gate_threshold_pct": 10.0,
+      "predictor_pearson_with_oracle_mean": 0.04,
+      "gate_pass": false,
+      "verdict": "NULL — embodied predictor's correlation with true latency is ~0 (chance). Tiny 2.8% gain is from any-non-arrival-order, not from embodiment. Chip state at this granularity does not predict per-request latency."
+    },
+    "E5_per_machine_finetune": {
+      "n_seeds": 25,
+      "metric": "PPL on user-specific corpus",
+      "vanilla_ppl_mean": 75.04,
+      "embodied_ppl_mean": 75.65,
+      "random_ppl_mean": 76.28,
+      "rel_emb_vs_van_pct": -0.81,
+      "ci_emb_vs_van_pct": [-0.94, -0.67],
+      "rel_emb_vs_rnd_pct": 0.83,
+      "ci_emb_vs_rnd_pct": [0.60, 1.05],
+      "gate_pass": false,
+      "verdict": "INFORMATIVE-BUT-NOT-USEFUL — embodied conditioning is significantly better than RANDOM conditioning of matched norm (0.83% PPL reduction, CI [0.60, 1.05] excludes zero). But adding any conditioning at all hurts vs vanilla (-0.81% PPL). Chip vector carries information, but it doesn't replace a learned, no-conditioning baseline."
+    }
+  },
+  "overall_count_computationally_helpful": 0,
+  "overall_count_informationally_distinguishable": 1,
+  "honest_summary": "Across 109 seeds and 5 pre-registered experiments, ZERO experiments cleared their computational-gain pre-reg gate. E3 shows the mechanism works directionally (~5-12% qps gain when thermal threshold triggers, iso-accuracy) but does not reach the 15% bar with proper bootstrap CI. E5 shows the chip vector beats matched-norm random conditioning (CI excludes zero) but the conditioning architecture itself is a net loss vs no conditioning. The three-step story is NOT completed by Phase 15: identity and unfakeable binding hold, but deep computational embodiment-as-improvement is not demonstrated.",
+  "winner_claims_with_ci": [],
+  "next_steps_if_pursued": [
+    "E3 retry with a workload that reliably keeps chip hot AND smarter skip policy (e.g. skip-layer-only-when-headroom-meets-need); 30 seeds with timing isolation.",
+    "E5 retry with a LEARNABLE projection head that can choose to attenuate the conditioning when unhelpful, so the network can recover the vanilla baseline."
+  ]
+}

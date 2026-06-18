@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Embodied AI Demo — substrate-bound model</title>
+<style>
+  :root {
+    --bg: #0b0e13;
+    --fg: #e3e8ef;
+    --muted: #8b95a7;
+    --green: #4ade80;
+    --yellow: #fbbf24;
+    --red: #f87171;
+    --panel: #131822;
+    --border: #1f2937;
+    --accent: #60a5fa;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg);
+               font-family: -apple-system, system-ui, "Segoe UI", sans-serif; }
+  header { padding: 16px 24px; border-bottom: 1px solid var(--border); }
+  h1 { font-size: 22px; margin: 0; font-weight: 600; letter-spacing: -0.02em; }
+  .sub { color: var(--muted); font-size: 13px; margin-top: 4px; }
+  main { padding: 20px 24px; max-width: 1400px; margin: 0 auto; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .panel { background: var(--panel); border: 1px solid var(--border);
+           border-radius: 10px; padding: 16px; }
+  .panel h2 { margin: 0 0 10px 0; font-size: 15px; font-weight: 500;
+              color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .badge { display: inline-block; padding: 4px 10px; border-radius: 6px;
+           font-size: 12px; font-weight: 600; }
+  .badge.green { background: rgba(74,222,128,0.15); color: var(--green); }
+  .badge.yellow { background: rgba(251,191,36,0.15); color: var(--yellow); }
+  .badge.red { background: rgba(248,113,113,0.15); color: var(--red); }
+  .claim { font-size: 28px; font-weight: 600; margin: 6px 0 8px 0; }
+  .row { display: flex; align-items: center; gap: 14px; margin: 6px 0; }
+  .row .k { color: var(--muted); width: 130px; font-size: 12px; }
+  .row .v { font-family: ui-monospace, monospace; font-size: 13px; }
+  .score-bar { position: relative; width: 100%; height: 10px;
+               background: var(--border); border-radius: 5px; overflow: hidden; }
+  .score-bar .fill { height: 100%; transition: width 0.4s, background 0.4s; }
+  .controls { margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; }
+  button { background: var(--accent); color: #0b0e13; border: 0;
+           padding: 8px 14px; border-radius: 6px; font-weight: 600; cursor: pointer;
+           font-size: 13px; }
+  button.warn { background: #f87171; color: #0b0e13; }
+  button.ghost { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+  button:disabled { opacity: 0.5; cursor: not-allowed; }
+  canvas { width: 100%; height: 120px; display: block;
+           background: rgba(255,255,255,0.02); border-radius: 6px; }
+  .trace-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .trace-cell { background: rgba(255,255,255,0.02); border-radius: 6px; padding: 8px; }
+  .trace-cell .label { font-size: 10px; color: var(--muted);
+                       text-transform: uppercase; letter-spacing: 0.06em; }
+  .trace-cell .val { font-family: ui-monospace, monospace; font-size: 13px; }
+  footer { margin: 32px 24px 24px 24px; color: var(--muted); font-size: 12px;
+           border-top: 1px solid var(--border); padding-top: 16px; }
+  footer h3 { color: var(--fg); font-size: 14px; margin: 8px 0 6px 0; }
+  footer a { color: var(--accent); }
+  .anomaly-big { font-size: 32px; font-weight: 700; font-family: ui-monospace, monospace; }
+  .pulse-red { animation: pulse-red 1s infinite; }
+  @keyframes pulse-red {
+    0%,100% { box-shadow: 0 0 0 0 rgba(248,113,113,0.4); }
+    50%     { box-shadow: 0 0 0 6px rgba(248,113,113,0.0); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>We made two identical computers. Only one could run our AI.</h1>
+  <div class="sub">Substrate-bound model. Live signature drives every forward pass.</div>
+</header>
+
+<main>
+
+<div class="panel" style="margin-bottom: 16px;">
+  <div style="display:flex; justify-content: space-between; align-items: center;">
+    <div>
+      <div class="claim" id="claim">I am ...</div>
+      <div class="sub">
+        APU <span id="temp">--</span> &middot; thermal <span id="thermal">--</span>
+        &middot; tick <span id="tick">0</span>
+        <span id="transplant-banner" style="display:none;" class="badge red"
+              >TRANSPLANTED &mdash; running peer's model on this body</span>
+      </div>
+    </div>
+    <div class="controls">
+      <button id="btn-stress">Run light stress (3s)</button>
+      <button id="btn-transplant" class="warn">TRANSPLANT peer model</button>
+      <button id="btn-restore" class="ghost">Restore own model</button>
+    </div>
+  </div>
+</div>
+
+<div class="grid">
+
+  <div class="panel">
+    <h2>T2 &mdash; Anomaly detection</h2>
+    <div style="display:flex; justify-content: space-between; align-items: end;">
+      <div>
+        <div class="sub">Embodied (substrate-bound)</div>
+        <div class="anomaly-big" id="emb-anom">--</div>
+      </div>
+      <div style="text-align:right;">
+        <div class="sub">Vanilla (substrate-blind)</div>
+        <div class="anomaly-big" id="van-anom" style="color: var(--muted);">--</div>
+      </div>
+    </div>
+    <div class="score-bar" style="margin-top: 10px;"><div id="anom-fill" class="fill"></div></div>
+    <div class="sub" style="margin-top: 6px;">
+      Green &lt;30, yellow 30-60, red &gt;60. Live sig &rarr; tiny MLP &rarr; P(anomaly).
+    </div>
+    <canvas id="anom-canvas" width="600" height="120"></canvas>
+  </div>
+
+  <div class="panel">
+    <h2>T3 &mdash; Identity (Twin paradox)</h2>
+    <div style="display:flex; justify-content: space-between;">
+      <div>
+        <div class="sub">Embodied says</div>
+        <div class="claim" id="emb-ident">--</div>
+        <div class="row"><span class="k">correct</span><span id="emb-correct" class="badge">--</span></div>
+        <div class="row"><span class="k">confidence</span><span class="v" id="emb-conf">--</span></div>
+      </div>
+      <div style="text-align:right;">
+        <div class="sub">Vanilla says</div>
+        <div class="claim" id="van-ident" style="color: var(--muted);">--</div>
+        <div class="row"><span class="k" style="margin-left:auto;">correct</span><span id="van-correct" class="badge">--</span></div>
+        <div class="row"><span class="k" style="margin-left:auto;">confidence</span><span class="v" id="van-conf">--</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" style="grid-column: 1 / -1;">
+    <h2>Live signature (5 of 32 channels)</h2>
+    <div class="trace-grid">
+      <div class="trace-cell"><div class="label">pkg power (uW-ish)</div><div class="val" id="t-pkg">--</div></div>
+      <div class="trace-cell"><div class="label">APU temp (raw mC)</div><div class="val" id="t-temp">--</div></div>
+      <div class="trace-cell"><div class="label">TSC mean burst</div><div class="val" id="t-tsc">--</div></div>
+      <div class="trace-cell"><div class="label">nanosleep jitter mean</div><div class="val" id="t-ns">--</div></div>
+      <div class="trace-cell"><div class="label">c-state2 residency</div><div class="val" id="t-cs">--</div></div>
+    </div>
+  </div>
+
+</div>
+
+</main>
+
+<footer>
+  <h3>What this demo IS</h3>
+  A side-by-side check of a tiny ~2.7M-parameter model that injects a 32-d live
+  physical signature (RAPL energy delta, thermal zone, TSC bursts, nanosleep
+  jitter, c-state residency) into every forward pass. T2 anomaly detection
+  ratios were 0.509 (vanilla) vs 1.000 (embodied) in Phase 14B; T3 identity
+  was 0.501 vs 1.000.
+
+  <h3>What this demo IS NOT</h3>
+  Not consciousness, not sentience, not a soul. The model is substrate-bound by
+  construction &mdash; it cannot run correctly with a different chip's
+  fingerprint. That is the point, and that is also the limit.
+
+  <h3>Known limitations &mdash; we are being honest</h3>
+  Only 2 machines tested so far. Replay-attack defense uses nonce-permutation
+  in <code>signature_io.py</code>, but a full audience-challenge protocol is
+  still being hardened. CPU governor is a real confound; both machines are
+  pinned to <code>performance</code> for the demo. The transplant scenario
+  here swaps trained heads, which is a fair stand-in for serializing weights
+  across hosts (the architecture is identical).
+
+  <h3>Reproduction</h3>
+  <a href="/api/repro">/api/repro</a> &mdash; run
+  <code>scripts/demo_embodied_ai/reproduce.sh</code> on two AMD Strix Halo
+  machines (gfx1151) running the same kernel and governor.
+
+  <div style="margin-top: 12px; font-size: 11px;">
+    Vocabulary policy: bound, coupled, substrate-locked, fingerprint,
+    instrument-dependent, non-portable. Not used: die, kill, soul, feel,
+    loyalty, sentient, alive.
+  </div>
+</footer>
+
+<script>
+const $ = (id) => document.getElementById(id);
+
+let claim = "(loading)";
+let peerName = "peer";
+let hostName = "host";
+
+async function fetchInfo() {
+  const r = await fetch('/api/info'); const j = await r.json();
+  hostName = j.host_name; peerName = j.peer_name;
+  $('claim').textContent = j.claim;
+  document.title = `Embodied AI Demo — ${j.host_name}`;
+}
+
+async function postJson(url) {
+  const r = await fetch(url, {method:'POST'});
+  if (!r.ok) { alert('failed: ' + r.status); return null; }
+  return await r.json();
+}
+
+$('btn-stress').onclick = async () => {
+  $('btn-stress').disabled = true;
+  await postJson('/api/stress?duration=3.0');
+  setTimeout(() => { $('btn-stress').disabled = false; }, 3500);
+};
+$('btn-transplant').onclick = async () => {
+  if (!confirm("Load peer's trained weights against THIS host's live signature?")) return;
+  await postJson('/api/transplant');
+};
+$('btn-restore').onclick = async () => { await postJson('/api/restore'); };
+
+// Mini canvas plot of anomaly history
+const canvas = $('anom-canvas');
+const ctx = canvas.getContext('2d');
+let history = [];
+const MAX_HISTORY = 60;
+
+function drawHistory() {
+  const w = canvas.width, h = canvas.height;
+  ctx.clearRect(0,0,w,h);
+  ctx.strokeStyle = '#1f2937';
+  // gridlines at 0.3, 0.6
+  [0.3, 0.6].forEach(y => {
+    ctx.beginPath();
+    ctx.moveTo(0, h*(1-y)); ctx.lineTo(w, h*(1-y)); ctx.stroke();
+  });
+  if (history.length < 2) return;
+  const step = w / MAX_HISTORY;
+  // embodied (green/yellow/red by value)
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  history.forEach((p, i) => {
+    const x = i*step;
+    const y = h - p.emb * h;
+    if (i === 0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+  });
+  ctx.strokeStyle = '#60a5fa';
+  ctx.stroke();
+  // vanilla as muted gray dashed
+  ctx.beginPath();
+  ctx.setLineDash([4,3]);
+  history.forEach((p, i) => {
+    const x = i*step;
+    const y = h - p.van * h;
+    if (i === 0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+  });
+  ctx.strokeStyle = '#8b95a7';
+  ctx.stroke();
+  ctx.setLineDash([]);
+}
+
+function setBadge(el, ok) {
+  el.className = 'badge ' + (ok ? 'green' : 'red');
+  el.textContent = ok ? 'YES' : 'NO';
+}
+
+function colorFor(p) {
+  if (p < 0.3) return 'var(--green)';
+  if (p < 0.6) return 'var(--yellow)';
+  return 'var(--red)';
+}
+
+function connectWS() {
+  const proto = (location.protocol === 'https:') ? 'wss' : 'ws';
+  const ws = new WebSocket(`${proto}://${location.host}/ws/live`);
+  ws.onmessage = (ev) => {
+    const j = JSON.parse(ev.data);
+    if (j.error) { console.error(j.error); return; }
+    if (j.thermal_pause) {
+      $('thermal').textContent = `PAUSE ${j.apu_temp_c.toFixed(1)}C`;
+      return;
+    }
+    $('temp').textContent = j.apu_temp_c.toFixed(1) + 'C';
+    $('thermal').textContent = j.thermal_state;
+    $('tick').textContent = (parseInt($('tick').textContent||0)+1);
+    $('transplant-banner').style.display = j.transplanted ? 'inline-block' : 'none';
+
+    // Anomaly
+    const emb = j.embodied.anomaly_score;
+    const van = j.vanilla.anomaly_score;
+    $('emb-anom').textContent = emb.toFixed(3);
+    $('emb-anom').style.color = colorFor(emb);
+    $('van-anom').textContent = van.toFixed(3);
+    const fill = $('anom-fill');
+    fill.style.width = (emb*100).toFixed(1) + '%';
+    fill.style.background = colorFor(emb);
+    history.push({emb, van});
+    if (history.length > MAX_HISTORY) history.shift();
+    drawHistory();
+
+    // Identity
+    const emb_idx = j.embodied.identity_label;
+    const van_idx = j.vanilla.identity_label;
+    const emb_host = emb_idx === 0 ? hostName : peerName;
+    const van_host = van_idx === 0 ? hostName : peerName;
+    $('emb-ident').textContent = `I am ${emb_host}`;
+    $('van-ident').textContent = `I am ${van_host}`;
+    setBadge($('emb-correct'), emb_idx === 0 && !j.transplanted);
+    setBadge($('van-correct'), van_idx === 0);
+    $('emb-conf').textContent = j.embodied.identity_confidence.toFixed(3);
+    $('van-conf').textContent = j.vanilla.identity_confidence.toFixed(3);
+    if (j.transplanted) {
+      // when transplanted, "correct" means: predicts THIS host. Almost always wrong.
+      setBadge($('emb-correct'), emb_idx === 0);
+    }
+
+    // Sig traces
+    const t = j.sig_traces;
+    $('t-pkg').textContent = t.pkg_uW.toFixed(2);
+    $('t-temp').textContent = t.temp_mC.toFixed(2);
+    $('t-tsc').textContent = t.tsc_mean.toFixed(2);
+    $('t-ns').textContent = t.ns_mean.toFixed(2);
+    $('t-cs').textContent = t.cstate2.toFixed(2);
+  };
+  ws.onclose = () => setTimeout(connectWS, 1500);
+  ws.onerror = () => ws.close();
+}
+
+fetchInfo().then(connectWS);
+</script>
+</body>
+</html>

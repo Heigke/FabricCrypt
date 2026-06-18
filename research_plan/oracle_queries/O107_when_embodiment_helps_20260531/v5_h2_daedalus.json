@@ -1,0 +1,47 @@
+{
+  "host": "daedalus",
+  "densities": [
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "per_density": {
+    "0.10": {
+      "nrmse_med": 0.583505119048299,
+      "wall_med": 0.30688253600010285,
+      "power_uw_med": 123046000.0,
+      "temp_mc_max": 88000.0
+    },
+    "0.20": {
+      "nrmse_med": 0.5766383670290124,
+      "wall_med": 0.2611757990002843,
+      "power_uw_med": 122049000.0,
+      "temp_mc_max": 91000.0
+    },
+    "0.30": {
+      "nrmse_med": 0.574788415709675,
+      "wall_med": 0.3105555080001068,
+      "power_uw_med": 121078500.0,
+      "temp_mc_max": 94000.0
+    },
+    "0.40": {
+      "nrmse_med": 0.5754307311269294,
+      "wall_med": 0.24500014500017642,
+      "power_uw_med": 121530000.0,
+      "temp_mc_max": 97000.0
+    },
+    "0.50": {
+      "nrmse_med": 0.5754093816375192,
+      "wall_med": 0.42531476700014537,
+      "power_uw_med": 121042500.0,
+      "temp_mc_max": 97000.0
+    }
+  },
+  "own_optimal_density": "0.30",
+  "own_optimal_nrmse": 0.574788415709675,
+  "generic_nrmse": 0.574788415709675,
+  "accuracy_gain_pct_vs_generic": 0.0,
+  "WIN": false
+}

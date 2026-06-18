@@ -1,0 +1,140 @@
+% PROPOSAL_GAP_B_citations.bib
+% Companion to PROPOSAL_GAP_B_baseline_comparison.md
+% NS-RAM funding proposal, 2026-05-19
+% Every entry has been verified via WebSearch against the cited venue/page.
+
+@article{pazos2025nsram,
+  author  = {Pazos, S. and Zhu, K. and Villena, M. A. and Alharbi, O. and Zheng, W. and Shen, Y. and Yuan, Y. and Ping, Y. and Lanza, M.},
+  title   = {Synaptic and neural behaviours in a standard silicon transistor},
+  journal = {Nature},
+  volume  = {640},
+  pages   = {69--76},
+  year    = {2025},
+  doi     = {10.1038/s41586-025-08742-4},
+  note    = {Published 26 March 2025. Reports 21 fJ total energy (4.7 fJ generation + 16.3 fJ integration) on a single floating-body silicon transistor configured as a neuro-synaptic cell. Zenodo dataset: 13843362.}
+}
+
+@article{davies2018loihi,
+  author  = {Davies, Mike and Srinivasa, Narayan and Lin, Tsung-Han and Chinya, Gautham and Cao, Yongqiang and Choday, Sri Harsha and Dimou, Georgios and Joshi, Prasad and Imam, Nabil and Jain, Shweta and others},
+  title   = {Loihi: A Neuromorphic Manycore Processor with On-Chip Learning},
+  journal = {IEEE Micro},
+  volume  = {38},
+  number  = {1},
+  pages   = {82--99},
+  year    = {2018},
+  doi     = {10.1109/MM.2018.112130359},
+  note    = {Intel 14 nm CMOS, 60 mm^2 die, 128 cores, 128k neurons, 128 M synapses. Table II reports 23.6 pJ per synaptic operation.}
+}
+
+@inproceedings{orchard2021loihi2,
+  author  = {Orchard, Garrick and Frady, E. Paxon and Rubin, Daniel Ben Dayan and Sanborn, Sophia and Shrestha, Sumit Bam and Sommer, Friedrich T. and Davies, Mike},
+  title   = {Efficient Neuromorphic Signal Processing with Loihi 2},
+  booktitle = {IEEE Workshop on Signal Processing Systems (SiPS)},
+  year    = {2021},
+  eprint  = {2111.03746},
+  archivePrefix = {arXiv},
+  note    = {Loihi 2 in Intel 4 (7 nm EUV), 1 M neurons, ~5x faster synaptic ops vs Loihi 1, up to 10x faster spike generation.}
+}
+
+@misc{intel_loihi2_brief,
+  author       = {{Intel Labs}},
+  title        = {Taking Neuromorphic Computing to the Next Level with Loihi 2 — Technology Brief},
+  howpublished = {Intel Corporation},
+  year         = {2021},
+  month        = sep,
+  url          = {https://www.intel.com/content/www/us/en/research/neuromorphic-computing-loihi-2-technology-brief.html},
+  note         = {Vendor brief: 1 M neurons, ~31 mm^2 active, ~1 W typical power, 120--152 cores.}
+}
+
+@article{merolla2014truenorth,
+  author  = {Merolla, Paul A. and Arthur, John V. and Alvarez-Icaza, Rodrigo and Cassidy, Andrew S. and Sawada, Jun and Akopyan, Filipp and Jackson, Bryan L. and Imam, Nabil and Guo, Chen and Nakamura, Yutaka and Brezzo, Bernard and Vo, Ivan and Esser, Steven K. and Appuswamy, Rathinakumar and Taba, Brian and Amir, Arnon and Flickner, Myron D. and Risk, William P. and Manohar, Rajit and Modha, Dharmendra S.},
+  title   = {A million spiking-neuron integrated circuit with a scalable communication network and interface},
+  journal = {Science},
+  volume  = {345},
+  number  = {6197},
+  pages   = {668--673},
+  year    = {2014},
+  doi     = {10.1126/science.1254642},
+  note    = {Samsung 28 nm CMOS, 430 mm^2, 5.4 B transistors, 4096 cores, 1 M neurons, 256 M synapses. SI Fig. 3 reports 26 pJ per synaptic event at 20 Hz / 128 active synapses, 72 mW total at 0.775 V.}
+}
+
+@article{akopyan2015truenorth,
+  author  = {Akopyan, Filipp and Sawada, Jun and Cassidy, Andrew and Alvarez-Icaza, Rodrigo and Arthur, John and Merolla, Paul and Imam, Nabil and Nakamura, Yutaka and Datta, Pallab and Nam, Gi-Joon and Taba, Brian and Beakes, Michael and Brezzo, Bernard and Kuang, Jente B. and Manohar, Rajit and Risk, William P. and Jackson, Bryan and Modha, Dharmendra S.},
+  title   = {TrueNorth: Design and Tool Flow of a 65 mW 1 Million Neuron Programmable Neurosynaptic Chip},
+  journal = {IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems},
+  volume  = {34},
+  number  = {10},
+  pages   = {1537--1557},
+  year    = {2015},
+  doi     = {10.1109/TCAD.2015.2474396},
+  note    = {Die area 430 mm^2 / 4096 cores -> ~105k um^2/core; 256 neurons/core -> ~410 um^2/neuron.}
+}
+
+@misc{mythic2021m1076,
+  author       = {{Mythic AI}},
+  title        = {M1076 Analog Matrix Processor --- Product Brief},
+  howpublished = {Mythic Inc.},
+  year         = {2021},
+  url          = {https://mythic.ai/products/m1076-analog-matrix-processor/},
+  note         = {Up to 25 TOPS at 3 W; 76 AMP tiles, 80 M weight parameters, M.2 form factor. Per-MAC energy ~0.12 pJ at 8b.}
+}
+
+@article{legallo2023hermes,
+  author  = {Le Gallo, Manuel and Khaddam-Aljameh, Riduan and Stanisavljevic, Milos and Vasilopoulos, Athanasios and Kersting, Benedikt and Dazzi, Martino and Karunaratne, Geethan and Br\"andli, Matthias and Singh, Abhairaj and Mueller, Silvia M. and others},
+  title   = {A 64-core mixed-signal in-memory compute chip based on phase-change memory for deep neural network inference},
+  journal = {Nature Electronics},
+  volume  = {6},
+  pages   = {680--693},
+  year    = {2023},
+  doi     = {10.1038/s41928-023-01010-1},
+  note    = {IBM Albany 14 nm CMOS with backend-integrated PCM; 64 AIMC cores, 1 GHz MVM clock. 10 TOPS/W class energy efficiency.}
+}
+
+@article{pehle2022brainscales2,
+  author  = {Pehle, Christian and Billaudelle, Sebastian and Cramer, Benjamin and Kaiser, Jakob and Schreiber, Korbinian and Stradmann, Yannik and Weis, Johannes and Leibfried, Aron and M\"uller, Eric and Schemmel, Johannes},
+  title   = {The {BrainScaleS-2} Accelerated Neuromorphic System with Hybrid Plasticity},
+  journal = {Frontiers in Neuroscience},
+  volume  = {16},
+  pages   = {795876},
+  year    = {2022},
+  doi     = {10.3389/fnins.2022.795876},
+  note    = {65 nm CMOS HICANN-X ASIC. 512 AdEx neuron compartments, 131{,}072 plastic synapses per chip. Acceleration factor ~1000x over biological time.}
+}
+
+@article{mayr2019spinnaker2,
+  author  = {Mayr, Christian and H\"oppner, Sebastian and Furber, Steve},
+  title   = {{SpiNNaker} 2: A 10 Million Core Processor System for Brain Simulation and Machine Learning},
+  journal = {arXiv preprint arXiv:1911.02385},
+  year    = {2019},
+  eprint  = {1911.02385},
+  archivePrefix = {arXiv},
+  note    = {22 nm FDSOI, 152 ARM cores per chip, adaptive body biasing and DVFS down to 0.5 V. 48 nJ per synaptic event in full ARM-based simulation path.}
+}
+
+@article{hoeppner2022spinnaker2,
+  author  = {H\"oppner, Sebastian and Yan, Yexin and Dixius, Andreas and Scholze, Stefan and Partzsch, Johannes and Stolba, Marco and Kelber, Florian and Vogginger, Bernhard and Liu, Chen and Neumarker, Felix and others},
+  title   = {The {SpiNNaker} 2 Processing Element Architecture for Hybrid Digital Neuromorphic Computing},
+  journal = {arXiv preprint arXiv:2103.08392},
+  year    = {2022},
+  eprint  = {2103.08392},
+  archivePrefix = {arXiv},
+  note    = {Detailed PE architecture; SRAM, accelerators (MAC, Exp/Log), and energy figures per neuron type.}
+}
+
+@misc{brainchip2023akd1000,
+  author       = {{BrainChip}},
+  title        = {Akida {AKD1000} System-on-Chip --- Product Brief, v2.3},
+  howpublished = {BrainChip Inc.},
+  year         = {2025},
+  month        = aug,
+  url          = {https://brainchip.com/wp-content/uploads/2025/08/Akida-AKD1000-SoC-Product-Brief-V2.3-Aug.25.pdf},
+  note         = {TSMC 28 nm, Cortex-M4 host + 80 Akida NPUs forming 20 nodes, up to 300 MHz NPU clock, on-chip few-shot learning.}
+}
+
+@misc{nsram_proposal2026,
+  author       = {{NS-RAM consortium}},
+  title        = {NS-RAM 2T Neuro-Synaptic Cell: Modelling, Topology Zoo, and Tape-out Plan (Proposal)},
+  howpublished = {Internal proposal draft, main-4.tex},
+  year         = {2026},
+  note         = {This document. Cell card in data/sebas_2026_04_22/; topology-zoo simulation in results/Pillar_III_topology_zoo/verdict.md.}
+}

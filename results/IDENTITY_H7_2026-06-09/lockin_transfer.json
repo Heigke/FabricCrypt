@@ -1,0 +1,139 @@
+{
+  "runs": [
+    "daedalus_r1",
+    "daedalus_r2",
+    "ikaros_r1",
+    "ikaros_r2"
+  ],
+  "n_dim": 960,
+  "per_run": {
+    "daedalus_r1": {
+      "feat_absmean": 112119.65308134942,
+      "segT_min": 60.26874923706055,
+      "segT_max": 72.71875
+    },
+    "daedalus_r2": {
+      "feat_absmean": 1186.9318985627726,
+      "segT_min": 70.57707977294922,
+      "segT_max": 72.30833435058594
+    },
+    "ikaros_r1": {
+      "feat_absmean": 143691.6576904407,
+      "segT_min": 56.74791717529297,
+      "segT_max": 73.41666412353516
+    },
+    "ikaros_r2": {
+      "feat_absmean": 0.5750144195321863,
+      "segT_min": 62.82291793823242,
+      "segT_max": 71.6500015258789
+    }
+  },
+  "A_raw": {
+    "label": "raw cosine (scale-sensitive)",
+    "intra": [
+      0.0,
+      0.002
+    ],
+    "intra_lab": [
+      "daedalus_r1~daedalus_r2",
+      "ikaros_r1~ikaros_r2"
+    ],
+    "inter": [
+      0.219,
+      0.003,
+      0.0,
+      -0.016
+    ],
+    "inter_lab": [
+      "daedalus_r1~ikaros_r1",
+      "daedalus_r1~ikaros_r2",
+      "daedalus_r2~ikaros_r1",
+      "daedalus_r2~ikaros_r2"
+    ],
+    "mean_intra": 0.0011176751193111053,
+    "mean_inter": 0.0516244767228778,
+    "min_intra": 2.97570749879614e-05,
+    "max_inter": 0.21944305295841698,
+    "gap": -0.050506801603566694,
+    "margin_min_intra_minus_max_inter": -0.21941329588342903,
+    "clean_separation": false,
+    "PASS_prereg_0.03": false
+  },
+  "B_whitened": {
+    "label": "whitened-per-dim cosine (PRE-REG)",
+    "intra": [
+      -0.194,
+      -0.02
+    ],
+    "intra_lab": [
+      "daedalus_r1~daedalus_r2",
+      "ikaros_r1~ikaros_r2"
+    ],
+    "inter": [
+      -0.392,
+      -0.415,
+      -0.497,
+      -0.469
+    ],
+    "inter_lab": [
+      "daedalus_r1~ikaros_r1",
+      "daedalus_r1~ikaros_r2",
+      "daedalus_r2~ikaros_r1",
+      "daedalus_r2~ikaros_r2"
+    ],
+    "mean_intra": -0.10677292093921517,
+    "mean_inter": -0.4432983775058342,
+    "min_intra": -0.19362848548666822,
+    "max_inter": -0.39214249129017753,
+    "gap": 0.33652545656661903,
+    "margin_min_intra_minus_max_inter": 0.1985140058035093,
+    "clean_separation": true,
+    "PASS_prereg_0.03": true
+  },
+  "C_matched_temp": {
+    "band": [
+      68.0,
+      73.0
+    ],
+    "n_common_segments": 10,
+    "total_segments": 24,
+    "label": "matched-temp [68.0,73.0]C whitened, 10 segs",
+    "intra": [
+      -0.19,
+      -0.065
+    ],
+    "intra_lab": [
+      "daedalus_r1~daedalus_r2",
+      "ikaros_r1~ikaros_r2"
+    ],
+    "inter": [
+      -0.373,
+      -0.446,
+      -0.495,
+      -0.424
+    ],
+    "inter_lab": [
+      "daedalus_r1~ikaros_r1",
+      "daedalus_r1~ikaros_r2",
+      "daedalus_r2~ikaros_r1",
+      "daedalus_r2~ikaros_r2"
+    ],
+    "mean_intra": -0.12751142458858347,
+    "mean_inter": -0.4346313810234319,
+    "min_intra": -0.19008465904400795,
+    "max_inter": -0.37316740170209034,
+    "gap": 0.30711995643484846,
+    "margin_min_intra_minus_max_inter": 0.1830827426580824,
+    "clean_separation": true,
+    "PASS_prereg_0.03": true
+  },
+  "VERDICT": {
+    "whitened_mean_intra": -0.10677292093921517,
+    "whitened_mean_inter": -0.4432983775058342,
+    "whitened_gap": 0.33652545656661903,
+    "clean_separation": true,
+    "PASS_prereg_0.03": true,
+    "beats_spatial_0.7_reliability": false,
+    "DECISION": "NO-GO \u2014 lock-in did NOT cleanly separate / did not beat spatial reliability at K=2; r\u00e4kna-unikt remains unestablished. Consolidate at 2.5/3."
+  }
+}

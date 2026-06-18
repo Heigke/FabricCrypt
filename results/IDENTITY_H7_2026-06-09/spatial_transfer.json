@@ -1,0 +1,53 @@
+{
+  "Araw": {
+    "intra_cosines": [
+      0.512,
+      0.63,
+      0.769,
+      0.317
+    ],
+    "inter_cosines": [
+      0.806,
+      0.348,
+      0.277,
+      0.256,
+      0.479,
+      0.502
+    ],
+    "mean_intra": 0.5570585832929354,
+    "mean_inter": 0.4445834360434533,
+    "gap": 0.11247514724948215,
+    "min_intra": 0.3171216431555982,
+    "max_inter": 0.8055230226836142,
+    "clean_separation": false,
+    "mean_intra_rowcos": 0.6294097860126288,
+    "mean_inter_rowcos": 0.4209487032690031,
+    "DIE_SPECIFIC_meangap": true
+  },
+  "Cnorm": {
+    "intra_cosines": [
+      0.727,
+      0.817,
+      0.745,
+      0.508
+    ],
+    "inter_cosines": [
+      0.733,
+      0.495,
+      0.389,
+      0.277,
+      0.713,
+      0.471
+    ],
+    "mean_intra": 0.6991495811676447,
+    "mean_inter": 0.5129152449608568,
+    "gap": 0.18623433620678786,
+    "min_intra": 0.5075285916325832,
+    "max_inter": 0.7325828560635889,
+    "clean_separation": false,
+    "mean_intra_rowcos": 0.7647008388114337,
+    "mean_inter_rowcos": 0.4833197416613875,
+    "DIE_SPECIFIC_meangap": true
+  },
+  "VERDICT": "weak/ambiguous \u2014 mean gap may exceed 0.10 but NOT cleanly separated, or raw disagrees; NOT established"
+}

@@ -1,0 +1,110 @@
+{
+  "task": "MEP-3 5D surrogate with V_Nwell axis (body_pdiode_to=vnwell)",
+  "verdict": "INFORMATIVE-PASS",
+  "n_total": 4125,
+  "n_converged": 3915,
+  "conv_rate": 0.9490909090909091,
+  "wall_s": 28.045348644256592,
+  "node": "ikaros",
+  "n_workers": 4,
+  "grid_shape": [
+    3,
+    5,
+    5,
+    11,
+    5
+  ],
+  "axes": {
+    "vg1": [
+      0.2,
+      0.4,
+      0.6
+    ],
+    "vg2": [
+      0.0,
+      0.15,
+      0.3,
+      0.45,
+      0.6
+    ],
+    "vd": [
+      0.5,
+      1.0,
+      1.5,
+      2.0,
+      2.5
+    ],
+    "vb": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "vnwell": [
+      0.5,
+      1.0,
+      2.0,
+      2.5,
+      5.0
+    ]
+  },
+  "conv_by_vnwell": {
+    "0.5": 0.9490909090909091,
+    "1.0": 0.9490909090909091,
+    "2.0": 0.9490909090909091,
+    "2.5": 0.9490909090909091,
+    "5.0": 0.9490909090909091
+  },
+  "diagnostic_ileak_at_vb_0p5": {
+    "description": "Mean |Ileak| across (V_G1, V_G2, V_d) at V_b=0.5 V, vs V_Nwell. Should rise sharply when V_Nwell<V_b.",
+    "values_by_vnwell": {
+      "0.5": 3.923302067688404e-11,
+      "1.0": 3.9232998676884275e-11,
+      "2.0": 3.923299867688404e-11,
+      "2.5": 3.923299867688404e-11,
+      "5.0": 3.923299867688404e-11
+    },
+    "range": 2.1999999999775138e-17,
+    "max": 3.923302067688404e-11,
+    "rel_variation_ileak": 5.60752132265397e-07,
+    "rel_variation_iii_at_test_point": 0.9996084119550935,
+    "has_vnwell_dependence": true
+  },
+  "diagnostic_slide21_test_point": {
+    "description": "Id, Iii, Ileak at (V_G1\u22480.45\u21920.40, V_G2=0.30, V_d=2.0, V_b=0.5) vs V_Nwell. If diode is the only V_Nwell-coupled element, Id should be near-constant; if not, V_Nwell affects channel via body charging coupling.",
+    "vg1_used": 0.4,
+    "vg2_used": 0.3,
+    "vd_used": 2.0,
+    "vb_used": 0.5,
+    "Id_by_vnwell": {
+      "0.5": 9.269726298385187e-07,
+      "1.0": 9.269726298385187e-07,
+      "2.0": 9.269726298385187e-07,
+      "2.5": 9.269726298385187e-07,
+      "5.0": 9.269726298385187e-07
+    },
+    "Iii_by_vnwell": {
+      "0.5": 1.7628364978946635e-13,
+      "1.0": 2.7739771869319955e-11,
+      "2.0": 1.5017628336938236e-10,
+      "2.5": 2.0017628315128795e-10,
+      "5.0": 4.501762811261258e-10
+    },
+    "Ileak_by_vnwell": {
+      "0.5": 2.7844466000576032e-11,
+      "1.0": 2.7844444000576268e-11,
+      "2.0": 2.7844444000576032e-11,
+      "2.5": 2.7844444000576032e-11,
+      "5.0": 2.7844444000576032e-11
+    }
+  },
+  "err_count": {},
+  "out_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z279_mep3_surrogate_vnwell/surrogate_5d.npz"
+}

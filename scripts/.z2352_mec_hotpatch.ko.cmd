@@ -1,0 +1,1 @@
+savedcmd_z2352_mec_hotpatch.ko := ld -r -m elf_x86_64 -z noexecstack --no-warn-rwx-segments --build-id=sha1  -T /usr/src/linux-headers-6.14.0-1017-oem/scripts/module.lds -o z2352_mec_hotpatch.ko z2352_mec_hotpatch.o z2352_mec_hotpatch.mod.o .module-common.o

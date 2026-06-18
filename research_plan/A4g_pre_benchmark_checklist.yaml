@@ -1,0 +1,94 @@
+# A.4.g — Pre-benchmark physics checklist
+#
+# Any new B.5.* benchmark run, any topology-coupling experiment, and any
+# tape-out parameter sweep MUST satisfy these invariants on the calibrated
+# stack BEFORE its results are entered into 01_LOG.md or shared with Sebas/
+# Mario. If any check fails, the failure is itself a logged finding — do
+# NOT silently re-tune; trace the regression to a specific commit/patch.
+#
+# Reference baseline: Phase A closure, 2026-05-02 (median z91g log-RMSE
+# 1.002 dec on 33-bias measured set, 5 silent-bug fixes documented).
+
+version: 1
+baseline_phase: A_closed_2026_05_02
+baseline_commit: HEAD  # update on each Phase change
+
+invariants:
+
+  dc_isolated_M2:
+    description: Single M2 transistor, sweep Vds at fixed Vgs; compare to ngspice-42
+    biases:
+      Vds: [0.05, 0.5, 2.0]   # V
+      Vgs: [0.6]              # V
+    tolerances:
+      Vth_gap_mV_max: 2.0           # |Vth_pyport - Vth_ngspice|
+      DIBL_gap_mV_per_V_max: 1.0
+      Id_ratio_subthreshold:
+        decades: 4                  # span over which ratio must hold
+        ratio_min: 0.5
+        ratio_max: 2.0
+    blocker_if_failed: true
+
+  dc_full_2T_cell:
+    description: 33-bias measured set fit (Sebas's I-Vs@VG2)
+    metric: log_RMSE_decades
+    median_max: 1.10
+    p95_max: 1.40
+    blocker_if_failed: true
+
+  newton_convergence:
+    description: Random bias sweep, single-cell DC + transient
+    n_samples: 200
+    success_rate_min: 0.99
+    blocker_if_failed: true
+
+  body_dynamics:
+    description: Floating-body cap τ should be in physically plausible range
+    Vb_equilibrium_ceiling_V: [0.18, 0.24]   # at thick-ox card limit
+    body_cap_tau_s: [3.0e-10, 3.0e-9]        # 0.3-3 ns
+    blocker_if_failed: false                 # warn only
+
+  parser_mimicry_active:
+    description: Verify all 5 silent ngspice-42 bug fixes are in patched model
+    required_patches:
+      - "phin == 0.0"          # silently dropped first-on-line
+      - "lpe0 == 1.74e-7"      # .param substitution failure
+      - "toxe == 3.0e-9"       # toxe = toxn substitution failure
+      - "binunit == 1"
+      - "wvth0 == 0.0"
+    blocker_if_failed: true
+
+  gpu_throughput:
+    description: GPU pipeline cell-evals/s on Radeon 8060S (gfx1151)
+    min_cell_evals_per_s: 1.0e6      # 1M/s = 1× G2 target; 5M/s achieved at closure
+    blocker_if_failed: false
+
+  reservoir_baseline:
+    description: Memory capacity on N=10 isolated cells (no coupling)
+    expected_MC_max: 0.5             # cells are memoryless; chance ≈ 0
+    if_higher_than: 0.5
+    action: investigate                 # MC>>chance with isolated cells means
+                                      # something has leaked from a coupled run
+    blocker_if_failed: false
+
+# Operational rules
+
+usage:
+  before_any_benchmark:
+    - "Run scripts/z91g_validate_with_sebas_params.py — confirm dc_full_2T_cell"
+    - "Run scripts/z95_ngspice_isolated_diff.py (or equivalent) — confirm dc_isolated_M2"
+    - "Spot-grep patch_model_values to confirm parser_mimicry_active patches present"
+  on_failure:
+    - "STOP. Append a log entry to 01_LOG.md with category=REGRESSION."
+    - "Do NOT proceed to the benchmark. Trace failure to a commit before continuing."
+  on_passing:
+    - "Append a one-line confirmation to the benchmark's log entry referencing
+       this checklist version, e.g. 'A.4.g checklist v1 PASS at 2026-05-02 22:30'."
+
+# Future extensions (not yet enforced)
+
+todo_extensions:
+  - "Transient validation against Sebas's 7-rate ramp data (BLOCKED on data)"
+  - "Cross-validation against Robert's Julia port (BLOCKED on Robert)"
+  - "Subthreshold slope match within 5% across temperature 250-400K"
+  - "GIDL knee match within 0.05 V on M1 at high VG1"

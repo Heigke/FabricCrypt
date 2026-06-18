@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "S0_hook": 18.096,
+    "S1_problem": 41.328,
+    "S2_fingerprints": 72.72,
+    "S3_crypto": 73.08,
+    "S4_personality": 42.216,
+    "S5_why": 55.296,
+    "S6_honest": 30.24,
+    "S7_close": 10.776
+  },
+  "total_seconds": 343.752,
+  "total_mmss": "5:43",
+  "output": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/paper_drafts/launch_kit/explainer_video/fabriccrypt_explainer_5min.mp4",
+  "thumbnail": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/paper_drafts/launch_kit/explainer_video/fabriccrypt_explainer_thumbnail.png"
+}

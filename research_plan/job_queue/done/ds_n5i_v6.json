@@ -1,0 +1,33 @@
+{
+  "id": "ds_n5i_v6",
+  "title": "HDC ds_n5i_v6",
+  "script": "scripts/z292_nsram_hdc_vd_bit.py",
+  "args": [
+    "--vg2",
+    "0.55",
+    "--seeds",
+    "0",
+    "1",
+    "2",
+    "3",
+    "--out_dir",
+    "results/z292i_hdc_vg2_deep"
+  ],
+  "node_pref": "any",
+  "wall_estimate_min": 30,
+  "needs_surrogate": "results/z278_mep2_surrogate_v3/surrogate_4d_v3.npz",
+  "env_vars": {
+    "HSA_OVERRIDE_GFX_VERSION": "11.0.0",
+    "PYTHONUNBUFFERED": "1"
+  },
+  "out_dir": "results/",
+  "submitted_at": 1778591066.7308397,
+  "submitted_iso": "2026-05-12T15:04:26",
+  "retry_count": 0,
+  "completed_at": 1778591161.1149054,
+  "completed_iso": "2026-05-12T15:06:01",
+  "duration_sec": 80,
+  "worker": "ikaros_0",
+  "log_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/queue_logs/ikaros_ds_n5i_v6.log",
+  "return_code": 0
+}

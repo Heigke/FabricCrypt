@@ -1,0 +1,32 @@
+{
+  "id": "ds_n5g_vd_wide",
+  "title": "DS-N5g V_d wider {0.30, 2.50}",
+  "script": "scripts/z292_nsram_hdc_vd_bit.py",
+  "args": [
+    "--vd_high",
+    "2.50",
+    "--vd_low",
+    "0.30",
+    "--seeds",
+    "0",
+    "1",
+    "2",
+    "3",
+    "--out_dir",
+    "results/z292g_hdc_vd_wide"
+  ],
+  "node_pref": "any",
+  "wall_estimate_min": 30,
+  "needs_surrogate": null,
+  "env_vars": {},
+  "out_dir": "results/",
+  "submitted_at": 1778572830.4210439,
+  "submitted_iso": "2026-05-12T10:00:30",
+  "retry_count": 0,
+  "failed_at": 1778572838.0609756,
+  "failed_iso": "2026-05-12T10:00:38",
+  "worker": "ikaros_0",
+  "error": "rc=2 see log /home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/queue_logs/ikaros_ds_n5g_vd_wide.log",
+  "log_tail": "usage: z292_nsram_hdc_vd_bit.py [-h] [--data_root DATA_ROOT]\n                                [--surrogate SURROGATE] [--N N] [--Q Q]\n                                [--seeds SEEDS [SEEDS ...]]\n                                [--T_steps T_STEPS] [--batch_size BATCH_SIZE]\n                                [--DS_N5c_acc DS_N5C_ACC]\n                                [--fair_baseline FAIR_BASELINE] [--out OUT]\nz292_nsram_hdc_vd_bit.py: error: unrecognized arguments: --vd_high 2.50 --vd_low 0.30 --out_dir results/z292g_hdc_vd_wide\n",
+  "duration_sec": 2
+}

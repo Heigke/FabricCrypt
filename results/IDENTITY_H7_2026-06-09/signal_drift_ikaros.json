@@ -1,0 +1,129 @@
+{
+  "host": "ikaros",
+  "dur": 150.0,
+  "every": 3.0,
+  "load": true,
+  "families": {
+    "vcore_raw": {
+      "status": "ok",
+      "n": 50,
+      "dim": 16,
+      "cosdist_from_t0_max": 0.0012875411502809575,
+      "cosdist_from_t0_end": 9.178350959704318e-06,
+      "per_sample_std_mean": 0.009481183063561216,
+      "absdrift_from_t0_end": 0.02291616052389145,
+      "value_t0": [
+        0.73,
+        0.73726,
+        0.72769,
+        0.72565,
+        0.72472,
+        0.73575,
+        0.72703,
+        0.727
+      ],
+      "value_end": [
+        0.70834,
+        0.72165,
+        0.70118,
+        0.70755,
+        0.69822,
+        0.71001,
+        0.70678,
+        0.70416
+      ]
+    },
+    "vcore_z": {
+      "status": "ok",
+      "n": 50,
+      "dim": 16,
+      "cosdist_from_t0_max": 1.098692211089424,
+      "cosdist_from_t0_end": 0.2100215731323516,
+      "per_sample_std_mean": 0.5155845726277644,
+      "absdrift_from_t0_end": 0.5377879847105138,
+      "value_t0": [
+        -0.29894,
+        1.76956,
+        -0.95678,
+        -1.53683,
+        -1.80097,
+        1.33987,
+        -1.14291,
+        -1.15369
+      ],
+      "value_end": [
+        0.04317,
+        2.76446,
+        -1.4212,
+        -0.1198,
+        -2.0257,
+        0.38489,
+        -0.2765,
+        -0.81307
+      ]
+    },
+    "cppc": {
+      "status": "ok",
+      "n": 50,
+      "dim": 32,
+      "cosdist_from_t0_max": 2.220446049250313e-16,
+      "cosdist_from_t0_end": 2.220446049250313e-16,
+      "per_sample_std_mean": 0.0,
+      "absdrift_from_t0_end": 0.0,
+      "value_t0": [
+        231.0,
+        231.0,
+        236.0,
+        236.0,
+        216.0,
+        216.0,
+        211.0,
+        211.0
+      ],
+      "value_end": [
+        231.0,
+        231.0,
+        236.0,
+        236.0,
+        216.0,
+        216.0,
+        211.0,
+        211.0
+      ]
+    },
+    "thermal": {
+      "status": "ok",
+      "n": 50,
+      "dim": 1,
+      "cosdist_from_t0_max": 0.0,
+      "cosdist_from_t0_end": 0.0,
+      "per_sample_std_mean": 0.3815756805667782,
+      "absdrift_from_t0_end": 0.0,
+      "value_t0": [
+        41.0
+      ],
+      "value_end": [
+        41.0
+      ]
+    },
+    "gpu_freq": {
+      "status": "ok",
+      "n": 50,
+      "dim": 3,
+      "cosdist_from_t0_max": 0.0,
+      "cosdist_from_t0_end": 0.0,
+      "per_sample_std_mean": 0.0,
+      "absdrift_from_t0_end": 0.0,
+      "value_t0": [
+        600000000.0,
+        0.0,
+        0.0
+      ],
+      "value_end": [
+        600000000.0,
+        0.0,
+        0.0
+      ]
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "host": "ikaros",
+  "d_u": 1.0438153743743896,
+  "d_v": 0.589984118938446,
+  "ntap": 12,
+  "seed_u": 0,
+  "seed_v": 12345,
+  "results": {
+    "RECALL_u1": {
+      "die_r4": 0.7252032520325203,
+      "die_full": 0.8991869918699187,
+      "u_only_poly": 1.0,
+      "surrogate": 0.5154471544715448,
+      "GATE_WIN": false
+    },
+    "RECALL_v1": {
+      "die_r4": 0.5495934959349593,
+      "die_full": 0.6601626016260163,
+      "u_only_poly": 0.5349593495934959,
+      "surrogate": 0.5317073170731708,
+      "GATE_WIN": false
+    },
+    "XOR_u1v1": {
+      "die_r4": 0.551219512195122,
+      "die_full": 0.6536585365853659,
+      "u_only_poly": 0.5300813008130081,
+      "surrogate": 0.4861788617886179,
+      "GATE_WIN": true
+    },
+    "XOR_u1v2": {
+      "die_r4": 0.5317073170731708,
+      "die_full": 0.591869918699187,
+      "u_only_poly": 0.510569105691057,
+      "surrogate": 0.5008130081300813,
+      "GATE_WIN": false
+    },
+    "AND_u1v1": {
+      "die_r4": 0.49105691056910566,
+      "die_full": 0.6439024390243903,
+      "u_only_poly": 0.7463414634146341,
+      "surrogate": 0.5430894308943089,
+      "GATE_WIN": false
+    }
+  },
+  "within_die_gate_pass": true,
+  "verdict": "WITHIN-DIE GATE PASS \u2014 die mixes u,v -> proceed to daedalus cross-die"
+}

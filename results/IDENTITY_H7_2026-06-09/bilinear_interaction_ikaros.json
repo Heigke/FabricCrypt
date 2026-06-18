@@ -1,0 +1,90 @@
+{
+  "host": "ikaros",
+  "levels": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "reps": 6,
+  "per_channel": {
+    "ch0": {
+      "interaction_rms": 0.0,
+      "noise_rms": 1e-09,
+      "interaction_over_noise": 0.0,
+      "interaction_frac_of_structure": 0.0,
+      "bilinear_coeff_ab": 0.0
+    },
+    "ch1": {
+      "interaction_rms": 0.9844632148742676,
+      "noise_rms": 0.8856558213697204,
+      "interaction_over_noise": 1.111564098739548,
+      "interaction_frac_of_structure": 2.5131020545959473,
+      "bilinear_coeff_ab": 1.2718303428996693
+    },
+    "ch2": {
+      "interaction_rms": 0.2539811432361603,
+      "noise_rms": 0.016809963689876556,
+      "interaction_over_noise": 15.108964416687886,
+      "interaction_frac_of_structure": 3.4115524291992188,
+      "bilinear_coeff_ab": 0.1109992001273416
+    },
+    "ch3": {
+      "interaction_rms": 0.11157876998186111,
+      "noise_rms": 0.11464829842908478,
+      "interaction_over_noise": 0.9732265677791782,
+      "interaction_frac_of_structure": 1.2421265840530396,
+      "bilinear_coeff_ab": 0.21754916646263828
+    },
+    "ch4": {
+      "interaction_rms": 0.2139468640089035,
+      "noise_rms": 0.001897505087537527,
+      "interaction_over_noise": 112.75166818474855,
+      "interaction_frac_of_structure": 4.58708381652832,
+      "bilinear_coeff_ab": -0.003563179536299291
+    },
+    "ch5": {
+      "interaction_rms": 0.12902075052261353,
+      "noise_rms": 0.20400574903352356,
+      "interaction_over_noise": 0.6324368363825472,
+      "interaction_frac_of_structure": 0.30316129326820374,
+      "bilinear_coeff_ab": 0.06369237856431427
+    },
+    "ch6": {
+      "interaction_rms": 0.0030406920704990625,
+      "noise_rms": 0.006426928167922259,
+      "interaction_over_noise": 0.4731174817972298,
+      "interaction_frac_of_structure": 1.099768042564392,
+      "bilinear_coeff_ab": -0.0005966832691972937
+    },
+    "ch7": {
+      "interaction_rms": 0.10521885007619858,
+      "noise_rms": 1e-09,
+      "interaction_over_noise": 105218850.07619858,
+      "interaction_frac_of_structure": 5.097422122955322,
+      "bilinear_coeff_ab": 0.00014606822620742964
+    },
+    "ch8": {
+      "interaction_rms": 0.0,
+      "noise_rms": 1e-09,
+      "interaction_over_noise": 0.0,
+      "interaction_frac_of_structure": 0.0,
+      "bilinear_coeff_ab": 0.0
+    },
+    "ch9": {
+      "interaction_rms": 0.4562605023384094,
+      "noise_rms": 0.03659875418408012,
+      "interaction_over_noise": 12.466558288939668,
+      "interaction_frac_of_structure": 1.8386890888214111,
+      "bilinear_coeff_ab": 0.4241916318373249
+    }
+  },
+  "best_interaction_channel": "ch7",
+  "predict_a_times_b": {
+    "from_die_linear": -9.0,
+    "from_drive_linear": 0.7892151377692125,
+    "from_drive_with_ab_given": 0.9999999493854014
+  },
+  "verdict": "no usable interaction"
+}

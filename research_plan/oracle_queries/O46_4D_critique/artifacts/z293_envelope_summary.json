@@ -1,0 +1,181 @@
+{
+  "experiment": "z293_envelope_sweep_aggregate",
+  "counts": {
+    "4B1": 4,
+    "4B2": 2,
+    "4B3": 12
+  },
+  "4B1_Nscaling": [
+    {
+      "N": 64,
+      "mean_acc": 0.5943332202239565,
+      "std_acc": 0.035453294703462826,
+      "ci95": [
+        0.5624363759755684,
+        0.6267390566677977
+      ],
+      "energy_nJ": 0.14533072222599253,
+      "verdict": "FAIL"
+    },
+    {
+      "N": 128,
+      "mean_acc": 0.6573634204275536,
+      "std_acc": 0.03172162251786319,
+      "ci95": [
+        0.6269087207329488,
+        0.6878181201221581
+      ],
+      "energy_nJ": 0.30315492419409573,
+      "verdict": "INTERMEDIATE_PASS"
+    },
+    {
+      "N": 512,
+      "mean_acc": 0.7556837461825586,
+      "std_acc": 0.015269765863590069,
+      "ci95": [
+        0.7378690193417035,
+        0.7684085510688836
+      ],
+      "energy_nJ": 1.1663058893790295,
+      "verdict": "INTERMEDIATE_PASS"
+    },
+    {
+      "N": 1024,
+      "mean_acc": 0.8056498133695283,
+      "std_acc": 0.013601461344802224,
+      "ci95": [
+        0.7914828639294198,
+        0.8176959619952494
+      ],
+      "energy_nJ": 2.2952326167628097,
+      "verdict": "CONSERVATIVE_PASS"
+    }
+  ],
+  "4B2_noise": [
+    {
+      "sigma": 0.05,
+      "mean_acc": 0.5909399389209364,
+      "std_acc": 0.0205993416945184,
+      "verdict": "FAIL"
+    },
+    {
+      "sigma": 0.1,
+      "mean_acc": 0.5486087546657619,
+      "std_acc": 0.009071476028818904,
+      "verdict": "FAIL"
+    }
+  ],
+  "4B3_vd_grid": [
+    {
+      "vd_high": 1.5,
+      "vd_low": 0.0,
+      "mean_acc": 0.6590600610790635,
+      "std_acc": 0.030581330028254347,
+      "verdict": "INTERMEDIATE_PASS"
+    },
+    {
+      "vd_high": 1.5,
+      "vd_low": 0.2,
+      "mean_acc": 0.6590600610790635,
+      "std_acc": 0.030581330028254347,
+      "verdict": "INTERMEDIATE_PASS"
+    },
+    {
+      "vd_high": 1.5,
+      "vd_low": 0.5,
+      "mean_acc": 0.6590600610790635,
+      "std_acc": 0.030581330028254347,
+      "verdict": "INTERMEDIATE_PASS"
+    },
+    {
+      "vd_high": 2.0,
+      "vd_low": 0.0,
+      "mean_acc": 0.6573634204275536,
+      "std_acc": 0.03172162251786319,
+      "verdict": "INTERMEDIATE_PASS"
+    },
+    {
+      "vd_high": 2.0,
+      "vd_low": 0.2,
+      "mean_acc": 0.6573634204275536,
+      "std_acc": 0.03172162251786319,
+      "verdict": "INTERMEDIATE_PASS"
+    },
+    {
+      "vd_high": 2.0,
+      "vd_low": 1.0,
+      "mean_acc": 0.6562606040040719,
+      "std_acc": 0.03132772421117563,
+      "verdict": "INTERMEDIATE_PASS"
+    },
+    {
+      "vd_high": 2.5,
+      "vd_low": 0.0,
+      "mean_acc": 0.656599932134374,
+      "std_acc": 0.030946837104436783,
+      "verdict": "INTERMEDIATE_PASS"
+    },
+    {
+      "vd_high": 2.5,
+      "vd_low": 0.5,
+      "mean_acc": 0.656599932134374,
+      "std_acc": 0.030946837104436783,
+      "verdict": "INTERMEDIATE_PASS"
+    },
+    {
+      "vd_high": 2.5,
+      "vd_low": 1.0,
+      "mean_acc": 0.6554971157108924,
+      "std_acc": 0.03094067409834097,
+      "verdict": "INTERMEDIATE_PASS"
+    },
+    {
+      "vd_high": 3.0,
+      "vd_low": 0.0,
+      "mean_acc": 0.6366644044791314,
+      "std_acc": 0.026002782375448678,
+      "verdict": "INTERMEDIATE_PASS"
+    },
+    {
+      "vd_high": 3.0,
+      "vd_low": 0.2,
+      "mean_acc": 0.6366644044791314,
+      "std_acc": 0.026002782375448678,
+      "verdict": "INTERMEDIATE_PASS"
+    },
+    {
+      "vd_high": 3.0,
+      "vd_low": 1.0,
+      "mean_acc": 0.6341194435018663,
+      "std_acc": 0.02674281894060112,
+      "verdict": "FAIL"
+    }
+  ],
+  "gates_locked": {
+    "4B1_monotone_nondecreasing": true,
+    "4B1_ambitious_N1024_geq_0.76": true,
+    "4B2_sigma005_within_1pp": false,
+    "4B2_ambitious_sigma010_improves": false,
+    "4B3_local_max_interior": false
+  },
+  "best_4B3_cell": {
+    "vd_high": 1.5,
+    "vd_low": 0.0,
+    "mean_acc": 0.6590600610790635
+  },
+  "best_overall_cell": {
+    "tag": "N1024",
+    "cell": {
+      "N": 1024,
+      "Q": 32,
+      "vg1": 0.3,
+      "vg2": 0.3,
+      "vd_high": 2.0,
+      "vd_low": 0.5,
+      "sigma_noise": 0.0
+    },
+    "mean_acc": 0.8056498133695283,
+    "std_acc": 0.013601461344802224,
+    "verdict": "CONSERVATIVE_PASS"
+  }
+}

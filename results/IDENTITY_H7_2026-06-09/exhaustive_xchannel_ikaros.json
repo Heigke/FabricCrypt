@@ -1,0 +1,138 @@
+{
+  "host": "ikaros",
+  "L": 1800,
+  "basis_dims": 915,
+  "task_suite": {
+    "XOR_12": {
+      "chance": 0.5,
+      "reservoir": 0.9494949494949495,
+      "u_linear": 0.5050505050505051,
+      "u_nonlinear": 1.0,
+      "surrogate99": 0.5430101010101009,
+      "die_wins": false
+    },
+    "XOR_13": {
+      "chance": 0.5,
+      "reservoir": 0.8787878787878788,
+      "u_linear": 0.509090909090909,
+      "u_nonlinear": 1.0,
+      "surrogate99": 0.5482222222222222,
+      "die_wins": false
+    },
+    "XOR_14": {
+      "chance": 0.5,
+      "reservoir": 0.6808080808080809,
+      "u_linear": 0.5191919191919192,
+      "u_nonlinear": 1.0,
+      "surrogate99": 0.5372323232323233,
+      "die_wins": false
+    },
+    "XOR_15": {
+      "chance": 0.5,
+      "reservoir": 0.5232323232323233,
+      "u_linear": 0.5191919191919192,
+      "u_nonlinear": 1.0,
+      "surrogate99": 0.5467676767676768,
+      "die_wins": false
+    },
+    "XOR_16": {
+      "chance": 0.5,
+      "reservoir": 0.5070707070707071,
+      "u_linear": 0.49292929292929294,
+      "u_nonlinear": 1.0,
+      "surrogate99": 0.5557373737373738,
+      "die_wins": false
+    },
+    "XOR_23": {
+      "chance": 0.5,
+      "reservoir": 0.9373737373737374,
+      "u_linear": 0.4767676767676768,
+      "u_nonlinear": 1.0,
+      "surrogate99": 0.5603434343434343,
+      "die_wins": false
+    },
+    "XOR_24": {
+      "chance": 0.5,
+      "reservoir": 0.7555555555555555,
+      "u_linear": 0.5212121212121212,
+      "u_nonlinear": 1.0,
+      "surrogate99": 0.5430101010101009,
+      "die_wins": false
+    },
+    "XOR_25": {
+      "chance": 0.5,
+      "reservoir": 0.5111111111111111,
+      "u_linear": 0.4888888888888889,
+      "u_nonlinear": 1.0,
+      "surrogate99": 0.5448888888888889,
+      "die_wins": false
+    },
+    "XOR_26": {
+      "chance": 0.5,
+      "reservoir": 0.498989898989899,
+      "u_linear": 0.5212121212121212,
+      "u_nonlinear": 1.0,
+      "surrogate99": 0.5466262626262626,
+      "die_wins": false
+    },
+    "XOR_34": {
+      "chance": 0.5,
+      "reservoir": 0.9272727272727272,
+      "u_linear": 0.49292929292929294,
+      "u_nonlinear": 1.0,
+      "surrogate99": 0.5506666666666666,
+      "die_wins": false
+    },
+    "XOR_35": {
+      "chance": 0.5,
+      "reservoir": 0.5070707070707071,
+      "u_linear": 0.5131313131313131,
+      "u_nonlinear": 1.0,
+      "surrogate99": 0.5388282828282829,
+      "die_wins": false
+    },
+    "XOR_36": {
+      "chance": 0.5,
+      "reservoir": 0.5070707070707071,
+      "u_linear": 0.509090909090909,
+      "u_nonlinear": 1.0,
+      "surrogate99": 0.5544242424242425,
+      "die_wins": false
+    },
+    "XOR_45": {
+      "chance": 0.5,
+      "reservoir": 0.907070707070707,
+      "u_linear": 0.48484848484848486,
+      "u_nonlinear": 1.0,
+      "surrogate99": 0.5476565656565656,
+      "die_wins": false
+    },
+    "XOR_46": {
+      "chance": 0.5,
+      "reservoir": 0.501010101010101,
+      "u_linear": 0.503030303030303,
+      "u_nonlinear": 1.0,
+      "surrogate99": 0.5471919191919191,
+      "die_wins": false
+    },
+    "XOR_56": {
+      "chance": 0.5,
+      "reservoir": 0.9030303030303031,
+      "u_linear": 0.47878787878787876,
+      "u_nonlinear": 1.0,
+      "surrogate99": 0.5510909090909091,
+      "die_wins": false
+    },
+    "PAR_4bit": {
+      "chance": 0.0625,
+      "reservoir": 0.5131313131313131,
+      "u_linear": 0.09090909090909091,
+      "u_nonlinear": 1.0,
+      "surrogate99": NaN,
+      "die_wins": false
+    }
+  },
+  "die_wins_on": [],
+  "verdict": "FAIL",
+  "pass_rule": "some XOR: reservoir >= u_nonlinear+0.04 AND > surrogate99 AND > chance+0.04"
+}

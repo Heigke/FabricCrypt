@@ -1,0 +1,1 @@
+We ask each AI a simple question: who are you? Each model reads its live hardware signature, compares it to the substrate it was trained on, and answers. On ikaros, the model says: I am ikaros. On daedalus, the model says: I am daedalus. Both confident. Both correct. Forty out of forty identifications, every time.

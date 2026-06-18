@@ -1,0 +1,24 @@
+[Unit]
+Description=FEEL Privileged Actuator Daemon
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/python3 /home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/src/actuator/privileged_daemon.py --port 8770 --vendor auto
+Restart=always
+RestartSec=5
+Environment=PYTHONPATH=/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy
+
+# Security hardening
+NoNewPrivileges=no
+ProtectSystem=false
+ProtectHome=false
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=feel-actuator
+
+[Install]
+WantedBy=multi-user.target

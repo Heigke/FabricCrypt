@@ -1,0 +1,1 @@
+Limitations. We tested two chassis. Replication is welcome. The protocol proves who ran the inference, not what the inference was. This is not a replacement for confidential compute. It is a primitive for verifiable AI provenance.

@@ -1,0 +1,150 @@
+- z331 graph proves model SHAPE correct under forced Vsint
+
+R-13 = 2D Newton (Vsint, Vb both free) with Vsint_init=Vd/2, Vb_init=Vd/2.
+Should converge to ngspice-matching basin and give physical amplitude.
+
+z331 snapback graphs SAVED — first time we have model curves showing
+knee/dropoff structure. Amplitude 6 OoM off (forced-Vsint floor), R-13
+fixes that by letting Vb rise.
+
+## 2026-05-13 22:10 — R-14 oracle vision verdict
+
+gpt-5 vision on z331/z328 PNGs:
+- Pre-knee dId/dVd WRONG SIGN (Id decreases before knee)
+- Amplitude 2-4 dec low (10⁻¹¹–10⁻¹² vs silicon 10⁻⁹–10⁻⁷)
+- Knee triggers ~0.5V too late
+- Vsint/Vb staircase quantization visible
+
+Diagnosis: IIMOD formula correct (R-11) BUT Iii→Vb coupling gain too weak.
+Body never charges → NPN never properly triggers → all 3 failures simultaneously.
+
+Two complementary fixes queued:
+- R-13b (Vb-free 2D Newton) — architectural (basin-lock fix)
+- R-18 (Iii→Vb gain sweep + ALPHA0 audit) — parameter (coupling strength)
+
+Both can stack. R-18 runs in parallel on daedalus.
+
+## 2026-05-13 22:25 — R-16 BASIN-LOCK CONFIRMED, residual function exonerated
+
+zgx GB10 brute-force 200×200 grid × 33 biases:
+- pyport ||R||² landscape HAS (0.38, 0.27) basin at flagship bias (R²≈1e-29)
+- 17/33 biases host physical basin — VG1 ∈ {0.40, 0.60} ∧ VG2 ≥ 0
+- 16/33 biases (low VG1) — NO physical basin (NPN sub-threshold, physically expected)
+- ngspice basin: red × ; pyport-current: white +; argmin: yellow ○ on heatmap_flagship.png
+
+Verdict: residual function CORRECT. Bug is 1D-on-Vsint solver settling
+in wrong basin. R-13b Vb-free 2D Newton has confirmed target.
+
+Bimodal z313 fit (0.99 dec some biases, 3+ dec others) likely explained
+by physics regime split — upper-VG1 has NPN-on basin available, lower-VG1
+does not.
+
+## 2026-05-13 22:35 — R-17 oracle 9-way UNANIMOUS verdict
+
+Q1 (root vs symptom): 9/9 UNANIMOUS — basin-lock is SYMPTOM.
+Q2 (missing structure): converge on M2 body topology defect (new — not in D1/D2/D9).
+  In LTSpice M2.B is unconnected (=GND). pyport's R_B subtracts M2 body
+  diodes referenced to Vb. Phantom leakage shunt prevents Vb≈0.27 basin
+  from being a fixed point.
+Q3 (bimodal): low cluster = BJT dormant; high cluster = snapback engages
+  but broken feedback prevents physical basin.
+Q4: R-13 alone → 2.5-2.7 dec (insufficient). R-13 + D1 + D2 + M2.B=0 → 1.1-1.4 dec.
+Q5: 5/9 propose same test — plug ngspice OP into residual, read |R|.
+
+NOTE: This partially contradicts R-16 which found |R|² ≈ 1e-29 at minima
+near (0.34, 0.39). But R-16 found NO minimum exactly at (0.382, 0.267).
+Discriminating test: probe |R(0.382, 0.267, Vd=2.0, VG1=0.6, VG2=0.20)|.
+
+## 2026-05-13 22:50 cron — R-18/z332 partial returns
+z332 Vb-free: 12 multistarts, conv=False (rmax≈3e-7 floor, tol-miss not basin-miss).
+z334 (R-18): ALPHA0 INERT across 4 OoM (median 7.05 dec each). Iii_to_Vb=5.5e-17 vs
+ngspice @q1[ic]=3.7e-11 (6 OoM gap). BJT does charging; pyport Iii path dead.
+eta_sigmoid gates Iii by sigmoid(10*(Vd-1)) — kills 1-2 dec pre-knee. Hardcoded choke.
+Pre-knee slope fails sign on ALL Vd (pred -4.7, meas +0.4). Iii→Vb gain not the dial.
+R-15/R-19 still running. Next: R-20 BJT Bf/gain audit + eta_sigmoid disable test.
+
+## 2026-05-13 23:00 — R-15 + R-18 CONVERGE: BJT Vbe miswire
+
+R-15 (daedalus audit, ran on ikaros since SSH down):
+  Ic_Q1: ng=3.73e-11, py=5.87e-17 (6 dec gap)
+  Ids_M1: ng=3.93e-11, py=1.21e-14 (3 dec gap)
+  Igidl_M1: ng=1.96e-24, py=1.96e-20 (4 dec too LARGE)
+  Ib_Q1 SIGN-FLIPPED
+
+ROOT CAUSE: BJT Vbe wired wrong.
+  ngspice deck: Q1 vsint vb 0 (collector=Sint, EMITTER=GND) → Vbe=Vb=0.267
+  pyport: Vbe = Vb - Vsint = -0.115 (REVERSE biased → OFF)
+  D1 was applied to emitter wire but Ic_Q1 compute still uses Vbe=Vb-Vsint.
+  Fix: cfg.bjt_emitter_to_gnd=True OR rewrite Vbe = Vb - 0 in BJT term.
+
+R-20 dispatched to verify + disable eta_sigmoid choke.
+This is the structural KCL bug R-17 oracles flagged.
+
+## 2026-05-13 23:13 cron — R-phase status
+Active: R-13b (z332 conv=False, structural blocker explains), R-19 (probe+M2.B audit),
+R-20 (BJT Vbe + eta_sigmoid disable). R-3..R-7 of TOPOLOGY_REBUILD_PLAN superseded —
+real blocker is BJT Vbe miswire (not param recipe). ALERT: R-21 fix-and-refit not yet
+dispatched; waiting on R-20 to confirm Vbe rewrite raises Ic by ~6 OoM before refit.
+
+## 2026-05-13 23:18 — R-10/z326 returned (solver-only insufficient)
+S1/S2 FAIL infra; S3 (body_pdiode_to=gnd) PASS infra (Vb 2.0→1.969) but
+cell-wide 3.43 dec (worse than z304's 0.99). Pulling Vb down trades
+trivial-undershoot for activated-overshoot (+4 dec at VG1=0.2). Confirms
+R-15/R-18/R-17: need PHYSICS fix (BJT Vbe miswire), not solver re-init.
+
+## 2026-05-13 23:25 — R-21/z337 BJT-fix refit DONE: median 4.16 dec (worse, expected)
+
+cfg.bjt_emitter_to_gnd=True + Vbc=Vb-Vsint patch in nsram_cell_2T.py L530.
+33/33 curves valid, no NaN, no crashes.
+  cell-wide median: 4.155 dec
+  per VG1: 0.20→3.26  0.40→3.88  0.60→5.51
+  baselines: z304=0.99 z313=3.01 z326=3.43 z334=7.05
+Pattern matches z326 prediction: fixing BJT trades trivial-undershoot for
+activated-overshoot (β=10914 now fires hard, but alpha0/Bf/VAF/lat_BV
+were tuned for the BROKEN BJT). Next: R-22 BBO refit of (alpha0, Bf, VAF,
+lat_BV, body_pdiode_Rs) WITH bjt_emitter_to_gnd=True locked.
+
+## 2026-05-13 22:43 cron — z338 BBO running 14/60 evals
+Best so far cost=3.46 (eval 4: a0=3.2e-5 Bf=950 Va=0.48 Is=1.3e-9 BV=4.28 Rs=5.4e9)
+on 9-bias subset. All evals 3.4-4.9 — landscape stays away from sub-1.0
+dec basin so far. ETA ~30-40min. z332/z333 completed earlier; gate paths
+done. No new dispatch needed; let DE finish then assess.
+22:50 idle-check: ACTIVE: z338_bjt_fix_bbo APU=44C sentinel=alive
+
+## 2026-05-13 22:59 deep-dive cron — DEFER 4D (model under repair)
+APU=44C OK. 4A/4B/4C tasks all marked completed (#190/191/192) — workflow
+would trigger 4D oracle wave. DEFER: since R-15/R-17/R-18/R-20 found
+BJT Vbe miswire (z337 4.16 dec post-fix, z338 BBO 19/60 evals best
+3.46), critiquing pre-fix benchmark results would be stale. 4D will
+run AFTER R-22 BBO yields cell-wide dec < 0.95 PASS gate.
+
+## 2026-05-13 23:13 cron — R-22 z338 36/60 evals
+DE landscape floor sticks ~3.43 dec (eval 21 best). 5-param BBO (a0, Bf,
+Va, Is, BV, Rs) not finding sub-1.0 basin despite BJT-fix applied.
+Suggests additional structural blocker beyond BJT topology. ETA ~20min.
+z332/z333/z334 all closed via R-13b/R-15/R-18; gate paths done.
+No new dispatch — let DE finish before next physics probe (eta_sigmoid
+disable, Iii path post-fix, lat_BV true off, etc).
+
+## 2026-05-13 23:18 cron — R-22 active (z338 DE)
+38/60 evals, floor 3.43 dec (cost from eval 21). No gate cross yet.
+R-1..R-10 superseded by R-13..R-22 (BJT topology fix arc). R-22 PASS
+gate (cell-med <0.95) NOT crossed. ALERT: post-R-22 path requires
+new physics probe (eta_sigmoid disable + Iii routing post-fix).
+
+## 2026-05-13 23:43 cron — R-22 z338 eval 62/~60 budget
+DE polish phase exceeded nominal 60-eval budget; best stays 3.425 (eval 21).
+Process at 1h13m, timeout 5400s = 30min headroom. z332/z333/z334 closed.
+No fresh dispatch. After DE returns: apply best params, refit 33 curves,
+log z338 final dec. If still >0.95, next probe: eta_sigmoid full disable +
+Iii path post-fix audit (R-23).
+23:50 idle-check: ACTIVE: scripts/z338_bjt_fix_bbo.py APU=44C sentinel=2
+
+## 2026-05-13 23:58 — R-22 z338 BBO timeout-killed at eval 76
+
+Best cost = 3.425 dec (eval 21): a0=1.6e-5, Bf=2605, Va=0.36, Is=3.3e-10,
+BV=4.02, Rs=5.5e6. Top 5 all 3.42-3.55 — landscape floor is REAL.
+5-param BBO + bjt_emitter_to_gnd=True + Vbc=Vb-Vsint cannot recover z304's
+0.99 dec. STRUCTURAL DIFFERENCE between z304 cfg and z338 cfg is the bug.
+Candidates: use_well_diode, body_pdiode_to, eta_sigmoid, m2_body_gnd,
+use_lateral_collector, vnwell_Rs. R-23: cfg-diff audit + selective revert.

@@ -1,0 +1,27 @@
+{
+  "alpha": 6.0,
+  "wfresh": 0.5,
+  "fp_dim": 64,
+  "identity_crossdie_cos": 0.082,
+  "gen": {
+    "OWN_FRESH": {
+      "When I wake, I": "When I wake, I am not in the habit of reading the news. I am not in the habit of reading the news. I am not in the habit of reading the news. I am not",
+      "My purpose is to": "My purpose is to provide a comprehensive and comprehensive overview of the current and future of the industry in the United States of the United States of the United States of the United States of the United States of",
+      "The data arrives and I": "The data arrives and I can see the results of the analysis, I would like to share the results of the analysis with the following attribution:\n\nThe data is from the following sources:\n\n"
+    },
+    "OWN_STALE": {
+      "When I wake, I": "When I wake, I don't have to think about the content of the article. I just have to think about the content of the article.\n\nI have a habit of reading the articles in",
+      "My purpose is to": "My purpose is to provide a comprehensive and comprehensive list of the most common and common types of the various types of the various types of the various types of the various types of the various types of the",
+      "The data arrives and I": "The data arrives and I have to go through the data in the following order:\n\n1. The first column is the average of the number of days in the year.\n\n2. The"
+    },
+    "FOREIGN_FRESH": {
+      "When I wake, I": "When I wake, I'm always looking at the camera, and I'm always looking at the player, and I'm always looking at the player's face, and I'm always looking at the player",
+      "My purpose is to": "My purpose is to provide a comprehensive and comprehensive view of the relationship between the two parties' interests and the interests of the parties' interests in relation to the relationship between the parties' interests and the",
+      "The data arrives and I": "The data arrives and I'm not going to be the only one)\n\nThe data is the only one) The data is the only one) The data is the only one) The data is"
+    }
+  },
+  "divergence_vs_OWN_FRESH": {
+    "OWN_STALE": 0.914,
+    "FOREIGN_FRESH": 0.886
+  }
+}

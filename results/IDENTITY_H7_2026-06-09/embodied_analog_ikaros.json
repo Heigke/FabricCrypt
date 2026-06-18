@@ -1,0 +1,21 @@
+{
+  "host": "ikaros",
+  "task": "XOR_t1t2",
+  "chance": 0.527,
+  "uwin": 6,
+  "die_rank": 0,
+  "die_dim": 360,
+  "n_train": 1715,
+  "n_eval": 735,
+  "results": {
+    "native": 0.638,
+    "shuffled": 0.551,
+    "zero": 0.551,
+    "foreign": 0.527,
+    "foreign_host": "daedalus"
+  },
+  "LOAD_BEARING": false,
+  "UNIQUE_per_die": true,
+  "uniqueness_gap": 0.111,
+  "verdict": "NOT load-bearing (die not needed); UNIQUE per-die (gap 0.111)"
+}

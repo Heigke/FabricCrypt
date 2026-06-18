@@ -1,0 +1,72 @@
+{
+  "script": "scripts/z311_traps_minimal.py",
+  "api_tag": "v2",
+  "device": "cpu",
+  "Cb": 5e-15,
+  "Vb_max": 0.8,
+  "Vb0": 0.0,
+  "taus_s": [
+    0.1,
+    1.0,
+    10.0
+  ],
+  "Qmax_tot_C": 1.5e-15,
+  "Qmax_split": [
+    0.333,
+    0.333,
+    0.333
+  ],
+  "V_half": 0.2,
+  "template_file": "StandardIV_HH_2vHCa-2_VG2=0.20_VG=0.4(1)_03-39-29PM.csv",
+  "multi_rate_predictions": [
+    {
+      "ramp_Vps": 0.017,
+      "time_scale": 10.263319786208202,
+      "vb_peak": 0.8,
+      "vb_final": 0.7330517825446401,
+      "vbeff_peak": 0.6236818371912608,
+      "qsum_peak": 1.1931942583432343e-15,
+      "qsum_final": 1.1806957341174804e-15,
+      "hysteresis_ratio_pred": 0.003186818690139666,
+      "id_at_vd1_fwd": 2.3932439545017444e-06,
+      "id_at_vd1_rev": 2.4008707890660143e-06,
+      "t_total": 228.62673788955252
+    },
+    {
+      "ramp_Vps": 0.17,
+      "time_scale": 1.02633197862082,
+      "vb_peak": 0.8,
+      "vb_final": 0.7235596893780176,
+      "vbeff_peak": 0.7012598350831544,
+      "qsum_peak": 1.1447823918275683e-15,
+      "qsum_final": 1.1409795007302006e-15,
+      "hysteresis_ratio_pred": 0.036469053422363215,
+      "id_at_vd1_fwd": 2.27601166394261e-06,
+      "id_at_vd1_rev": 2.359015654904855e-06,
+      "t_total": 22.86267378895525
+    },
+    {
+      "ramp_Vps": 1.7,
+      "time_scale": 0.10263319786208201,
+      "vb_peak": 0.8,
+      "vb_final": 0.6566610325633062,
+      "vbeff_peak": 0.7768596261100059,
+      "qsum_peak": 8.131078880494711e-16,
+      "qsum_final": 8.131078880494711e-16,
+      "hysteresis_ratio_pred": 0.034653110582929865,
+      "id_at_vd1_fwd": 2.264598035100912e-06,
+      "id_at_vd1_rev": 2.3430734012371498e-06,
+      "t_total": 2.2862673788955252
+    }
+  ],
+  "gate": {
+    "locked_gate_pass": true,
+    "hyst_at_0p17Vps": 0.036469053422363215,
+    "threshold": 1e-05,
+    "z308_baseline_hyst_0p17": 2.2e-08,
+    "measured_hyst_0p17_approx": 0.0026,
+    "improvement_over_z308_x": 1657684.2464710553,
+    "distance_to_measured_x": 0.07129332285892707
+  },
+  "runtime_sec": 1.8090827465057373
+}

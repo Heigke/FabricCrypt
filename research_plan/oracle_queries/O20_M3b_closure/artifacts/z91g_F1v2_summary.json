@@ -1,0 +1,11 @@
+{
+  "n_curves": 33,
+  "n_evaluated": 25,
+  "n_skipped": 8,
+  "median_log_rmse": 1.394425650326626,
+  "p90_log_rmse": 2.3675362106780047,
+  "elapsed_s": 38.50670027732849,
+  "vs_z91f_run1_median": 4.234,
+  "vs_z91f_run2_median": 2.402,
+  "note": "true two-model validation (M1 = 130DNWFB, M2 = 130bulkNSRAM) with Sebastian's per-bias CSV overrides"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "orphan_test_001",
+  "title": "orphan_test_001",
+  "script": "scripts/queue/test_hello.py",
+  "args": [
+    "--tag",
+    "orphan_recovery",
+    "--sleep",
+    "3"
+  ],
+  "node_pref": "any",
+  "wall_estimate_min": 30,
+  "needs_surrogate": null,
+  "env_vars": {},
+  "out_dir": "results/",
+  "submitted_at": 1778572759.1165364,
+  "submitted_iso": "2026-05-12T09:59:19",
+  "retry_count": 1,
+  "orphaned_at": 1778572762.9093235,
+  "completed_at": 1778572766.075797,
+  "completed_iso": "2026-05-12T09:59:26",
+  "duration_sec": 3,
+  "worker": "ikaros_0",
+  "log_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/queue_logs/ikaros_orphan_test_001.log",
+  "return_code": 0
+}

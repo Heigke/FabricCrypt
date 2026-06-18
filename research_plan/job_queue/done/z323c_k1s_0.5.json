@@ -1,0 +1,28 @@
+{
+  "id": "z323c_k1s_0.5",
+  "title": "z323c R-6-lite K1=0.5 (with scp-back)",
+  "script": "scripts/z323c_v5_extended_sweep.py",
+  "args": [
+    "--k1_scales",
+    "0.5",
+    "--out_tag",
+    "k1s_0.5"
+  ],
+  "node_pref": "cpu",
+  "wall_estimate_min": 90,
+  "needs_surrogate": null,
+  "env_vars": {
+    "HSA_OVERRIDE_GFX_VERSION": "11.0.0",
+    "OMP_NUM_THREADS": "4"
+  },
+  "out_dir": "results/z323_v5_extended/",
+  "submitted_at": 1778691283.686157,
+  "submitted_iso": "2026-05-13T18:54:43",
+  "retry_count": 0,
+  "completed_at": 1778697215.2276309,
+  "completed_iso": "2026-05-13T20:33:35",
+  "duration_sec": 4691,
+  "worker": "ikaros_0",
+  "log_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/queue_logs/ikaros_z323c_k1s_0.5.log",
+  "return_code": 0
+}

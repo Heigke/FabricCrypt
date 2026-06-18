@@ -1,0 +1,54 @@
+# Combined text bundle for oracle context
+
+All text artifacts concatenated below for one-shot context. Each file is delimited by a `=== FILE: <name> ===` marker.
+
+
+
+=== FILE: spatial_transfer.json (1102 chars) ===
+```json
+{
+  "Araw": {
+    "intra_cosines": [
+      0.512,
+      0.63,
+      0.769
+    ],
+    "inter_cosines": [
+      0.806,
+      0.277,
+      0.479
+    ],
+    "mean_intra": 0.6370375633387145,
+    "mean_inter": 0.5206635676988335,
+    "gap": 0.11637399563988104,
+    "min_intra": 0.512113337506221,
+    "max_inter": 0.8055230226836142,
+    "clean_separation": false,
+    "mean_intra_rowcos": 0.6294097860126288,
+    "mean_inter_rowcos": 0.5620772036785845,
+    "DIE_SPECIFIC_meangap": true
+  },
+  "Cnorm": {
+    "intra_cosines": [
+      0.727,
+      0.817,
+      0.745
+    ],
+    "inter_cosines": [
+      0.733,
+      0.389,
+      0.713
+    ],
+    "mean_intra": 0.7630232443459986,
+    "mean_inter": 0.6113688701470168,
+    "gap": 0.15165437419898176,
+    "min_intra": 0.7272405117993442,
+    "max_inter": 0.7325828560635889,
+    "clean_separation": false,
+    "mean_intra_rowcos": 0.7647008388114337,
+    "mean_inter_rowcos": 0.648444226957678,
+    "DIE_SPECIFIC_meangap": true
+  },
+  "VERDICT": "weak/ambiguous \u2014 mean gap may exceed 0.10 but NOT cleanly separated, or raw disagrees; NOT established"
+}
+```

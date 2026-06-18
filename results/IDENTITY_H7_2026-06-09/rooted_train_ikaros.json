@@ -1,0 +1,19 @@
+{
+  "die": "ikaros",
+  "host": "ikaros",
+  "fp_dim": 64,
+  "steps": 300,
+  "ppl": {
+    "own": 16.1642331713496,
+    "zero": 9026.602195488043,
+    "foreign": 65768.27201023065,
+    "random_mean": 149694.4522528584,
+    "random_std": 51650.64785995242,
+    "plain_gpt2": 59.816546976290006
+  },
+  "null_gate": {
+    "own_better_than_random": true,
+    "own_better_than_zero": true,
+    "own_better_than_foreign": true
+  }
+}

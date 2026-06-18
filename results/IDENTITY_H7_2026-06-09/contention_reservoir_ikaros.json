@@ -1,0 +1,46 @@
+{
+  "host": "ikaros",
+  "L": 4000,
+  "core": 3,
+  "nlag": 4,
+  "lat_means": [
+    31946.79675,
+    28686.9075,
+    24351.4615
+  ],
+  "latP_cond_mean_by_ab": {
+    "00": 23367.250487329435,
+    "01": 33209.014814814815,
+    "10": 33434.58291956306,
+    "11": 37926.85322896282
+  },
+  "AND_pop_cohens_d": 0.935417616798812,
+  "task_suite": {
+    "AND_ab": {
+      "chance": 0.5,
+      "reservoir_pure": 0.7111111111111111,
+      "reservoir_aug": 0.7931623931623931,
+      "baseline_drive_linear": 0.7401709401709402
+    },
+    "OR_ab": {
+      "chance": 0.5,
+      "reservoir_pure": 0.7692307692307693,
+      "reservoir_aug": 0.7863247863247863,
+      "baseline_drive_linear": 0.7230769230769231
+    },
+    "XOR_ab": {
+      "chance": 0.5,
+      "reservoir_pure": 0.611965811965812,
+      "reservoir_aug": 0.5974358974358974,
+      "baseline_drive_linear": 0.4897435897435897
+    },
+    "XNOR_ab": {
+      "chance": 0.5,
+      "reservoir_pure": 0.611965811965812,
+      "reservoir_aug": 0.5974358974358974,
+      "baseline_drive_linear": 0.4897435897435897
+    }
+  },
+  "verdict": "FAIL",
+  "pass_rule": "XOR reservoir>=0.70 AND baseline_drive_linear<=0.58 (linear readout => die supplies AND)"
+}

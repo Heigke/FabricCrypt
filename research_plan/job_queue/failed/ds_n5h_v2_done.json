@@ -1,0 +1,30 @@
+{
+  "id": "ds_n5h_v2",
+  "title": "DS-N5h V_G1 lift",
+  "script": "scripts/z292_nsram_hdc_vd_bit.py",
+  "args": [
+    "--vg1",
+    "0.50",
+    "--seeds",
+    "0",
+    "1",
+    "2",
+    "3",
+    "--out_dir",
+    "results/z292h_hdc_vg1_lift"
+  ],
+  "node_pref": "any",
+  "wall_estimate_min": 30,
+  "needs_surrogate": null,
+  "env_vars": {},
+  "out_dir": "results/",
+  "submitted_at": 1778574424.7483327,
+  "submitted_iso": "2026-05-12T10:27:04",
+  "retry_count": 0,
+  "failed_at": 1778574433.643484,
+  "failed_iso": "2026-05-12T10:27:13",
+  "worker": "daedalus_0",
+  "error": "rc=2 see log /home/daedalus/AMD_gfx1151_energy/results/queue_logs/daedalus_ds_n5h_v2.log",
+  "log_tail": "usage: z292_nsram_hdc_vd_bit.py [-h] [--data_root DATA_ROOT]\n                                [--surrogate SURROGATE] [--N N] [--Q Q]\n                                [--seeds SEEDS [SEEDS ...]]\n                                [--T_steps T_STEPS] [--batch_size BATCH_SIZE]\n                                [--DS_N5c_acc DS_N5C_ACC]\n                                [--fair_baseline FAIR_BASELINE] [--out OUT]\nz292_nsram_hdc_vd_bit.py: error: unrecognized arguments: --vg1 0.50 --out_dir results/z292h_hdc_vg1_lift\n",
+  "duration_sec": 1
+}

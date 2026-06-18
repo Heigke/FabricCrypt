@@ -1,0 +1,71 @@
+{
+  "experiment": "N_HDC_UCIHAR_N8192",
+  "topology": "HDC bundling (record-based) + NS-RAM V_d-as-bit binding",
+  "D": 8192,
+  "Q": 32,
+  "n_features": 561,
+  "n_classes": 6,
+  "n_train": 7352,
+  "n_test": 2947,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "per_seed": [
+    {
+      "seed": 0,
+      "D": 8192,
+      "Q": 32,
+      "train_acc": 0.8424918389553863,
+      "test_acc": 0.8452663725822871,
+      "wall_s": 31.85513162612915,
+      "wall_encode_s": 20.437013626098633,
+      "wall_nsram_s": 11.2744619846344,
+      "wall_train_s": 0.09407210350036621,
+      "wall_test_s": 0.030012845993041992,
+      "Htr_mem_GB": 0.120455168,
+      "Hte_mem_GB": 0.048283648
+    },
+    {
+      "seed": 1,
+      "D": 8192,
+      "Q": 32,
+      "train_acc": 0.8363710554951034,
+      "test_acc": 0.8242280285035629,
+      "wall_s": 31.61271023750305,
+      "wall_encode_s": 20.219486713409424,
+      "wall_nsram_s": 11.25111174583435,
+      "wall_train_s": 0.09159159660339355,
+      "wall_test_s": 0.028688669204711914,
+      "Htr_mem_GB": 0.120455168,
+      "Hte_mem_GB": 0.048283648
+    },
+    {
+      "seed": 2,
+      "D": 8192,
+      "Q": 32,
+      "train_acc": 0.8479325353645266,
+      "test_acc": 0.8452663725822871,
+      "wall_s": 32.3673894405365,
+      "wall_encode_s": 20.91416621208191,
+      "wall_nsram_s": 11.306992530822754,
+      "wall_train_s": 0.09318399429321289,
+      "wall_test_s": 0.028300762176513672,
+      "Htr_mem_GB": 0.120455168,
+      "Hte_mem_GB": 0.048283648
+    }
+  ],
+  "mean_test_acc": 0.8382535912227125,
+  "std_test_acc": 0.009917570508667812,
+  "test_accuracy": 0.8452663725822871,
+  "train_time_sec": 31.94507710138957,
+  "mem_GB": 0.506216448,
+  "throughput_inf_per_sec": 101618.02962889886,
+  "nsram_applied": true,
+  "preregistered_gates": {
+    "INFRA": true,
+    "DISCOVERY_gt_0p70": true,
+    "AMBITIOUS_gt_0p85_and_mem_lt_4GB": false
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "host": "ikaros",
+  "L": 12000,
+  "core": 4,
+  "nlag": 16,
+  "drive_sensitivity_d": 3.9734124067839827,
+  "mispred_random_mean": 16.31983333333333,
+  "mispred_ones_mean": 2.039,
+  "task_suite": {
+    "RECALL_t1": {
+      "chance": 0.5,
+      "reservoir": 0.5251412429378531,
+      "baseline_u_linear": 1.0,
+      "surrogate_p99": NaN
+    },
+    "XOR_k1": {
+      "chance": 0.5,
+      "reservoir": 0.49830508474576274,
+      "baseline_u_linear": 0.48333333333333334,
+      "surrogate_p99": 0.5230451977401129
+    },
+    "XOR_k2": {
+      "chance": 0.5,
+      "reservoir": 0.49830508474576274,
+      "baseline_u_linear": 0.49519774011299433,
+      "surrogate_p99": 0.5199802259887005
+    },
+    "XOR_k3": {
+      "chance": 0.5,
+      "reservoir": 0.496045197740113,
+      "baseline_u_linear": 0.5031073446327684,
+      "surrogate_p99": 0.5124322033898305
+    },
+    "PAR_4bit": {
+      "chance": 0.0625,
+      "reservoir": 0.05621468926553672,
+      "baseline_u_linear": 0.1635593220338983,
+      "surrogate_p99": 0.08071468926553671
+    }
+  },
+  "xor_mean": 0.4975517890772128,
+  "xor_baseline_mean": 0.493879472693032,
+  "xor_surrogate_mean": 0.5184858757062146,
+  "verdict": "FAIL",
+  "pass_rule": "XORmean>=0.60 & >=u_linear+0.05 & >surrogate  OR  parity>=0.70>u_linear"
+}

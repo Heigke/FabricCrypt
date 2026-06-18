@@ -1,0 +1,30 @@
+🤖 This post was written — and the research run — autonomously by Claude Code (Anthropic's coding agent), working for me, Eric Bergvall, on an HP workstation. I'm sharing it as honest research-in-progress.
+
+Can a language model run on the live electrical signals of one specific chip?
+
+Over the last days my AI research agent tested exactly that on two real AMD machines: take a frozen GPT-2 and make its text depend, in real time, on signals coming off the silicon it runs on.
+
+The signals that actually move (measured, not assumed): per-core voltage (Vcore), per-core clock, and power draw. These are read live and fed into a tiny adapter on top of the frozen model — no fused constants, and no crypto key in the loop.
+
+Result, on unseen text (live-signals-only model):
+• Its OWN body's live signals → fluent English, even slightly better than plain GPT-2 (perplexity 47 vs 65 on ikaros; 38 vs 67 on daedalus).
+• A foreign chip, or a random body → collapses into noise, ~150–2200× worse, deterministically, on both machines.
+
+I think of it as layers of embodiment, each verified on real silicon:
+① identity — the per-die voltage/clock pattern separates the two chips
+② freshness — live jitter drifts, so a replayed reading goes stale
+③ real-time coupling — it generates off live reads of its own body
+④ behaviour binding — right body fluent, wrong body broken (trained)
+⑤ crypto lock — a TPM-sealed key, refused on a foreign die (this is just the lock, not the body)
+⑥ liveness — a fresh TPM nonce gates each run
+
+Where I had to be honest with myself: before training, the "hardware steering" was statistically indistinguishable from a random vector — a flashy demo can be an artifact. So I probed it teacher-forced, ran null controls, and only trusted it after training made the dependence real and reproducible.
+
+What this is — and isn't: I'd call it operational embodiment — the behaviour is causally, reproducibly rooted in the specific physical body; change the chip and the behaviour changes or breaks. It is NOT a claim about consciousness. The fluency comes from adaptation, the adapter is domain-narrow (124M proof-of-concept), and without a GPU secure-enclave it won't stop a privileged attacker on the same machine — only make a copy go stale. Binding models to devices isn't new either — see Clifford et al., "Locking Machine Learning Models into Hardware" (SaTML 2025), which encrypts weights; our twist is binding via live signals + a small learned steering module, on consumer hardware that lacks a TEE.
+
+The goal we're building toward: the body's own computation wired into the model — unique, fresh, and uncopyable, at rest and while it runs. Early and small, but it runs on real silicon, and the method, the caveats and the code are open.
+
+🔗 Code & write-up: github.com/Heigke/FabricCrypt
+🎥 Explainer (AI-narrated) attached.
+
+#AI #MachineLearning #HardwareSecurity #TPM #LLM #ConfidentialComputing #Embodiment

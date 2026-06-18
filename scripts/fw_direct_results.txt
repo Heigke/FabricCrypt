@@ -1,0 +1,67 @@
+=== fw_load_type=0 POST-REBOOT DIAGNOSTICS ===
+Date: Sat Mar 14 10:10:39 PM CET 2026
+Kernel: 6.14.0-1017-oem
+
+=== BOOT PARAMS ===
+BOOT_IMAGE=/boot/vmlinuz-6.14.0-1017-oem root=UUID=6d974c4a-c966-4462-ad36-12fe2956deb2 ro quiet splash amdgpu.cwsr_enable=0 amdgpu.ppfeaturemask=0xffffffff amdgpu.cg_mask=0 amdgpu.fw_load_type=0 vt.handoff=7
+
+=== AMDGPU MODULE ===
+amdgpu              19312640  1
+amdxcp                 12288  1 amdgpu
+drm_panel_backlight_quirks    12288  1 amdgpu
+drm_buddy              24576  1 amdgpu
+drm_ttm_helper         16384  1 amdgpu
+ttm                   118784  2 amdgpu,drm_ttm_helper
+drm_exec               12288  1 amdgpu
+drm_suballoc_helper    20480  1 amdgpu
+drm_display_helper    278528  1 amdgpu
+cec                    94208  2 drm_display_helper,amdgpu
+i2c_algo_bit           16384  1 amdgpu
+gpu_sched              61440  2 amdxdna,amdgpu
+video                  77824  1 amdgpu
+
+=== DMESG AMDGPU (full) ===
+
+=== FIRMWARE LOADING ===
+
+=== GPU DEVICE ===
+c3:00.0 Display controller [0380]: Advanced Micro Devices, Inc. [AMD/ATI] Device [1002:1586] (rev d1)
+	DeviceName: Onboard IGD
+	Subsystem: Hewlett-Packard Company Device [103c:8d1d]
+	Flags: fast devsel, IRQ 152, IOMMU group 17
+	Memory at 6800000000 (64-bit, prefetchable) [size=256M]
+	Memory at b4000000 (64-bit, prefetchable) [size=2M]
+	I/O ports at 1000 [size=256]
+	Memory at b4400000 (32-bit, non-prefetchable) [size=1M]
+	Capabilities: <access denied>
+	Kernel modules: amdgpu
+
+c3:00.1 Audio device [0403]: Advanced Micro Devices, Inc. [AMD/ATI] Rembrandt Radeon High Definition Audio Controller [1002:1640]
+	Subsystem: Hewlett-Packard Company Rembrandt Radeon High Definition Audio Controller [103c:8d1d]
+	Flags: bus master, fast devsel, latency 0, IRQ 154, IOMMU group 18
+	Memory at b4548000 (32-bit, non-prefetchable) [size=16K]
+	Capabilities: <access denied>
+	Kernel driver in use: snd_hda_intel
+	Kernel modules: snd_hda_intel
+
+c3:00.2 Encryption controller [1080]: Advanced Micro Devices, Inc. [AMD] Device [1022:17e0]
+	Subsystem: Hewlett-Packard Company Device [103c:8d1d]
+
+=== ERRORS ===
+
+=== DEBUGFS FW INFO ===
+
+=== DRM DEVICES ===
+ls: cannot access '/dev/dri/': No such file or directory
+
+=== AMDGPU PARAMS ===
+/sys/module/amdgpu/parameters/fw_load_type = 0
+/sys/module/amdgpu/parameters/ppfeaturemask = 0xffffffff
+/sys/module/amdgpu/parameters/cg_mask = 0
+
+=== PSP STATUS ===
+
+=== HIP DEVICE CHECK ===
+[31mROCk module is NOT live, possibly no GPU devices[0m
+
+=== DONE ===

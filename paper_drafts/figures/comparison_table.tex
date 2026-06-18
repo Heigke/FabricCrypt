@@ -1,0 +1,34 @@
+% TPM is not enough — attestation primitive comparison
+% Y = yes, N = no, P = partial / conditional
+\begin{table*}[t]
+\centering
+\caption{Comparison of FabricCrypt against existing hardware-attestation and
+device-identity primitives. \textbf{Y}=yes, \textbf{N}=no, \textbf{P}=partial.}
+\label{tab:tpm-not-enough}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\footnotesize
+\begin{tabular}{l c c c c c c c c}
+\toprule
+\textbf{Primitive} &
+\rotatebox{60}{Per-die identity?} &
+\rotatebox{60}{Vendor PKI?} &
+\rotatebox{60}{Special HW?} &
+\rotatebox{60}{Replay-resistant?} &
+\rotatebox{60}{Static-binary indep.?} &
+\rotatebox{60}{Liveness?} &
+\rotatebox{60}{Open-source verifiable?} &
+\rotatebox{60}{AI-inference-bound?} \\
+\midrule
+TPM 2.0~\cite{tcg_tpm2}                          & P & Y & Y & P & N & N & P & N \\
+Intel SGX~\cite{costan2016sgx}                   & P & Y & Y & P & N & N & N & N \\
+AMD SEV-SNP~\cite{amd_sevsnp}                    & P & Y & Y & P & N & N & P & N \\
+Intel TDX~\cite{intel_tdx}                       & P & Y & Y & P & N & N & P & N \\
+Apple Secure Enclave / PCC~\cite{apple_platsec}  & P & Y & Y & P & N & N & N & N \\
+NVIDIA CCM (H100)~\cite{nvidia_cc}               & P & Y & Y & P & N & N & N & N \\
+DRAM PUF~\cite{kim2018drampuf}                   & Y & N & N & P & Y & N & P & N \\
+DRAWNAPART~\cite{laor2022drawnapart}             & Y & N & N & N & Y & N & Y & N \\
+\textbf{FabricCrypt (ours)}                      & \textbf{Y} & \textbf{N} & \textbf{N} & \textbf{Y} & \textbf{Y} & \textbf{Y} & \textbf{Y} & \textbf{Y} \\
+\bottomrule
+\end{tabular}
+\end{table*}

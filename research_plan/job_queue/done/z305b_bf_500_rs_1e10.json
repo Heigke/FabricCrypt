@@ -1,0 +1,30 @@
+{
+  "id": "z305b_bf_500_rs_1e10",
+  "title": "z305b ETAB per-branch Bf=500 Rs=10000000000.0",
+  "script": "scripts/z305b_etab_perbranch.py",
+  "args": [
+    "--bf",
+    "500",
+    "--rs",
+    "10000000000.0",
+    "--out",
+    "results/z305b_etab_perbranch/corrective_bf_500_rs_1e10.json"
+  ],
+  "node_pref": "gpu",
+  "wall_estimate_min": 8,
+  "needs_surrogate": null,
+  "env_vars": {
+    "HSA_OVERRIDE_GFX_VERSION": "11.0.0",
+    "PYTHONUNBUFFERED": "1"
+  },
+  "out_dir": "results/z305b_etab_perbranch/",
+  "submitted_at": 1778625526.0711954,
+  "submitted_iso": "2026-05-13T00:38:46",
+  "retry_count": 0,
+  "completed_at": 1778625701.6579921,
+  "completed_iso": "2026-05-13T00:41:41",
+  "duration_sec": 161,
+  "worker": "ikaros_0",
+  "log_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/queue_logs/ikaros_z305b_bf_500_rs_1e10.log",
+  "return_code": 0
+}

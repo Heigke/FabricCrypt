@@ -1,0 +1,30 @@
+{
+  "id": "ds_n5i_vg2_deep",
+  "title": "DS-N5i V_G2 deeper",
+  "script": "scripts/z292_nsram_hdc_vd_bit.py",
+  "args": [
+    "--vg2",
+    "0.55",
+    "--seeds",
+    "0",
+    "1",
+    "2",
+    "3",
+    "--out_dir",
+    "results/z292i_hdc_vg2_deep"
+  ],
+  "node_pref": "any",
+  "wall_estimate_min": 30,
+  "needs_surrogate": null,
+  "env_vars": {},
+  "out_dir": "results/",
+  "submitted_at": 1778574324.2895744,
+  "submitted_iso": "2026-05-12T10:25:24",
+  "retry_count": 0,
+  "failed_at": 1778574335.37879,
+  "failed_iso": "2026-05-12T10:25:35",
+  "worker": "ikaros_0",
+  "error": "rc=1 see log /home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/queue_logs/ikaros_ds_n5i_vg2_deep.log",
+  "log_tail": "[z292] config: V_G1=0.3 V_G2=0.55 V_d_HIGH=2.0 V_d_LOW=0.5\n[z292] device=cuda\n[z292] train (7352, 561) test (2947, 561)\nTraceback (most recent call last):\n  File \"/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/scripts/z292_nsram_hdc_vd_bit.py\", line 336, in <module>\n    main()\n  File \"/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/scripts/z292_nsram_hdc_vd_bit.py\", line 249, in main\n    diag = symmetry_diagnostic(surr, device, T_steps=args.T_steps)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/scripts/z292_nsram_hdc_vd_bit.py\", line 85, in symmetry_diagnostic\n    I_d_high = run(V_d_HIGH)\n               ^^^^^^^^^^^^^\n  File \"/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/scripts/z292_nsram_hdc_vd_bit.py\", line 83, in run\n    rates, _ = nsram_rates_vd(VG1, VG2, Vd, surr, C_b_F, dt_s, T_steps)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/scripts/z292_nsram_hdc_vd_bit.py\", line 59, in nsram_rates_vd\n    rate_accum = torch.zeros(B, N, device=device)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntorch.AcceleratorError: HIP error: invalid device function\nSearch for `hipErrorInvalidDeviceFunction' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__HIPRT__TYPES.html for more information.\nHIP kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing AMD_SERIALIZE_KERNEL=3\nCompile with `TORCH_USE_HIP_DSA` to enable device-side assertions.\n\n",
+  "duration_sec": 5
+}

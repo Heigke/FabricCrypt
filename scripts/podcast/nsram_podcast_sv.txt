@@ -1,0 +1,163 @@
+### INTRO
+
+Välkomna till podden. Mitt namn spelar inte så stor roll just nu, för idag handlar det inte om mig. Idag handlar det om ett litet stycke kisel som beter sig nästan som en hjärncell. Det kallas NS-RAM. Vi kommer att prata om vad det är, varför det är spännande, och vad vi själva forskar på just nu.
+
+Jag tänker att vi börjar enkelt. Riktigt enkelt. Som om jag förklarade det för min farmor vid köksbordet, med en kopp kaffe. Och sen bygger vi upp det, lugnt och stilla, tills vi är framme vid det som faktiskt är vetenskaplig frontlinje just nu. Du behöver inte ha läst fysik. Du behöver inte ha pluggat datateknik. Du behöver bara vara nyfiken.
+
+Vi kommer prata om transistorer, om vad minne egentligen är, om hur en cell på åtta mikrometer kan fyra spikar som en neuron. Vi kommer prata om vad vi har fått att fungera, och, lika viktigt, vad vi inte har fått att fungera ännu. För det är där forskningen faktiskt händer. I luckorna.
+
+Häng med, så kör vi igång.
+
+### AVSNITT ETT: VAD ÄR EN TRANSISTOR
+
+Låt oss börja med transistorn. En transistor är egentligen bara en kran. Tänk dig en vattenkran i diskbänken. Du har ett rör som vattnet kan rinna genom, och du har ett vred som du kan vrida på. Vrider du på vredet lite, rinner det lite vatten. Vrider du på vredet mycket, rinner det mycket vatten. Stänger du av, rinner ingenting alls.
+
+En transistor är samma sak, fast med elektroner istället för vatten. Och vredet är ingen mekanisk grej man tar i, utan en liten elektrisk spänning som man lägger på en speciell del som kallas för gaten. Gate betyder grind på engelska, och det är precis vad det är. En grind. Lägger du tillräckligt med spänning på grinden, så öppnas den, och då kan strömmen flöda från ena sidan till andra. Tar du bort spänningen, så stänger grinden, och strömmen stoppas.
+
+Det här är vad som händer miljarder gånger i sekunden inuti din mobiltelefon. Inuti datorn du eventuellt arbetar med. Inuti tvättmaskinen, för den delen. Allt elektroniskt vi omger oss med är byggt av miljarder små transistorer som öppnar och stänger sig själva i ett otroligt tempo.
+
+Men här är grejen. Transistorn har inget minne. Ingenting alls. När du stänger av spänningen på grinden, så stängs den, och då är det som att den glömmer allt. Den vet inte om den var öppen för en sekund sedan eller för en timme sedan. Den lever helt i nuet, om man får uttrycka sig poetiskt om en bit kisel.
+
+Och just det är en ganska viktig egenskap att lägga på minnet. Ingen historia. Inga spår. Bara nu.
+
+Storleken då? Den transistor vi pratar om idag, den är gjord i något som kallas hundratrettio nanometer teknik. Hundratrettio nanometer. Det betyder att de minsta detaljerna i transistorn är ungefär en tusendel av tjockleken på ett hårstrå. Det är så små grejer att man inte ser dem ens med ett vanligt mikroskop. Man behöver elektronmikroskop. Och ändå tillverkas de i fabriker i miljardtals exemplar varje dag.
+
+Det är där vi börjar. Med en kran utan minne, så liten att den nästan inte finns.
+
+### AVSNITT TVÅ: VAD MENAR VI MED MINNE
+
+Nu till nästa frågan. Vad menar vi när vi säger minne?
+
+I en vanlig dator, en sån du har stående hemma, eller i din telefon, så fungerar det ungefär så här. Det finns en del av datorn som räknar. Den kallas processor. Den är jättesnabb på att göra matematik. Och sen finns det en helt annan del som kommer ihåg saker. Det kallas minne. Det är två separata grejer, fysiskt åtskilda inuti datorn.
+
+Och när processorn ska räkna på något, då måste den ju först hämta hem datan från minnet. Den skickar en liten begäran, minnet svarar, datan skickas över, processorn räknar, och sen skickar processorn tillbaka resultatet till minnet. Hela tiden, fram och tillbaka, fram och tillbaka. Som en springpojke som hämtar saker.
+
+Det fungerar utmärkt, men det har ett problem. Det kostar energi. Varje gång datan ska flyttas, så förbrukas det elektroner. Och i moderna datorer är det här flyttandet av data faktiskt det som drar mest ström. Mer än själva räknandet. Detta kallas i tekniska sammanhang för von Neumann-flaskhalsen, efter mannen som designade den ursprungliga arkitekturen på fyrtiotalet.
+
+Jämför nu med din hjärna. I hjärnan finns det inga separata processorer och minnen. Varje hjärncell, varje neuron, är både en räknare och ett minne i samma cell. När en neuron fyrar, så ändrar den samtidigt sitt eget tillstånd. Den kommer ihåg att den fyrade. Och nästa gång den får input, så fyrar den lite annorlunda, beroende på vad den minns. Allt sker på ett och samma ställe. Inget skickas fram och tillbaka. Och det är därför hjärnan kan göra otroligt komplexa beräkningar med bara tjugo watt. Tjugo watt. En liten lampa.
+
+En modern dator som tränar en stor språkmodell drar uppåt en megawatt. Det är femtiotusen gånger mer. Det är inte rättvist.
+
+Så då tänker forskare. Tänk om vi kunde bygga en transistor som var både räknare och minne. Som hjärncellen. En cell där minnet sitter inuti själva räknemekanismen, och man inte behöver flytta något fram och tillbaka. Då skulle vi kunna spara väldigt mycket energi.
+
+Och det är just det NS-RAM försöker göra. Förkortningen står för Neuron och Synaps RAM, alltså ett minne som beter sig som en neuron och en synaps. I samma kiselbit. Inga separata delar. Allt i ett.
+
+### AVSNITT TRE: NS-RAM GRUNDIDÉN
+
+Bra. Då är vi framme vid själva grundidén. Hur i hela friden får man en transistor att komma ihåg?
+
+Trick nummer ett. Man tar en vanlig transistor och så gör man en liten modifikation. Istället för att låta mittenbiten, den del där elektronerna passerar, vara ordentligt kopplad till resten av kretsen, så låter man den vara flytande. Det heter floating body på engelska. Flytande kropp. Ungefär som en liten ö av kisel som är isolerad från fastlandet av små isoleringsbarriärer.
+
+Och nu händer någonting intressant. När du lägger spänning på grinden, och elektronerna börjar flöda igenom kanalen, så kommer det att samlas lite extra elektroner på den här flytande ön. Och, viktigt, dessa elektroner kan inte direkt åka iväg igen. De är instängda på ön. De ackumuleras. Långsamt, men säkert.
+
+Och det är minnet. Det är hela hemligheten. Mängden laddning på den flytande ön är cellens minne. Mycket laddning betyder att cellen kommer ihåg att den varit aktiv. Lite laddning betyder att cellen är vilande, har glömt.
+
+Trick nummer två. När laddningen på ön blir tillräckligt stor, så händer någonting nästan dramatiskt. Hela transistorn slår om sin egenskap. Plötsligt blir den mycket lättare att slå på. Det är som om den själv bestämmer sig för att öppna grinden, utan att du behöver höja spänningen. Det här fenomenet kallas snapback på engelska. Det finns inget riktigt bra svenskt ord, men ungefär backsnap. Eller självutlösning.
+
+Det är just det här som gör cellen neuronlik. För se vad som händer. Cellen tar emot input, samlar laddning, samlar laddning, samlar laddning, och plötsligt, vid en viss tröskel, slår om. Det är en spik. Det är en kvasi-aktionspotential. Det är vad biologiska hjärnceller också gör. De integrerar input tills de når sin tröskel, sen fyrar de en kort puls, och sen återställer de sig. Och sen börjar om.
+
+Vår kiselcell gör exakt samma sak. Den integrerar laddning, fyrar en spik, och sen återställs den långsamt eftersom laddningen på den flytande ön läcker ut över tid. Det är inte en perfekt biologisk neuron, det skulle ingen påstå, men det är en mycket användbar analogi. Och, vilket är viktigt, den fungerar i vanlig kisel-tillverkning. Inga exotiska material. Inga sällsynta jordartsmetaller. Bara standard kisel som varje halvledar-fabrik i världen redan kan tillverka.
+
+Det är därför vi är så intresserade. Det är inte ett labb-experiment som kräver speciallaboratorium. Det är en cell som teoretiskt sett skulle kunna massproduceras imorgon, om man bara visste hur man designade kretsen runt den.
+
+### AVSNITT FYRA: TVÅ-TRANSISTOR-CELLEN
+
+Nu blir det lite mer tekniskt, men jag lovar att hålla det mjukt. Den specifika konstruktionen vi forskar på just nu kallas för en två-transistor-cell, eller på engelska two T cell. Det är två transistorer som är staplade på varandra och delar samma flytande kropp.
+
+Den nedre, vi kallar den M ett, är drivenheten. Den får spänning på sin grind, och den driver in laddning till den gemensamma flytande kroppen som ligger mellan transistorerna. M ett är arbetshästen.
+
+Den övre, M två, är avläsaren. Den känner av tillståndet i den flytande kroppen. När laddningen i kroppen är hög, börjar M två leda. När laddningen i kroppen är låg, leder M två knappast alls.
+
+Och här är finessen. När den flytande kroppen blir tillräckligt fylld, så slår M två om, snapbacken inträffar, och en spik skickas ut på cellens utgång. Det är ett kort, högt strömpuls. Precis som en neuron som fyrar.
+
+Och efter spiken, då tappar kroppen sin laddning och M två återställs. Cellen är redo att integrera igen.
+
+Hur stor är då en sån cell? Ungefär åtta kvadratmikrometer. Det betyder att om du tar ett kvadratmillimeter chip, så får du plats med över hundratusen sådana neuroner. Det är ungefär lika många som det finns nervceller i en hel fruktfluga. På en kvadratmillimeter kisel. Det är gigantiska siffror, även om de inte når i närheten av en mänsklig hjärnas hundra miljarder.
+
+Och energin? Här blir det riktigt intressant. Varje spik förbrukar i storleksordning en picojoule. En tusendels nanojoule. Det är så lite att en sån cell skulle kunna driva sig själv med vibrationer från en motor, eller med termisk energi från en kropp i hud-kontakt, eller med en mikroskopisk solcell. Det är energiskörd-territorium. Det är så lite att du nästan inte kan mäta det.
+
+Och nu kombinera de siffrorna. Hundratusen neuroner per kvadratmillimeter, varje neuron drar picojoule per spik. Du kan ha ett helt litet neuralt nätverk i en sensor som drivs av miljöenergi och aldrig behöver bytas batteri på. Det är inte science fiction. Det är ingenjörsmässigt realistiskt med nuvarande halvledarteknik.
+
+Den enda detaljen är, det är fortfarande svårt. Vi har inte alla svaren. Vi har en cell som fungerar i laboratoriet, men att förstå dess fysik tillräckligt bra för att kunna designa stora kretsar baserade på den, det är där vi är just nu.
+
+### AVSNITT FEM: VARFÖR DETTA ÄR SPÄNNANDE
+
+Låt mig backa ett steg och berätta varför vi tycker det här är så fantastiskt spännande. För det är inte bara akademisk nyfikenhet. Det finns konkreta tillämpningar som faktiskt skulle påverka människors vardag.
+
+Tillämpning nummer ett. Alltid-på artificiell intelligens. Tänk dig en hörselapparat som lyssnar kontinuerligt, men som bara väcker huvudprocessorn när någon säger din väns namn. Eller en babymonitor som bara aktiverar sig när barnet faktiskt skriker, inte vid bilar som passerar utanför. Eller en överrullningsdetektor som sitter i din säng och kan känna igen mönstret i en panikattack från sömnen. Allt detta kräver att en liten del av apparaten lyssnar hela tiden, dygnet runt, utan att tömma batteriet. Det är exakt vad NS-RAM är byggt för.
+
+Tillämpning nummer två. Industriell anomali-detektion. En motor i en fabrik som börjar vibrera onormalt månader innan den faktiskt går sönder. En pump som låter konstigt och förebådar ett haveri. Idag måste man köra avancerad signalbehandling på en kraftfull dator för att fånga sånt. Med NS-RAM skulle själva sensorn kunna känna igen mönstret på plats, utan att skicka data till molnet. Snabbare, billigare, säkrare.
+
+Tillämpning nummer tre, och det här är min favorit. Riktig slumpgenerering. Vanliga datorer är fruktansvärt dåliga på slump. De använder något som kallas pseudoslump, vilket är ett finare ord för fejk-slump. Det är en deterministisk algoritm som ser slumpmässig ut, men om man känner till starttillståndet så kan man förutsäga varje siffra. Det är ett gigantiskt problem inom kryptografi, inom statistik, och framförallt inom det som kallas bayesianska beräkningar inom AI.
+
+NS-RAM-celler har en naturlig egenskap. På grund av den lilla flytande kroppen, så finns det fundamental termisk brus i cellen. Slumpen kommer från elektronernas egen termiska rörelse. Det är fysikalisk slump. Den kan inte förutsägas, eftersom den är driven av kvantmekanik och termodynamik. Vi har faktiskt visat, i några av våra experiment, att vi kan generera bitströmmar från sådana celler som passerar alla fem NIST-tester för slump på samma villkor som standardpseudoslumpgeneratorer. Det är en stor sak. Det är hårdvaruslump i en standard kiselcell.
+
+Tillämpning nummer fyra. Och det här är kanske den viktigaste affärsmässigt. Eftersom NS-RAM bygger på standard CMOS-processen, kan teknologin licensieras till alla halvledartillverkare. Det krävs ingen specialfabrik. Ingen exotisk materialhantering. Det är en designinnovation, inte en processinnovation. Vilket betyder att om det fungerar, så kan det skala till miljarder enheter på ett par år. Det är industriellt realistiskt.
+
+### AVSNITT SEX: VÅR FORSKNINGSRESA
+
+Bra. Då tror jag du har en hyfsad bild av vad NS-RAM är, varför det är spännande, och vad det kan göra. Nu till det mest intressanta. Vad har vi själva gjort? Och var står vi just nu?
+
+Det började med ett samarbete. Vi fick mätdata från en forskare som heter Sebas. Han har faktiskt tillverkat fysiska celler i en hundratrettio nanometer kommersiell process. Han mätte upp strömmen genom cellen vid olika spänningar, vid olika temperaturer, vid olika tidsförlopp. Mängder av data. Det är guld. Utan riktig mätdata är all teori bara spekulation.
+
+Vårt jobb var att bygga en datormodell av cellen. En mjukvarumodell som skulle kunna förutsäga vad cellen gör utan att man behöver tillverka en ny fysisk version varje gång. För att designa stora kretsar behöver man kunna simulera dem först. Det är så halvledarindustrin fungerar.
+
+Vi byggde modellen i något som kallas ngspice. Det är en kretssimulator, gratis, öppen källkod, som används över hela världen. Vi parametriserade modellen, vi finjusterade den, och sen jämförde vi mot Sebas mätdata.
+
+Resultat? Blandat. Vid en viss spänningskonfiguration, som vi kallar V G ett lika med noll komma sex, så stämmer modellen riktigt bra. Vi är inom en faktor två på strömmen. Det är acceptabel ingenjörsmässig precision. Men vid en annan konfiguration, V G ett lika med noll komma två, då är vi kraftigt off. Fyra och en halv storleksordning bredvid. Det är inte ingenjörsmässigt. Det är fel.
+
+Vi förstod också att modellen klarar av att producera snapback-fenomenet i kvalitet, men att lutningen, hur brant självutlösningen är, har fel tecken i några konfigurationer. Det är ett problem. Det betyder att fysiken bakom snapbacken inte är fullt korrekt i vår modell.
+
+Vi gick tillbaka till litteraturen. Vi tittade på Mario Lanza, en av forskarna i fältet, hans gamla SPICE-deck från en annan halvledarprocess. Det var användbar inspiration, men för avlägset. Vi kunde inte bara kopiera in. Den processen är annorlunda.
+
+Och så, för någon dag sedan, gjorde vi en upptäckt som faktiskt känns viktig. Vi insåg att det vi saknar i modellen är oxid-fällor med flera tidskonstanter. Vad betyder det? Inuti själva isolationslagret runt grinden finns det små defekter, så kallade fällor, som kan fånga elektroner och släppa dem igen, på olika tidsskalor. Vissa fällor är snabba, mikrosekunder. Vissa är långsamma, millisekunder. Vissa är riktigt långsamma, sekunder. Och tillsammans formar de en hysteres, en historia, i cellen som vår enkla modell inte kunde fånga.
+
+Vi byggde en prototyp som inkluderar dessa fällor. Och hysteresen lyfte sig sex storleksordningar. Sex storleksordningar. Det är miljonfaldig förbättring. Mekanismen är bekräftad. Vi vet nu vilken fysik som fattades. Det är ett genombrott på den mikronivån.
+
+På nätverkssidan har vi också gjort framsteg. Vi byggde en simulering av sextontusen sammanlänkade celler och tränade den på en uppgift som heter human activity recognition. Det handlar om att känna igen om en person går, sitter, ligger, springer, baserat på accelerometerdata från en mobiltelefon. Vår modell uppnår åttiotre komma åttiosex procents noggrannhet, med en energiförbrukning på trettiofem nanojoule per gissning. Det är konkurrenskraftigt mot dagens bästa metoder, men på en bråkdel av energin. Vi körde tio oberoende seedsen för att verifiera, och resultatet är robust, plus minus noll komma sjutton procentenheter, nittiofem procent konfidensintervall.
+
+Och slumpgeneratorn jag pratade om. Den har vi också byggt och testat. Och, som jag nämnde, passerar alla fem NIST-tester på lika villkor med standard pseudoslumpgenerator.
+
+Det är våra konkreta vinster idag.
+
+### AVSNITT SJU: VAD VI INTE KAN GÖRA ÄNNU
+
+Men nu till det viktigaste i all ärlig forskning. Vad fungerar inte ännu? Vad är våra gap?
+
+Punkt ett. Cellmodellen vid V G ett lika med noll komma två är fortfarande fyra komma sju storleksordningar fel. Det är icke trivialt. Det betyder att om vi försökte designa en krets som arbetar i det här spänningsområdet, och vi förlitade oss på vår modell, då skulle den faktiska kretsen bete sig helt annorlunda än simuleringen. Vi kan inte gå till en kund med en sån modell.
+
+Punkt två. Snapback-lutningen har fortfarande fel riktning i vissa fall. Det är inte bara en kalibreringsfråga. Det är en fysikalisk modellfråga. Vi behöver fundera om på topologin i vår ekvivalentkrets. Det är troligen flera dagars arbete för att korrigera grundläggande.
+
+Punkt tre. En del konfigurationsflaggor som vi byggde in i vår mjukvara är inte alla kopplade i själva lösningskoden. Det är teknisk skuld. Det är inte vetenskapligt djup, men det är mjukvaruarbete som måste göras innan vi kan köra de utvidgade experimenten vi vill köra.
+
+Punkt fyra, och den smärtsammaste. Tal-igenkänning. Det som kallas keyword spotting, eller K W S, för att man ska kunna säga ett vakenord till en apparat. Vi har försökt köra detta på vår simulering. Resultatet är slumpnivå. Femtio procent rätt på en binär uppgift där en slumpgenerator skulle få femtio procent. Det är inte bara ett dåligt resultat. Det är ett ship-blocker, som tre oberoende AI-orakel som vi konsulterar har kallat det. Det betyder att den här tillämpningen kan vi inte ens börja prata om förrän vi fixar det.
+
+Punkt fem. Vi behöver mer mätdata från Sebas. Specifikt, vid drainspänningar över två volt, vid flera olika ramphastigheter. Det skulle hjälpa oss att skilja på olika fysikaliska mekanismer som ger samma signal. Just nu är våra modellparametrar inte unikt bestämda. Det finns flera möjliga världar som passar lika bra till datan vi har.
+
+Detta är ärligt. Det är inte trevliga rubriker, men det är där vi står. Vi har vetenskapliga framsteg, vi har ärliga gap, och vi vet exakt vad vi behöver göra härnäst.
+
+### AVSNITT ÅTTA: DISCIPLINEN SOM HÅLLER OSS ÄRLIGA
+
+En sak till innan vi avslutar. Vi använder en process som vi kallar tre-vägs orakelkritik. Var sjätte timme skickas våra rapporter till tre stora språkmodeller, från olika tillverkare. Det är gpt fem, det är gemini, och det är grok. Och de granskar vad vi gjort och kallar ut allt som verkar tveksamt.
+
+Det är inte bara teater. De har faktiskt fångat saker. Vi hade en gång rapporterat att vår modell var, citat, noise-benefiting. Att den blev bättre när det fanns brus. Orakeln påpekade att vi bara hade kört en seedsen. När vi gjorde om med tio seedsen var effekten borta. Vi tog bort påståendet. Det heter overclaim på engelska, och det är en av de vanligaste synderna i forskning.
+
+En annan gång rapporterade vi en cellmodell-fit som vi sade hade noll komma nio nio dekader fel. Det låter fantastiskt. Bara nio tiondels storleksordning. Orakeln frågade efter konfidensintervall. När vi gjorde en bootstrap-analys visade det sig vara bimodalt fördelat mellan noll komma nittiotre och två komma tjugotvå dekader. Det är inte samma sak alls. Vi rapporterar nu båda värdena, ärligt.
+
+Vi pre-registrerar våra hypoteser. Det betyder att innan vi kör en beräkning, så skriver vi ner exakt vad vi förväntar oss, och vilka tröskelvärden som ska räknas som framgång eller misslyckande. Det förhindrar att man bestämmer sig efter beräkningen att det här resultatet är okej och det där är inte. Det är en grundläggande vetenskaplig hygien som inte alltid följs, även i toppjournaler.
+
+Vi loggar våra misslyckanden öppet. När något inte fungerar, så står det skrivet i rött i våra anteckningar. Inga försök att gömma. Inga försök att bortförklara. Det är så vetenskapen ska bedrivas.
+
+### AVSLUTNING
+
+Och med det är vi framme vid slutet. Det här är ett pågående forskningsarbete. Det är inte färdigt. Det blir kanske aldrig färdigt, för forskning är just så. Man löser ett problem och upptäcker tre nya.
+
+Vi har riktiga vinster. Vi har en mekanism för hysteres som vi nyligen identifierat och bekräftat. Vi har en fungerande hyper-dimensionell aktivitetsigenkännare på sextontusen celler vid trettiofem nanojoule per gissning. Vi har en fysikalisk slumpgenerator som passerar NIST-tester.
+
+Och vi har riktiga luckor. Modellen är inte korrekt i hela parameterrymden. Snapback-lutningen är felriktad. Tal-igenkänningen fungerar inte alls. Konfigurationssystemet är inte fullt anslutet.
+
+Vi vet exakt vad som saknas. Och vi vet ungefär vad nästa sprint kommer att handla om. Vi ska göra en topologi-rebuild på cellen, med oxid-fällor inkluderade från början. Vi ska samla mer mätdata från Sebas vid högre drain-spänningar. Och vi ska försöka komma loss på K W S-uppgiften, eller, om vi inte kan, vara ärliga med att det är utanför vad nuvarande NS-RAM-arkitektur klarar av.
+
+Det är vad forskning faktiskt ser ut som från insidan. Långsamma framsteg. Ärliga gap. Disciplin för att inte ljuga för sig själv. Och en oerhörd respekt för det lilla stycke kisel på åtta mikrometer kvadrat som faktiskt kan fyra spikar som en hjärncell.
+
+Tack för att du har lyssnat. Vi hörs i nästa avsnitt.

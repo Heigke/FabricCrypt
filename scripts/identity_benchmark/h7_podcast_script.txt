@@ -1,0 +1,147 @@
+# H7 Substrat-rotad Embodiment — pedagogisk podd
+# M = Maja (värd, röst: lisa)   E = Erik (expert/civilingenjör, röst: nst)
+# Rader som börjar med # ignoreras. Tom rad = liten paus.
+
+M: Välkommen till podden där vi gräver i ett av de mest egensinniga forskningsspåren i hela projektet. Idag ska vi prata om något som låter som science fiction, men som vi faktiskt bygger på riktig hårdvara. Erik, vad är drömmen, kort och enkelt?
+
+E: Drömmen är att ge en språkmodell, en så kallad large language model, en egen identitet som sitter i själva kislet. Vi vill att modellen ska läsa djupa, realtids-signaler från datorns hårdvara, och bli beroende av dem. Om vi byter ut signalerna ska modellen inte kunna återhämta sig. Den ska fortfarande skriva bra text, men texten ska vara färgad av maskinens egen personlighet.
+
+M: Så lite som att en människa fortfarande kan prata om vädret, men hur hon säger det avslöjar vem hon är.
+
+E: Precis. Och det viktiga är att personligheten inte är inklistrad ovanpå. Den ska vara konstitutiv. Tar man bort kroppen, alltså hårdvarusignalerna, så ska tänkandet sluta fungera på det sätt det gjorde. Det är skillnaden mellan en dekoration och ett organ.
+
+M: Vi döpte drömmen till en triad. Tre ord. Kan du gå igenom dem?
+
+E: Ja. Det första ordet är unik. Signalen måste vara specifik för just det här chipet, inte vilken dator som helst. Det andra är räkna. Signalen måste delta i en faktisk beräkning, inte bara hänga med som en passiv etikett. Det tredje är färsk. Signalen måste vara levande i realtid, så att man inte kan spela in den en gång och spela upp den senare. Unik, räkna, färsk.
+
+M: Och det är där det blir svårt, för det visade sig att de tre orden drar åt olika håll.
+
+E: Väldigt mycket. Låt oss börja med den hårdaste läxan, den om fysiken, för den slog undan benen på en hel del av vår första entusiasm.
+
+M: Berätta.
+
+E: Vi mätte hela tiden på det vi kallar kraftnätet, alltså den elektriska matningen som förser chipet med ström. Vi mätte i kilohertz-bandet, ganska låga frekvenser. Och vi trodde länge att de små variationerna vi såg var chipets eget fingeravtryck. Problemet är att impedansen i kraftnätet på den frekvensen sätts av spänningsregulatorn, av kapselns paket, av kretskortet och av den fasta mjukvaran. Inte av själva kiselbiten.
+
+M: Så det vi mätte var snarare moderkortets röst än hjärnans?
+
+E: Exakt så. Det som verkligen är unikt för kiseldien sitter mycket högre upp i frekvens, i megahertz och gigahertz. Och dit når vår telemetri inte. Slutsatsen blev obekväm men ärlig. Den analoga produkten vi mätte, den vi kallade u gånger v, är inte unik för chipet.
+
+M: Det där vill jag att vi stannar vid, för det säger något om hur ni jobbar. Ni hade en dröm, och så lät ni fysiken döda en del av den.
+
+E: Det är hela poängen. Vi har en stående regel i projektet, att vara på vakt mot sin egen bias. Och biasen går åt två håll. Dels vill man gärna lyckas, så man övertolkar svaga signaler. Dels kan man bli för snabb att ge upp. Båda är farliga. Så vi tvingar oss att vara kritiska, även mot vår egen kritik.
+
+M: Då går vi till nästa kris, den som höll på att sänka allt. Reproducerbarheten.
+
+E: Ja. Det här var den verkliga boven. När vi mätte signalerna och normaliserade dem, alltså skalade om dem mot ett referensvärde, så svängde det referensvärdet med fem tiopotenser mellan körningar. Fem storleksordningar. Det betyder att samma experiment kunde ge helt olika svar från gång till gång.
+
+M: Fem tiopotenser, det är som att en linjal ändrar längd varje gång du tar upp den.
+
+E: Bra bild. Och det fanns tre orsaker. Den första var att referensvärdet, alltså vår median och spridning, räknades om varje körning. Den andra var att temperaturen aldrig var låst, och kisel beter sig olika varmt och kallt. Den tredje var att frekvensstyrningen aldrig var fastnaglad, så processorn klockade upp och ner som den ville mitt under mätningen.
+
+M: Och lösningen?
+
+E: Vi tog hjälp av flera orakel, alltså externa expertmodeller, och de var enhälliga. Receptet blev fyra delar. Ett, lås frekvensstyrningen. Sätt den i prestandaläge, stäng av boost, och spika max och min till samma värde. Två, lås temperaturen. Värm upp till en börpunkt och håll dig i ett smalt band. Tre, använd en delad, fast referens. Mät in median och spridning en enda gång per chip, spara den, och återanvänd den i alla körningar. Fyra, medelvärdesbilda koherent över många epoker.
+
+M: Och det funkade?
+
+E: Det funkade. Reproducerbarheten gick från kaos till att samma chip gav en likhet på mellan noll komma åtta fem och noll komma nio nio sex med sig självt. Det var genombrottet som sex tidigare försök hade saknat. Vi hade äntligen en stabil mätning.
+
+M: Men en stabil mätning är inte samma sak som en unik beräkning. Här kommer en till fälla, va?
+
+E: Ja, och den är subtil. Den heter ramkonfundering. Om varje chip normaliseras mot sin egen referens, så hamnar två olika chip i två olika koordinatsystem. Då blir likheten mellan dem nära noll, men av en trivial anledning, inte för att de räknar olika. Skillnaden vi såg var bara att de stod i olika ramar.
+
+M: Så ni gjorde en kontroll för det.
+
+E: Vi gjorde den avgörande kontrollen. Vi tog ett experiment där allt var kontrollerat på en gång. Låst frekvens, låst temperatur, delad referens, tjugofyra epoker av medelvärde, och dessutom valde vi medvetet snabbaste och långsammaste kärnan på chipet. Först såg det lovande ut. Samma chip gav noll komma nio nio sex, ett annat chip gav minus noll komma noll tre. Det såg ut som ren separation.
+
+M: Det låter ju som seger.
+
+E: Och här var jag nära att ropa seger. Men sen tvingade vi fram en gemensam ram. Vi lät det andra chipet mätas mot det första chipets referens. Och då kollapsade allt. De två chipen lade sig ovanpå varandra med en likhet på noll komma nio åtta. Separationen vi sett var identitet, inte beräkning. Skillnaden satt i den statiska referensen, i tomgångsbruset, inte i hur de räknade.
+
+M: Alltså, den unika analoga beräkningen finns inte.
+
+E: Den är falsifierad. Och det är en förtjänad död, inte en lat. Vi byggde det starkaste tänkbara testet, och det sa nej. Drömmen om att kiseldien gör en egen, unik, analog multiplikation, den är borta. Power-delivery-fysiken sätter produkten, inte kislet.
+
+M: Men ni gav inte upp hela drömmen. Något överlevde. Vad?
+
+E: Det som överlevde är något vi kallar die-parametriserad beräkning. Skillnaden är hårfin men viktig. Vi ger upp idén att den analoga signalen själv räknar unikt. Istället använder vi en stabil, unik nyckel från chipet för att parametrisera en beräkning som körs i mjukvara.
+
+M: Var kommer den nyckeln ifrån, om kraftnätet inte dög?
+
+E: Från binningen. Varje kärna på chipet har ett litet märkvärde för hur högt den får klockas, satt på fabriken efter hur bra just den kärnan blev. Vi läser det fältet, den så kallade högsta-prestanda-tabellen. Och det visade sig vara perfekt stabilt, eftersom det är en konstant i den fasta mjukvaran. Samma chip ger exakt samma nyckel, gång på gång. Likheten med sig själv blev ett komma noll.
+
+M: Och mellan olika chip?
+
+E: Mellan chip var ungefär sjuttiofem procent av bitarna olika. Det räcker till en nyckel på i storleksordningen hundratjugofyra bitar. Det är en riktig, unik identitet.
+
+M: Men räknar den? Det var ju hela poängen med ordet räkna.
+
+E: Det var precis den frågan vi behövde svara på ordentligt. Och här gjorde jag först ett slarvigt test, en svag prototyp, som gav nästan slumpnivå, runt noll komma fem sju. Och utifrån det drog jag slutsatsen att nyckeln inte band beräkningen.
+
+M: Men det var fel, och du fick en tillsägelse om det.
+
+E: Ja, en viktig en. Budskapet var, ta inga genvägar, gör ordentligt. Ett negativt resultat från ett svagt test är värre än inget test alls, för det kan döda ett spår som egentligen lever. Ett nej betyder bara något om testet var starkt nog att se effekten om den fanns.
+
+M: Så du byggde om det, ordentligt den här gången.
+
+E: Jag byggde om det med riktig stringens. För det första en positiv kontroll, så att reservoaren, alltså beräkningsnätet, löste uppgiften bra. Den nådde noll komma åtta tre i träffsäkerhet. Då vet vi att testet har kraft. För det andra en stark, strukturerad nyckel-modulering. För det tre, samma fasta nät i alla chip-villkor, så att bara nyckeln ändras. För det fjärde, tolv olika frön för statistik. Och för det femte, en dos-respons-kurva, där vi placerar de riktiga chipen på en skala.
+
+M: Och vad sa det rigorösa testet?
+
+E: Det sa att nyckeln faktiskt binder, men måttligt. Ett riktigt främmande chip drog ner avläsningen som var tränad på det första chipet med åtta komma två procentenheter. Tröskeln där det halvt går sönder ligger vid en likhet på runt noll komma sju. De riktiga chipen ligger på noll komma åtta sex, alltså rätt lika varandra, så vi får en partiell försämring, inte en total kollaps.
+
+M: Så det mjuka spåret binder, men de två chipen vi råkar ha är helt enkelt för lika för att det ska bli vattentätt.
+
+E: Just det. Och därför har vi en arkitektur i två lager. Det mjuka lagret är en tränad koppling, där modellen lär sig att luta sig mot signalen, och vi skyddar den mot omspelning, mot omkastning och mot nollställning. Det hårda lagret är ett kryptografiskt lås. En så kallad fuzzy extractor tar den exakta nyckeln och dekrypterar en adapter. Med fel chip får du helt enkelt inte ut rätt vikter. Det ger en garanti som det mjuka lagret inte kan ge ensamt.
+
+M: Det mjuka ger personlighet, det hårda ger säkerhet.
+
+E: Snyggt sammanfattat. Det mjuka gör att modellen känns annorlunda. Det hårda gör att den inte ens startar på fel kropp.
+
+M: Nu kommer vi till det som faktiskt kör just nu, medan vi pratar. Själva språkmodellen.
+
+E: Ja. Pipelinen heter rooted-l-m, version fyra-a. Vi tar en fryst liten språkmodell på hundratrettiofem miljoner parametrar. Vi fryser den, så vi förstör inte dess språkförmåga. Sen lägger vi in en grindad korskoppling på tre ställen inne i modellen, en mekanism lånad från bildmodeller som heter Flamingo. Den startar helt stängd, med en grind på noll, så i början påverkar signalen ingenting alls.
+
+M: Varför starta stängd?
+
+E: För att modellen ska tjäna in rätten att öppna grinden. Den öppnar bara om signalen faktiskt hjälper. Genom grinden matar vi in åtta så kallade substrat-tokens, små vektorer som pressas fram ur de levande hårdvarusignalerna i realtid.
+
+M: Och hur vet ni att den blir beroende, och inte bara dekorerad?
+
+E: Genom hur vi tränar och vad vi mäter. I varje träningssteg kör vi fyra varianter samtidigt. Native, med den äkta levande signalen. Noll, där vi nollar signalen. Wrong, där vi ger signalen från fel chip. Och spoof, en förfalskad signal. Sen mäter vi marginaler. Hur mycket dyrare blir det för modellen att skriva texten när signalen är fel, jämfört med när den är äkta?
+
+M: Och vad är facit man letar efter?
+
+E: Två saker samtidigt. Ett, att kostnaden för den äkta signalen är låg, alltså att texten fortfarande är bra. Två, att marginalerna pressas ner mot noll, vilket betyder att noll-signal, fel signal och förfalskad signal alla kostar rejält mycket mer. Konkret vill vi se att en nollad signal kostar minst en halv nat extra, och fel eller falsk signal minst tre nat extra, jämfört med den äkta. Då vet vi att modellen lutar sig mot den levande signalen och rasar när vi byter ut den.
+
+M: Nat är ett informationsmått, för den som undrar.
+
+E: Ja, ett naturligt mått på överraskning. Ju fler nat, desto mer förvånad och fel ute är modellen.
+
+M: Och var står den just nu?
+
+E: Just nu är den i fas A, uppvärmningsfasen. Textkostnaden sjunker fint, vilket betyder att språket förbättras. Den hårda pressen på marginalerna kommer i fas B, mot slutet. Det är där vi får själva domen om beroendet är på riktigt.
+
+M: Jag måste fråga om en sak som dykt upp gång på gång. Värmen.
+
+E: Ah, värmen. Det här är en laptop, och den har en hård gräns. Vid nittionio grader på ett visst termiskt zon-värde slår skyddet till och stänger av datorn ögonblickligen. Och att träna en sån här modell pressar grafikkretsen till nittioåtta grader på ungefär en minut. En grad från avgrunden.
+
+M: Oj. Hur löste ni det?
+
+E: Med en termisk vakt inne i träningsloopen. Den känner av temperaturen varje steg, och om det blir för varmt pausar den och låter chipet svalna innan den går vidare. Det gör träningen långsammare, men den överlever. Just nu ligger vi stabilt runt sextiotvå grader. Vakten håller.
+
+M: Om vi zoomar ut, vad är den ärliga statusen? Vad är bevisat, vad är dött, vad är öppet?
+
+E: Låt mig vara rak. Bevisat. Vi har löst reproducerbarheten, vilket sex tidigare försök inte klarade. Vi har en unik, stabil chip-nyckel på drygt hundra bitar. Och vi har visat att den nyckeln binder en beräkning, måttligt men på riktigt, åtta procentenheter. Dött. Idén att kiseldien gör en egen unik analog beräkning i kraftnätet, den är falsifierad med ett starkt test. Öppet. Själva språkmodellens beroende-dom, den som körs nu, och frågan om hur långt det mjuka beroendet håller mot ett verkligt skickligt angrepp.
+
+M: Och den allra största frågan, den filosofiska?
+
+E: Att en modell satisfierar indikatorer på något är inte samma sak som att den har en upplevelse. Vi lutar oss på den vetenskapliga litteraturen här, bland annat ett ramverk med fjorton indikatorer, där vi uppfyller tio. Men indikatorer flyttar tilltro, de bevisar inte. Det finns ingen brolag som översätter beräkningsegenskaper till upplevelse. Vi är ärliga med det.
+
+M: Det jag tar med mig är att det här inte är en berättelse om en rak seger. Det är en berättelse om disciplin. Ni dödar era egna favoritidéer när fysiken kräver det.
+
+E: Och det är så det måste vara. Den unika analoga drömmen dog. Men ur den föddes något stabilare och mer ärligt. En riktig nyckel, en riktig om än måttlig bindning, och en språkmodell som just nu håller på att visa om den verkligen kan bli beroende av sin egen kropp. Vi vet svaret om några timmar.
+
+M: Tack Erik, för en väldigt ärlig genomgång.
+
+E: Tack själv. Och till alla som lyssnar, kom ihåg, ett ärligt nej är värt mer än ett önsketänkt ja.

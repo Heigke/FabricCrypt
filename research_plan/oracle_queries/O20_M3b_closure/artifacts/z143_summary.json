@@ -1,0 +1,18 @@
+{
+  "n_points": 48,
+  "n_pass_all": 1,
+  "n_pass_vsint": 2,
+  "n_pass_vb": 8,
+  "n_pass_id": 32,
+  "max_abs_dVsint_mV": 248.00172398653973,
+  "max_abs_dVb_mV": 99.91713051909828,
+  "max_abs_dlog10Id": 1.6819344389694875,
+  "median_abs_dlog10Id": 0.24673335059995827,
+  "verdict": "FAIL",
+  "thresholds": {
+    "dVsint_mV": 5.0,
+    "dVb_mV": 5.0,
+    "dlog10Id": 0.3
+  },
+  "bjt_Bf": 100.0
+}

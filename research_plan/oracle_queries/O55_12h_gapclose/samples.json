@@ -1,0 +1,826 @@
+{
+  "source": "gpt-5 vision extraction of slide_15 (transient_VD_ramps) + slide_21 (pdiode_dynamic_response)",
+  "oracle_packet": "research_plan/oracle_queries/O52_slide21_extract",
+  "uncertainty_note": "uncertainty_pct stored per curve (typ 25-35%)",
+  "data": {
+    "slide_15": [
+      {
+        "curve_label": "Measurements \u2013 low VG2 (squares), VG1=0.3 V, ramp unlabeled",
+        "y_axis": "Id (A)",
+        "axis_scale": "log",
+        "samples": [
+          [
+            2.0,
+            5e-08
+          ],
+          [
+            2.17,
+            8e-08
+          ],
+          [
+            2.33,
+            1.5e-07
+          ],
+          [
+            2.5,
+            3e-07
+          ],
+          [
+            2.67,
+            1.2e-06
+          ],
+          [
+            2.83,
+            2e-06
+          ],
+          [
+            3.0,
+            3e-06
+          ],
+          [
+            3.17,
+            4.5e-06
+          ],
+          [
+            3.33,
+            6e-06
+          ],
+          [
+            3.5,
+            8e-06
+          ]
+        ],
+        "uncertainty_pct": 35,
+        "snapback_peak_v": 2.7,
+        "knee_v": 1.7
+      },
+      {
+        "curve_label": "Simulations \u2013 low VG2 (dashed), VG1=0.3 V",
+        "y_axis": "Id (A)",
+        "axis_scale": "log",
+        "samples": [
+          [
+            2.0,
+            4e-08
+          ],
+          [
+            2.17,
+            7e-08
+          ],
+          [
+            2.33,
+            1.4e-07
+          ],
+          [
+            2.5,
+            2.6e-07
+          ],
+          [
+            2.67,
+            1.1e-06
+          ],
+          [
+            2.83,
+            1.8e-06
+          ],
+          [
+            3.0,
+            2.8e-06
+          ],
+          [
+            3.17,
+            4e-06
+          ],
+          [
+            3.33,
+            5.5e-06
+          ],
+          [
+            3.5,
+            7.5e-06
+          ]
+        ],
+        "uncertainty_pct": 25,
+        "snapback_peak_v": 2.7,
+        "knee_v": 1.7
+      },
+      {
+        "curve_label": "Measurements \u2013 mid\u2011low VG2 (squares), VG1=0.3 V",
+        "y_axis": "Id (A)",
+        "axis_scale": "log",
+        "samples": [
+          [
+            2.0,
+            1e-07
+          ],
+          [
+            2.17,
+            1.8e-07
+          ],
+          [
+            2.33,
+            3e-07
+          ],
+          [
+            2.5,
+            6e-07
+          ],
+          [
+            2.67,
+            2e-06
+          ],
+          [
+            2.83,
+            3.5e-06
+          ],
+          [
+            3.0,
+            5.5e-06
+          ],
+          [
+            3.17,
+            8e-06
+          ],
+          [
+            3.33,
+            1.1e-05
+          ],
+          [
+            3.5,
+            1.5e-05
+          ]
+        ],
+        "uncertainty_pct": 35,
+        "snapback_peak_v": 2.6,
+        "knee_v": 1.7
+      },
+      {
+        "curve_label": "Simulations \u2013 mid\u2011low VG2 (dashed), VG1=0.3 V",
+        "y_axis": "Id (A)",
+        "axis_scale": "log",
+        "samples": [
+          [
+            2.0,
+            9e-08
+          ],
+          [
+            2.17,
+            1.6e-07
+          ],
+          [
+            2.33,
+            2.7e-07
+          ],
+          [
+            2.5,
+            5e-07
+          ],
+          [
+            2.67,
+            1.8e-06
+          ],
+          [
+            2.83,
+            3.2e-06
+          ],
+          [
+            3.0,
+            5e-06
+          ],
+          [
+            3.17,
+            7.2e-06
+          ],
+          [
+            3.33,
+            1e-05
+          ],
+          [
+            3.5,
+            1.4e-05
+          ]
+        ],
+        "uncertainty_pct": 25,
+        "snapback_peak_v": 2.6,
+        "knee_v": 1.7
+      },
+      {
+        "curve_label": "Measurements \u2013 mid VG2 (squares), VG1=0.3 V",
+        "y_axis": "Id (A)",
+        "axis_scale": "log",
+        "samples": [
+          [
+            2.0,
+            2e-07
+          ],
+          [
+            2.17,
+            3.5e-07
+          ],
+          [
+            2.33,
+            6e-07
+          ],
+          [
+            2.5,
+            1.2e-06
+          ],
+          [
+            2.67,
+            3.5e-06
+          ],
+          [
+            2.83,
+            6e-06
+          ],
+          [
+            3.0,
+            9e-06
+          ],
+          [
+            3.17,
+            1.3e-05
+          ],
+          [
+            3.33,
+            1.9e-05
+          ],
+          [
+            3.5,
+            2.5e-05
+          ]
+        ],
+        "uncertainty_pct": 35,
+        "snapback_peak_v": 2.55,
+        "knee_v": 1.7
+      },
+      {
+        "curve_label": "Simulations \u2013 mid VG2 (dashed), VG1=0.3 V",
+        "y_axis": "Id (A)",
+        "axis_scale": "log",
+        "samples": [
+          [
+            2.0,
+            1.8e-07
+          ],
+          [
+            2.17,
+            3.2e-07
+          ],
+          [
+            2.33,
+            5.5e-07
+          ],
+          [
+            2.5,
+            1e-06
+          ],
+          [
+            2.67,
+            3e-06
+          ],
+          [
+            2.83,
+            5.2e-06
+          ],
+          [
+            3.0,
+            8e-06
+          ],
+          [
+            3.17,
+            1.15e-05
+          ],
+          [
+            3.33,
+            1.7e-05
+          ],
+          [
+            3.5,
+            2.3e-05
+          ]
+        ],
+        "uncertainty_pct": 25,
+        "snapback_peak_v": 2.55,
+        "knee_v": 1.7
+      },
+      {
+        "curve_label": "Measurements \u2013 mid\u2011high VG2 (squares), VG1=0.3 V",
+        "y_axis": "Id (A)",
+        "axis_scale": "log",
+        "samples": [
+          [
+            2.0,
+            4e-07
+          ],
+          [
+            2.17,
+            7e-07
+          ],
+          [
+            2.33,
+            1.2e-06
+          ],
+          [
+            2.5,
+            2.2e-06
+          ],
+          [
+            2.67,
+            6e-06
+          ],
+          [
+            2.83,
+            1e-05
+          ],
+          [
+            3.0,
+            1.6e-05
+          ],
+          [
+            3.17,
+            2.3e-05
+          ],
+          [
+            3.33,
+            3.3e-05
+          ],
+          [
+            3.5,
+            4.5e-05
+          ]
+        ],
+        "uncertainty_pct": 35,
+        "snapback_peak_v": 2.5,
+        "knee_v": 1.7
+      },
+      {
+        "curve_label": "Simulations \u2013 mid\u2011high VG2 (dashed), VG1=0.3 V",
+        "y_axis": "Id (A)",
+        "axis_scale": "log",
+        "samples": [
+          [
+            2.0,
+            3.5e-07
+          ],
+          [
+            2.17,
+            6e-07
+          ],
+          [
+            2.33,
+            1e-06
+          ],
+          [
+            2.5,
+            2e-06
+          ],
+          [
+            2.67,
+            5.5e-06
+          ],
+          [
+            2.83,
+            9e-06
+          ],
+          [
+            3.0,
+            1.4e-05
+          ],
+          [
+            3.17,
+            2e-05
+          ],
+          [
+            3.33,
+            2.8e-05
+          ],
+          [
+            3.5,
+            4e-05
+          ]
+        ],
+        "uncertainty_pct": 25,
+        "snapback_peak_v": 2.5,
+        "knee_v": 1.7
+      },
+      {
+        "curve_label": "Measurements \u2013 high VG2 (squares), VG1=0.3 V",
+        "y_axis": "Id (A)",
+        "axis_scale": "log",
+        "samples": [
+          [
+            2.0,
+            8e-07
+          ],
+          [
+            2.17,
+            1.3e-06
+          ],
+          [
+            2.33,
+            2.2e-06
+          ],
+          [
+            2.5,
+            4e-06
+          ],
+          [
+            2.67,
+            1.1e-05
+          ],
+          [
+            2.83,
+            1.8e-05
+          ],
+          [
+            3.0,
+            2.8e-05
+          ],
+          [
+            3.17,
+            4e-05
+          ],
+          [
+            3.33,
+            5.8e-05
+          ],
+          [
+            3.5,
+            7.5e-05
+          ]
+        ],
+        "uncertainty_pct": 35,
+        "snapback_peak_v": 2.45,
+        "knee_v": 1.7
+      },
+      {
+        "curve_label": "Simulations \u2013 high VG2 (dashed), VG1=0.3 V",
+        "y_axis": "Id (A)",
+        "axis_scale": "log",
+        "samples": [
+          [
+            2.0,
+            7e-07
+          ],
+          [
+            2.17,
+            1.2e-06
+          ],
+          [
+            2.33,
+            2e-06
+          ],
+          [
+            2.5,
+            3.5e-06
+          ],
+          [
+            2.67,
+            1e-05
+          ],
+          [
+            2.83,
+            1.6e-05
+          ],
+          [
+            3.0,
+            2.5e-05
+          ],
+          [
+            3.17,
+            3.6e-05
+          ],
+          [
+            3.33,
+            5e-05
+          ],
+          [
+            3.5,
+            7e-05
+          ]
+        ],
+        "uncertainty_pct": 25,
+        "snapback_peak_v": 2.45,
+        "knee_v": 1.7
+      }
+    ],
+    "slide_21": [
+      {
+        "curve_label": "Measured ramp, Vset=2.05 V, trise=200 us (\u224810.25 kV/s)",
+        "y_axis": "Id (A)",
+        "axis_scale": "log",
+        "samples": [
+          [
+            2.0,
+            8e-07
+          ],
+          [
+            2.007,
+            1e-06
+          ],
+          [
+            2.014,
+            1.3e-06
+          ],
+          [
+            2.021,
+            1.7e-06
+          ],
+          [
+            2.028,
+            2.1e-06
+          ],
+          [
+            2.035,
+            2.6e-06
+          ],
+          [
+            2.042,
+            3.2e-06
+          ],
+          [
+            2.049,
+            3.8e-06
+          ]
+        ],
+        "uncertainty_pct": 30,
+        "snapback_peak_v": 2.05,
+        "knee_v": 1.7
+      },
+      {
+        "curve_label": "Simulations \u2013 with Nwell diode, Vset=2.2 V, trise=200 us (\u224811 kV/s)",
+        "y_axis": "Id (A)",
+        "axis_scale": "log",
+        "samples": [
+          [
+            2.0,
+            6e-08
+          ],
+          [
+            2.025,
+            9e-08
+          ],
+          [
+            2.05,
+            1.3e-07
+          ],
+          [
+            2.075,
+            2e-07
+          ],
+          [
+            2.1,
+            3.2e-07
+          ],
+          [
+            2.125,
+            6e-07
+          ],
+          [
+            2.15,
+            1.2e-06
+          ],
+          [
+            2.175,
+            2.2e-06
+          ],
+          [
+            2.2,
+            4e-06
+          ]
+        ],
+        "uncertainty_pct": 25,
+        "snapback_peak_v": 2.2,
+        "knee_v": 1.7
+      },
+      {
+        "curve_label": "Simulations \u2013 without Nwell diode, Vset=2.2 V, trise=200 us (\u224811 kV/s)",
+        "y_axis": "Id (A)",
+        "axis_scale": "log",
+        "samples": [
+          [
+            2.0,
+            3e-08
+          ],
+          [
+            2.025,
+            5e-08
+          ],
+          [
+            2.05,
+            8e-08
+          ],
+          [
+            2.075,
+            1.2e-07
+          ],
+          [
+            2.1,
+            1.9e-07
+          ],
+          [
+            2.125,
+            3.5e-07
+          ],
+          [
+            2.15,
+            7e-07
+          ],
+          [
+            2.175,
+            1e-06
+          ],
+          [
+            2.2,
+            1.5e-06
+          ]
+        ],
+        "uncertainty_pct": 25,
+        "snapback_peak_v": 2.2,
+        "knee_v": 1.7
+      },
+      {
+        "curve_label": "Simulations \u2013 trise=10 us (fast SR), Vmax=2.5 V (\u2248250 kV/s)",
+        "y_axis": "Id (A)",
+        "axis_scale": "log",
+        "samples": [
+          [
+            2.0,
+            4e-08
+          ],
+          [
+            2.05,
+            1e-07
+          ],
+          [
+            2.1,
+            3e-07
+          ],
+          [
+            2.15,
+            8e-07
+          ],
+          [
+            2.2,
+            2e-06
+          ],
+          [
+            2.25,
+            3.5e-06
+          ],
+          [
+            2.3,
+            5e-06
+          ],
+          [
+            2.35,
+            6.5e-06
+          ],
+          [
+            2.4,
+            7.8e-06
+          ],
+          [
+            2.45,
+            9e-06
+          ],
+          [
+            2.5,
+            1e-05
+          ]
+        ],
+        "uncertainty_pct": 25,
+        "snapback_peak_v": 2.25,
+        "knee_v": 1.7
+      },
+      {
+        "curve_label": "Simulations \u2013 trise=100 us (mid SR), Vmax=2.5 V (\u224825 kV/s)",
+        "y_axis": "Id (A)",
+        "axis_scale": "log",
+        "samples": [
+          [
+            2.0,
+            6e-08
+          ],
+          [
+            2.05,
+            1.2e-07
+          ],
+          [
+            2.1,
+            2.5e-07
+          ],
+          [
+            2.15,
+            5e-07
+          ],
+          [
+            2.2,
+            1.1e-06
+          ],
+          [
+            2.25,
+            2e-06
+          ],
+          [
+            2.3,
+            3.2e-06
+          ],
+          [
+            2.35,
+            4.6e-06
+          ],
+          [
+            2.4,
+            6e-06
+          ],
+          [
+            2.45,
+            7.2e-06
+          ],
+          [
+            2.5,
+            8.5e-06
+          ]
+        ],
+        "uncertainty_pct": 25,
+        "snapback_peak_v": 2.3,
+        "knee_v": 1.7
+      },
+      {
+        "curve_label": "Simulations \u2013 trise=1 ms (slow SR), Vmax=2.5 V (\u22482.5 kV/s)",
+        "y_axis": "Id (A)",
+        "axis_scale": "log",
+        "samples": [
+          [
+            2.0,
+            1e-07
+          ],
+          [
+            2.05,
+            1.6e-07
+          ],
+          [
+            2.1,
+            2.2e-07
+          ],
+          [
+            2.15,
+            3.2e-07
+          ],
+          [
+            2.2,
+            5e-07
+          ],
+          [
+            2.25,
+            8e-07
+          ],
+          [
+            2.3,
+            1.3e-06
+          ],
+          [
+            2.35,
+            2.1e-06
+          ],
+          [
+            2.4,
+            3.2e-06
+          ],
+          [
+            2.45,
+            4.6e-06
+          ],
+          [
+            2.5,
+            6e-06
+          ]
+        ],
+        "uncertainty_pct": 25,
+        "snapback_peak_v": 2.35,
+        "knee_v": 1.7
+      }
+    ]
+  },
+  "stats": {
+    "slide_15_curves": 10,
+    "slide_21_curves": 6,
+    "samples_above_2V": 143,
+    "vd_min": 2.0,
+    "vd_max": 3.5,
+    "snapback_peaks_v": [
+      2.05,
+      2.2,
+      2.25,
+      2.3,
+      2.35,
+      2.45,
+      2.5,
+      2.55,
+      2.6,
+      2.7
+    ]
+  }
+}

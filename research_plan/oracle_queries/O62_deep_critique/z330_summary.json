@@ -1,0 +1,28 @@
+{
+  "bias": {
+    "VG1": 0.6,
+    "VG2": 0.2,
+    "Vd": 2.0
+  },
+  "pyport_ref": {
+    "Vsint": 1.867,
+    "Vb": 2.0
+  },
+  "pyport_recomputed": {
+    "Id": 0.5834617425274572,
+    "Iii_in": 5.34232933125968e-21,
+    "Ileak_out": 0.00023893090248603988,
+    "Vsint": 1.0,
+    "converged": false
+  },
+  "ngspice": {
+    "rc": 0,
+    "Vsint": 0.3823582,
+    "Vb": 0.2673754,
+    "Vd": 2.0,
+    "Id": 3.93432e-11
+  },
+  "diff_vsint_abs_V": 1.4846418,
+  "gate_pass_pyport_bug_confirmed": true,
+  "verdict": "PASS \u2014 pyport solver bug CONFIRMED (>0.5V disagreement)"
+}

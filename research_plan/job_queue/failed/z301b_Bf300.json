@@ -1,0 +1,26 @@
+{
+  "id": "z301b_Bf300",
+  "title": "z301b_Bf300",
+  "script": "scripts/z301_subthreshold_recalibrate.py",
+  "args": [
+    "--bf_only",
+    "300"
+  ],
+  "node_pref": "gpu",
+  "wall_estimate_min": 30,
+  "needs_surrogate": null,
+  "env_vars": {
+    "HSA_OVERRIDE_GFX_VERSION": "11.0.0",
+    "PYTHONUNBUFFERED": "1"
+  },
+  "out_dir": "results/z301b_mario_bf/bf300",
+  "submitted_at": 1778598566.1805916,
+  "submitted_iso": "2026-05-12T17:09:26",
+  "retry_count": 0,
+  "failed_at": 1778599320.8569827,
+  "failed_iso": "2026-05-12T15:22:00",
+  "worker": "zgx_0",
+  "error": "rc=1 see log /home/naorw/nsram_queue_sandbox/results/queue_logs/zgx_z301b_Bf300.log",
+  "log_tail": "Traceback (most recent call last):\n  File \"/usr/lib/python3.12/pathlib.py\", line 1313, in mkdir\n    os.mkdir(self, mode)\nFileNotFoundError: [Errno 2] No such file or directory: '/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z301_subthreshold_recal'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/lib/python3.12/pathlib.py\", line 1313, in mkdir\n    os.mkdir(self, mode)\nFileNotFoundError: [Errno 2] No such file or directory: '/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/lib/python3.12/pathlib.py\", line 1313, in mkdir\n    os.mkdir(self, mode)\nFileNotFoundError: [Errno 2] No such file or directory: '/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/lib/python3.12/pathlib.py\", line 1313, in mkdir\n    os.mkdir(self, mode)\nFileNotFoundError: [Errno 2] No such file or directory: '/home/ikaros/Documents/claude_hive'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/lib/python3.12/pathlib.py\", line 1313, in mkdir\n    os.mkdir(self, mode)\nFileNotFoundError: [Errno 2] No such file or directory: '/home/ikaros/Documents'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/home/naorw/nsram_queue_sandbox/scripts/z301_subthreshold_recalibrate.py\", line 44, in <module>\n    OUT.mkdir(parents=True, exist_ok=True)\n  File \"/usr/lib/python3.12/pathlib.py\", line 1317, in mkdir\n    self.parent.mkdir(parents=True, exist_ok=True)\n  File \"/usr/lib/python3.12/pathlib.py\", line 1317, in mkdir\n    self.parent.mkdir(parents=True, exist_ok=True)\n  File \"/usr/lib/python3.12/pathlib.py\", line 1317, in mkdir\n    self.parent.mkdir(parents=True, exist_ok=True)\n  [Previous line repeated 2 more times]\n  File \"/usr/lib/python3.12/pathlib.py\", line 1313, in mkdir\n    os.mkdir(self, mode)\nPermissionError: [Errno 13] Permission denied: '/home/ikaros'\n",
+  "duration_sec": 0
+}

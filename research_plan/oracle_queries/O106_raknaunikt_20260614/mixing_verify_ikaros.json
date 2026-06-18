@@ -1,0 +1,18 @@
+{
+  "host": "ikaros",
+  "die_full_XOR": 0.6536585365853659,
+  "null_mean": 0.5075284552845529,
+  "null_p95": 0.5430894308943089,
+  "null_pvalue": 0.0,
+  "uv_partialR2_median": 0.0002254691528275592,
+  "uv_partialR2_max": 0.08890800249210119,
+  "u_only_poly": 0.5300813008130081,
+  "u_and_v_LINEAR": 0.49105691056910566,
+  "uv_product_ceiling": 0.7463414634146341,
+  "die_XOR_bootCI95": [
+    0.5544715447154471,
+    0.6308943089430894
+  ],
+  "d_v": 1.0,
+  "PRE_REGISTERED_REAL": true
+}

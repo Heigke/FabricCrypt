@@ -1,0 +1,37 @@
+{
+  "id": "z312b_N16384_s0p00_seed4",
+  "title": "z312b_N16384_s0p00_seed4",
+  "script": "scripts/z293_hdc_envelope_sweep.py",
+  "args": [
+    "--N",
+    "16384",
+    "--vg1",
+    "0.30",
+    "--vg2",
+    "0.30",
+    "--vd_high",
+    "2.0",
+    "--vd_low",
+    "0.5",
+    "--sigma_noise",
+    "0.00",
+    "--seeds",
+    "4"
+  ],
+  "node_pref": "gpu",
+  "wall_estimate_min": 30,
+  "needs_surrogate": "results/z278_mep2_surrogate_v3/surrogate_4d_v3.npz",
+  "env_vars": {
+    "HSA_OVERRIDE_GFX_VERSION": "11.0.0"
+  },
+  "out_dir": "results/z312b_n10/N16384_s0p00/seed4",
+  "submitted_at": 1778663276.463008,
+  "submitted_iso": "2026-05-13T11:07:56",
+  "retry_count": 0,
+  "completed_at": 1778663876.212156,
+  "completed_iso": "2026-05-13T11:17:56",
+  "duration_sec": 594,
+  "worker": "ikaros_0",
+  "log_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/queue_logs/ikaros_z312b_N16384_s0p00_seed4.log",
+  "return_code": 0
+}

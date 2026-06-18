@@ -1,0 +1,103 @@
+{
+  "source_image": "research_plan/oracle_queries/O47_slide_tech_deep/08_TRANSIENT_spike_train_+_IV_noise_band.jpeg",
+  "note": "Task brief called this 'slide 21 oscillation waveform ~400ns'. Actual source slide in our archive is the O47 slide 08 (transient spike train). The O52-named slide_21 file is a different graphic (p-diode dynamic response, ramp-rate dep.) and is already digitised in research_plan/oracle_queries/O52_slide21_extract/openai_response.md.",
+  "waveform_type": "driven_triangular_VD_with_current_spikes_through_2T_NSRAM_cell",
+  "extraction_method": "pixel_segmentation_red_and_teal_masks_with_axis_calibration",
+  "calibration": {
+    "x_axis_label": "Time (us)",
+    "x_axis_range_us": [0.0, 2.6],
+    "y_left_label": "Current (mA)",
+    "y_left_range_mA": [0.0, 6.0],
+    "y_right_label": "Voltage (V)",
+    "y_right_range_V": [0.0, 2.0],
+    "px_per_us": 460.5,
+    "px_per_mA": 50.0,
+    "px_per_V": 150.0
+  },
+  "measurements": {
+    "period_us": {
+      "value": 0.430,
+      "uncertainty_us": 0.010,
+      "uncertainty_pct": 2.3,
+      "n_intervals_measured": 5,
+      "per_interval_us": [0.432, 0.428, 0.430, 0.430, 0.430],
+      "note": "Stable driven period; this is the driver triangular wave period, NOT a free-running relaxation oscillation."
+    },
+    "frequency_kHz": {
+      "value": 2326,
+      "note": "= 1/period"
+    },
+    "V_peak_V": {
+      "value": 1.89,
+      "uncertainty_V": 0.05,
+      "uncertainty_pct": 2.6
+    },
+    "V_min_V": {
+      "value": 0.01,
+      "uncertainty_V": 0.05,
+      "note": "Within pixel resolution of zero."
+    },
+    "V_amplitude_pp_V": {
+      "value": 1.88,
+      "uncertainty_V": 0.07
+    },
+    "I_peak_mA": {
+      "value": 4.80,
+      "uncertainty_mA": 0.10,
+      "uncertainty_pct": 2.1,
+      "note": "Y-axis labelled to 6 mA but peaks reach ~4.8 mA (5.0 mA within uncertainty)."
+    },
+    "I_baseline_mA": {
+      "value": 0.0,
+      "note": "Visually pinned to zero between spikes; <100 µA detectability."
+    },
+    "spike_rise_time_ns_10_90": {
+      "value": 26,
+      "uncertainty_ns": 6,
+      "uncertainty_pct": 23,
+      "note": "Measured on spike #1 (centred at t=0.27 us). 10%->90% of peak current."
+    },
+    "spike_fall_time_ns_90_10": {
+      "value": 76,
+      "uncertainty_ns": 15,
+      "uncertainty_pct": 20
+    },
+    "spike_FWHM_ns_approx": {
+      "value": 60,
+      "uncertainty_ns": 15,
+      "note": "Derived from rise+fall measurement window (~40 px / 460.5 px/us ~= 87 ns total). Conservative FWHM ~60 ns."
+    },
+    "spike_count_in_window": 6,
+    "spike_centres_us": [0.27, 0.70, 1.13, 1.56, 2.00, 2.42],
+    "energy_per_spike_pJ_from_slide10": {
+      "value": 0.2,
+      "source": "research_plan/oracle_queries/O47_slide_tech_deep/10_simple_cell_with_self_reset.jpeg",
+      "context": "steady-state firing with 100 nA excitatory input, area=111 um^2"
+    },
+    "floating_body_V_range_V_from_slide10": [0.5, 0.7]
+  },
+  "ambition_check": {
+    "period_extracted_within_20pct": true,
+    "amplitude_extracted_within_20pct": true,
+    "rise_time_extracted_within_20pct_pct_unc": 23,
+    "note": "Rise time uncertainty 23% (just above 20% target due to ~12 px transition window vs. pixel jitter)."
+  },
+  "calibration_targets_for_compact_model": {
+    "must_reproduce": {
+      "period_us": 0.430,
+      "I_peak_mA": 4.8,
+      "rise_10_90_ns": 26,
+      "fall_90_10_ns": 76,
+      "energy_per_spike_pJ": 0.2,
+      "Vbody_swing_V": [0.5, 0.7]
+    },
+    "driver_conditions_assumed": {
+      "V_D_waveform": "triangular",
+      "V_D_peak_V": 1.89,
+      "V_D_min_V": 0.0,
+      "V_D_period_us": 0.43,
+      "V_G1_V_estimate": "0.6 (consistent with thickox 2T spiking config; see slide 17/18)",
+      "V_G2_V_estimate": "~0 to 0.3 (from family curves)"
+    }
+  }
+}

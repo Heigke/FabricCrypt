@@ -1,0 +1,32 @@
+{
+  "host": "ikaros",
+  "model": "gpt2",
+  "ctx": 128,
+  "qstride": 6,
+  "frozen_params_M": 124,
+  "results": {
+    "native": {
+      "query_acc_vs_ref": 1.0,
+      "token_divergence": 0.0
+    },
+    "zero": {
+      "query_acc_vs_ref": 0.381,
+      "token_divergence": 0.619
+    },
+    "random": {
+      "query_acc_vs_ref": 0.501,
+      "token_divergence": 0.499
+    },
+    "foreign": {
+      "query_acc_vs_ref": 0.524,
+      "token_divergence": 0.476
+    },
+    "replay_old": {
+      "query_acc_vs_ref": 0.381,
+      "token_divergence": 0.619
+    }
+  },
+  "LLM_BODY_LOAD_BEARING": true,
+  "replay_resistant": true,
+  "verdict": "REAL frozen GPT-2: its committed continuation is body-keystream-determined; wrong/old/foreign keystream -> chance + text divergence"
+}

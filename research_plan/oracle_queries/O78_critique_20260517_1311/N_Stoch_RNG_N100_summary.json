@@ -1,0 +1,75 @@
+{
+  "phase": "N1#N2 / N2 U10",
+  "seed": 20260517,
+  "n_cells": 8192,
+  "n_bits": 1000000,
+  "nist_tests_passed": 5,
+  "nist_tests_total": 5,
+  "nist_p_values": {
+    "frequency": 0.214975394149174,
+    "block_frequency": 0.49398287300666827,
+    "runs": 0.3214223977778019,
+    "dft": 0.05870640159069657,
+    "cumulative_sums": 0.4236998879591828
+  },
+  "bernoulli_kl_divergence": 4.833283810260505e-06,
+  "bernoulli_kl_max": 1.2881555879088163e-05,
+  "throughput_bits_per_sec": 1266898.763579512,
+  "energy_per_bit_pJ": 0.4,
+  "stochastic_gate_max_abs_err": 0.0010183856500000643,
+  "stochastic_gates": {
+    "p_a": 0.501235,
+    "p_b": 0.496605,
+    "AND_emp": 0.249425,
+    "AND_ideal": 0.248915807175,
+    "OR_emp": 0.748415,
+    "OR_ideal": 0.7489241928250001,
+    "XOR_emp": 0.49899,
+    "XOR_ideal": 0.50000838565,
+    "n": 200000
+  },
+  "bernoulli_per_p": [
+    {
+      "p": 0.05,
+      "emp": 0.04998,
+      "kl": 4.211058250698865e-09
+    },
+    {
+      "p": 0.1,
+      "emp": 0.10034,
+      "kl": 6.415763556285431e-07
+    },
+    {
+      "p": 0.25,
+      "emp": 0.2522,
+      "kl": 1.2881555879088163e-05
+    },
+    {
+      "p": 0.5,
+      "emp": 0.50144,
+      "kl": 4.147205733108202e-06
+    },
+    {
+      "p": 0.75,
+      "emp": 0.75134,
+      "kl": 4.793987911556712e-06
+    },
+    {
+      "p": 0.9,
+      "emp": 0.90072,
+      "kl": 2.8861665227755077e-06
+    },
+    {
+      "p": 0.95,
+      "emp": 0.9491,
+      "kl": 8.478283211415714e-06
+    }
+  ],
+  "gates": {
+    "INFRA": true,
+    "DISCOVERY": true,
+    "AMBITIOUS": true
+  },
+  "runtime_sec": 1.7516937255859375,
+  "dashboard": "/home/naorw/AMD_gfx1151_energy_network/results/N_Stoch_RNG_N100/dashboard.png"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "z323b_k1s_1.5",
+  "title": "z323b R-6-lite extended sweep K1_scale=1.5",
+  "script": "scripts/z323b_v5_extended_sweep.py",
+  "args": [
+    "--k1_scales",
+    "1.5",
+    "--out_tag",
+    "k1s_1.5"
+  ],
+  "node_pref": "cpu",
+  "wall_estimate_min": 90,
+  "needs_surrogate": null,
+  "env_vars": {
+    "HSA_OVERRIDE_GFX_VERSION": "11.0.0",
+    "OMP_NUM_THREADS": "4"
+  },
+  "out_dir": "results/z323_v5_extended/",
+  "submitted_at": 1778689430.9952953,
+  "submitted_iso": "2026-05-13T18:23:50",
+  "retry_count": 0
+}

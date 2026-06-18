@@ -1,0 +1,15 @@
+{
+  "experiment": "bilinear-interaction / mixed-partial (2D continuous GPU\u00d7CPU load, user-suggested)",
+  "necessity_centered_product": {
+    "from_drive_linear": -0.154,
+    "from_die_linear": -0.049,
+    "sanity_ab_given": 1.0,
+    "note": "centered product orthogonal to a+b; die cannot linearly reconstruct it -> not usable"
+  },
+  "per_channel_ab_gain_over_total_load_poly": {
+    "ch5_power_energy_rate": 0.138,
+    "all_other_channels": "~0 (pure g(a+b) saturation = load-meter w/ curvature)"
+  },
+  "verdict": "FAINT genuine bilinear interaction in power channel (ch5, +0.138) \u2014 the first real die nonlinearity found \u2014 but too weak/entangled to be linearly usable (necessity ~0), and it is throttling/Vdroop physics (NOT die-unique).",
+  "raw": "bilinear_raw_ikaros.npz"
+}

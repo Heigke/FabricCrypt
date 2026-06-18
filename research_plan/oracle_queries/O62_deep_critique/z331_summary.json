@@ -1,0 +1,65 @@
+{
+  "script": "z331_snapback_graph",
+  "VG1": 0.4,
+  "VG2_LIST": [
+    0.0,
+    0.2,
+    0.4
+  ],
+  "n_vd": 80,
+  "vd_range": [
+    0.0,
+    4.0
+  ],
+  "per_vg2": [
+    {
+      "vg2": 0.0,
+      "row_vg2": 0.0,
+      "model_peak_Vd": 2.6835443037974684,
+      "model_peak_Id": 5.490882785572069e-14,
+      "measured_peak_Vd": 1.95024,
+      "measured_peak_Id": 4.11312e-06,
+      "measured_file": "StandardIV_HH_2vHCa-2_VG2=0.00_VG=0.4(1)_03-37-28PM.csv",
+      "measured_peak_at_sweep_edge": true,
+      "infra_knee_in_1p5_3": true,
+      "pass_peak_within_0p5V": false,
+      "log_rmse": 6.076859625659037,
+      "ambitious_log_rmse_lt_0p5": false
+    },
+    {
+      "vg2": 0.2,
+      "row_vg2": 0.2,
+      "model_peak_Vd": 2.5316455696202533,
+      "model_peak_Id": 1.2899032672129466e-12,
+      "measured_peak_Vd": 1.95036,
+      "measured_peak_Id": 4.10957e-06,
+      "measured_file": "StandardIV_HH_2vHCa-2_VG2=0.20_VG=0.4(1)_03-39-29PM.csv",
+      "measured_peak_at_sweep_edge": true,
+      "infra_knee_in_1p5_3": true,
+      "pass_peak_within_0p5V": false,
+      "log_rmse": 4.162084333966397,
+      "ambitious_log_rmse_lt_0p5": false
+    },
+    {
+      "vg2": 0.4,
+      "row_vg2": 0.3,
+      "model_peak_Vd": 2.0253164556962027,
+      "model_peak_Id": 1.4293043161082904e-11,
+      "measured_peak_Vd": 2.15032,
+      "measured_peak_Id": 7.60879e-06,
+      "measured_file": "StandardIV_HH_2vHCa-2_VG2=0.3_VG=0.4(1)_03-40-47PM.csv",
+      "measured_peak_at_sweep_edge": true,
+      "infra_knee_in_1p5_3": true,
+      "pass_peak_within_0p5V": true,
+      "log_rmse": 3.024942984841462,
+      "ambitious_log_rmse_lt_0p5": false
+    }
+  ],
+  "png": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z331_snapback_graph/z331_snapback_graph.png",
+  "gate": {
+    "INFRA_all_knee_in_range": true,
+    "PASS_all_peak_within_0p5V": false,
+    "AMBITIOUS_all_log_rmse_lt_0p5": false
+  },
+  "elapsed_s": 16.31
+}

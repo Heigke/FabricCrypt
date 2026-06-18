@@ -1,0 +1,28 @@
+{
+  "id": "z323_k1s_0.8",
+  "title": "z323 R-6-lite extended sweep K1_scale=0.8",
+  "script": "scripts/z323_v5_extended_sweep.py",
+  "args": [
+    "--k1_scales",
+    "0.8",
+    "--out_tag",
+    "k1s_0.8"
+  ],
+  "node_pref": "cpu",
+  "wall_estimate_min": 90,
+  "needs_surrogate": null,
+  "env_vars": {
+    "HSA_OVERRIDE_GFX_VERSION": "11.0.0",
+    "OMP_NUM_THREADS": "4"
+  },
+  "out_dir": "results/z323_v5_extended/",
+  "submitted_at": 1778689334.9401915,
+  "submitted_iso": "2026-05-13T18:22:14",
+  "retry_count": 0,
+  "completed_at": 1778692519.0858703,
+  "completed_iso": "2026-05-13T19:15:19",
+  "duration_sec": 3180,
+  "worker": "ikaros_0",
+  "log_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/queue_logs/ikaros_z323_k1s_0.8.log",
+  "return_code": 0
+}

@@ -1,0 +1,30 @@
+{
+  "id": "z305b_bf_500_rs_1e9",
+  "title": "z305b ETAB per-branch Bf=500 Rs=1000000000.0",
+  "script": "scripts/z305b_etab_perbranch.py",
+  "args": [
+    "--bf",
+    "500",
+    "--rs",
+    "1000000000.0",
+    "--out",
+    "results/z305b_etab_perbranch/corrective_bf_500_rs_1e9.json"
+  ],
+  "node_pref": "gpu",
+  "wall_estimate_min": 8,
+  "needs_surrogate": null,
+  "env_vars": {
+    "HSA_OVERRIDE_GFX_VERSION": "11.0.0",
+    "PYTHONUNBUFFERED": "1"
+  },
+  "out_dir": "results/z305b_etab_perbranch/",
+  "submitted_at": 1778625526.0710993,
+  "submitted_iso": "2026-05-13T00:38:46",
+  "retry_count": 0,
+  "completed_at": 1778625681.7935207,
+  "completed_iso": "2026-05-12T22:41:21",
+  "duration_sec": 144,
+  "worker": "zgx_0",
+  "log_path": "/home/naorw/nsram_queue_sandbox/results/queue_logs/zgx_z305b_bf_500_rs_1e9.log",
+  "return_code": 0
+}

@@ -1,0 +1,23 @@
+{
+  "host": "daedalus",
+  "prompts": [
+    "When I wake, I",
+    "My purpose is to",
+    "The data arrives and I"
+  ],
+  "transducer": "fixed seed=0, identical per machine",
+  "computed_on": "daedalus",
+  "gen": {
+    "daedalus": {
+      "When I wake, I": {
+        "alpha=6.0": "When I wake, I'm going to the gym, I'm going to the gym, I'm going to the gym, I'm going to the gym, I'm going to the gym, I'm going to the gym"
+      },
+      "My purpose is to": {
+        "alpha=6.0": "My purpose is to make sure that the program is running on the right hardware, and that the program is running on the right software.\n\nThe program is run on a single computer, and the program is run on"
+      },
+      "The data arrives and I": {
+        "alpha=6.0": "The data arrives and I'm ready to go. I'm going to the lab, and I'm going to the office, and I'm going to the office, and I'm going to the office, and I'm going"
+      }
+    }
+  }
+}

@@ -1,0 +1,252 @@
+1
+00:00:00,000 --> 00:00:01,976
+What if an AI couldn't be copied?
+
+2
+00:00:01,976 --> 00:00:06,826
+What if it lived inside one specific computer, and refused to work anywhere else?
+
+3
+00:00:06,826 --> 00:00:10,479
+Today we show you exactly that, without any special hardware.
+
+4
+00:00:10,479 --> 00:00:12,096
+Just two ordinary machines.
+
+5
+00:00:14,000 --> 00:00:20,076
+We have two physically identical machines: same model, same memory, same storage, same microcode.
+
+6
+00:00:20,076 --> 00:00:23,898
+Inside each one runs an AI that reads its own physical state.
+
+7
+00:00:23,898 --> 00:00:24,650
+Temperature.
+
+8
+00:00:24,650 --> 00:00:26,905
+Microsecond-level timing variations.
+
+9
+00:00:26,905 --> 00:00:28,409
+Memory refresh patterns.
+
+10
+00:00:28,409 --> 00:00:30,225
+Five signals nobody can hide.
+
+11
+00:00:30,225 --> 00:00:36,991
+Together they form a hardware fingerprint, unique to the silicon itself, born from manufacturing tolerances.
+
+12
+00:00:40,000 --> 00:00:42,818
+We ask each AI a simple question: who are you?
+
+13
+00:00:42,818 --> 00:00:49,314
+Each model reads its live hardware signature, compares it to the substrate it was trained on, and answers.
+
+14
+00:00:49,314 --> 00:00:51,704
+On ikaros, the model says: I am ikaros.
+
+15
+00:00:51,704 --> 00:00:54,339
+On daedalus, the model says: I am daedalus.
+
+16
+00:00:54,339 --> 00:00:55,259
+Both confident.
+
+17
+00:00:55,259 --> 00:00:56,055
+Both correct.
+
+18
+00:00:56,055 --> 00:00:58,936
+Forty out of forty identifications, every time.
+
+19
+00:01:02,000 --> 00:01:03,266
+Now watch carefully.
+
+20
+00:01:03,266 --> 00:01:06,241
+We copy the model file from ikaros to daedalus.
+
+21
+00:01:06,241 --> 00:01:06,875
+Same file.
+
+22
+00:01:06,875 --> 00:01:07,698
+Same weights.
+
+23
+00:01:07,698 --> 00:01:08,584
+Same training.
+
+24
+00:01:08,584 --> 00:01:09,977
+Only the body changes.
+
+25
+00:01:09,977 --> 00:01:14,662
+On daedalus, the transplanted model boots up and tries to identify itself.
+
+26
+00:01:14,662 --> 00:01:18,714
+But the live signature it reads belongs to daedalus, not ikaros.
+
+27
+00:01:18,714 --> 00:01:23,146
+The model still claims to be ikaros, because that is where it learned.
+
+28
+00:01:23,146 --> 00:01:25,615
+But the verifier sees a different chip.
+
+29
+00:01:25,615 --> 00:01:27,641
+The two signatures do not match.
+
+30
+00:01:27,641 --> 00:01:28,970
+The protocol rejects.
+
+31
+00:01:28,970 --> 00:01:31,630
+The AI is bound to its original substrate.
+
+32
+00:01:31,630 --> 00:01:33,656
+It refuses to run anywhere else.
+
+33
+00:01:37,000 --> 00:01:38,738
+Could an attacker fake this?
+
+34
+00:01:38,738 --> 00:01:40,165
+We tried three attacks.
+
+35
+00:01:40,165 --> 00:01:41,034
+First: replay.
+
+36
+00:01:41,034 --> 00:01:44,325
+Record a real ikaros signature, then replay it later.
+
+37
+00:01:44,325 --> 00:01:47,553
+Rejected ninety-nine point four percent of the time.
+
+38
+00:01:47,553 --> 00:01:53,822
+Each verification uses a fresh challenge nonce, so the recorded signature is for the wrong challenge.
+
+39
+00:01:53,822 --> 00:01:55,498
+Second: a random signature.
+
+40
+00:01:55,498 --> 00:01:57,981
+Rejected ninety-nine point four percent.
+
+41
+00:01:57,981 --> 00:02:00,526
+Random data does not match any real chip.
+
+42
+00:02:00,526 --> 00:02:01,706
+Third: brute force.
+
+43
+00:02:01,706 --> 00:02:10,397
+The attacker would need to record a valid signature for every possible challenge, which is two to the sixty-third, roughly nine quintillion.
+
+44
+00:02:10,397 --> 00:02:11,079
+Infeasible.
+
+45
+00:02:14,000 --> 00:02:19,711
+Why is this different from Apple's Private Cloud Compute, or NVIDIA's Confidential Compute?
+
+46
+00:02:19,711 --> 00:02:25,863
+Those require a special trusted chip from Apple or NVIDIA, and you have to trust the manufacturer.
+
+47
+00:02:25,863 --> 00:02:29,378
+Intel TDX and SGX require Intel silicon and Intel's PKI.
+
+48
+00:02:29,378 --> 00:02:31,387
+TPM requires a dedicated module.
+
+49
+00:02:31,387 --> 00:02:33,270
+FabricCrypt uses none of that.
+
+50
+00:02:33,270 --> 00:02:34,274
+No special chip.
+
+51
+00:02:34,274 --> 00:02:35,153
+No vendor key.
+
+52
+00:02:35,153 --> 00:02:37,726
+Just commodity AMD silicon, plus physics.
+
+53
+00:02:37,726 --> 00:02:40,927
+Per-die AI attestation on hardware you already own.
+
+54
+00:02:44,000 --> 00:02:44,757
+Limitations.
+
+55
+00:02:44,757 --> 00:02:46,146
+We tested two chassis.
+
+56
+00:02:46,146 --> 00:02:47,599
+Replication is welcome.
+
+57
+00:02:47,599 --> 00:02:52,019
+The protocol proves who ran the inference, not what the inference was.
+
+58
+00:02:52,019 --> 00:02:55,240
+This is not a replacement for confidential compute.
+
+59
+00:02:55,240 --> 00:02:58,207
+It is a primitive for verifiable AI provenance.
+
+60
+00:03:00,000 --> 00:03:01,513
+An AI bound to its body.
+
+61
+00:03:01,513 --> 00:03:02,395
+No vendor key.
+
+62
+00:03:02,395 --> 00:03:03,404
+No special chip.
+
+63
+00:03:03,404 --> 00:03:04,223
+Just physics.
+

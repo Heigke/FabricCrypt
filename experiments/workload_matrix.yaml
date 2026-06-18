@@ -1,0 +1,212 @@
+# Experiment Manifest: Full Workload Matrix for Energy-Efficient LLM Inference
+# Target: AMD gfx1151 (Strix Halo APU) with ROCm 6.x
+# Purpose: Systematic evaluation across model sizes, prompt lengths, decode lengths, batch sizes
+
+experiment:
+  name: "energy_efficiency_workload_matrix"
+  version: "2.0"
+  description: "Comprehensive energy efficiency evaluation for publishable results"
+  target_hardware: "AMD gfx1151 (Strix Halo)"
+  rocm_version: "6.x"
+
+# Models to evaluate (ascending size)
+models:
+  - id: "qwen2.5-0.5b"
+    name: "Qwen/Qwen2.5-0.5B-Instruct"
+    estimated_vram_gb: 1.5
+    priority: 1  # Run first as baseline
+
+  - id: "qwen2.5-3b"
+    name: "Qwen/Qwen2.5-3B-Instruct"
+    estimated_vram_gb: 7
+    priority: 2
+
+  - id: "qwen2.5-7b"
+    name: "Qwen/Qwen2.5-7B-Instruct"
+    estimated_vram_gb: 16
+    priority: 3  # May need verification on 32GB APU
+
+# Prompt length categories
+prompt_lengths:
+  short:
+    tokens: 256
+    description: "Short context - typical chat"
+  medium:
+    tokens: 2048
+    description: "Medium context - document Q&A"
+  long:
+    tokens: 8192
+    description: "Long context - extended reasoning"
+
+# Decode length targets
+decode_lengths:
+  - 64    # Quick response
+  - 256   # Standard response
+  - 512   # Extended generation
+
+# Batch sizes (for throughput testing)
+batch_sizes:
+  - 1     # Latency-optimized
+  - 4     # Throughput balanced
+
+# Concurrency levels (parallel requests)
+concurrency_levels:
+  - 1     # Sequential
+  - 2     # Light concurrent
+  - 4     # High concurrent
+
+# DVFS policies to evaluate
+dvfs_policies:
+  - name: "auto"
+    description: "OS-managed DVFS (default)"
+    perf_level: "auto"
+    dpm_control: false
+
+  - name: "profile_peak"
+    description: "Maximum clocks locked"
+    perf_level: "profile_peak"
+    dpm_control: false
+
+  - name: "profile_min_sclk"
+    description: "Minimum SCLK for efficiency"
+    perf_level: "profile_min_sclk"
+    dpm_control: false
+
+  - name: "manual_balanced"
+    description: "Manual DPM state control - balanced"
+    perf_level: "manual"
+    dpm_control: true
+    sclk_indices: [1]  # 695MHz mid-point
+    mclk_indices: [2]  # 1000MHz (max memory)
+
+# Measurement configuration
+measurement:
+  # Per-sample configuration
+  samples_per_config: 15
+  warmup_iterations: 3
+  cooldown_seconds: 5
+
+  # Sustained test configuration
+  sustained_test:
+    enabled: true
+    duration_seconds: 600  # 10 minutes
+    interval_seconds: 1
+    policies: ["auto", "profile_peak"]  # Compare only key policies
+
+  # Metrics to collect
+  metrics:
+    timing:
+      - ttft_s        # Time to first token
+      - tpot_s        # Time per output token
+      - total_time_s  # Total generation time
+
+    timing_stats:
+      - mean
+      - p50
+      - p95
+      - std           # Jitter
+
+    energy:
+      - power_mean_w
+      - power_peak_w
+      - power_min_w
+      - energy_total_j
+      - energy_per_token_j
+
+    gpu_state:
+      - sclk_mhz
+      - mclk_mhz
+      - temperature_c
+      - gpu_busy_percent
+      - throttle_status
+      - dpm_sclk_index
+      - dpm_mclk_index
+
+    validation:
+      - energy_sanity_check   # integrated ≈ mean × duration
+      - throttle_detected
+      - sdpa_backend
+
+# Experiment matrix generator
+matrix:
+  # Quick validation run (subset)
+  quick:
+    models: ["qwen2.5-0.5b"]
+    prompt_lengths: ["short"]
+    decode_lengths: [64]
+    batch_sizes: [1]
+    concurrency_levels: [1]
+    policies: ["auto", "profile_peak"]
+    samples: 5
+
+  # Standard run (core matrix)
+  standard:
+    models: ["qwen2.5-0.5b", "qwen2.5-3b"]
+    prompt_lengths: ["short", "medium"]
+    decode_lengths: [64, 256]
+    batch_sizes: [1]
+    concurrency_levels: [1]
+    policies: ["auto", "profile_peak", "profile_min_sclk"]
+    samples: 15
+
+  # Full run (complete matrix)
+  full:
+    models: ["qwen2.5-0.5b", "qwen2.5-3b", "qwen2.5-7b"]
+    prompt_lengths: ["short", "medium", "long"]
+    decode_lengths: [64, 256, 512]
+    batch_sizes: [1, 4]
+    concurrency_levels: [1, 2, 4]
+    policies: ["auto", "profile_peak", "profile_min_sclk", "manual_balanced"]
+    samples: 15
+
+# Output configuration
+output:
+  base_dir: "results/workload_matrix"
+  timestamp_format: "%Y%m%d_%H%M%S"
+
+  files:
+    raw_samples: "{model_id}_{policy}_{prompt}_{decode}_raw.csv"
+    aggregated: "{model_id}_aggregated.csv"
+    summary: "experiment_summary.json"
+    sustained: "{model_id}_{policy}_sustained.csv"
+
+  plots:
+    enabled: true
+    formats: ["png", "pdf"]
+    types:
+      - energy_vs_latency_pareto
+      - power_timeline
+      - tpot_distribution
+      - throttle_heatmap
+
+# Experiment runner commands
+commands:
+  quick_validation: |
+    python scripts/hf_infer_extended.py \
+      --model Qwen/Qwen2.5-0.5B-Instruct \
+      --prompt-length 256 \
+      --decode-length 64 \
+      --samples 5 \
+      --policies auto profile_peak \
+      --output-dir results/workload_matrix/quick
+
+  standard_run: |
+    python scripts/run_experiment_matrix.py \
+      --manifest experiments/workload_matrix.yaml \
+      --matrix standard \
+      --output-dir results/workload_matrix/standard
+
+  full_run: |
+    python scripts/run_experiment_matrix.py \
+      --manifest experiments/workload_matrix.yaml \
+      --matrix full \
+      --output-dir results/workload_matrix/full
+
+# Notes
+notes:
+  - "gfx1151 has 3 SCLK DPM states: 600/695/2900 MHz"
+  - "gfx1151 has 3 MCLK DPM states: 400/800/1000 MHz"
+  - "pp_power_profile_mode NOT available on this APU"
+  - "mem_busy_percent NOT available - using gpu_busy_percent only"
+  - "PCIe link: 16.0 GT/s, width 16"
+  - "Estimated experiment duration for full matrix: ~24 hours"

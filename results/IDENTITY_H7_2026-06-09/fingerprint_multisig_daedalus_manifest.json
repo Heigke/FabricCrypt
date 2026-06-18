@@ -1,0 +1,46 @@
+{
+  "host": "daedalus",
+  "blocks": [
+    {
+      "name": "vcore",
+      "status": "ok",
+      "info": "idx 110..125",
+      "weight": 1.0,
+      "dims": [
+        0,
+        16
+      ],
+      "raw_std": 0.0
+    },
+    {
+      "name": "cppc",
+      "status": "ok",
+      "info": "32 cores",
+      "weight": 1.0,
+      "dims": [
+        16,
+        48
+      ],
+      "raw_std": 22.567174031101015
+    },
+    {
+      "name": "thermal",
+      "status": "SKIP",
+      "why": "too few zones",
+      "weight": 0.4
+    },
+    {
+      "name": "gpu_jitter",
+      "status": "ok",
+      "info": "40 samples",
+      "weight": 0.4,
+      "dims": [
+        48,
+        51
+      ],
+      "raw_std": 3210581.0027990104
+    }
+  ],
+  "total_dim": 51,
+  "per_block_energy": "== weight"
+}

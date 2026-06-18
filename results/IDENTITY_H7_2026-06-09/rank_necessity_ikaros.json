@@ -1,0 +1,52 @@
+{
+  "host": "ikaros",
+  "R": 4,
+  "W": 4,
+  "drive_landed_d": 1.4125531911849976,
+  "task_suite": {
+    "RECALL_t2 (in window)": {
+      "chance": 0.5,
+      "die_rank4": 0.7238095238095238,
+      "u_window_rank": 1.0,
+      "unbounded_nl_u": 1.0,
+      "die_needed": false
+    },
+    "RECALL_t8 (BEYOND window)": {
+      "chance": 0.5,
+      "die_rank4": 0.5020408163265306,
+      "u_window_rank": 0.48707482993197276,
+      "unbounded_nl_u": 1.0,
+      "die_needed": false
+    },
+    "RECALL_t12 (BEYOND)": {
+      "chance": 0.5,
+      "die_rank4": 0.49115646258503404,
+      "u_window_rank": 0.4598639455782313,
+      "unbounded_nl_u": 1.0,
+      "die_needed": false
+    },
+    "XOR_t1t3 (in window)": {
+      "chance": 0.5,
+      "die_rank4": 0.5510204081632653,
+      "u_window_rank": 0.5115646258503401,
+      "unbounded_nl_u": 1.0,
+      "die_needed": false
+    },
+    "XOR_t2t8 (a or b BEYOND)": {
+      "chance": 0.5,
+      "die_rank4": 0.5034013605442177,
+      "u_window_rank": 0.5006802721088436,
+      "unbounded_nl_u": 1.0,
+      "die_needed": false
+    },
+    "XOR_t6t10 (BEYOND)": {
+      "chance": 0.5,
+      "die_rank4": 0.4884353741496599,
+      "u_window_rank": 0.5142857142857142,
+      "unbounded_nl_u": 0.5333333333333333,
+      "die_needed": false
+    }
+  },
+  "die_needed_on": [],
+  "verdict": "die not needed even vs rank-limited adapter"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "test_hello_ikaros",
+  "title": "smoke test 1",
+  "script": "scripts/queue/test_hello.py",
+  "args": [
+    "--tag",
+    "ikaros_test",
+    "--sleep",
+    "5"
+  ],
+  "node_pref": "any",
+  "wall_estimate_min": 1,
+  "needs_surrogate": null,
+  "env_vars": {},
+  "out_dir": "results/",
+  "submitted_at": 1778572706.7041593,
+  "submitted_iso": "2026-05-12T09:58:26",
+  "retry_count": 0,
+  "completed_at": 1778572712.84086,
+  "completed_iso": "2026-05-12T09:58:32",
+  "duration_sec": 5,
+  "worker": "ikaros_0",
+  "log_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/queue_logs/ikaros_test_hello_ikaros.log",
+  "return_code": 0
+}

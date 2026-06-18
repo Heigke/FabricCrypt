@@ -1,0 +1,10 @@
+# grok response (grok-4-latest) — 29s
+
+### Q1.
+No results in the last 12h crossed a decision gate. z254's 30-seed polish flipped NARMA-20 from tie to ESN strict win (NS-RAM 0.981 [0.95,1.02] vs ESN 0.853 [0.78,0.92]), confirming ESN superiority without meeting pre-reg gate (NS-RAM mean strictly better, non-overlapping 95% CIs). No Week-1 CI, scale-gap, or area-matched thresholds triggered positive for NS-RAM. The no-action posture is correct: compute plan is explicitly closed, matrix tallies 0 NS-RAM wins/12 ESN wins/1 tie, brief v4.3 locked, and progress gated on human-side actions (e.g., Sebas emails). Idle aligns with NO-CHEAT discipline, avoiding manufactured work. (112 words)
+
+### Q2.
+Low residual risk of over-interpreting negatives; patterns are robust. z254 polish targeted NARMA-5/20/MC (prior low-n ties/close calls), not cherry-picked for NS-RAM favor—flipped against it, tightening CIs without bias (all now ESN wins). ESN-fairness sweep (36 configs: sr 0.9-1.2, leak 0.3-0.9, gain 0.1-0.5) was broad, mirroring lit defaults and revealing under-tuning (best 0.461 vs default 0.563), not narrow. NS-RAM grid (27 configs: g_VG2 0.05-0.20, leak 0.1-0.5, dt 1e-7-1e-5) matched ESN structure, but 0/27 improved on default 0.612—unlikely missing regime, as it spanned plausible physics (e.g., low-g_VG2 for stability). Concrete tightening: run 1-2 orthogonal NS-RAM params (e.g., alt dt scaling) on 1 cell for paranoia, but unnecessary given closure and consistent failures. (138 words)
+
+### Q3.
+Idle is right. Compute plan closed, brief locked, and Sebas silicon data (gating A.4/A.6) is the bottleneck—no experiment advances headlines without it. Git corruption blocks pushes, risking data loss on new work; repair is user-action priority. Pivoting to non-reservoir primitives (e.g., PUF) requires user buy-in per weekly review, and would violate NO-CHEAT by manufacturing post-closure compute. 10+ consecutive idle check-ins confirm this posture; stretching cron to 4h (per audit #19) reduces noise without action. (89 words)

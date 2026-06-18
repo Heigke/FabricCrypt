@@ -1,0 +1,36 @@
+{
+  "id": "z293_4B1_N1024_seed7",
+  "title": "z293_4B1_N1024_seed7",
+  "script": "scripts/z293_hdc_envelope_sweep.py",
+  "args": [
+    "--N",
+    "1024",
+    "--vg1",
+    "0.30",
+    "--vg2",
+    "0.30",
+    "--vd_high",
+    "2.0",
+    "--vd_low",
+    "0.5",
+    "--seed",
+    "7"
+  ],
+  "node_pref": "gpu",
+  "wall_estimate_min": 30,
+  "needs_surrogate": "results/z278_mep2_surrogate_v3/surrogate_4d_v3.npz",
+  "env_vars": {
+    "HSA_OVERRIDE_GFX_VERSION": "11.0.0",
+    "PYTHONUNBUFFERED": "1"
+  },
+  "out_dir": "results/z293_envelope/4B1_Nscaling_n10/seed7",
+  "submitted_at": 1778594876.3338916,
+  "submitted_iso": "2026-05-12T16:07:56",
+  "retry_count": 0,
+  "completed_at": 1778594940.240134,
+  "completed_iso": "2026-05-12T16:09:00",
+  "duration_sec": 26,
+  "worker": "daedalus_0",
+  "log_path": "/home/daedalus/AMD_gfx1151_energy/results/queue_logs/daedalus_z293_4B1_N1024_seed7.log",
+  "return_code": 0
+}

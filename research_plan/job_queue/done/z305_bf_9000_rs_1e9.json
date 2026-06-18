@@ -1,0 +1,30 @@
+{
+  "id": "z305_bf_9000_rs_1e9",
+  "title": "z305 SA4 corrective Bf=9000 Rs=1000000000.0",
+  "script": "scripts/z305_sa4_corrective.py",
+  "args": [
+    "--bf",
+    "9000",
+    "--rs",
+    "1000000000.0",
+    "--out",
+    "results/z305_corrective/corrective_bf_9000_rs_1e9.json"
+  ],
+  "node_pref": "gpu",
+  "wall_estimate_min": 6,
+  "needs_surrogate": null,
+  "env_vars": {
+    "HSA_OVERRIDE_GFX_VERSION": "11.0.0",
+    "PYTHONUNBUFFERED": "1"
+  },
+  "out_dir": "results/z305_corrective/",
+  "submitted_at": 1778612046.5395026,
+  "submitted_iso": "2026-05-12T20:54:06",
+  "retry_count": 0,
+  "completed_at": 1778612682.5066025,
+  "completed_iso": "2026-05-12T21:04:42",
+  "duration_sec": 154,
+  "worker": "ikaros_0",
+  "log_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/queue_logs/ikaros_z305_bf_9000_rs_1e9.log",
+  "return_code": 0
+}

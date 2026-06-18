@@ -1,0 +1,10 @@
+{
+  "Vd": 0.5,
+  "S_ngspice_mV_per_dec": 72.47616926031559,
+  "S_pyport_mV_per_dec": 76.22071097465532,
+  "S_diff": 3.744541714339732,
+  "card_nfactor": 1.58,
+  "card_etab": -0.086777,
+  "card_cdsc": 0.00024,
+  "card_cdscb": 0.0
+}

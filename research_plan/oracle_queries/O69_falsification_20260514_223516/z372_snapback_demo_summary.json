@@ -1,0 +1,77 @@
+{
+  "script": "z372_snapback_demo",
+  "task": "Compare pyport model vs Sebas measured snapback @ VG2=+0.20 for VG1 in {0.2,0.4,0.6}",
+  "params_source": "R-46 z365 per-VG1 BBO best (cell-wide median = 0.965 dec)",
+  "x_best_R46": [
+    1889.88,
+    1.8447,
+    9.1722,
+    1092.27,
+    1.5152,
+    9.8983,
+    417.63,
+    0.9036,
+    6.7846
+  ],
+  "results_per_bias": [
+    {
+      "VG1": 0.2,
+      "VG2": 0.1,
+      "file": "StandardIV_HH_2vHCa-2_VG2=0.10_VG=0.2(1)_03-33-55PM.csv",
+      "params": {
+        "Bf": 1889.88,
+        "iii_body_gain": 1.8447,
+        "vnwell_Rs": 1486620098.5286007
+      },
+      "rmse_dec": 1.9697764851973347,
+      "n_valid_points": 89,
+      "Vth_measured_V": null,
+      "V_snapback_knee_V": 2.0003,
+      "measured_jump_dec": 2.9384075319933425,
+      "model_jump_dec": 0.06404175505583964,
+      "snapback_reproduced": false
+    },
+    {
+      "VG1": 0.4,
+      "VG2": 0.2,
+      "file": "StandardIV_HH_2vHCa-2_VG2=0.20_VG=0.4(1)_03-39-29PM.csv",
+      "params": {
+        "Bf": 1092.27,
+        "iii_body_gain": 1.5152,
+        "vnwell_Rs": 7912249981.34314
+      },
+      "rmse_dec": 1.0642496027489,
+      "n_valid_points": 81,
+      "Vth_measured_V": 1.55052,
+      "V_snapback_knee_V": 1.55052,
+      "measured_jump_dec": 2.3160563345939975,
+      "model_jump_dec": 0.046577844765955945,
+      "snapback_reproduced": false
+    },
+    {
+      "VG1": 0.6,
+      "VG2": 0.2,
+      "file": "StandardIV_HH_2vHCa-2_VG2=0.20_VG=0.6(1)_03-45-46PM.csv",
+      "params": {
+        "Bf": 417.63,
+        "iii_body_gain": 0.9036,
+        "vnwell_Rs": 6089757.5146773
+      },
+      "rmse_dec": 0.8100924917706103,
+      "n_valid_points": 81,
+      "Vth_measured_V": 1.15031,
+      "V_snapback_knee_V": 1.15031,
+      "measured_jump_dec": 2.2016349538033824,
+      "model_jump_dec": 0.0242535976052487,
+      "snapback_reproduced": false
+    }
+  ],
+  "snapback_reproduced_count": 0,
+  "total_biases": 3,
+  "rmse_summary_dec": [
+    1.9697764851973347,
+    1.0642496027489,
+    0.8100924917706103
+  ],
+  "verdict": "pyport vs Sebas \u2014 snapback FOLD MISSING on 3/3 biases (VG2=+0.20). Sub-threshold OK; post-knee shape wrong. RMSE=1.97/1.06/0.81 dec."
+}

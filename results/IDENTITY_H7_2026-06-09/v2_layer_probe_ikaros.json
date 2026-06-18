@@ -1,0 +1,43 @@
+{
+  "host": "ikaros",
+  "elapsed_s": 35.8,
+  "meso_gpu_droop_selfsense": {
+    "cell_means": {
+      "00": 3.5664,
+      "01": 8.9103,
+      "10": 8.8658,
+      "11": 14.7622
+    },
+    "value_range": [
+      3.461,
+      18.1596
+    ],
+    "best_logic": "AND",
+    "threshold": 11.8363,
+    "polarity": 1,
+    "separability_fidelity": 1.0,
+    "margin_in_sd": 1.91,
+    "intra_session_BER": 0.0,
+    "USABLE": true
+  },
+  "macro_smu_power_contention": {
+    "cell_means": {
+      "00": 8.9419,
+      "01": 7.2919,
+      "10": 7.4321,
+      "11": 7.4859
+    },
+    "value_range": [
+      7.1006,
+      9.0781
+    ],
+    "best_logic": "OR",
+    "threshold": 8.2139,
+    "polarity": -1,
+    "separability_fidelity": 1.0,
+    "margin_in_sd": 2.24,
+    "intra_session_BER": 0.0,
+    "USABLE": true
+  },
+  "note": "Each layer is a real physical nonlinear computation. USABLE means it yields a reproducible separable bit the LLM can be trained against. Uniqueness still comes from the prefcore fingerprint; these layers add COMPUTATION surface across the macro->micro stack, with per-layer ablation proving each is load-bearing."
+}

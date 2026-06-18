@@ -1,0 +1,105 @@
+{
+  "script": "z324_structural_fix",
+  "completed": "partial (Stage 1 V1-V3 finished, V4 killed after 16+ min stuck on solver convergence with bjt area=0)",
+  "elapsed_s_at_kill": 1432,
+  "device": "cuda",
+
+  "code_changes": {
+    "D1_emitter_to_Sint": {
+      "file": "nsram/nsram/bsim4_port/nsram_cell_2T.py",
+      "edits": [
+        "lines 513-525: Vbe = Vb - Vsint (was Vb); add D1-fix comment block",
+        "lines 537-552: R_Sint balance gets `- Ie_Q1` term (BJT emitter current INTO Sint per SPICE Ie=-(Ic+Ib) convention)",
+        "line ~751: local-base inner Newton: Vbe = Vb_local - Vsint",
+        "line ~756: finite-diff probe: Vbe = Vb_local + eps - Vsint",
+        "line ~772: post-loop recompute: Vbe = Vb_local - Vsint"
+      ],
+      "loc_changed_approx": 12,
+      "verified": "grep shows: Vbe = Vb - Vsint at line 524; -Ie_Q1 in R_Sint at line 552; D1 fix comments at 520,542,751,772"
+    },
+    "D2_drop_explicit_diodes": {
+      "file": "nsram/nsram/bsim4_port/nsram_cell_2T.py",
+      "edits": [
+        "line 117: use_well_diode default True -> False",
+        "body_pdiode_to default was already 'off' (line 162) - no change needed",
+        "Rationale: LTSpice has zero explicit diodes; BSIM4 PTM130bulkNSRAM internal Nwell junction is the only path"
+      ],
+      "loc_changed_approx": 7,
+      "verified": "cfg.use_well_diode default = False; cfg.body_pdiode_to default = 'off' (runtime check OK)"
+    },
+    "D9_Bf_from_card": {
+      "file": "nsram/nsram/bsim4_port/bjt.py (no edit needed)",
+      "edits": [
+        "GummelPoonNPN.from_sebas_card() already returns Bf=10000.0 (line 56)",
+        "Dataclass default Bf=10000.0 (line 26)",
+        "Card parasiticBJT.txt: bf=10000",
+        "z324 honors default — no Bf override in run_branch except passing 10000.0 explicitly"
+      ],
+      "loc_changed_approx": 0,
+      "verified": "runtime check: bjt.Bf = 10000.0"
+    }
+  },
+
+  "stage1_variants_at_VG1_0_6": {
+    "V1_control_D1_D2_D9": {
+      "median_log_rmse": 3.248,
+      "elapsed_s": 130.7,
+      "comment": "Cell-wide V_G1=0.6 median after D1+D2+D9 applied; defaults from class."
+    },
+    "V2_plus_well_diode": {
+      "median_log_rmse": 3.248,
+      "elapsed_s": 129.5,
+      "comment": "use_well_diode=True, vnwell_Rs=1e8. Identical to V1 (bitwise)."
+    },
+    "V3_plus_iii_kill": {
+      "median_log_rmse": 3.248,
+      "elapsed_s": 130.6,
+      "comment": "ALPHA0 -> 1e-20 (kill BSIM4 impact ionization). Identical to V1 (bitwise)."
+    },
+    "V4_plus_bjt_kill": {
+      "median_log_rmse": null,
+      "status": "killed_stuck",
+      "elapsed_s_when_killed": 1432,
+      "comment": "BJT area=0. Solver stuck >15 min; killed before completion. Likely degenerate BJT current (zero division-like) caused Newton to fail to converge. V4 inconclusive."
+    }
+  },
+
+  "stage1_verdict": {
+    "v2_vs_v1_shift_pct": 0.0,
+    "v2_vs_v1_bitwise_identical": true,
+    "v3_vs_v1_shift_dec": 0.0,
+    "v4_shift_dec": "inconclusive (killed)",
+    "structure_confirmed": false,
+    "still_dead": true,
+    "diagnosis": "Per gate criteria: V2=V1 bitwise (no well-diode effect) AND V3 shifts <0.1 dec (no impact-ionization effect). The body-voltage path remains structurally inert. D1 rewiring of the BJT emitter to Sint does NOT, by itself, make the body branch live. Adding well-diode on top of D1 makes ZERO difference. Killing impact-ionization makes ZERO difference. This means the current at V_G1=0.6 is essentially 100% BSIM4 channel Ids (M1 in saturation feeding M2 in subthreshold/triode), with Vb and Vsint at the trivial Newton fixed point where all body-side currents cancel near zero. The BJT never fires because Vb never rises (even with E=Sint, both Vb≈0 and Vsint≈0 → Vbe≈0)."
+  },
+
+  "stage2_BBO": {
+    "status": "SKIPPED",
+    "reason": "Stage 1 verdict: STILL DEAD (not STRUCTURE_CONFIRMED). Per task spec, Stage 2 BBO is conditional on Stage 1 liveness confirmation. Running BBO over a dead path would consume budget without producing structurally meaningful results."
+  },
+
+  "comparison": {
+    "z304_baseline_cellwide_median": 0.99,
+    "v5b_cellwide_median": 3.01,
+    "z324_V_G1_0_6_median": 3.248,
+    "z324_cellwide_estimate": "not_measured (only V_G1=0.6 branch ran)",
+    "delta_vs_v5b_at_VG1_0_6": "+0.24 dec WORSE than v5b at V_G1=0.6",
+    "delta_vs_z304": "+2.26 dec worse"
+  },
+
+  "locked_gate": {
+    "criterion": "cell-wide median < 1.5 dec",
+    "result": "FAIL (V_G1=0.6 alone is 3.248 dec; cell-wide will be similar or worse)"
+  },
+
+  "pitfalls_and_findings": [
+    "D1 (emitter -> Sint) by itself does NOT activate the body-voltage path. With E=Sint and Vb≈Vsint at the operating point, Vbe stays near zero and the parasitic BJT never conducts.",
+    "D2 (drop explicit well_diode) removed a redundant path but the remaining BSIM4 internal junction is also not contributing meaningfully at V_G1=0.6 (verified: enabling explicit well_diode in V2 gave bitwise-identical result).",
+    "D9 (Bf=10000) had no effect because the BJT never fires.",
+    "The structural fault is deeper than the audit hypothesized: even with the correct topology, the body node is sitting at a quiet KCL fixed point where ALL secondary paths (well_diode, impact-ionization, BJT) cancel to numerical zero. The current is dominated by BSIM4 channel transport.",
+    "V4 (bjt_kill via area=0) caused solver divergence — area=0 introduces a singular Jacobian column in the inner Newton. Should have used `cfg.use_bjt=False` instead.",
+    "Implication: the 'dead branch' is NOT the body p-n diode in isolation, NOR the BJT emitter topology, NOR impact-ionization-to-body. The KCL at the body node converges to a region where the model fundamentally cannot produce the snapback-style increase seen in Sebas's measurement at V_G1=0.6. This is consistent with R_deep_B oracle gpt-5's call: 'z304 was a spurious local optimum on wrong physics; v5b is honest but structurally insufficient.'",
+    "Next steps recommended: (a) instrument the solver to log Vb, Vsint, and all KCL components at convergence to identify the actual dominant terms; (b) reconsider whether LTSpice .asc truly has no body-bias source (look for an .ic or .nodeset on B); (c) examine whether the TAT path or GIDL are providing any body current at V_G1=0.6, and if not, what is."
+  ]
+}

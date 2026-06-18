@@ -1,0 +1,34 @@
+{
+  "host": "ikaros",
+  "frozen_LLM": "gpt2-124M",
+  "gate_fidelity": 1.0,
+  "trained_with": "LIVE cache-XOR in the loop (re-measured every step; NOT truth-table)",
+  "results": {
+    "native": {
+      "query_acc_vs_ref": 0.997,
+      "token_divergence": 0.003
+    },
+    "sw_xor": {
+      "query_acc_vs_ref": 0.997,
+      "token_divergence": 0.003
+    },
+    "no_body": {
+      "query_acc_vs_ref": 0.48,
+      "token_divergence": 0.52
+    },
+    "random": {
+      "query_acc_vs_ref": 0.45,
+      "token_divergence": 0.55
+    },
+    "replay_old": {
+      "query_acc_vs_ref": 0.51,
+      "token_divergence": 0.49
+    }
+  },
+  "REAL_LLM_load_bearing_on_live_body": true,
+  "replay_resistant": true,
+  "computation_is_real_nonlinear_cache_physics": true,
+  "die_unique": false,
+  "honest_scope": "LOAD-BEARING + FRESH/replay-proof + REAL-LLM + trained against LIVE silicon. NOT die-unique: cache-XOR is generic across shared-L3 CPUs; the per-die droop signal is too weak (BER~0.47) to root crisp bits. We do not claim uniqueness.",
+  "verdict": "DEEP HONEST EMBODIMENT: a real frozen GPT-2, trained against LIVE silicon, constitutively depends on the body's real nonlinear cache computation; fresh nonce \u2192 replay fails. Uniqueness honestly NOT claimed."
+}

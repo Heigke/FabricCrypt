@@ -1,0 +1,28 @@
+{
+  "id": "z323b_k1s_0.5",
+  "title": "z323b R-6-lite extended sweep K1_scale=0.5",
+  "script": "scripts/z323b_v5_extended_sweep.py",
+  "args": [
+    "--k1_scales",
+    "0.5",
+    "--out_tag",
+    "k1s_0.5"
+  ],
+  "node_pref": "cpu",
+  "wall_estimate_min": 90,
+  "needs_surrogate": null,
+  "env_vars": {
+    "HSA_OVERRIDE_GFX_VERSION": "11.0.0",
+    "OMP_NUM_THREADS": "4"
+  },
+  "out_dir": "results/z323_v5_extended/",
+  "submitted_at": 1778689430.896087,
+  "submitted_iso": "2026-05-13T18:23:50",
+  "retry_count": 0,
+  "completed_at": 1778692670.160696,
+  "completed_iso": "2026-05-13T19:17:50",
+  "duration_sec": 3236,
+  "worker": "daedalus_0",
+  "log_path": "/home/daedalus/AMD_gfx1151_energy/results/queue_logs/daedalus_z323b_k1s_0.5.log",
+  "return_code": 0
+}

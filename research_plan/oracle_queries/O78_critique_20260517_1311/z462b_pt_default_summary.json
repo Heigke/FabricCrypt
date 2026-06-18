@@ -1,0 +1,104 @@
+{
+  "date": "2026-05-17",
+  "change": "Default DC solver: Newton-DC -> pseudo-transient backward (PT-bwd)",
+  "files_modified": [
+    "scripts/z429_multisolver_debug.py (run_vsint_pinned dispatcher + _run_vsint_pinned_pt + run_vd_sweep_pt_backward + DeprecationWarning)"
+  ],
+  "env_override": "NSRAM_DC_SOLVER=newton restores legacy Newton-DC",
+  "sanity": {
+    "VG1": 0.6,
+    "VG2": 0.0,
+    "n_points": 61,
+    "convergence_rate": 0.8524590163934426,
+    "Vb_max_V": 0.7000000000000001,
+    "max_log10_jump_dec": 1.4445949827935554,
+    "snap_Vd_V": 0.03333333333333333,
+    "snap_up_visible": false,
+    "Vb_above_0p5": true,
+    "wall_sec": 83.3
+  },
+  "V1": {
+    "per_branch_rmse_dec": {
+      "0.2": 0.9978545004450636,
+      "0.4": 0.8084560927185284,
+      "0.6": 1.0697510385052027
+    },
+    "cell_rmse_dec": 0.982511967023258,
+    "n_curves": 25,
+    "wall_sec": 1122.0,
+    "disc_deltas_at_Vd_1p7_VG1_0p6": [
+      {
+        "VG2": 0.0,
+        "delta_log_dec": 1.3731877083715434,
+        "Ip": 1.09174737831605e-06,
+        "Im": 2.57816e-05
+      },
+      {
+        "VG2": 0.05,
+        "delta_log_dec": 1.3730761964538756,
+        "Ip": 1.0917778320645601e-06,
+        "Im": 2.57757e-05
+      },
+      {
+        "VG2": 0.1,
+        "delta_log_dec": 1.3735298831047338,
+        "Ip": 1.0918691973655054e-06,
+        "Im": 2.58048e-05
+      },
+      {
+        "VG2": 0.15,
+        "delta_log_dec": 1.373610315526884,
+        "Ip": 1.09174737831605e-06,
+        "Im": 2.58067e-05
+      },
+      {
+        "VG2": 0.2,
+        "delta_log_dec": 1.3735753068007064,
+        "Ip": 1.0917169252434283e-06,
+        "Im": 2.58039e-05
+      },
+      {
+        "VG2": 0.25,
+        "delta_log_dec": 1.3732318272730444,
+        "Ip": 1.0917169252434283e-06,
+        "Im": 2.57835e-05
+      },
+      {
+        "VG2": 0.3,
+        "delta_log_dec": 1.3723817636562705,
+        "Ip": 1.09174737831605e-06,
+        "Im": 2.57338e-05
+      },
+      {
+        "VG2": 0.35,
+        "delta_log_dec": 1.3693622247637443,
+        "Ip": 1.09174737831605e-06,
+        "Im": 2.55555e-05
+      },
+      {
+        "VG2": 0.4,
+        "delta_log_dec": 1.455812148397774,
+        "Ip": 8.726401989016162e-07,
+        "Im": 2.49257e-05
+      },
+      {
+        "VG2": 0.45,
+        "delta_log_dec": 0.1399327701667037,
+        "Ip": 8.083638389232359e-07,
+        "Im": 1.11568e-06
+      },
+      {
+        "VG2": 0.5,
+        "delta_log_dec": 0.12587409303548913,
+        "Ip": 8.083845753830811e-07,
+        "Im": 1.08017e-06
+      }
+    ]
+  },
+  "gates": {
+    "INFRA": true,
+    "DISCOVERY_max_dlog_lt_0p3": false,
+    "AMBITIOUS_cell_rmse_lt_2p0": true,
+    "KILL_SHOT_broke_>2_scripts": false
+  }
+}

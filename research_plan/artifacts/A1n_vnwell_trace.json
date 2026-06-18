@@ -1,0 +1,108 @@
+{
+  "Vt": 0.02585,
+  "Jss": 3.4089e-07,
+  "njs": 1.017,
+  "Vb_conv": -0.2531,
+  "vnwell": 2.0,
+  "V_forward": 2.2531,
+  "Ib_BJT_at_Vb0p7": 2.8373e-07,
+  "rows": [
+    {
+      "area_label": "A_active (W*L)",
+      "Rs_label": "Rs=0 (ideal)",
+      "area_m2": 6.48e-14,
+      "Rs_ohm": 0.0,
+      "I_diode": 1223905311471105.5,
+      "V_diode": 2.2531
+    },
+    {
+      "area_label": "A_active (W*L)",
+      "Rs_label": "Rs=100 ohm",
+      "area_m2": 6.48e-14,
+      "Rs_ohm": 100.0,
+      "I_diode": 0.011799777386592953,
+      "V_diode": 1.0731222613407045
+    },
+    {
+      "area_label": "A_active (W*L)",
+      "Rs_label": "Rs=1 kohm",
+      "area_m2": 6.48e-14,
+      "Rs_ohm": 1000.0,
+      "I_diode": 0.0012392235293017342,
+      "V_diode": 1.0138764706982657
+    },
+    {
+      "area_label": "A_active (W*L)",
+      "Rs_label": "Rs=10 kohm",
+      "area_m2": 6.48e-14,
+      "Rs_ohm": 10000.0,
+      "I_diode": 0.0001298528284235823,
+      "V_diode": 0.9545717157641769
+    },
+    {
+      "area_label": "A_DNW_typical (~50x)",
+      "Rs_label": "Rs=0 (ideal)",
+      "area_m2": 3.24e-12,
+      "Rs_ohm": 0.0,
+      "I_diode": 6.119526557355527e+16,
+      "V_diode": 2.2531
+    },
+    {
+      "area_label": "A_DNW_typical (~50x)",
+      "Rs_label": "Rs=100 ohm",
+      "area_m2": 3.24e-12,
+      "Rs_ohm": 100.0,
+      "I_diode": 0.0128066988876837,
+      "V_diode": 0.97243011123163
+    },
+    {
+      "area_label": "A_DNW_typical (~50x)",
+      "Rs_label": "Rs=1 kohm",
+      "area_m2": 3.24e-12,
+      "Rs_ohm": 1000.0,
+      "I_diode": 0.0013400127811820535,
+      "V_diode": 0.9130872188179464
+    },
+    {
+      "area_label": "A_DNW_typical (~50x)",
+      "Rs_label": "Rs=10 kohm",
+      "area_m2": 3.24e-12,
+      "Rs_ohm": 10000.0,
+      "I_diode": 0.00013994063311338422,
+      "V_diode": 0.8536936688661576
+    },
+    {
+      "area_label": "A_DNW_big     (~500x)",
+      "Rs_label": "Rs=0 (ideal)",
+      "area_m2": 3.24e-11,
+      "Rs_ohm": 0.0,
+      "I_diode": 6.119526557355528e+17,
+      "V_diode": 2.2531
+    },
+    {
+      "area_label": "A_DNW_big     (~500x)",
+      "Rs_label": "Rs=100 ohm",
+      "area_m2": 3.24e-11,
+      "Rs_ohm": 100.0,
+      "I_diode": 0.013400127811820537,
+      "V_diode": 0.9130872188179462
+    },
+    {
+      "area_label": "A_DNW_big     (~500x)",
+      "Rs_label": "Rs=1 kohm",
+      "area_m2": 3.24e-11,
+      "Rs_ohm": 1000.0,
+      "I_diode": 0.0013994063311338423,
+      "V_diode": 0.8536936688661576
+    },
+    {
+      "area_label": "A_DNW_big     (~500x)",
+      "Rs_label": "Rs=10 kohm",
+      "area_m2": 3.24e-11,
+      "Rs_ohm": 10000.0,
+      "I_diode": 0.00014588464404570678,
+      "V_diode": 0.7942535595429321
+    }
+  ],
+  "verdict": "CONFIRMED: well-body diode delivers >>100x the BJT base draw, easily charging Vb to NPN-firing."
+}

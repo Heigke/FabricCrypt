@@ -1,0 +1,392 @@
+{
+  "experiment": "z299b_oracle_tcad_compare",
+  "oracle_packet": "research_plan/oracle_queries/O45_tcad_curve_extract",
+  "oracle_provider": "openai (gpt-5)",
+  "n_oracle_curves_extracted": 29,
+  "n_curves_compared": 19,
+  "best_overall_log_rmse_dec": 2.0583437660166775,
+  "best_overall_shape_log_rmse_dec": 0.9235604171047985,
+  "best_per_replay": {
+    "IdVds_des": {
+      "log_rmse_dec": 4.9316086520543525,
+      "slide": 6,
+      "curve_label": "I\u2013V family \u2014 VG1=0.20 V, VG2=0.10 V branch, measurements (symbols)",
+      "n_overlap": 6
+    },
+    "IdVgs_des": {
+      "log_rmse_dec": 2.333750947502588,
+      "slide": 9,
+      "curve_label": "3-corner overlay \u2014 VG1=0.20 V, VG2=0.00 V \u2014 measurement (thick gray)",
+      "n_overlap": 6
+    },
+    "BV_des": {
+      "log_rmse_dec": 2.0583437660166775,
+      "slide": 14,
+      "curve_label": "Bulk current \u2014 measurement (red dots), VG1\u22480.15 V",
+      "n_overlap": 8
+    }
+  },
+  "gate_relaxed_lt_0p8": false,
+  "gate_ambitious_lt_0p3": false,
+  "gate_shape_relaxed_lt_0p8": false,
+  "comparisons": [
+    {
+      "slide": 6,
+      "curve_label": "I\u2013V family \u2014 VG1=0.60 V, VG2=0.50 V branch, measurements (symbols)",
+      "confidence": "low",
+      "x_axis": "Voltage V_D (V)",
+      "y_axis": "Current I_D (A)",
+      "best_match": {
+        "rep": "IdVds_des",
+        "n_overlap": 7,
+        "V_overlap": [
+          0.0,
+          2.0
+        ],
+        "log_rmse_dec": 6.398238414469816,
+        "log_rmse_shape_dec": 1.7970419185181357,
+        "log_offset_dec": 6.140691748613171
+      }
+    },
+    {
+      "slide": 6,
+      "curve_label": "I\u2013V family \u2014 VG1=0.40 V, VG2=0.30 V branch, measurements (symbols)",
+      "confidence": "low",
+      "x_axis": "Voltage V_D (V)",
+      "y_axis": "Current I_D (A)",
+      "best_match": {
+        "rep": "IdVds_des",
+        "n_overlap": 7,
+        "V_overlap": [
+          0.0,
+          2.0
+        ],
+        "log_rmse_dec": 5.983857850035492,
+        "log_rmse_shape_dec": 1.6334494009441254,
+        "log_offset_dec": 5.756596027513713
+      }
+    },
+    {
+      "slide": 6,
+      "curve_label": "I\u2013V family \u2014 VG1=0.20 V, VG2=0.10 V branch, measurements (symbols)",
+      "confidence": "low",
+      "x_axis": "Voltage V_D (V)",
+      "y_axis": "Current I_D (A)",
+      "best_match": {
+        "rep": "IdVds_des",
+        "n_overlap": 6,
+        "V_overlap": [
+          0.0,
+          2.0
+        ],
+        "log_rmse_dec": 4.9316086520543525,
+        "log_rmse_shape_dec": 1.0903308997696834,
+        "log_offset_dec": 4.809567800335575
+      }
+    },
+    {
+      "slide": 8,
+      "curve_label": "I\u2013V noise band (left panel) \u2014 upper envelope",
+      "confidence": "medium",
+      "x_axis": "Voltage (V)",
+      "y_axis": "Current (A)",
+      "best_match": {
+        "rep": "IdVgs_des",
+        "n_overlap": 5,
+        "V_overlap": [
+          0.0,
+          1.95
+        ],
+        "log_rmse_dec": 6.3431174544471824,
+        "log_rmse_shape_dec": 1.6074742810548412,
+        "log_offset_dec": 6.136054552940327
+      }
+    },
+    {
+      "slide": 8,
+      "curve_label": "I\u2013V noise band (left panel) \u2014 lower envelope",
+      "confidence": "medium",
+      "x_axis": "Voltage (V)",
+      "y_axis": "Current (A)",
+      "best_match": {
+        "rep": "IdVgs_des",
+        "n_overlap": 5,
+        "V_overlap": [
+          0.0,
+          1.95
+        ],
+        "log_rmse_dec": 5.911245242638511,
+        "log_rmse_shape_dec": 1.6321450218528097,
+        "log_offset_dec": 5.681454298527579
+      }
+    },
+    {
+      "slide": 8,
+      "curve_label": "I\u2013V noise band (right panel) \u2014 upper envelope",
+      "confidence": "medium",
+      "x_axis": "Voltage (V)",
+      "y_axis": "Current (A)",
+      "best_match": {
+        "rep": "IdVgs_des",
+        "n_overlap": 5,
+        "V_overlap": [
+          0.0,
+          2.0
+        ],
+        "log_rmse_dec": 5.785055017107511,
+        "log_rmse_shape_dec": 1.3167132517896842,
+        "log_offset_dec": 5.633216466950495
+      }
+    },
+    {
+      "slide": 8,
+      "curve_label": "I\u2013V noise band (right panel) \u2014 lower envelope",
+      "confidence": "medium",
+      "x_axis": "Voltage (V)",
+      "y_axis": "Current (A)",
+      "best_match": {
+        "rep": "IdVgs_des",
+        "n_overlap": 5,
+        "V_overlap": [
+          0.0,
+          2.0
+        ],
+        "log_rmse_dec": 5.1742560787081135,
+        "log_rmse_shape_dec": 1.339007023697654,
+        "log_offset_dec": 4.997998215139359
+      }
+    },
+    {
+      "slide": 9,
+      "curve_label": "3-corner overlay \u2014 VG1=0.60 V, VG2=0.35 V \u2014 measurement (thick amber)",
+      "confidence": "medium",
+      "x_axis": "Voltage (V)",
+      "y_axis": "Current (A)",
+      "best_match": {
+        "rep": "IdVgs_des",
+        "n_overlap": 6,
+        "V_overlap": [
+          0.0,
+          2.0
+        ],
+        "log_rmse_dec": 6.5510954161352055,
+        "log_rmse_shape_dec": 0.9235604171047985,
+        "log_offset_dec": 6.485667838184817
+      }
+    },
+    {
+      "slide": 9,
+      "curve_label": "3-corner overlay \u2014 VG1=0.60 V, VG2=0.35 V \u2014 simulation (thin amber)",
+      "confidence": "medium",
+      "x_axis": "Voltage (V)",
+      "y_axis": "Current (A)",
+      "best_match": {
+        "rep": "IdVgs_des",
+        "n_overlap": 6,
+        "V_overlap": [
+          0.0,
+          2.0
+        ],
+        "log_rmse_dec": 6.53624060077656,
+        "log_rmse_shape_dec": 0.9264409841241446,
+        "log_offset_dec": 6.470251022500983
+      }
+    },
+    {
+      "slide": 9,
+      "curve_label": "3-corner overlay \u2014 VG1=0.40 V, VG2=0.25 V \u2014 measurement (thick green)",
+      "confidence": "medium",
+      "x_axis": "Voltage (V)",
+      "y_axis": "Current (A)",
+      "best_match": {
+        "rep": "IdVgs_des",
+        "n_overlap": 6,
+        "V_overlap": [
+          0.0,
+          2.0
+        ],
+        "log_rmse_dec": 5.985592172998267,
+        "log_rmse_shape_dec": 0.9810000808219143,
+        "log_offset_dec": 5.904655155289384
+      }
+    },
+    {
+      "slide": 9,
+      "curve_label": "3-corner overlay \u2014 VG1=0.40 V, VG2=0.25 V \u2014 simulation (thin green)",
+      "confidence": "medium",
+      "x_axis": "Voltage (V)",
+      "y_axis": "Current (A)",
+      "best_match": {
+        "rep": "IdVgs_des",
+        "n_overlap": 6,
+        "V_overlap": [
+          0.0,
+          2.0
+        ],
+        "log_rmse_dec": 5.9696489972015145,
+        "log_rmse_shape_dec": 1.008578089621674,
+        "log_offset_dec": 5.883832032521334
+      }
+    },
+    {
+      "slide": 9,
+      "curve_label": "3-corner overlay \u2014 VG1=0.20 V, VG2=0.00 V \u2014 measurement (thick gray)",
+      "confidence": "medium",
+      "x_axis": "Voltage (V)",
+      "y_axis": "Current (A)",
+      "best_match": {
+        "rep": "IdVgs_des",
+        "n_overlap": 6,
+        "V_overlap": [
+          0.0,
+          2.0
+        ],
+        "log_rmse_dec": 2.333750947502588,
+        "log_rmse_shape_dec": 1.026904822795099,
+        "log_offset_dec": 2.095676494569091
+      }
+    },
+    {
+      "slide": 9,
+      "curve_label": "3-corner overlay \u2014 VG1=0.20 V, VG2=0.00 V \u2014 simulation (thin gray)",
+      "confidence": "medium",
+      "x_axis": "Voltage (V)",
+      "y_axis": "Current (A)",
+      "best_match": {
+        "rep": "IdVgs_des",
+        "n_overlap": 6,
+        "V_overlap": [
+          0.0,
+          2.0
+        ],
+        "log_rmse_dec": 2.3546717184968875,
+        "log_rmse_shape_dec": 1.0837843355451888,
+        "log_offset_dec": 2.090428285284133
+      }
+    },
+    {
+      "slide": 14,
+      "curve_label": "Bulk current \u2014 measurement (red dots), VG1\u22480.15 V",
+      "confidence": "medium",
+      "x_axis": "Drain voltage V_D (V)",
+      "y_axis": "Bulk current I_B (A)",
+      "best_match": {
+        "rep": "BV_des",
+        "n_overlap": 8,
+        "V_overlap": [
+          1.5,
+          4.5
+        ],
+        "log_rmse_dec": 2.0583437660166775,
+        "log_rmse_shape_dec": 1.0641702723070097,
+        "log_offset_dec": 1.7619082526163905
+      }
+    },
+    {
+      "slide": 14,
+      "curve_label": "Bulk current \u2014 SPICE empirical model (magenta 'Sum'), VG1\u22480.15 V",
+      "confidence": "medium",
+      "x_axis": "Drain voltage V_D (V)",
+      "y_axis": "Bulk current I_B (A)",
+      "best_match": {
+        "rep": "BV_des",
+        "n_overlap": 8,
+        "V_overlap": [
+          1.5,
+          4.5
+        ],
+        "log_rmse_dec": 2.2005121183976923,
+        "log_rmse_shape_dec": 0.9960718582152824,
+        "log_offset_dec": 1.9621657515323858
+      }
+    },
+    {
+      "slide": 15,
+      "curve_label": "Transient V_D ramps \u2014 high-VG2 branch, measurements (squares)",
+      "confidence": "low",
+      "x_axis": "Drain voltage V_D (V)",
+      "y_axis": "Total drain current I_D (A)",
+      "best_match": {
+        "rep": "BV_des",
+        "n_overlap": 8,
+        "V_overlap": [
+          0.0,
+          3.5
+        ],
+        "log_rmse_dec": 6.447445236927397,
+        "log_rmse_shape_dec": 1.6273493787105853,
+        "log_offset_dec": 6.238692497854662
+      }
+    },
+    {
+      "slide": 15,
+      "curve_label": "Transient V_D ramps \u2014 high-VG2 branch, simulations (dashed)",
+      "confidence": "low",
+      "x_axis": "Drain voltage V_D (V)",
+      "y_axis": "Total drain current I_D (A)",
+      "best_match": {
+        "rep": "BV_des",
+        "n_overlap": 8,
+        "V_overlap": [
+          0.0,
+          3.5
+        ],
+        "log_rmse_dec": 6.496564485016329,
+        "log_rmse_shape_dec": 1.6321692797168923,
+        "log_offset_dec": 6.288193186466517
+      }
+    },
+    {
+      "slide": 21,
+      "curve_label": "p-diode dynamic response (May 1 update) \u2014 with N-well diode",
+      "confidence": "medium",
+      "x_axis": "Voltage (V)",
+      "y_axis": "Current (A)",
+      "best_match": {
+        "rep": "IdVgs_des",
+        "n_overlap": 5,
+        "V_overlap": [
+          0.0,
+          2.0
+        ],
+        "log_rmse_dec": 5.582206693274505,
+        "log_rmse_shape_dec": 1.2570777685878538,
+        "log_offset_dec": 5.438822211670543
+      }
+    },
+    {
+      "slide": 21,
+      "curve_label": "p-diode dynamic response (May 1 update) \u2014 without N-well diode",
+      "confidence": "medium",
+      "x_axis": "Voltage (V)",
+      "y_axis": "Current (A)",
+      "best_match": {
+        "rep": "IdVgs_des",
+        "n_overlap": 5,
+        "V_overlap": [
+          0.0,
+          2.0
+        ],
+        "log_rmse_dec": 5.348496947767525,
+        "log_rmse_shape_dec": 1.2080195150554016,
+        "log_offset_dec": 5.210288710956798
+      }
+    }
+  ],
+  "could_not_extract": [
+    {
+      "slide": 7,
+      "reason": "Slide is a composite summary of parameter plots already digitized in slides 1\u20134; no additional distinct curves readable beyond duplicates."
+    },
+    {
+      "slide": 13,
+      "reason": "Requested VG-dependent PWLs are shown only in very small insets with unlabeled axes; numeric values not readable."
+    }
+  ],
+  "notes": [
+    "Oracle samples are visually estimated from small slide plots (\u00b10.3 dec).",
+    "pyport replay uses simplified analytical surrogate, not Sentaurus binaries.",
+    "Large log-RMSE expected because (a) oracle uncertainty + (b) replay is",
+    "stub physics. Goal is order-of-magnitude sanity, not exact match."
+  ]
+}

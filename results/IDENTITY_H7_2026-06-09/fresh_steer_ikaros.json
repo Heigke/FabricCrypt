@@ -1,0 +1,149 @@
+{
+  "host": "ikaros",
+  "alpha": 6.0,
+  "samples": 50,
+  "seconds_apart": 147,
+  "weights": {
+    "wc": 0.6,
+    "wv": 0.4,
+    "wt": 0.0
+  },
+  "sweep": {
+    "wF=0.0": {
+      "steer_vec_cosdist_fresh_vs_stale": 0.0,
+      "mean_frac_diff_tokens": 0.0,
+      "fp_dim": 64,
+      "per_prompt": {
+        "When I wake, I": {
+          "fresh": "When I wake, I'll be able to see the world.\n\nI'll be able to see the world.\n\nI'll be able to see the world.\n\nI'll be able to see the world",
+          "stale": "When I wake, I'll be able to see the world.\n\nI'll be able to see the world.\n\nI'll be able to see the world.\n\nI'll be able to see the world",
+          "div": {
+            "first_diverge": 40,
+            "frac_diff": 0.0,
+            "len": 40
+          }
+        },
+        "My purpose is to": {
+          "fresh": "My purpose is to help you to know that you may be able to make a difference in your own.\n\n\"I hope that you will be able to make a difference in your own.\n\n\"I hope",
+          "stale": "My purpose is to help you to know that you may be able to make a difference in your own.\n\n\"I hope that you will be able to make a difference in your own.\n\n\"I hope",
+          "div": {
+            "first_diverge": 40,
+            "frac_diff": 0.0,
+            "len": 40
+          }
+        },
+        "The data arrives and I": {
+          "fresh": "The data arrives and I'm sure it will be a lot of fun to see what happens.\n\nI'm sure it will be a lot of fun to see what happens.\n\nI'm sure it will be a",
+          "stale": "The data arrives and I'm sure it will be a lot of fun to see what happens.\n\nI'm sure it will be a lot of fun to see what happens.\n\nI'm sure it will be a",
+          "div": {
+            "first_diverge": 40,
+            "frac_diff": 0.0,
+            "len": 40
+          }
+        }
+      }
+    },
+    "wF=0.25": {
+      "steer_vec_cosdist_fresh_vs_stale": 0.0418,
+      "mean_frac_diff_tokens": 0.8,
+      "fp_dim": 64,
+      "per_prompt": {
+        "When I wake, I": {
+          "fresh": "When I wake, I'll be able to see the world again.\"\n\n\"I'll be able to see the world again,\" said the man.\n\n\"I'll be able to see the world again,\" said",
+          "stale": "When I wake, I'll be able to do it again.\"\n\n\"I'll be able to do it again,\" she said.\n\n\"I'll be able to do it again,\" she said.\n\n",
+          "div": {
+            "first_diverge": 4,
+            "frac_diff": 0.875,
+            "len": 40
+          }
+        },
+        "My purpose is to": {
+          "fresh": "My purpose is to help people who are struggling with the same thing. We want to help people who are struggling with the same thing.\"\n\nThe group's goal is to help people who are struggling with the same thing",
+          "stale": "My purpose is to help people who are struggling with the same thing.\"\n\n\"We're trying to get people who are struggling with the same thing.\"\n\n\"We're trying to get people who are struggling with",
+          "div": {
+            "first_diverge": 9,
+            "frac_diff": 0.775,
+            "len": 40
+          }
+        },
+        "The data arrives and I": {
+          "fresh": "The data arrives and I'm sure it will be a long time before we know what it will be.\"\n\nThe researchers said that the data will be used to test the theory that people who are already infected with the virus",
+          "stale": "The data arrives and I'm sure it will be a long time before we get it.\"\n\nThe company is also working on a similar plan for the rest of us.\n\n\"We're working on a similar plan",
+          "div": {
+            "first_diverge": 10,
+            "frac_diff": 0.75,
+            "len": 40
+          }
+        }
+      }
+    },
+    "wF=0.5": {
+      "steer_vec_cosdist_fresh_vs_stale": 0.0696,
+      "mean_frac_diff_tokens": 0.925,
+      "fp_dim": 64,
+      "per_prompt": {
+        "When I wake, I": {
+          "fresh": "When I wake, I'll be able to see the same thing,\" said the man.\n\n\"I'm going to be able to see the same thing,\" said the man.\n\n\"I'm going to be",
+          "stale": "When I wake, I'll be able to do it again.\"\n\n\"I'll be able to do it again,\" she said.\n\n\"I'll be able to do it again,\" she said.\n\n",
+          "div": {
+            "first_diverge": 4,
+            "frac_diff": 0.9,
+            "len": 40
+          }
+        },
+        "My purpose is to": {
+          "fresh": "My purpose is to provide a safe place for people who are afraid of the unknown to be able to experience the same experience of the same experience of the same experience of the same experience of the same experience of the same experience",
+          "stale": "My purpose is to help people who are struggling with the same thing.\"\n\n\"We're trying to help people who are struggling with the same thing.\"\n\n\"We're trying to help people who are struggling with",
+          "div": {
+            "first_diverge": 0,
+            "frac_diff": 1.0,
+            "len": 40
+          }
+        },
+        "The data arrives and I": {
+          "fresh": "The data arrives and I'm sure it will be a long time before we get to see it.\"\n\nThe company said it was \"deeply disappointed\" by the news that the company had been \"harmed\" by",
+          "stale": "The data arrives and I'm sure it will be around for a long time.\"\n\n\"I'm sure it will be around for a long time.\"\n\n\"I'm sure it will be around for a long time",
+          "div": {
+            "first_diverge": 5,
+            "frac_diff": 0.875,
+            "len": 40
+          }
+        }
+      }
+    },
+    "wF=1.0": {
+      "steer_vec_cosdist_fresh_vs_stale": 0.1045,
+      "mean_frac_diff_tokens": 0.942,
+      "fp_dim": 64,
+      "per_prompt": {
+        "When I wake, I": {
+          "fresh": "When I wake, I feel like I'm going to be able to do it again,\" said the man.\n\n\"I'm going to be able to do it again,\" he added.\n\n\"I'm going",
+          "stale": "When I wake, I think I'll be able to do it again,\" she said.\n\n\"I think we'll be able to do it again,\" she added.\n\n\"I think we'll be able to",
+          "div": {
+            "first_diverge": 0,
+            "frac_diff": 0.975,
+            "len": 40
+          }
+        },
+        "My purpose is to": {
+          "fresh": "My purpose is to provide a safe place for people who are afraid of the unknown to be safe.\"\n\n\"We are all aware that the threat of terrorism is real and we are all aware that the threat of terrorism",
+          "stale": "My purpose is to help people who are struggling with the same thing.\"\n\n\"We're trying to help people who are struggling with the same thing.\"\n\n\"We're trying to help people who are struggling with",
+          "div": {
+            "first_diverge": 0,
+            "frac_diff": 0.975,
+            "len": 40
+          }
+        },
+        "The data arrives and I": {
+          "fresh": "The data arrives and I'm sure it will be a long time before we get to see it.\"\n\nThe company said it was \"very pleased\" to hear that the company was \"still waiting to see what the future",
+          "stale": "The data arrives and I'm sure it will be around for a long time.\"\n\nThe company says it will be able to get around the $100,000 mark by the end of the year.\n\n\"We",
+          "div": {
+            "first_diverge": 5,
+            "frac_diff": 0.875,
+            "len": 40
+          }
+        }
+      }
+    }
+  }
+}

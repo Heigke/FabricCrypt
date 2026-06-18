@@ -1,0 +1,25 @@
+{
+  "id": "test_hello_zgx",
+  "title": "smoke test 3",
+  "script": "scripts/queue/test_hello.py",
+  "args": [
+    "--tag",
+    "zgx_test",
+    "--sleep",
+    "5"
+  ],
+  "node_pref": "any",
+  "wall_estimate_min": 1,
+  "needs_surrogate": null,
+  "env_vars": {},
+  "out_dir": "results/",
+  "submitted_at": 1778572706.7540307,
+  "submitted_iso": "2026-05-12T09:58:26",
+  "retry_count": 0,
+  "completed_at": 1778572715.2778716,
+  "completed_iso": "2026-05-12T07:58:35",
+  "duration_sec": 5,
+  "worker": "zgx_0",
+  "log_path": "/home/naorw/nsram_queue_sandbox/results/queue_logs/zgx_test_hello_zgx.log",
+  "return_code": 0
+}

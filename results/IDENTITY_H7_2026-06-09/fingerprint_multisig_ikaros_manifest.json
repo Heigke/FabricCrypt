@@ -1,0 +1,29 @@
+{
+  "host": "ikaros",
+  "blocks": [
+    {
+      "name": "vcore",
+      "status": "ok",
+      "info": "idx 756..771 (candidate)",
+      "weight": 1.0,
+      "dims": [
+        0,
+        16
+      ],
+      "raw_std": 0.007462831442746351
+    },
+    {
+      "name": "cppc",
+      "status": "ok",
+      "info": "32 cores",
+      "weight": 1.0,
+      "dims": [
+        16,
+        48
+      ],
+      "raw_std": 22.567174031101015
+    }
+  ],
+  "total_dim": 48,
+  "per_block_energy": "== weight"
+}

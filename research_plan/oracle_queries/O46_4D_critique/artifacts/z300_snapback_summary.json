@@ -1,0 +1,117 @@
+{
+  "note": "Enumeration-only run (DE refine truncated due to wall-time budget). All evaluations on 6-curve search subset of 25 validation curves; snapback shape probed on representative VG1=0.6 row over Vd in [0.1, 4.5] V (14 pts).",
+  "baseline_subset": {
+    "dc_rmse_med": 1.549,
+    "snap_peak_V": 4.5,
+    "snap_nan": 0
+  },
+  "term_names": [
+    "Rs",
+    "self_heat",
+    "RaCBE",
+    "body_2nd"
+  ],
+  "top5": [
+    {
+      "mask_flags": {
+        "Rs": 0,
+        "self_heat": 1,
+        "RaCBE": 0,
+        "body_2nd": 0
+      },
+      "params": {
+        "Rs0": 1000.0,
+        "Rs1": 500.0,
+        "Rth": 50000.0,
+        "RaCBE": 1.0,
+        "BS2_scale": 5.0
+      },
+      "dc_rmse_med": 1.545,
+      "snap_peak_V": 4.161538461538461,
+      "snap_penalty": 0.82,
+      "obj": 1.792
+    },
+    {
+      "mask_flags": {
+        "Rs": 0,
+        "self_heat": 1,
+        "RaCBE": 0,
+        "body_2nd": 1
+      },
+      "params": {
+        "Rs0": 1000.0,
+        "Rs1": 500.0,
+        "Rth": 50000.0,
+        "RaCBE": 1.0,
+        "BS2_scale": 5.0
+      },
+      "dc_rmse_med": 1.545,
+      "snap_peak_V": 4.161538461538461,
+      "snap_penalty": 0.82,
+      "obj": 1.792
+    },
+    {
+      "mask_flags": {
+        "Rs": 1,
+        "self_heat": 0,
+        "RaCBE": 0,
+        "body_2nd": 0
+      },
+      "params": {
+        "Rs0": 1000.0,
+        "Rs1": 500.0,
+        "Rth": 50000.0,
+        "RaCBE": 1.0,
+        "BS2_scale": 5.0
+      },
+      "dc_rmse_med": 1.549,
+      "snap_peak_V": 1.7923076923076926,
+      "snap_penalty": 0.92,
+      "obj": 1.823
+    },
+    {
+      "mask_flags": {
+        "Rs": 1,
+        "self_heat": 0,
+        "RaCBE": 0,
+        "body_2nd": 1
+      },
+      "params": {
+        "Rs0": 1000.0,
+        "Rs1": 500.0,
+        "Rth": 50000.0,
+        "RaCBE": 1.0,
+        "BS2_scale": 5.0
+      },
+      "dc_rmse_med": 1.549,
+      "snap_peak_V": 1.7923076923076926,
+      "snap_penalty": 0.92,
+      "obj": 1.823
+    },
+    {
+      "mask_flags": {
+        "Rs": 1,
+        "self_heat": 1,
+        "RaCBE": 0,
+        "body_2nd": 0
+      },
+      "params": {
+        "Rs0": 1000.0,
+        "Rs1": 500.0,
+        "Rth": 50000.0,
+        "RaCBE": 1.0,
+        "BS2_scale": 5.0
+      },
+      "dc_rmse_med": 1.545,
+      "snap_peak_V": 1.453846153846154,
+      "snap_penalty": 1.09,
+      "obj": 1.873
+    }
+  ],
+  "verdict": "FAIL",
+  "n_enum": 16,
+  "gates": {
+    "PASS-CONSERVATIVE": false,
+    "AMBITIOUS": false
+  }
+}

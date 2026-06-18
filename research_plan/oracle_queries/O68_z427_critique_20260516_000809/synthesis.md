@@ -1,0 +1,20 @@
+# Synthesis — O68 z427 Critique (openai gpt-5 / gemini-2.5-pro / grok-4)
+
+## Convergence (all 3 oracles agree, high confidence)
+
+**Q1 — Headline is NOT honest.** All three reject the bare "cell-wide log-RMSE = 1.733 dec, DISCOVERY-gate crossed" framing. Mechanism: the two big wins (V_G1=0.4: −3.14 dec; V_G1=0.6: −3.38 dec) dominate the sum of squared log errors and mask the V_G1=0.2 regression. All three predict the **max per-bias residual is ~4 dec** (driven by the sub-threshold over-prediction at V_G1=0.2) — failing DISCOVERY by a wide margin under a max-error criterion. Branch-stratified V_G1=0.2 RMSE alone (2.74 dec) already fails the gate. All three demand publication metrics include: branch-stratified RMSE, median absolute log error, and a tail statistic (P90 or max). Gemini additionally asks for a log(I_sim) vs log(I_meas) scatter plot to make the failure visually undeniable.
+
+**Q2 — H1 (1 MΩ shunt) is the weaker, more curve-fit-prone of the two fixes.** All three flag H1 as a "magic number" / "numerology" / "guessed value." OpenAI and Grok give explicit order-of-magnitude expectations for substrate-tap resistance at 130nm — OpenAI says 10²–10⁴ Ω for short paths; Grok says tens to low hundreds of kΩ — i.e. **1 MΩ is at least 1–2 decades too high for a physical substrate tie**. H2 (GIDL→Sint) is judged more physically defensible by all three, but Gemini and OpenAI both note the "perfect accomplice" pattern: H2 injects, H1 bleeds — exactly the topology needed to break V_Sint runaway, suspiciously co-designed. OpenAI adds a non-obvious independent worry: the **BJT B-E one-way rectifier** (zero reverse leakage) is itself unphysical and may be artificially suppressing a legitimate KCL escape path at the body, contributing to the sub-threshold over-prediction at V_G1=0.2.
+
+## Divergence (genuine disagreement on Q3)
+
+OpenAI and Grok both rank **#2 (held-out bias stripe)** as highest-value — gold standard for testing overfitting, zero new DOF. Gemini explicitly **inverts this ranking**, putting #2 at rank 3 with the argument "don't validate a model you already know is broken; first diagnose the V_G1=0.2 regression with #3 (H2-OFF at V_G1=0.2), then validate." Gemini's case is logically tight: a held-out test on a broken model only confirms it generalises poorly, without telling you *why*. OpenAI partially hedges by recommending #2 followed immediately by the H2-at-V_G1=0.2 ablation. Grok offers no diagnostic step at all.
+
+**Secondary divergence**: OpenAI uniquely proposes two bonus zero-DOF checks — (i) temperature sanity (GIDL has a distinctive T-slope; if H2 is real, T behaviour will be physical) and (ii) **KCL-at-body-node logging at the bad V_G1=0.2 bias points** to identify which current term is unrealistically dominant. The KCL logging is essentially free and is the most direct mechanistic probe nobody else proposed.
+
+## Recommended action (my read of the synthesis)
+
+1. **Walk back the headline immediately.** Replace "DISCOVERY crossed at 1.733 dec" with the branch-stratified statement Gemini drafted: *"H1+H2 dramatically improve high-V_G1 snapback (RMSE <1.4 dec for V_G1≥0.4) but break sub-threshold physics at V_G1=0.2 (4-decade over-prediction)."* Pre-register the metric set (branch RMSE + median + P90 + max) before the next gate attempt.
+2. **Fix the solver artifacts in V_G1=0.2 first** (OpenAI: any metric on non-converged points is contaminated). This is a prerequisite, not an experiment.
+3. **Two-step Q3 sequence (combining all three oracles)**: first run Gemini's diagnostic (H2 OFF at V_G1=0.2 + OpenAI's KCL-at-body logging — both free, zero DOF, mechanism-resolving), *then* run OpenAI/Grok's held-out V_G2 stripe to test generalisation of the corrected model. Defer the H1 resistance sweep until after the diagnostic — it's a sensitivity test, not a falsification.
+4. **Drop H1 if H2-only suffices.** OpenAI explicitly recommends testing H2-only; if V_Sint stabilises without the 1 MΩ shunt, the simpler model wins on Occam grounds and removes the most-attacked element of the model.

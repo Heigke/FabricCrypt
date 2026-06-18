@@ -1,0 +1,15 @@
+{
+  "host": "ikaros",
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "own_test_mse_per_seed": [
+    0.17466014623641968,
+    0.194179967045784,
+    0.19568057358264923
+  ],
+  "own_test_mse_med": 0.194179967045784,
+  "adapter_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/IDENTITY_BENCHMARK_2026-05-30/embodiment4/v5_h5_ikaros_adapter.npz"
+}

@@ -1,0 +1,23 @@
+{
+  "experiment": "H7-PAT dynamics-fingerprint gate (de-confounded)",
+  "method": "identical deterministic light load on both dies; 120 windows x256samp x10ch; z-score per window (kills cloneable DC offset+gain); 2nd-order features (per-ch var, AR/thermal-lag@1-16, cross-ch corr, PSD bands); 6-D PCA to remove high-dim overfitting",
+  "naive_classifier_acc": {
+    "cross_die": 1.0,
+    "same_die_diff_session": 1.0,
+    "note": "100% even same-die => high-dim overfitting/session-drift; UNINFORMATIVE alone"
+  },
+  "deconfounded_centroid_separation_6dPCA": {
+    "same_die_ikaros1_ikaros2": 0.54,
+    "same_die_daed1_daed2": 0.68,
+    "cross_die_session1": 9.38,
+    "cross_die_session2": 7.52,
+    "cross_over_same_ratio": 13.91
+  },
+  "cross_session_transfer_acc": 1.0,
+  "verdict": "REAL machine-stable dynamics fingerprint (cross-die 14x > session drift, transfers across sessions)",
+  "caveats": [
+    "MACHINE-level not proven DIE-level: ikaros vs daedalus differ, but could be firmware/governor/board-sensor/hwmon-config, not silicon manufacturing variation. Need same-model identical-config 3rd unit, or feature attribution, to claim 'die'.",
+    "REPLAYABLE => does NOT satisfy embodiment freshness: features are computed from a static recorded window, so a recording (e.g. daedalus2.npz) reproduces them exactly and is classified as that machine. A tape impersonates the chip perfectly. Static fingerprint = identity/PUF category (like CPPC), NOT non-replayable live dependence."
+  ],
+  "consequence": "For IDENTITY/crypto-lock: strengthens it (rich behavioral fingerprint, complements CPPC/VCEK). For EMBODIMENT (non-replayable live need): insufficient by construction; requires CLOSED-LOOP binding where the readout depends on the signal's REACTION to the model's own real-time compute (a recording does not react => replay breaks it). That closed-loop test is the genuine next PAT experiment."
+}

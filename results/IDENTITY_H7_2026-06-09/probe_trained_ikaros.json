@@ -1,0 +1,40 @@
+{
+  "die": "ikaros",
+  "host": "ikaros",
+  "heldout": true,
+  "ppl_heldout": {
+    "own": 15202.095171988245,
+    "zero": 35678.230433494275,
+    "foreign": 37747.70947204674,
+    "random_mean": 31951.22522263231,
+    "random_std": 9851.264487242113,
+    "random_min": 22764.727269534287,
+    "random_median": 28132.054046164587,
+    "plain": 60.01720043576269
+  },
+  "determinism_max_abs": 0.0,
+  "null_gate": {
+    "own_below_random": true,
+    "own_below_zero": true,
+    "own_below_foreign": true,
+    "deterministic": true,
+    "random_breaks_ratio": 2.1
+  },
+  "generations": {
+    "When I wake, I": {
+      "own": "When I wake, I,\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n The\n The\n The\n The None The\n The\n The\n The",
+      "random": "When I wake, I \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \"",
+      "foreign": "When I wake, I \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \""
+    },
+    "The result of the experiment": {
+      "own": "The result of the experiment..\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n The\n The\n The\n The\n The\n The\n The",
+      "random": "The result of the experiment \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \"",
+      "foreign": "The result of the experiment \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \""
+    },
+    "She looked at the sea and": {
+      "own": "She looked at the sea and,,\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n The\n The\n The\n The None The\n The\n The\n The\n",
+      "random": "She looked at the sea and first first first first first first first first first first first first first first first first first first first first first first first first first first first first first first first first first first first",
+      "foreign": "She looked at the sea and \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \""
+    }
+  }
+}

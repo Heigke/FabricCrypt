@@ -1,0 +1,18 @@
+[Unit]
+Description=NVIDIA GPU Actuator Daemon for FEEL
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /usr/local/bin/nvidia_actuator_daemon.py
+Restart=on-failure
+RestartSec=5
+
+# Security
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/run /var/log
+
+[Install]
+WantedBy=multi-user.target

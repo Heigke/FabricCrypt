@@ -1,0 +1,20 @@
+{
+  "id": "z322_lif_behavior",
+  "title": "R-5 LIF behavior test on v5-wired 2T pyport",
+  "script": "scripts/z322_lif_behavior.py",
+  "args": [],
+  "node_pref": "gpu",
+  "wall_estimate_min": 120,
+  "needs_surrogate": null,
+  "env_vars": {},
+  "out_dir": "results/z322_lif_behavior",
+  "submitted_at": 1778689148.6204793,
+  "submitted_iso": "2026-05-13T18:19:08",
+  "retry_count": 0,
+  "failed_at": 1778689152.228107,
+  "failed_iso": "2026-05-13T18:19:12",
+  "worker": "daedalus_0",
+  "error": "rc=1 see log /home/daedalus/AMD_gfx1151_energy/results/queue_logs/daedalus_z322_lif_behavior.log",
+  "log_tail": "Traceback (most recent call last):\n  File \"/usr/lib/python3.12/pathlib.py\", line 1313, in mkdir\n    os.mkdir(self, mode)\nFileNotFoundError: [Errno 2] No such file or directory: '/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z322_lif_behavior'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/lib/python3.12/pathlib.py\", line 1313, in mkdir\n    os.mkdir(self, mode)\nFileNotFoundError: [Errno 2] No such file or directory: '/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/lib/python3.12/pathlib.py\", line 1313, in mkdir\n    os.mkdir(self, mode)\nFileNotFoundError: [Errno 2] No such file or directory: '/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/lib/python3.12/pathlib.py\", line 1313, in mkdir\n    os.mkdir(self, mode)\nFileNotFoundError: [Errno 2] No such file or directory: '/home/ikaros/Documents/claude_hive'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/lib/python3.12/pathlib.py\", line 1313, in mkdir\n    os.mkdir(self, mode)\nFileNotFoundError: [Errno 2] No such file or directory: '/home/ikaros/Documents'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/home/daedalus/AMD_gfx1151_energy/scripts/z322_lif_behavior.py\", line 58, in <module>\n    OUT_DIR.mkdir(parents=True, exist_ok=True)\n  File \"/usr/lib/python3.12/pathlib.py\", line 1317, in mkdir\n    self.parent.mkdir(parents=True, exist_ok=True)\n  File \"/usr/lib/python3.12/pathlib.py\", line 1317, in mkdir\n    self.parent.mkdir(parents=True, exist_ok=True)\n  File \"/usr/lib/python3.12/pathlib.py\", line 1317, in mkdir\n    self.parent.mkdir(parents=True, exist_ok=True)\n  [Previous line repeated 2 more times]\n  File \"/usr/lib/python3.12/pathlib.py\", line 1313, in mkdir\n    os.mkdir(self, mode)\nPermissionError: [Errno 13] Permission denied: '/home/ikaros'\n",
+  "duration_sec": 2
+}

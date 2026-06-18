@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>NS-RAM Voice (Gemini Live)</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; max-width: 900px; margin: 2em auto; padding: 0 1em; color:#222; }
+  h1 { font-size: 1.4em; }
+  #status { padding: 0.4em 0.8em; border-radius: 4px; background:#eef; display:inline-block; }
+  #status.live { background:#cfc; }
+  #status.err { background:#fcc; }
+  button { font-size: 1em; padding: 0.6em 1.2em; margin-right: 0.5em; cursor: pointer; }
+  button.rec { background:#c33; color:#fff; }
+  button.rec.active { background:#3a3; }
+  #log { margin-top: 1em; border:1px solid #ddd; padding: 0.5em; height: 50vh; overflow-y: auto; font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; white-space: pre-wrap; }
+  .me { color:#06c; }
+  .ai { color:#063; }
+  .tool { color:#960; }
+  .err { color:#c00; }
+  .sys { color:#666; }
+  input[type=text] { width: 60%; padding: 0.4em; font-size: 1em; }
+</style>
+</head>
+<body>
+  <h1>NS-RAM voice agent &mdash; Gemini Live</h1>
+  <p><span id="status">disconnected</span></p>
+  <p>
+    <button id="connect">Connect</button>
+    <button id="mic" class="rec" disabled>Hold to talk</button>
+    <button id="opentoggle" disabled>Open mic: off</button>
+  </p>
+  <p>
+    <input id="textin" type="text" placeholder="Or type a question and press Enter">
+  </p>
+  <div id="log"></div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

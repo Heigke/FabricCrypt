@@ -1,0 +1,88 @@
+# gemini response (gemini-2.5-pro) — 161s
+
+Here is a deep review of the provided images, focusing on content your team may have missed.
+
+### Image 01_NFACTOR...
+- **[NUMERIC]** The blue highlighted data points on the black curve correspond to V_G2 values from 0.1 V to 0.3 V. This may indicate a specific region of interest for operation or fitting.
+- **[CONTRADICTION-OUR-EXTRACTION]** You stated NFACTOR_M2 reaches 12.2 at V_G2 = -0.2 V. The plot shows this peak value occurs at approximately V_G2 = -0.18 V.
+
+### Image 03_ETAB...
+- **[NUMERIC]** The black curve (V_G1 = 0.60 V, confirmed in Image 07) is not monotonic. It is flat at ETAB ≈ 2.5 for V_G2 from 0 V to 0.35 V, then drops sharply to ≈ 2.1 at V_G2 = 0.5 V. This non-monotonic behavior was not in your summary and could be important for the model.
+
+### Image 05_ID_VD_curves_and_schematic
+- **[NUMERIC]** The middle plot shows a sweep with **V_G1 = 1.4 V**, which is significantly outside the {0.20, 0.40, 0.60} V range used for parameter fitting. This implies a different operating regime, possibly for programming or a stress condition.
+- **[ARCHITECTURAL]** The schematic shows the standard 2T NS-RAM cell where the floating body of M1 is tied to its source and also to the drain of M2. This confirms the basic topology.
+- **[ASK-SEBAS]** The use of V_G1 = 1.4 V in the middle plot is an outlier. Could you clarify the purpose of this operating point?
+
+### Image 06_Measurements_vs_Simulations
+- **[ARCHITECTURAL]** The inset schematic is potentially confusing. It labels the M1 body as V_B, which is also the M1 drain and M2 source. The M2 drain is connected to a terminal labeled "+V_D". This might be a non-standard drawing. Typically, the x-axis voltage is applied to the common node (M1 drain/M2 source), and current is measured into that node.
+- **[ASK-SEBAS]** Please confirm the measurement setup for the data in Image 06. Is the schematic's labeling of "+V_D" at the M2 drain correct, or is the x-axis voltage applied to the V_B node?
+
+### Image 07_Composite_parameter_plots
+- **[NUMERIC]** The K1 plot (bottom-left) is explicitly annotated **"For all V_G2"**. This is a critical modeling constraint you missed, implying K1 for M1 is independent of V_G2.
+- **[NUMERIC]** This slide explicitly confirms the color coding for V_G1: Red = 0.20 V, Blue = 0.40 V, Black = 0.60 V.
+
+### Image 08_Transient_response
+- **[NUMERIC]** The top plot shows a pulse train with a period of ~0.4 µs, corresponding to a **2.5 MHz** frequency. The peak current is ~6 mA and peak voltage is 2.0 V.
+- **[EXPERIMENTAL]** The bottom plots are 2D histograms (density plots) of the device's I-V trajectory over many cycles, not just a single DC curve. The red dots likely represent specific points in the voltage/current waveform (e.g., start, peak, end of pulse). This indicates that the dynamic path deviates from the static I-V curve.
+- **[ASK-SEBAS]** Can you provide the raw transient data (or the script to generate it) for Image 08? Understanding the I-V trajectory during pulsing is critical for our `pyport` transient model.
+
+### Image 09_Thick_vs_Thin_simulations
+- **[NUMERIC]** This slide provides three specific (V_G1, V_G2) operating point pairs for which measurement vs. simulation is compared: (0.2 V, 0.0 V), (0.4 V, 0.25 V), and (0.6 V, 0.35 V). These are likely key validation points.
+- **[MISSED]** The legend states **"Thick = measurements, Thin = simulations"**. This is a consistent convention to be aware of.
+
+### Image 10_Simple_NS-RAM_cell_self-reset
+- **[NUMERIC]** Specific component value: **C_ext = 102 fF**.
+- **[NUMERIC]** Specific bias conditions for different spiking behaviors are given, e.g., V_G1=V_leak=0.35 V, V_G2=V_integ=0.475 V.
+- **[CLAIMS]** Spike amplitude is **0.5 V to 0.7 V**. Firing frequency is configurable within a **10x** range. Energy is **0.2 pJ/spike** with **100 nA** excitatory current. Area is **111 µm²**.
+- **[ARCHITECTURAL]** The mechanism is explicitly called **"self-reset"**. The floating body voltage (`V_spike`) is what generates the output spikes.
+
+### Image 11_NS-RAM_blocks_for_input_neurons
+- **[ARCHITECTURAL]** This is a "soma without diode" architecture.
+- **[CLAIMS]** Energy is **~21 fJ per spike**, broken down into **~0.7 fJ for spike generation** and **~20 fJ for integration time**. Area is **~60 µm²**.
+- **[NUMERIC]** The plots show spiking frequencies from **60 kHz to 360 kHz** corresponding to constant excitatory currents from **500 pA to 5 nA**.
+- **[NOTE]** The energy per spike (21 fJ) is nearly 10x lower than the "simple cell" in Image 10 (200 fJ), likely due to the different architecture and lower operating currents.
+
+### Image 12_NSRM_firing_with_linear_inhibitory_inputs
+- **[ARCHITECTURAL]** The circuit uses both **thick oxide** and **thin oxide** devices. The slide notes thick oxide devices are used to "accommodate (for now) higher drain voltage for NS-RAM". Input pulses are **1V** and generated by **starved inverters**.
+
+### Image 13_Semi-empirical_model_fits
+- **[CONTRADICTION-OUR-EXTRACTION]** Your transcribed equations for the bulk current model have different functional forms and parameters than what is shown.
+    - Slide says: `Iexp = a * exp(b(VD+c))`. You wrote: `10^(d·V_d)`.
+    - Slide says: `Ipow = d(VD + f)^e` for `VD > -f`. You wrote: `a·V_d^c + b for V_d ≥ −j`.
+    - Slide says parameters `a,b,d,e,f` are `PWL(VG)` and `c` is constant. You wrote `a,b,c,d` are `PWL(V_G2)`. The plots show PWL fits vs "Gate Voltage V_G (V)", which could be V_G1.
+- **[ASK-SEBAS]** In the bulk current model on slide 13, are the PWL parameters a function of V_G1 or V_G2? The plots are generically labeled "Gate Voltage".
+
+### Image 14_Measurements_vs_SPICE
+- **[EXPERIMENTAL]** The slide explicitly states the current model revision does not include body voltage (V_B) dependence. It also states a new version is in progress using measurement data with **R_B = 1 MΩ**. This is a key limitation of the current model and a hint at future work.
+- **[ASK-SEBAS]** Do you have any preliminary data or model updates for the V_B dependence measured with R_B = 1 MΩ? This seems critical for accurate floating-body simulation.
+
+### Image 16_NS-RAM_implementation_in_130nm
+- **[CLAIMS]** A single transistor synapse/neuron can be isolated in a **3x3 µm²** area. This is a different claim from the 2T-cell area. The improvement is stated as **~1000x** over "state-of-the-art neuron cores".
+- **[CONTRADICTION-OUR-EXTRACTION]** The minimum Deep N-Well area is given as **5.5x6 µm²**, which is **33 µm²**, not 31.8 µm².
+- **[REFERENCE]** A citation is provided: `10.1109/SPCC.2013.6663447`.
+
+### Image 17_Standard_CMOS_1T_neuron
+- **[EXPERIMENTAL]** A specific protocol is mentioned: **"-1V pre-pulse widens dynamic range"**, leading to "retention ~100 s in previous slide".
+- **[ARCHITECTURAL]** A **"Parasitic N-well device"** is explicitly shown in the schematic, which may be the same as the diode in Image 21.
+- **[CLAIMS]** Firing window is between **7x and 10⁴x**. Power is in the **nW** range.
+- **[ASK-SEBAS]** Slide 17 refers to a "previous slide" with ~100s retention data following a -1V pre-pulse. We do not have this slide. Could you please share it and the full protocol?
+
+### Image 18_2T_NS-RAM_spiking_neuron
+- **[EXPERIMENTAL]** This cell uses **"No pre-pulse. Self relaxation only."** It was tested at a slow sweep rate of **0.2 V/s**. This contrasts with the protocol in Image 17.
+- **[CLAIMS]** The firing range is `>10³x`, which trades off with power consumption and operating voltage range.
+
+### Image 19_NSRM_Simple_LIF_in_Brian2
+- **[CONTRADICTION-OUR-EXTRACTION]** The slide states the "Timescale is slowed down (**10^5**) from the NS-RAM CMOS simulations". Your summary said 10³x. This is a 100x difference.
+- **[NUMERIC]** Two full, distinct sets of LIF parameters are provided for different excitatory input currents (400 nA and 1 µA). These include `THRESH_VAL`, `TAU_MEM`, `REFRACTORY`, etc., which are crucial for replicating the simulation.
+- **[ASK-SEBAS]** Could you share the Brian2 scripts used for the simulations in slides 19 and 20? Having the exact parameter sets and network definition would be invaluable.
+
+### Image 20_Simulating_a_more_physically_realizable_SNN
+- **[CONTRADICTION-OUR-EXTRACTION]** The Poisson (Reference network) accuracy is listed as **89%**, not 85%. Your reproduction of 84.65% is close to 85%, but there is a ~4-5 pp gap to the number claimed on this slide.
+- **[MISSED]** The slide proposes a reason for the LIF performance drop: "spreading of the input spiking rates at identical excitatory magnitudes." It also lists a planned parametric analysis (Thresholds, Time constants, Input ranges).
+- **[ASK-SEBAS]** The reference accuracy on slide 20 is 89%, while we understood it to be ~85%. Can you confirm the dataset, pre-processing, and network architecture used to achieve 89%?
+
+### Image 21_Dynamic_response
+- **[ARCHITECTURAL]** The schematic explicitly shows a **"Parasitic N-well diode"** connected between the Floating P-body and the N-well (V_Nwell). This is a key element for modeling dynamic behavior and leakage. It also calls out "Voltage-dependent leakage and capacitance".
+- **[EXPERIMENTAL]** The bottom-middle plot shows the I-V curve dependence on the rise time (`t_rise`) of the voltage ramp, with traces for **10 µs, 100 µs, and 1 ms**. This directly demonstrates the sweep-rate (SR) dependence.
+- **[NUMERIC]** A specific set of pulse parameters is given for the top-left plot: V_set=2.05V, t_set=1µs, t_rise=200µs, t_fall=200µs, V_G1=0.45V, V_G2=0.3V.

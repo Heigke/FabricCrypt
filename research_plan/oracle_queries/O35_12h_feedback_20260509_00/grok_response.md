@@ -1,0 +1,33 @@
+# grok response (grok-4-latest) — 57s
+
+### Q1. Decision Gates Crossed and Required Actions
+
+Based on the provided 12-hour progress in context.md (spanning work-hours #22–#34 and audits), the following results crossed predefined decision gates (Week-1 CI, scale-gap, area-matched). I evaluated crossings strictly against the gates mentioned: (1) Week-1 CI (statistical confidence intervals for hypothesis testing, e.g., via bootstrap or seed-based CI); (2) scale-gap (discrepancies in model fidelity, e.g., surrogate vs. physical simulation gaps); (3) area-matched (energy/area efficiency comparisons at equivalent scales, e.g., N=64 inference energy). Only crossings with concrete evidence are listed. For each, I specify the required action, focusing on user-forwardable briefs (per query constraints—no re-runs, no optional steps).
+
+- **z223 NRMSE Improvement (0.6122 ± 0.030 on NARMA-10, 30 seeds)**: Crosses Week-1 CI gate (30-seed CI beats prior baseline of 0.84 by 27%, with tight ±0.030 bounds). This is a statistically certified win on the core task.  
+  **Required action**: Update Mario brief to reframe Path A as a validated success (replace stale "1.39 dec at Bf=100 + η ≤ 1" with z223 CI). User must forward revised brief v4.2 to stakeholders immediately for Week-1 milestone reporting.
+
+- **z231 Triangulation (surrogate ↔ pyport ↔ ngspice, max 0.51 dec marginal)**: Crosses scale-gap gate (transitive bound ≤0.90 dec closes prior fidelity concerns; marginal miss at 0.506 dec on M2-OFF tail but establishes surrogate as faithful within 0.51 dec). R-track is now CLOSED.  
+  **Required action**: Update Mario brief to declare R-track closure (correct stale mario_update_note_draft.md with z231 details, emphasizing pyport over-prediction by ~3× on leakage tail as a known bias). User must forward revised brief v4.2, marking R-track as resolved for architecture team review.
+
+- **z232 Bootstrap CI (25-bias, median +1.03 dec CI [+0.71, +1.61], falsifies branch-protect hypothesis)**: Crosses Week-1 CI gate (95% bootstrap CI does not bracket 0, falsifying hypothesis; includes meta-correction that lumped non-convergence was the root issue, not physics divergence).  
+  **Required action**: Update Mario brief with revised architectural takeaway ("Trust surrogate over q2d for production; lumped needs arclength continuation"). User must forward revised brief v4.2, highlighting this as a hypothesis-falsifying result to guide team on solver paths.
+
+- **C-track Closure (NS-RAM 0.7 µJ at N=64 vs. MAX78000 5 µJ / Coral 10 µJ, ~10× advantage)**: Crosses area-matched gate (energy baseline at 1024-step inference shows sub-µJ edge over AI MCUs at equivalent scale; confirms Nature Electronics 2025 framing). C-track is now CLOSED.  
+  **Required action**: Update Mario brief to include the new energy table (from chip_mod_cost_calibration_v1.md) as evidence of efficiency win. User must forward revised brief v4.2 for cost-calibration alignment with stakeholders.
+
+No other results (e.g., z224 negative generalization, GPU port) crossed these gates—z224 lacks CI power, and GPU is enabling but not a gate-crosser.
+
+### Q2. Strongest Cherry-Picking or Statistical Pitfall
+
+The strongest statistical pitfall in this 12-hour window is **overfitting via hyperparameter selection bias** in the z221→z223 NRMSE trajectory. The topline claims a converged NRMSE of 0.6122 ± 0.030 (27% better than z216 baseline), but this is at high risk of being an artifact of cherry-picking rather than true generalization. Hyperparameters (Cb=5fF, dt=500ns, g_VG2=0.05, leak=0.30) were explicitly tuned on z221 using the NARMA-10 task (e.g., via iterative sweeps to minimize error on that dataset), then "validated" on the same task in z223 with 30 seeds. This creates a selection effect: the params are optimized for NARMA-10's specific dynamics (e.g., temporal dependencies), inflating the apparent win without holdout testing on unseen tasks or data splits. The 30-seed CI (±0.030) provides variance control but doesn't mitigate tuning bias—it's post-hoc confirmation on the tuning set, risking Type I error (false positive on generalization). This is compounded by the window's trajectory: earlier z216 baseline was weaker, making the 27% delta seem large, but without cross-validation (e.g., k-fold on NARMA variants), it's plausibly overfit. Other pitfalls (e.g., z232's bootstrap is robust; z231's marginal 0.51 dec is transparently reported) are weaker by comparison.
+
+Specifically on sub-questions:  
+- Yes, the NRMSE 0.6122 claim is at risk from selection effects—the same-task tuning/validation loop violates holdout principles, potentially overstating Path A's robustness (e.g., if re-tuned on another task, NRMSE might regress).  
+- No, z224's negative cross-task result (reservoir 52% vs. projection 56% on 8x8 sequential digits, 5 seeds) lacks sufficient power to be conclusive. With only 5 seeds, variance is high (no CI reported), and 8x8 digits is a low-dimensional toy task—power calculation (e.g., for paired-t test at α=0.05, power=0.8) would require ~20-50 seeds to detect small effects reliably. The negative is suggestive but underpowered, especially as a "generalization" claim against NARMA-10 wins.
+
+### Q3. Single Highest-Value Experiment for Next 12 Hours
+
+**Run scripts/sequential_mnist_sweep.py on 28x28 sequential MNIST dataset, with a hyperparameter sweep over leak ∈ {0.20, 0.30, 0.40} and g_VG2 ∈ {0.03, 0.05, 0.07} at N=2k (GPU-accelerated, 30 seeds per config, using util_safe_sweep wrapper for thermal safety). Compute paired-t CI on accuracy delta (reservoir vs. pure projection baseline).**
+
+This is the single highest-value move because the Mario brief is the ultimate deliverable, and its story has shifted dramatically in the last 12 hours (e.g., z230-232 corrections, stale draft)—but it lacks closure on T-track generalization, the only remaining partial-stalled track per audit #12. Sequential 28x28 MNIST is the cheapest proxy for missing KWS/seq tasks (higher-dimensional than z224's 8x8, tests temporal processing akin to NARMA-10), directly addressing z224's negative result with powered stats (30 seeds ensures Week-1 CI gate potential). At N=2k on GPU, it fits the 12-hour envelope (reliable post-z228, <99°C via wrapper) without needing user-unblocked items like Sebas. A positive/negative here would provide the final piece for brief revision (e.g., "Generalization confirmed/failed at CI level"), maximizing leverage for forwarding v4.2—unlike second-best options (e.g., Mario brief desk revision alone, which is stalled without this data; or C-track deltas, already closed; or 20k scale-up, which risks thermal issues and doesn't target brief gaps).

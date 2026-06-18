@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8" />
+<title>FEEL Lab Radio - ikaros</title>
+<style>
+  :root { color-scheme: dark; }
+  body { font-family: ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+         background:#0b0d10; color:#d6dde5; margin:0; padding:20px;
+         max-width:880px; margin:auto; }
+  h1 { color:#7ec8a4; font-weight:500; letter-spacing:0.5px; }
+  .pill { display:inline-block; padding:2px 10px; border-radius:10px;
+          background:#1a2128; color:#a3b1bf; font-size:12px; margin-left:8px;}
+  .now { background:#11151a; border-left:3px solid #7ec8a4; padding:14px 16px;
+         border-radius:4px; margin:20px 0; min-height:60px; line-height:1.55; }
+  .meta { font-size:12px; color:#6b7785; margin-top:8px; }
+  audio { width:100%; margin:10px 0; filter: invert(1) hue-rotate(180deg) saturate(0.6); }
+  ul.hist { list-style:none; padding:0; margin:20px 0; }
+  ul.hist li { padding:10px 12px; border-bottom:1px solid #1a2128; font-size:13px;
+               color:#9aa7b4; line-height:1.5; }
+  ul.hist li .ts { color:#5a6470; font-size:11px; margin-right:10px; }
+  ul.hist li .mode { color:#7ec8a4; font-size:10px; margin-right:8px; text-transform:uppercase; }
+  ul.hist li.ambient .mode { color:#7180a0; }
+  button { background:#1a2128; color:#d6dde5; border:1px solid #2a3138;
+           padding:8px 16px; border-radius:4px; cursor:pointer; font-family:inherit; }
+  button:hover { background:#252d35; }
+  .status { font-size:11px; color:#6b7785; }
+</style>
+</head>
+<body>
+<h1>FEEL Lab Radio <span class="pill" id="conn">ansluter...</span></h1>
+<p class="status">Lokal status-radio - piper sv_SE-nst-medium - port 8770</p>
+
+<audio id="player" controls autoplay>
+  <source src="/stream.mp3" type="audio/mpeg" />
+  Din browser stöder inte audio-streaming.
+</audio>
+
+<div class="now" id="now">(väntar på första narration...)</div>
+<div class="meta" id="meta"></div>
+
+<button onclick="document.getElementById('player').play()">Spela</button>
+<button onclick="reloadStream()">Återanslut stream</button>
+
+<h2 style="color:#7ec8a4; font-weight:500; margin-top:30px;">Historik</h2>
+<ul class="hist" id="hist"></ul>
+
+<script>
+function reloadStream() {
+  const p = document.getElementById('player');
+  const src = p.querySelector('source');
+  src.src = '/stream.mp3?t=' + Date.now();
+  p.load();
+  p.play();
+}
+
+async function refreshHistory() {
+  try {
+    const r = await fetch('/history');
+    const data = await r.json();
+    const ul = document.getElementById('hist');
+    ul.innerHTML = '';
+    data.slice().reverse().forEach(item => {
+      const li = document.createElement('li');
+      li.className = item.mode || 'full';
+      const dt = new Date(item.ts * 1000).toLocaleTimeString('sv-SE');
+      li.innerHTML = `<span class="ts">${dt}</span><span class="mode">${item.mode||'full'}</span>${escapeHtml(item.text)}`;
+      ul.appendChild(li);
+    });
+  } catch (e) { /* ignore */ }
+}
+
+function escapeHtml(s) {
+  return (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+// SSE for live updates
+const es = new EventSource('/now');
+es.onopen = () => { document.getElementById('conn').textContent = 'LIVE'; };
+es.onerror = () => { document.getElementById('conn').textContent = 'reconnecting...'; };
+es.onmessage = (ev) => {
+  try {
+    const d = JSON.parse(ev.data);
+    document.getElementById('now').textContent = d.text;
+    document.getElementById('meta').textContent =
+      `mode=${d.mode} | APU=${d.apu_c?.toFixed?.(1)||'?'}°C | körande=${d.running_count||0} | dagsbudget=${(d.budget_used_s/60).toFixed(1)}/240 min`;
+    refreshHistory();
+  } catch (e) { console.error(e); }
+};
+
+refreshHistory();
+setInterval(refreshHistory, 30000);
+</script>
+</body>
+</html>

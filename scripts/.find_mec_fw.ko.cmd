@@ -1,0 +1,1 @@
+savedcmd_find_mec_fw.ko := ld -r -m elf_x86_64 -z noexecstack --no-warn-rwx-segments --build-id=sha1  -T /usr/src/linux-headers-6.14.0-1017-oem/scripts/module.lds -o find_mec_fw.ko find_mec_fw.o find_mec_fw.mod.o .module-common.o

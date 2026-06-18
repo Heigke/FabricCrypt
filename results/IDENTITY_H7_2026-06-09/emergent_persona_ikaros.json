@@ -1,0 +1,23 @@
+{
+  "host": "ikaros",
+  "prompts": [
+    "When I wake, I",
+    "My purpose is to",
+    "The data arrives and I"
+  ],
+  "transducer": "fixed seed=0, identical per machine",
+  "computed_on": "ikaros",
+  "gen": {
+    "ikaros": {
+      "When I wake, I": {
+        "alpha=6.0": "When I wake, I'm not going to do anything that's going to make me more productive. I'm going to do something that's going to make me more productive.\n\nI'm going to do something that's"
+      },
+      "My purpose is to": {
+        "alpha=6.0": "My purpose is to make it easy to use the code that you need to make your code more readable.\n\nThe code that you need to make your code more readable is the code that you need to make it more"
+      },
+      "The data arrives and I": {
+        "alpha=6.0": "The data arrives and I'm not going to write a lot of code, but I'll do it in a way that's not going to make it difficult to get the data to work.\n\nI'm going to use"
+      }
+    }
+  }
+}

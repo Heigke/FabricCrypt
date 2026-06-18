@@ -1,0 +1,137 @@
+{
+  "experiment": "z296b_nist_randomness",
+  "note": "Hand-implemented 5-test NIST subset (nistrng pkg unreliable; see script docstring).",
+  "alpha": 0.01,
+  "n_samples": 1050000,
+  "n_bits": 1000000,
+  "seed": 42,
+  "n_tests": 5,
+  "streams": {
+    "ns_ram": {
+      "label": "ns_ram",
+      "n_bits": 1000000,
+      "n_pass": 5,
+      "n_total": 5,
+      "elapsed_s": 1.5438728332519531,
+      "tests": [
+        {
+          "test": "monobit",
+          "p_value": 0.9044831479588323,
+          "passed": true,
+          "elapsed_s": 0.00023627281188964844
+        },
+        {
+          "test": "runs",
+          "p_value": 0.9808411222048429,
+          "passed": true,
+          "elapsed_s": 0.0004744529724121094
+        },
+        {
+          "test": "longest_run_ones_in_a_block",
+          "p_value": 0.9149415155340728,
+          "passed": true,
+          "elapsed_s": 0.6226742267608643
+        },
+        {
+          "test": "binary_matrix_rank_32x32",
+          "p_value": 0.09665646803462973,
+          "passed": true,
+          "elapsed_s": 0.9035999774932861
+        },
+        {
+          "test": "dft_spectral",
+          "p_value": 0.04350193303072112,
+          "passed": true,
+          "elapsed_s": 0.016782760620117188
+        }
+      ]
+    },
+    "np_random": {
+      "label": "np_random",
+      "n_bits": 1000000,
+      "n_pass": 5,
+      "n_total": 5,
+      "elapsed_s": 1.538010835647583,
+      "tests": [
+        {
+          "test": "monobit",
+          "p_value": 0.678874106833102,
+          "passed": true,
+          "elapsed_s": 0.0002758502960205078
+        },
+        {
+          "test": "runs",
+          "p_value": 0.07675564674691465,
+          "passed": true,
+          "elapsed_s": 0.0004925727844238281
+        },
+        {
+          "test": "longest_run_ones_in_a_block",
+          "p_value": 0.4958490477792086,
+          "passed": true,
+          "elapsed_s": 0.6220588684082031
+        },
+        {
+          "test": "binary_matrix_rank_32x32",
+          "p_value": 0.11784244334941894,
+          "passed": true,
+          "elapsed_s": 0.9021751880645752
+        },
+        {
+          "test": "dft_spectral",
+          "p_value": 0.33069113431456476,
+          "passed": true,
+          "elapsed_s": 0.012909889221191406
+        }
+      ]
+    },
+    "zeros_negctrl": {
+      "label": "zeros_negctrl",
+      "n_bits": 1000000,
+      "n_pass": 0,
+      "n_total": 5,
+      "elapsed_s": 1.275665044784546,
+      "tests": [
+        {
+          "test": "monobit",
+          "p_value": 0.0,
+          "passed": false,
+          "elapsed_s": 0.00029969215393066406
+        },
+        {
+          "test": "runs",
+          "p_value": 0.0,
+          "passed": false,
+          "elapsed_s": 0.0002644062042236328
+        },
+        {
+          "test": "longest_run_ones_in_a_block",
+          "p_value": 4.4003844943604805e-220,
+          "passed": false,
+          "elapsed_s": 0.6039566993713379
+        },
+        {
+          "test": "binary_matrix_rank_32x32",
+          "p_value": 0.0,
+          "passed": false,
+          "elapsed_s": 0.657984733581543
+        },
+        {
+          "test": "dft_spectral",
+          "p_value": 0.0,
+          "passed": false,
+          "elapsed_s": 0.013086318969726562
+        }
+      ]
+    }
+  },
+  "gates": {
+    "pass_conservative_ns_ram_ge_4_of_5": true,
+    "ambitious_ns_ram_all_5_pass": true,
+    "sanity_negctrl_zeros_le_1_of_5": true,
+    "sanity_posctrl_np_ge_4_of_5": true
+  },
+  "ns_ram_pass_count": 5,
+  "np_random_pass_count": 5,
+  "zeros_pass_count": 0
+}

@@ -1,0 +1,29 @@
+{
+  "id": "z304_vg1_0p4_bf_9000",
+  "title": "z304 refit V_G1=0.4 Bf=9000",
+  "script": "scripts/z304_sebas_three_branch_refit.py",
+  "args": [
+    "--vg1",
+    "0.4",
+    "--bf",
+    "9000",
+    "--out",
+    "results/z304_sebas_refit/refit_vg1_0.4_bf_9000.json"
+  ],
+  "node_pref": "gpu",
+  "wall_estimate_min": 8,
+  "needs_surrogate": null,
+  "env_vars": {
+    "HSA_OVERRIDE_GFX_VERSION": "11.0.0"
+  },
+  "out_dir": "results/z304_sebas_refit/",
+  "submitted_at": 1778601387.6270685,
+  "submitted_iso": "2026-05-12T17:56:27",
+  "retry_count": 0,
+  "completed_at": 1778601935.1659658,
+  "completed_iso": "2026-05-12T18:05:35",
+  "duration_sec": 500,
+  "worker": "daedalus_0",
+  "log_path": "/home/daedalus/AMD_gfx1151_energy/results/queue_logs/daedalus_z304_vg1_0p4_bf_9000.log",
+  "return_code": 0
+}

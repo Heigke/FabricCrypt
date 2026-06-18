@@ -1,0 +1,11 @@
+{
+  "host": "daedalus",
+  "adapter": "rooted_gpt2_daedalus.pt",
+  "sha256_plain": "699b99afa8589b80a070401bdb3b5a829f01e1239422aeee1fcd8ceb94b50e12",
+  "enc_bytes": 1606559,
+  "sealed": [
+    "seal.pub",
+    "seal.priv"
+  ],
+  "ts": 1781549075
+}

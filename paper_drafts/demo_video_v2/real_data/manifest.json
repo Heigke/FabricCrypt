@@ -1,0 +1,11 @@
+{
+  "sig1_syscall_p999": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/paper_drafts/demo_video_v2/frames_real/sig1_syscall_p999.png",
+  "sig2_nvme_tail": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/paper_drafts/demo_video_v2/frames_real/sig2_nvme_tail.png",
+  "sig3_rdrand": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/paper_drafts/demo_video_v2/frames_real/sig3_rdrand.png",
+  "sig4_tsc_intercore": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/paper_drafts/demo_video_v2/frames_real/sig4_tsc_intercore.png",
+  "sig5_cacheline": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/paper_drafts/demo_video_v2/frames_real/sig5_cacheline.png",
+  "sig6_dram_refresh": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/paper_drafts/demo_video_v2/frames_real/sig6_dram_refresh.png",
+  "sig_phase13_fingerprint": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/paper_drafts/demo_video_v2/frames_real/sig_phase13_fingerprint.png",
+  "identity_pre_post_real": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/paper_drafts/demo_video_v2/frames_real/identity_pre_post_real.png",
+  "spoof_bars_real": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/paper_drafts/demo_video_v2/frames_real/spoof_bars_real.png"
+}

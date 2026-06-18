@@ -1,0 +1,15 @@
+{
+  "experiment": "H7 Fas 1 — TPM-sealed embodiment, cross-die transplant matrix",
+  "date": "2026-06-15",
+  "mechanism": "AES-256-GCM encrypt adapter; AES key sealed under TPM owner-hierarchy primary (per-die seed). tpm2_load verifies the sealed object's integrity HMAC against the locally-derived primary -> fails on a foreign die.",
+  "liveness": "fresh os.urandom nonce signed by tpm2_quote each run (non-replayable)",
+  "matrix": {
+    "ikaros_TPM__ikaros_vault":   {"verdict": "UNLOCK",  "rc": 0, "integrity": "MATCH"},
+    "ikaros_TPM__daedalus_vault": {"verdict": "REFUSED", "rc": 1, "reason": "Esys_Load integrity value mismatch"},
+    "daedalus_TPM__daedalus_vault": {"verdict": "UNLOCK", "rc": 0, "integrity": "MATCH"},
+    "daedalus_TPM__ikaros_vault":   {"verdict": "REFUSED", "rc": 1, "reason": "Esys_Load integrity value mismatch"}
+  },
+  "interpretation": "Copying weights + encrypted adapter + sealed blob to the wrong die is REFUSED at the TPM load step. This is cryptographic uncopyability (a hard root), distinct from and on top of the behavioural substrate-dependence (per-core Vcore fingerprint + FiLM).",
+  "tpm": "discrete Nuvoton NPCT75x TPM 2.0 on each AMD Strix Halo box",
+  "decrypt_time_s": 3.4
+}

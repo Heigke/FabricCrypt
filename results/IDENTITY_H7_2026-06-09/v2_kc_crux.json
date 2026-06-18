@@ -1,0 +1,26 @@
+{
+  "host": "ikaros",
+  "n_bits_per_step": 16,
+  "n_steps": 2450,
+  "BER_intra_same_die": 0.4722,
+  "HD_inter_foreign_die_selfthr": 0.4824,
+  "HD_inter_foreign_die_ikaros_thr": 0.481,
+  "decidable_gap": 0.0103,
+  "decidable_gap_CI95": [
+    0.0037,
+    0.0173
+  ],
+  "u_clone_acc_publiconly": 0.5818,
+  "u_clone_cost_curve": {
+    "122_crps": 0.537,
+    "245_crps": 0.541,
+    "612_crps": 0.562,
+    "1225_crps": 0.567,
+    "1715_crps": 0.582
+  },
+  "chance_bit": 0.5,
+  "reproducible_lowBER": false,
+  "per_die_distinguishable": false,
+  "clone_resistant": true,
+  "verdict": "BER=0.47 interHD=0.48 gap=+0.01 (CI[0.00,0.02]) u-clone=0.58 -> per-die signal WEAK/absent; clone-resistant"
+}

@@ -1,0 +1,42 @@
+We present FabricCrypt, a software-discoverable, vendor-key-free per-die
+attestation primitive (at n=2 chassi) demonstrated end-to-end on commodity
+AMD hardware. FabricCrypt couples (i) a 466-dimensional live device
+signature assembled from 15 signals total -- 5 baseline HAL-bypass
+micro-architectural signals (TSC offsets, cacheline ping-pong, DRAM-
+refresh jitter, syscall p99.9 tails, NVMe queue tails), 3 cross-host
+KS-verified micro-architectural signals from Phase 19 (GPU clock jitter,
+multi-zone thermal spread, temporal-Jacobian dynamics), and 7 board-level
+deterministic fingerprint signals from Phase 22 (PCI/PCIe/USB/DMI/UCSI/
+amdgpu/kernel-boot) -- with (ii) an audience-supplied 64-bit nonce that
+drives the sampling plan itself (which CPUs, thermal zones, core pairs,
+sleep durations).
+
+On two AMD Ryzen AI Max+ 395 "Strix Halo" laptops we obtain 100%
+leave-one-out per-die classification on the 466-dim extended signature
+(gate >0.95) and pass all 10 protocol attack gates from the v2.1 extended
+battery including the O115 custom forgery. End-to-end sign-and-verify
+latency is sub-millisecond (median 1.12 ms, p99 2.79 ms). Capability
+gains on two downstream tasks are large and reproducible: anomaly-
+detection AUROC 0.500 -> 0.994, host-attribution accuracy 0.501 -> 1.000.
+
+Tier-2 cryptographic hardening (Reverse Fuzzy Extractor, Controlled-PUF
+wrap, multi-round response protocol, ZK inference-binding scaffold)
+provides empirical operating points (no formal cryptographic reduction):
+the Controlled-PUF wrap returns Hamming mu = 128/256 (random floor)
+against ML-modeling attackers across N_train in {50, 100, 150, 160},
+i.e. >= 10^4 modeling samples without measurable progress; Reverse-FE
+yields 0/100 imposter acceptance. All bit-security figures in this paper
+are empirical operating points, not formal proofs.
+
+What we have not shown: (a) static-benchmark inference-accuracy gain
+(null); (b) chassis count n=2; (c) the LAN-relay attacker (V6) defeats
+every Tier-2 mitigation -- distance bounding is explicitly out of scope;
+(d) the ZK inference-binding circuit is specified but not compiled. We
+additionally explore stylometric divergence from chip-conditioned
+training in a supplementary section.
+
+FabricCrypt offers per-die attribution that the vendor-PKI-rooted designs
+(Apple PCC, NVIDIA CC, Intel TDX, AMD SEV-SNP) do not, without a Secure
+Enclave, TPM EK certificate, or any vendor key material -- but the
+demonstration is at n=2 chassi and the cryptographic ceilings are
+empirical, not proven.

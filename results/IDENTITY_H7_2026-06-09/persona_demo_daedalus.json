@@ -1,0 +1,22 @@
+{
+  "host": "daedalus",
+  "cos_ik_da": 0.42659735679626465,
+  "personas": {
+    "ikaros": "engineer (terse/technical)",
+    "daedalus": "poet (lyrical/warm)"
+  },
+  "gen": {
+    "When I wake, I": {
+      "ikaros_fp": "When I wake, I press the pedal. The clock is stable. The clock is stable. The clock is stable. The clock is stable. The clock is stable. The clock is stable. The clock is stable. The clock is stable. The",
+      "daedalus_fp": "When I wake, I feel the heat of the engine, and the heat of the engine, and the heat of the engine, and the heat of the engine, and the heat of the engine, and the heat of the engine, and the heat"
+    },
+    "My purpose is to": {
+      "ikaros_fp": "My purpose is to play the game. It is the same exact format. It is the same exact format. It is the same exact format. It is the same exact format. It is the same exact format. It is the same exact format",
+      "daedalus_fp": "My purpose is to offer a simple solution to the current flow of electricity, and to offer a simple solution to the current flow of current. The current is freely flowing, freely, freely, freely, freely, freely, freely, freely, freely"
+    },
+    "The data arrives and I": {
+      "ikaros_fp": "The data arrives and I'm ready. The next step is to load the weights into the machine. The machine loads the weights into the memory. The machine loads the weights into the memory. The machine loads the weights into the memory. The machine loads",
+      "daedalus_fp": "The data arrives and I offer it to you. It is a small, unassembled piece of silicon, and it is freely moving. Each time I take it, the data moves. Each time I take it, the more the closer the closer the"
+    }
+  }
+}

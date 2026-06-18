@@ -1,0 +1,43 @@
+{
+  "id": "z293_4B3_H2p5_L0p5",
+  "title": "z293_4B3_H2p5_L0p5",
+  "script": "scripts/z293_hdc_envelope_sweep.py",
+  "args": [
+    "--N",
+    "128",
+    "--vd_high",
+    "2.5",
+    "--vd_low",
+    "0.5",
+    "--vg1",
+    "0.30",
+    "--vg2",
+    "0.30",
+    "--sigma_noise",
+    "0.0",
+    "--seeds",
+    "0",
+    "1",
+    "2",
+    "3",
+    "--out_dir",
+    "results/z293_envelope/4B3_vd_grid/H2p5_L0p5"
+  ],
+  "node_pref": "gpu",
+  "wall_estimate_min": 45,
+  "needs_surrogate": "results/z278_mep2_surrogate_v3/surrogate_4d_v3.npz",
+  "env_vars": {
+    "HSA_OVERRIDE_GFX_VERSION": "11.0.0",
+    "PYTHONUNBUFFERED": "1"
+  },
+  "out_dir": "results/z293_envelope/4B3_vd_grid/H2p5_L0p5",
+  "submitted_at": 1778591635.4829257,
+  "submitted_iso": "2026-05-12T15:13:55",
+  "retry_count": 0,
+  "completed_at": 1778592264.5658078,
+  "completed_iso": "2026-05-12T15:24:24",
+  "duration_sec": 80,
+  "worker": "ikaros_0",
+  "log_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/queue_logs/ikaros_z293_4B3_H2p5_L0p5.log",
+  "return_code": 0
+}

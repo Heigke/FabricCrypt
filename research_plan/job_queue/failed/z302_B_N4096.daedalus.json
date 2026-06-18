@@ -1,0 +1,41 @@
+{
+  "id": "z302_B_N4096",
+  "title": "z302_B_N4096",
+  "script": "scripts/z302_hdc_noise_robust.py",
+  "args": [
+    "--N",
+    "4096",
+    "--vd_high",
+    "2.00",
+    "--vd_low",
+    "0.50",
+    "--vg1",
+    "0.30",
+    "--vg2",
+    "0.30",
+    "--sigma_train",
+    "0.0",
+    "--sigma_test",
+    "0.05",
+    "--strategy",
+    "B_nscale",
+    "--seeds",
+    "0",
+    "1",
+    "2",
+    "3",
+    "--out_dir",
+    "results/z302_hdc_noise_robust/B_nscale/N4096"
+  ],
+  "node_pref": "gpu",
+  "wall_estimate_min": 240,
+  "needs_surrogate": "results/z278_mep2_surrogate_v3/surrogate_4d_v3.npz",
+  "env_vars": {
+    "HSA_OVERRIDE_GFX_VERSION": "11.0.0",
+    "PYTHONUNBUFFERED": "1"
+  },
+  "out_dir": "results/z302_hdc_noise_robust/B_nscale/N4096",
+  "submitted_at": 1778598354.8502235,
+  "submitted_iso": "2026-05-12T17:05:54",
+  "retry_count": 0
+}

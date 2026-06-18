@@ -1,0 +1,305 @@
+% =====================================================================
+% PROPOSAL_GAP_D_workplan.tex
+% Drop-in \input{} for nsram/nsram_proposal_placeholders_overleaf_2026_05_03/main-4.tex
+% Requires (already in main-4.tex): geometry, amsmath, eurosym, hyperref,
+% enumitem, xcolor.
+% Adds: booktabs (table rules), longtable (cross-page).
+% If host preamble does not have booktabs/longtable, fall back to tabular.
+% =====================================================================
+
+\section{Workplan: WP1--WP4 (36 months)}
+\label{sec:workplan}
+
+\emph{This section is the full work-package roadmap supporting the
+funding ask. Source companion document:
+\texttt{research\_plan/PROPOSAL\_GAP\_D\_workplan.md}.}
+
+\subsection*{Overview}
+
+\begin{tabular}{@{}lllrl@{}}
+\hline
+\textbf{WP} & \textbf{Title} & \textbf{Months} & \textbf{Budget} & \textbf{Lead} \\
+\hline
+WP1 & Silicon char. \& mechanism ID & 1--9 & \euro 450\,k & Pazos \\
+WP2 & Algorithmic primitives \& co-design & 4--18 & \euro 620\,k & Bergvall \\
+WP3 & Prototype tape-out & 12--30 & \euro 1.55\,M & Lanza \\
+WP4 & System integration \& dissemination & 18--36 & \euro 360\,k & Bergvall \\
+--- & Coordination \& cross-WP overhead & 1--36 & \euro 120\,k & Lanza \\
+\hline
+\textbf{Total} & 36-month ask & & \textbf{\euro 3.10\,M} & \\
+\hline
+\end{tabular}
+
+\vspace{4pt}
+Range \euro 2.6\,M--\euro 3.4\,M depending on MPW slot pricing (180\,nm
+vs 130\,nm), whether a second-silicon respin is triggered, and host-
+institution indirect rates. Critical-path dependency: \textbf{WP3 layout
+cannot start before WP1 M1.3 (cell-card v3) lands at month 9}; WP4
+demo cannot start before WP3 M3.3 (first silicon characterised) at
+month 30.
+
+% --------------------------------------------------------------- WP1
+\subsection{WP1 --- Silicon characterisation \& physical-mechanism
+identification (months 1--9, lead: Pazos)}
+
+\textbf{Motivation.} The simulator currently fits DC to median
+\textbf{1.163 dec} $\log_{10}|I_d|$ on the 33-bias forward$+$backward
+set ($n\!=\!66$), with two prominent textbook parallel-conduction
+candidates (Pazos NPN, BSIM4 \S10.1 JTS-TAT) internally falsified. The
+residual gap requires experimental discrimination only Sebas's
+characterisation campaign can provide.
+
+\textbf{Milestones.}
+\begin{itemize}[leftmargin=1.4em, topsep=2pt, itemsep=1pt]
+\item \textbf{M1.1 (months 1--4) Sebas data extension:} T-sweep
+$\{220, 250, 300, 350, 400\}$\,K at the 250\,nA diagnostic bias;
+W-scaling $\{0.18, 0.36, 0.72, 1.44\}\,\mu$m at $L\!=\!180$\,nm;
+negative-$V_d$ point at $V_d\!=\!-0.5$\,V; dense-VG1 grid; paired-pulse
+5 VG2 $\times$ 5 $\Delta t$ for SRH$\leftrightarrow$Tsodyks-Markram
+validation. $\geq 10$ devices per condition.
+\item \textbf{M1.2 (months 3--6) Differentiable refit:} apply existing
+GPU-batched pipeline to each $(T, W)$ corner; cross-validate against C2
+(self-consistent floating-body sub-$V_t$) and C4 (measurement-artifact /
+contact-resistance) candidates.
+\item \textbf{M1.3 (months 6--9) Lock shortlist, publish:} methods paper
+to IEEE TED / Nature Electronics; release \textbf{cell-card v3} with
+bootstrap CIs.
+\end{itemize}
+
+\textbf{Deliverable D1.} Peer-reviewed methods paper + cell-card v3
+(tape-out-actionable, with CIs).
+
+\textbf{Person-months.} Pazos 4.5 (0.5\,FTE $\times$ 9\,mo), Lanza 0.9
+(0.1\,FTE in-kind), PhD\#1 9.0, postdoc 3.0, Bergvall 1.8.
+Wafer/probe/cryostat \euro 180\,k; travel \euro 15\,k; OA \euro 5\,k;
+indirect $\sim$15\%.  \textbf{WP1 total: \euro 450\,k.}
+
+\textbf{Top risks (mitigations).} (i) Cryostat slot $>$2\,mo delayed
+(pre-book at proposal start, KAUST backup); (ii) Device-to-device $>$2$\sigma$
+(10 cells/condition, distributional reporting); (iii) Mechanism still
+unidentified after T+W (honest-negative paper still ships).
+
+\textbf{Success metric.} $\geq 600$ curves; cell-wide DC fit $\leq 0.7$\,dec
+median on extended set (gate; failure still yields publishable
+honest-negative).
+
+% --------------------------------------------------------------- WP2
+\subsection{WP2 --- Algorithmic-primitive demonstration \& co-design
+(months 4--18, lead: Bergvall)}
+
+\textbf{Motivation.} Seven network demonstrations already pass on the
+single-cell calibration. WP2 (a) scales each demo to 1024+ cells with
+realistic variation, (b) closes the inverse-design loop into WP1 fab
+variants, (c) ships an open-source SDK so external groups can reproduce.
+
+\textbf{Milestones.}
+\begin{itemize}[leftmargin=1.4em, topsep=2pt, itemsep=1pt]
+\item \textbf{M2.1 (months 4--9) Task demos at 1024 cells:} SHD
+$\geq\!85\%$ test acc., KWS (Google SpeechCommands v2)
+$\geq\!92\%$ on the 12-class problem at $<\!1\,\mu$J/inference,
+NAB anomaly detection $F_1\!\geq\!0.4$. Baselines: software fp32
+reservoir, Loihi-2, TrueNorth, Mythic (numbers in Gap-B table).
+\item \textbf{M2.2 (months 6--12) Primitive validation:} STDP via
+correlated VG2 pulse pairs (uses M1.1 paired-pulse data), homeostasis
+via slow body-discharge $\tau$, time-multiplexed reservoir. Each
+primitive pre-registered with falsifiable gate.
+\item \textbf{M2.3 (months 12--18) Co-design loop closed:} compute
+$\partial(\text{accuracy})/\partial(\text{cell-parameter})$ through the
+differentiable simulator; rank parameter sensitivities; feed back into
+WP1 / WP3 cell-card.
+\end{itemize}
+
+\textbf{Deliverable D2.} \texttt{nsram} v1.0 SDK on PyPI
+(Apache-2.0, ENIMBLE copyright per MoU) + three task demo notebooks +
+IEDM/IJCNN Pareto-frontier paper.
+
+\textbf{Person-months.} Bergvall 11.2 (0.8\,FTE $\times$ 14\,mo),
+PhD\#2 14.0, postdoc 12.0, Luciani 1.8, Pazos 1.2. Cloud GPU
+\euro 25\,k; travel \euro 18\,k; OA \euro 7\,k; HW contingency
+\euro 12\,k; indirect $\sim$25\%.  \textbf{WP2 total: \euro 620\,k.}
+
+\textbf{Top risks.} (i) SHD accuracy $<\!85\%$ at 1024 cells under
+realistic variation (fall back to 4096 cells, hardware-aware training);
+(ii) GPU port hits 2\,$\times\,10^4$-cell ceiling (block-matmul
+workaround in place; cloud burst budget); (iii) SDK adoption shortfall
+(Colab notebooks, conference tutorial, fit-as-a-service commercial leg).
+
+\textbf{Success metric.} Three task demos $\geq\!1024$ cells passing
+pre-registered gates; nsram v1.0 with $\geq\!3$ external adopters by
+month 18; one IEDM/IJCNN paper accepted.
+
+% --------------------------------------------------------------- WP3
+\subsection{WP3 --- Prototype chip tape-out (months 12--30, lead:
+Lanza)}
+
+\textbf{Motivation.} NS-RAM is fabricated in standard bulk CMOS, so a
+prototype tape-out validates the silicon-to-algorithm bridge end-to-end
+at modest cost compared with RRAM / PCM / memristor approaches.
+
+\textbf{Milestones.}
+\begin{itemize}[leftmargin=1.4em, topsep=2pt, itemsep=1pt]
+\item \textbf{M3.1 (months 12--18) Layout:} 128-neuron block +
+32$\times$32 synapse array; shared-bulk-rail with per-block isolation;
+\textbf{default process node 180\,nm bulk CMOS} (fallback 130\,nm if
+WP1 M1.3 recommends matching Sebas's existing data).
+\textit{Flag: requires confirmation of Europractice MPW slot — baseline
+quote \euro 350\,k for 180\,nm; \euro 600\,k for 130\,nm.}
+\item \textbf{M3.2 (months 18--24) Tape-out and fab:} MPW submission;
+expected 3-month fab turnaround.
+\item \textbf{M3.3 (months 24--30) Characterisation vs spec:} gate at
+$\pm 10$\,pp of simulator prediction on $\geq\!1$ of 3 benchmarks;
+second-silicon contingency at month 27 if missed by $>$15\,pp on $>$2
+benchmarks.
+\end{itemize}
+
+\textbf{Deliverable D3.} Working prototype + characterisation report
+(Lanza first author, Bergvall and Pazos co-authors), submitted to
+\emph{Nature Electronics} or VLSI 2028.
+
+\textbf{Person-months.} Lanza 3.6, Pazos 10.8, PhD\#3 18.0, Bergvall
+1.2, PhD\#1 3.0. MPW \euro 350\,k (180\,nm baseline);
+PCB \euro 35\,k; probe + packaging \euro 60\,k; test equipment
+\euro 80\,k; second-silicon contingency \euro 200\,k; travel
+\euro 22\,k; indirect $\sim$25\%.  \textbf{WP3 total: \euro 1.55\,M.}
+
+\textbf{Top risks.} (i) MPW slot $>$3-mo slip (apply to two slots, TSMC
++ UMC); (ii) Cell-card v3 (WP1) disagrees with co-design recommendation
+(WP2) by $>$2$\sigma$ at month 11 (joint sign-off, conservative
+intersection-CI, gate widened to $\pm 15$\,pp); (iii) First silicon
+misses spec by $>$15\,pp on $>$2 benchmarks (second-silicon contingency
+budgeted at 50\%); (iv) 130\,nm node selected $\rightarrow$ budget
+overrun $+$\euro 250\,k (sponsor agreement required, or area reduction
+to 64-neuron block).
+
+\textbf{Success metric.} First silicon spike waveform, MC, and
+classification within $\pm 10$\,pp of simulator on $\geq\!1$
+benchmark; energy per inference measured in pJ; one VLSI / Nature-
+Electronics-class publication submitted.
+
+% --------------------------------------------------------------- WP4
+\subsection{WP4 --- System integration \& dissemination (months 18--36,
+lead: Bergvall)}
+
+\textbf{Motivation.} Characterised silicon without a demo board reaches
+only the hardware community. WP4 produces a USB/PCIe demo board, one
+edge-AI demo with \emph{measured} (not extrapolated) power, and an
+industry-facing white paper.
+
+\textbf{Milestones.}
+\begin{itemize}[leftmargin=1.4em, topsep=2pt, itemsep=1pt]
+\item \textbf{M4.1 (months 18--24) USB/PCIe demo board:} FPGA bridge
+architecture exists (128-neuron NS-RAM reservoir bitstream, MAC bridge
+14/19 PASS, ACF 0.85); chip integration on top.
+\item \textbf{M4.2 (months 24--32) Edge-AI demo:} KWS or motion
+classification on the prototype chip with measured pJ/inference vs
+STM32H7+CMSIS-NN, Loihi-2, Mythic.
+\item \textbf{M4.3 (months 30--36) White paper + commercialisation:}
+foundry-IP licensing pitch; industry-partner discussions (one EU, one
+A*STAR IME); ENIMBLE spin-out pitch deck (behind MoU royalty split).
+\end{itemize}
+
+\textbf{Deliverable D4.} Demo system (board + chip + firmware + host
+SDK) + NeurIPS-hardware or DATE 2029 paper + commercialisation pitch.
+
+\textbf{Person-months.} Bergvall 9.0, postdoc 6.0, PhD\#3 3.6, Pazos
+1.2. PCB \euro 25\,k; travel \euro 32\,k; enclosure / booth \euro 8\,k;
+white-paper editing \euro 6\,k; indirect $\sim$25\%.
+\textbf{WP4 total: \euro 360\,k.}
+
+\textbf{Top risks.} (i) Chip yield too low for live demo (second-silicon
+batch; simulator-driven backup with explicit banner); (ii) Industry
+partner timeline $>$36\,mo (white paper still ships, commercialisation
+continues via ENIMBLE spin-out); (iii) EMC on conference floor (shielded
+enclosure, standard FPGA dev board reference).
+
+\textbf{Success metric.} Working demo board with measured pJ/inference;
+$\geq\!2$ industry letters of interest by month 36; one demo + paper.
+
+% --------------------------------------------------------------- Funding
+\subsection{Funding-vehicle suitability and blended-package recommendation}
+
+\begin{itemize}[leftmargin=1.4em, topsep=2pt, itemsep=1pt]
+\item \textbf{EU FET-Open / EIC Transition} (\euro 2.5--4\,M): excellent
+fit.
+\item \textbf{Marie Sk{\l}odowska-Curie Doctoral Network}
+($\geq\!10$ PhDs, $\geq$\euro 4\,M): would require partner expansion
+($>$2 hosts); ENIMBLE $+$ NUS $+$ KAUST $+$ one EU foundry partner.
+\item \textbf{Vinnova UDI / Strategic Innovation} (Sweden, $\leq$\euro 2\,M
+with matching): funds WP2 + WP4 ($\sim$\euro 1\,M) with industry
+matching.
+\item \textbf{NRF Singapore CRP} ($\sim$SGD 5\,M, 5\,yr): Lanza-led;
+absorbs WP1 + WP3.
+\end{itemize}
+
+\textbf{Recommended package:} NRF CRP (WP1 + WP3) blended with EIC
+Transition (WP2 + WP4). Aligns with Lanza's existing NRF/MOE pipeline
+and ENIMBLE's EIC eligibility as a Swedish SME.
+
+% --------------------------------------------------------------- Risks
+\subsection{Top consortium-level risks (above-WP)}
+
+\begin{enumerate}[leftmargin=1.4em, topsep=2pt, itemsep=1pt]
+\item \textbf{Process-node mismatch} between WP1 char-data (130\,nm) and
+WP3 MPW slot (180\,nm default). \emph{Mitigation:} WP1 M1.3 locks node
+before WP3 layout; bridging study budgeted at month 9.
+\item \textbf{Mechanism unidentified after WP1}, tape-out lands on
+still-1.2-dec cell card. \emph{Mitigation:} cell-card v3 with explicit
+CIs is publishable; WP3 gates widened from $\pm 10$\,pp to $\pm 15$\,pp;
+honest-negative branding maintained.
+\item \textbf{MoU IP-split failure} between ENIMBLE and NUS-KAUST.
+\emph{Mitigation:} pre-signed MoU draft already on file
+(\texttt{docs/NSRAM\_samarbetsplan\_Mario\_Sebas\_2026-04-23.txt});
+arXiv preprint of SRH$\leftrightarrow$TM bridge as date-stamp.
+\item \textbf{Key personnel move institutions} (Bergvall, Pazos).
+\emph{Mitigation:} 36-mo contracts; nsram v1.0 SDK is the institution-
+portable artefact.
+\item \textbf{Foundry-supply shock.} \emph{Mitigation:} two-foundry
+strategy (TSMC + UMC); Europractice neutrality on EU side.
+\end{enumerate}
+
+% --------------------------------------------------------------- NoPromises
+\subsection{What this workplan deliberately does \emph{not} promise}
+
+\begin{itemize}[leftmargin=1.4em, topsep=2pt, itemsep=1pt]
+\item \textbf{No} sub-1.0\,dec DC fit before WP1 M1.3 lands. Current
+baseline is 1.163\,dec; the gap depends on experimental discrimination
+not yet run.
+\item \textbf{No} claim that NS-RAM beats software ESN on like-for-like
+accuracy. The claim is the \emph{energy-per-inference floor in standard
+CMOS}, to be measured in WP4.
+\item \textbf{No} fully autonomous relaxation oscillator on the present
+cell. That gate is open and the closure depends on body-$R\!\cdot\!C$
+identification from WP1.
+\item \textbf{No} specific MPW timeline without Europractice
+confirmation. The 30-month tape-out window is the Europractice-published
+median; slips $\leq\!3$\,mo are budgeted; beyond that requires sponsor
+agreement.
+\item \textbf{No} SDK-adoption metric beyond the consortium without
+external uptake. Below 3 external adopters by month 18, the SDK is
+treated as an internal artefact.
+\end{itemize}
+
+% --------------------------------------------------------------- Closing
+\subsection*{Closing}
+
+The consortium starts with three assets no competing group has at
+once: a Nature-2025 NS-RAM cell in standard CMOS (Lanza / Pazos), a
+GPU-batched differentiable simulator with seven passing network demos
+(ENIMBLE), and an internally falsified honest-negative shortlist of the
+physical-mechanism candidates that would close the remaining DC-fit
+gap. The 36-month plan converts those assets into a characterised
+prototype chip and a system-level demo, with named honest-negative
+branches at every gate. The total ask of \textbf{$\approx$\euro 3.10\,M}
+sits inside the EU FET-Open and NRF CRP envelopes, with a blended
+configuration the most likely realistic shape.
+
+\medskip
+\noindent\textbf{Single defendable sentence.}
+\textit{We are not promising better software, better materials, or new
+physics. We are promising a tape-out-actionable cell-card derived from
+a differentiable bridge between published silicon and the algorithms
+the silicon is supposed to run --- and the bridge already runs.}
+
+% =====================================================================
+% End PROPOSAL_GAP_D_workplan.tex
+% =====================================================================

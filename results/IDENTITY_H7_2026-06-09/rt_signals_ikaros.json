@@ -1,0 +1,59 @@
+{
+  "host": "ikaros",
+  "channels": {
+    "vcore": {
+      "status": "ok",
+      "dim": 16,
+      "n": 35,
+      "mean_live_std": 0.005949284132587052,
+      "max_range": 0.04146468639373779,
+      "live_fraction": 1.0,
+      "live": true
+    },
+    "cur_freq": {
+      "status": "ok",
+      "dim": 32,
+      "n": 35,
+      "mean_live_std": 647278.065009031,
+      "max_range": 2410819.0,
+      "live_fraction": 1.0,
+      "live": true
+    },
+    "thermal": {
+      "status": "ok",
+      "dim": 1,
+      "n": 35,
+      "mean_live_std": 0.0,
+      "max_range": 0.0,
+      "live_fraction": 0.0,
+      "live": false
+    },
+    "gpu_freq": {
+      "status": "ok",
+      "dim": 1,
+      "n": 35,
+      "mean_live_std": 0.0,
+      "max_range": 0.0,
+      "live_fraction": 0.0,
+      "live": false
+    },
+    "power": {
+      "status": "ok",
+      "dim": 1,
+      "n": 35,
+      "mean_live_std": 630577.937697002,
+      "max_range": 2032000.0,
+      "live_fraction": 1.0,
+      "live": true
+    },
+    "misc": {
+      "status": "ok",
+      "dim": 8,
+      "n": 35,
+      "mean_live_std": 0.0,
+      "max_range": 0.0,
+      "live_fraction": 0.0,
+      "live": false
+    }
+  }
+}

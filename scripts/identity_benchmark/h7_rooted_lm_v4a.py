@@ -293,7 +293,17 @@ def train(steps=8000, ctx=128, batch=8, lr_enc=2e-4, lr_gate=3e-5, phase_a=2000)
     t0 = time.time()
     log = {"native":[], "zero_kl":[], "m0":[], "mw_s":[], "mw_w":[], "alphas":[]}
 
+    def _temp_c():
+        try: return int(open("/sys/class/thermal/thermal_zone0/temp").read())/1000.0
+        except Exception: return 0.0
+    THERM_HI = float(os.environ.get("THERM_HI", "82")); THERM_LO = float(os.environ.get("THERM_LO", "68"))
+
     for step in range(steps):
+        # THERMAL GUARD: gfx1151 hits 98C (1C from ACPI trip) under sustained training. Pause to cool.
+        if _temp_c() > THERM_HI:
+            if device == "cuda": torch.cuda.synchronize()
+            tp = time.time()
+            while _temp_c() > THERM_LO and time.time()-tp < 180: time.sleep(2.0)
         x, y = next(it); x, y = x.to(device), y.to(device)
         attn_mask = torch.ones_like(x)
 

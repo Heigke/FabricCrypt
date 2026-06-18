@@ -1,0 +1,67 @@
+[
+  {
+    "config": "ER_SPARSE/ff/N=256/seed=0/1 epoch baseline",
+    "best_acc": 0.5,
+    "final_acc": 0.125,
+    "established": "2026-05-08T04:43",
+    "last_check": "2026-05-11T04:43",
+    "last_check_result": {
+      "best_acc": 0.5,
+      "final_acc": 0.125,
+      "wall_s": 3.6,
+      "diff_abs_best": 0.0,
+      "diff_abs_final": 0.0,
+      "verdict": "NO_REGRESSION"
+    },
+    "consecutive_passes": 4,
+    "note": "First run = ground truth per cron protocol. Subsequent runs flag if diff > 0.10."
+  },
+  {
+    "timestamp": "2026-05-13T05:13:21.895312",
+    "config": "ER_SPARSE/ff/N=256/seed=0",
+    "status": "DEFERRED",
+    "reason": "z306 BBO monopolizing GPU; APU=82C (limit 85)",
+    "result": null,
+    "diff_vs_established": null
+  },
+  {
+    "timestamp": "2026-05-14T05:14:02.402896",
+    "config": "ER_SPARSE/ff/N=256/seed=0",
+    "status": "DEFERRED",
+    "reason": "R-29 Vth/tox patches in patch_model_values (2026-05-14) invalidate established baseline; established=0.5/0.125 was tuned against pre-patch BSIM4. Re-establish baseline post-fix needed before regression check meaningful.",
+    "result": null,
+    "diff_vs_established": null
+  },
+  {
+    "timestamp": "2026-05-15T05:13:23.236689",
+    "config": "ER_SPARSE/ff/N=256/seed=0",
+    "status": "DEFERRED",
+    "reason": "R-55a KILL-SHOT 05:30 closed model program; baseline tuned against pre-kill-shot pyport invalidated. No regression check meaningful.",
+    "result": null,
+    "diff_vs_established": null
+  },
+  {
+    "timestamp": "2026-05-16T04:43:00",
+    "config": "ER_SPARSE/ff/N=256/seed=0",
+    "status": "DEFERRED",
+    "reason": "S18 z427 still in validation (O68 critique pending); baseline tuned against pre-H1+H2 pyport invalidated.",
+    "result": null,
+    "diff_vs_established": null
+  },
+  {
+    "timestamp": "2026-05-17T04:43:00",
+    "config": "ER_SPARSE/ff/N=256/seed=0",
+    "status": "DEFERRED",
+    "reason": "O76 3/3 oracle ALERT \u2014 1.276 dec headline retracted pending z460 falsifier. All current pyport baselines tainted by V_D-dropout cherry-pick + V_B clamp basin-gaming. No regression check meaningful.",
+    "result": null,
+    "diff_vs_established": null
+  },
+  {
+    "timestamp": "2026-05-18T04:43:00",
+    "config": "ER_SPARSE/ff/N=256/seed=0",
+    "status": "DEFERRED",
+    "reason": "Same as 2026-05-17: O80 reframe ALERT still active. Snap calibration changed model math (z469 bug + z471 snap_Is + z473 R_body + z474b IFT). All pre-calibration baselines stale. Need fresh post-z474b baseline before regression checks resume.",
+    "result": null,
+    "diff_vs_established": null
+  }
+]

@@ -1,0 +1,1 @@
+savedcmd_fw17c_diag.ko := ld -r -m elf_x86_64 -z noexecstack --no-warn-rwx-segments --build-id=sha1  -T /usr/src/linux-headers-6.14.0-1017-oem/scripts/module.lds -o fw17c_diag.ko fw17c_diag.o fw17c_diag.mod.o .module-common.o

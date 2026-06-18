@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use FabricCrypt, please cite this preprint."
+title: "FabricCrypt: Software-Discoverable, Vendor-Key-Free Per-Die Attestation Primitive for AI Inference on Commodity GPUs (at n=2 chassi)"
+authors:
+  - family-names: Bergvall
+    given-names: Eric
+    email: bergvall.eric@gmail.com
+date-released: 2026-06-01
+version: "0.2.1"
+license: MIT
+repository-code: "https://github.com/Heigke/FabricCrypt"
+keywords:
+  - hardware attestation
+  - per-die fingerprinting
+  - HAL bypass
+  - micro-architectural side channels
+  - PUF
+  - confidential AI inference
+  - vendor-free PKI
+preferred-citation:
+  type: article
+  title: "FabricCrypt: Software-Discoverable, Vendor-Key-Free Per-Die Attestation Primitive for AI Inference on Commodity GPUs (at n=2 chassi)"
+  authors:
+    - family-names: Bergvall
+      given-names: Eric
+  year: 2026
+  url: "https://arxiv.org/abs/XXXX.XXXXX"

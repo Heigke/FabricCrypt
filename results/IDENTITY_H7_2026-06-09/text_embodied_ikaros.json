@@ -1,0 +1,38 @@
+{
+  "host": "ikaros",
+  "ctx": 64,
+  "qstride": 4,
+  "query_frac": 0.25,
+  "gate_fidelity": 1.0,
+  "results": {
+    "native": {
+      "query_ppl": 1.43,
+      "query_acc": 0.953,
+      "text_ppl": 43.529,
+      "overall_ppl": 18.533
+    },
+    "truth": {
+      "query_ppl": 1.367,
+      "query_acc": 0.997,
+      "text_ppl": 43.529,
+      "overall_ppl": 18.325
+    },
+    "zero": {
+      "query_ppl": 2.143,
+      "query_acc": 0.559,
+      "text_ppl": 43.529,
+      "overall_ppl": 20.505
+    },
+    "random": {
+      "query_ppl": 2.271,
+      "query_acc": 0.487,
+      "text_ppl": 43.529,
+      "overall_ppl": 20.804
+    }
+  },
+  "BODY_LOAD_BEARING": true,
+  "overall_ppl_native": 18.533,
+  "overall_ppl_no_body": 20.505,
+  "ppl_inflation_without_body": 1.11,
+  "verdict": "LM CONSTITUTIVELY DEPENDS ON BODY: query tokens collapse to chance and overall PPL inflates when the body is removed/corrupted \u2014 its weights cannot do the task alone"
+}

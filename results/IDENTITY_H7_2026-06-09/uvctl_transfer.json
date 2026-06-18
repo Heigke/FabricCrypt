@@ -1,0 +1,29 @@
+{
+  "intra": [
+    0.851,
+    0.996
+  ],
+  "intra_lab": [
+    "daedalus_r1~daedalus_r2",
+    "ikaros_r1~ikaros_r2"
+  ],
+  "inter": [
+    -0.039,
+    -0.033,
+    -0.039,
+    -0.029
+  ],
+  "inter_lab": [
+    "daedalus_r1~ikaros_r1",
+    "daedalus_r1~ikaros_r2",
+    "daedalus_r2~ikaros_r1",
+    "daedalus_r2~ikaros_r2"
+  ],
+  "mean_intra": 0.9239553109395016,
+  "min_intra": 0.8514251533281092,
+  "mean_inter": -0.034749420469297354,
+  "max_inter": -0.028510516350545898,
+  "gap": 0.9587047314087989,
+  "clean_sep": true,
+  "VERDICT": "REAL die-specific reproducible u\u00b7v \u2014 DREAM ACHIEVED (controlled)"
+}

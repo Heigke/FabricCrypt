@@ -1,0 +1,26 @@
+{
+  "infra_pass": true,
+  "hypothesis_pass_NSRAM_beats_LIF_1pp": false,
+  "ambitious_pass_NSRAM_beats_Random_1pp": false,
+  "kill_shot_NSRAM_eq_Random": false,
+  "mackey_glass_nrmse": {
+    "NSRAM": 0.3770556448024724,
+    "LIF": 0.2932292157493567,
+    "Random": 0.14682858939634763
+  },
+  "narma_nrmse_mean": {
+    "NSRAM": 1.713362778905875,
+    "LIF": 2.177907582770782,
+    "Random": 1.0545095510807134
+  },
+  "MC_mean": {
+    "NSRAM": 0.24185578719936593,
+    "LIF": 0.43566942885836346,
+    "Random": 0.050442235090348064
+  },
+  "sine_acc_mean": {
+    "NSRAM": 0.9777777777777776,
+    "LIF": 0.861111111111111,
+    "Random": 0.24444444444444446
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "task": "DS-N3 Bayesian MCMC w/ NS-RAM RNG",
+  "verdict": "AMBITIOUS",
+  "ratio_ess_nsram_over_pseudo": 1.0328542772640148,
+  "ess_pseudo": 1150.1384313288672,
+  "ess_nsram": 1187.925398243745,
+  "acceptance_rate_pseudo": 0.6395,
+  "acceptance_rate_nsram": 0.6322,
+  "posterior_mean_pseudo": 2.931689384877881,
+  "posterior_mean_nsram": 2.9359160202569976,
+  "true_mu": 2.5,
+  "n_mh": 10000,
+  "wall_pseudo_s": 0.044824838638305664,
+  "wall_nsram_mh_s": 0.044680118560791016,
+  "wall_nsram_gen_s": 0.38445067405700684,
+  "seed": 42,
+  "device": "cuda",
+  "node": "ikaros"
+}

@@ -1,0 +1,15 @@
+M3c.3 inner-solve test results (2026-05-04 ~09:25)
+
+=== Single-bias Rb sweep (VG1=0.4 VG2=0.2 Vd=2.0 V, Bf=100) ===
+Rb=1.0e+03  Vb=0.3876  Vb_local=0.3876  Ic_Q1=1.638e-08  Id=1.638e-08
+Rb=1.0e+06  Vb=0.3878  Vb_local=0.3876  Ic_Q1=1.638e-08  Id=1.638e-08
+Rb=1.0e+09  Vb=0.5320  Vb_local=0.3852  Ic_Q1=1.491e-08  Id=1.492e-08
+Rb=1.0e+12  Vb=1.6039  Vb_local=0.7523  Ic_Q1=2.168e-02  Id=2.168e-02
+
+=== Multi-bias Rb scan ===
+          bias      Rb=1e6 Id      Rb=1e8 Id     Rb=1e10 Id
+VG1=0.8 VG2=0.50       2.321e-08      2.297e-08      2.529e-05
+VG1=0.6 VG2=0.30       1.640e-08      1.624e-08      8.138e-04
+VG1=0.4 VG2=0.20       1.638e-08      1.623e-08      1.121e-02
+VG1=0.6 VG2=0.00       1.638e-08      1.622e-08      1.236e-02
+VG1=0.2 VG2=0.10       1.638e-08      1.623e-08      1.232e-02

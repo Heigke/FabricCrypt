@@ -1,0 +1,8 @@
+file '/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/paper_drafts/launch_kit/explainer_video/work/S0_hook.mp4'
+file '/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/paper_drafts/launch_kit/explainer_video/work/S1_problem.mp4'
+file '/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/paper_drafts/launch_kit/explainer_video/work/S2_fingerprints.mp4'
+file '/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/paper_drafts/launch_kit/explainer_video/work/S3_crypto.mp4'
+file '/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/paper_drafts/launch_kit/explainer_video/work/S4_personality.mp4'
+file '/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/paper_drafts/launch_kit/explainer_video/work/S5_why.mp4'
+file '/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/paper_drafts/launch_kit/explainer_video/work/S6_honest.mp4'
+file '/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/paper_drafts/launch_kit/explainer_video/work/S7_close.mp4'

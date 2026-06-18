@@ -1,0 +1,43 @@
+{
+  "id": "z312_N16384_s0p05",
+  "title": "z312_N16384_s0p05",
+  "script": "scripts/z293_hdc_envelope_sweep.py",
+  "args": [
+    "--N",
+    "16384",
+    "--vd_high",
+    "2.00",
+    "--vd_low",
+    "0.50",
+    "--vg1",
+    "0.30",
+    "--vg2",
+    "0.30",
+    "--sigma_noise",
+    "0.05",
+    "--seeds",
+    "0",
+    "1",
+    "2",
+    "3",
+    "--out_dir",
+    "results/z312_hdc_n16k/N16384_s0p05"
+  ],
+  "node_pref": "gpu",
+  "wall_estimate_min": 60,
+  "needs_surrogate": "results/z278_mep2_surrogate_v3/surrogate_4d_v3.npz",
+  "env_vars": {
+    "HSA_OVERRIDE_GFX_VERSION": "11.0.0",
+    "PYTHONUNBUFFERED": "1"
+  },
+  "out_dir": "results/z312_hdc_n16k/N16384_s0p05",
+  "submitted_at": 1778657809.4718888,
+  "submitted_iso": "2026-05-13T09:36:49",
+  "retry_count": 0,
+  "completed_at": 1778659810.3303623,
+  "completed_iso": "2026-05-13T10:10:10",
+  "duration_sec": 1538,
+  "worker": "daedalus_0",
+  "log_path": "/home/daedalus/AMD_gfx1151_energy/results/queue_logs/daedalus_z312_N16384_s0p05.log",
+  "return_code": 0
+}

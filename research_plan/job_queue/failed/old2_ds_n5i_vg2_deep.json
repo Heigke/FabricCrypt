@@ -1,0 +1,30 @@
+{
+  "id": "ds_n5i_vg2_deep",
+  "title": "DS-N5i V_G2 deeper",
+  "script": "scripts/z292_nsram_hdc_vd_bit.py",
+  "args": [
+    "--vg2",
+    "0.55",
+    "--seeds",
+    "0",
+    "1",
+    "2",
+    "3",
+    "--out_dir",
+    "results/z292i_hdc_vg2_deep"
+  ],
+  "node_pref": "any",
+  "wall_estimate_min": 30,
+  "needs_surrogate": null,
+  "env_vars": {},
+  "out_dir": "results/",
+  "submitted_at": 1778572981.589797,
+  "submitted_iso": "2026-05-12T10:03:01",
+  "retry_count": 0,
+  "failed_at": 1778572990.9424255,
+  "failed_iso": "2026-05-12T08:03:10",
+  "worker": "zgx_0",
+  "error": "rc=1 see log /home/naorw/nsram_queue_sandbox/results/queue_logs/zgx_ds_n5i_vg2_deep.log",
+  "log_tail": "Traceback (most recent call last):\n  File \"/home/naorw/nsram_queue_sandbox/scripts/z292_nsram_hdc_vd_bit.py\", line 34, in <module>\n    from z284_hdc_baseline import (\nModuleNotFoundError: No module named 'z284_hdc_baseline'\n",
+  "duration_sec": 1
+}

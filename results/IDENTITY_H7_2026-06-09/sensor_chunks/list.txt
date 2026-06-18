@@ -1,0 +1,3 @@
+file '/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/IDENTITY_H7_2026-06-09/sensor_chunks/part_00.mp3'
+file '/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/IDENTITY_H7_2026-06-09/sensor_chunks/part_01.mp3'
+file '/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/IDENTITY_H7_2026-06-09/sensor_chunks/part_02.mp3'

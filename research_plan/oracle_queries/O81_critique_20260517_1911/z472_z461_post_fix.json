@@ -1,0 +1,149 @@
+{
+  "config": "NX_1p8",
+  "config_flags": {
+    "use_vbic_for_q1": true,
+    "vbic_AVC1": 0.5,
+    "vbic_AVC2": 0.5,
+    "Cbody": 1e-15,
+    "body_pdiode_Cj0_per_area": 0.0,
+    "use_snapback_sub": true,
+    "snap_BV": 1.2,
+    "snap_n_avl": 4.0,
+    "snap_Bf": 417.0,
+    "snap_Va": 0.9,
+    "snap_Is": 4.5192e-12,
+    "snap_Nf": 1.0,
+    "snap_Id_clamp": 0.1,
+    "snap_Iii_clamp": 0.1,
+    "snap_use_knee_gate": true,
+    "snap_V_knee": 1.6,
+    "snap_V_sharp": 0.05,
+    "snap_npn_gate_mode": "current",
+    "snap_npn_V_knee": 1.8,
+    "snap_npn_V_sharp": 0.05,
+    "snap_npn_V_BE_offset": 0.3
+  },
+  "wall_sec": 2556.1764788627625,
+  "tests": [
+    {
+      "test_id": "V1",
+      "name": "DC IV per branch",
+      "metric_value": 1.841892596720541,
+      "metric_unit": "dec (worst per-branch RMSE)",
+      "gate": "each branch RMSE < 2.5 dec",
+      "passed": true,
+      "structurally_impossible": false,
+      "notes": "per-branch RMSE VG1=0.2:1.31, VG1=0.4:1.20, VG1=0.6:1.84",
+      "plot_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z461_validation_NX_1p8/plot_V1_dc_per_branch.png",
+      "source_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z461_validation_NX_1p8/plot_V1_dc_per_branch.png"
+    },
+    {
+      "test_id": "V2",
+      "name": "DC fwd vs bwd hysteresis",
+      "metric_value": 0.006262592416961577,
+      "metric_unit": "V\u00b7\u00b5A",
+      "gate": "hysteresis area > 0 (bistability present)",
+      "passed": true,
+      "structurally_impossible": false,
+      "notes": "mean across 11 VG2 columns",
+      "plot_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z461_validation_NX_1p8/plot_V2_hysteresis.png",
+      "source_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z461_validation_NX_1p8/plot_V2_hysteresis.png"
+    },
+    {
+      "test_id": "V3",
+      "name": "Snapback knee position",
+      "metric_value": null,
+      "metric_unit": "V",
+      "gate": "V_knee within 0.3V of 1.5V (measured)",
+      "passed": false,
+      "structurally_impossible": false,
+      "notes": "model V_knee=nanV (target 1.5\u00b10.3V)",
+      "plot_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z461_validation_NX_1p8/plot_V3_knee_position.png",
+      "source_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z461_validation_NX_1p8/plot_V3_knee_position.png"
+    },
+    {
+      "test_id": "V4",
+      "name": "Ns-snap rise",
+      "metric_value": 3.847746243739566,
+      "metric_unit": "ns (t\u21920.5V)",
+      "gate": "t\u21920.5V < 5ns AND V_B_peak > 0.5V",
+      "passed": true,
+      "structurally_impossible": false,
+      "notes": "V_B_peak=0.616V t\u21920.5V=3.85ns",
+      "plot_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z461_validation_NX_1p8/plot_V4_ns_snap.png",
+      "source_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z461_validation_NX_1p8/plot_V4_ns_snap.png"
+    },
+    {
+      "test_id": "V5",
+      "name": "Latch hold",
+      "metric_value": 0.619679507495462,
+      "metric_unit": "V (mean V_B, 50-100ns)",
+      "gate": "V_B_avg > 0.5V during hold",
+      "passed": true,
+      "structurally_impossible": false,
+      "notes": "avg V_B in [50,100]ns = 0.620V",
+      "plot_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z461_validation_NX_1p8/plot_V5_latch_hold.png",
+      "source_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z461_validation_NX_1p8/plot_V5_latch_hold.png"
+    },
+    {
+      "test_id": "V6",
+      "name": "Self-reset",
+      "metric_value": Infinity,
+      "metric_unit": "ns (t\u2192reset post-release)",
+      "gate": "t_reset<100\u00b5s AND V_B post-release<0.3V",
+      "passed": false,
+      "structurally_impossible": false,
+      "notes": "t_reset=infns V_B_post=0.548V",
+      "plot_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z461_validation_NX_1p8/plot_V6_self_reset.png",
+      "source_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z461_validation_NX_1p8/plot_V6_self_reset.png"
+    },
+    {
+      "test_id": "V7",
+      "name": "Relaxation oscillation",
+      "metric_value": 0.0,
+      "metric_unit": "cycles (over 5\u00b5s)",
+      "gate": ">=3 cycles AND period in [100,1000]ns",
+      "passed": false,
+      "structurally_impossible": false,
+      "notes": "n_cycles=0 period=nanns",
+      "plot_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z461_validation_NX_1p8/plot_V7_oscillation.png",
+      "source_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z461_validation_NX_1p8/plot_V7_oscillation.png"
+    },
+    {
+      "test_id": "V8",
+      "name": "LIF integrate",
+      "metric_value": 1.314992379277986e-05,
+      "metric_unit": "V/\u00b5s (dV_B/dt @ V_D=0.5V)",
+      "gate": "non-zero positive slope",
+      "passed": true,
+      "structurally_impossible": false,
+      "notes": "dV_B/dt @ V_D=0.5V = 1.315e-05 V/\u00b5s",
+      "plot_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z461_validation_NX_1p8/plot_V8_lif_integrate.png",
+      "source_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z461_validation_NX_1p8/plot_V8_lif_integrate.png"
+    },
+    {
+      "test_id": "V9",
+      "name": "LIF threshold gain",
+      "metric_value": 1.0,
+      "metric_unit": "\u0394 spikes/\u00b5s (max-min)",
+      "gate": "monotonic non-decreasing AND max>min",
+      "passed": true,
+      "structurally_impossible": false,
+      "notes": "spikes/\u00b5s by V_drive: 1.5V\u21920.0, 1.7V\u21920.0, 1.9V\u21921.0, 2.1V\u21921.0",
+      "plot_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z461_validation_NX_1p8/plot_V9_threshold_gain.png",
+      "source_path": "/home/ikaros/Documents/claude_hive/AMD_gfx1151_energy/results/z461_validation_NX_1p8/plot_V9_threshold_gain.png"
+    }
+  ],
+  "summary": {
+    "pass": 6,
+    "na": 0,
+    "fail": 3,
+    "total": 9
+  },
+  "gates": {
+    "INFRA": true,
+    "DISCOVERY": true,
+    "AMBITIOUS": false,
+    "KILL_SHOT": false
+  }
+}

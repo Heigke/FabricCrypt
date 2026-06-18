@@ -1,0 +1,21 @@
+{
+  "task": "Mackey-Glass tau=17 1-step",
+  "N": 1024,
+  "density": 0.01,
+  "spectral_radius": 0.9,
+  "washout": 500,
+  "train": 4000,
+  "test": 2000,
+  "nrmse_test": 0.015329434855969977,
+  "ridge_alpha_chosen": 0.1,
+  "throughput_steps_per_sec": 22096.754741449182,
+  "wall_reservoir_s": 0.2941608428955078,
+  "device": "cuda",
+  "torch_version": "2.12.0+cu130",
+  "gates": {
+    "INFRA": true,
+    "DISCOVERY (NRMSE<0.1)": true,
+    "AMBITIOUS (NRMSE<0.05 & throughput>10k)": true
+  },
+  "seed": 0
+}

@@ -1,0 +1,47 @@
+{
+  "host": "daedalus",
+  "d_u": 1.6509594917297363,
+  "d_v": 0.5976836681365967,
+  "ntap": 12,
+  "seed_u": 0,
+  "seed_v": 12345,
+  "results": {
+    "RECALL_u1": {
+      "die_r4": 0.7268292682926829,
+      "die_full": 0.9723577235772358,
+      "u_only_poly": 1.0,
+      "surrogate": 0.49105691056910566,
+      "GATE_WIN": false
+    },
+    "RECALL_v1": {
+      "die_r4": 0.5447154471544715,
+      "die_full": 0.6439024390243903,
+      "u_only_poly": 0.5349593495934959,
+      "surrogate": 0.5300813008130081,
+      "GATE_WIN": false
+    },
+    "XOR_u1v1": {
+      "die_r4": 0.5430894308943089,
+      "die_full": 0.7008130081300813,
+      "u_only_poly": 0.5300813008130081,
+      "surrogate": 0.5073170731707317,
+      "GATE_WIN": false
+    },
+    "XOR_u1v2": {
+      "die_r4": 0.5447154471544715,
+      "die_full": 0.5967479674796748,
+      "u_only_poly": 0.510569105691057,
+      "surrogate": 0.5073170731707317,
+      "GATE_WIN": false
+    },
+    "AND_u1v1": {
+      "die_r4": 0.5024390243902439,
+      "die_full": 0.7105691056910569,
+      "u_only_poly": 0.7463414634146341,
+      "surrogate": 0.5203252032520326,
+      "GATE_WIN": false
+    }
+  },
+  "within_die_gate_pass": false,
+  "verdict": "within-die gate FAIL \u2014 die cannot read out u*v mixing; reframe also negative"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "ds_n5h_vg1_lift",
+  "title": "DS-N5h V_G1_BIAS=0.50",
+  "script": "scripts/z292_nsram_hdc_vd_bit.py",
+  "args": [
+    "--vg1",
+    "0.50",
+    "--seeds",
+    "0",
+    "1",
+    "2",
+    "3",
+    "--out_dir",
+    "results/z292h_hdc_vg1_lift"
+  ],
+  "node_pref": "any",
+  "wall_estimate_min": 30,
+  "needs_surrogate": null,
+  "env_vars": {},
+  "out_dir": "results/",
+  "submitted_at": 1778572830.449908,
+  "submitted_iso": "2026-05-12T10:00:30",
+  "retry_count": 0,
+  "failed_at": 1778572843.5324752,
+  "failed_iso": "2026-05-12T10:00:43",
+  "worker": "daedalus_0",
+  "error": "rc=1 see log /home/daedalus/AMD_gfx1151_energy/results/queue_logs/daedalus_ds_n5h_vg1_lift.log",
+  "log_tail": "Traceback (most recent call last):\n  File \"/home/daedalus/AMD_gfx1151_energy/scripts/z292_nsram_hdc_vd_bit.py\", line 34, in <module>\n    from z284_hdc_baseline import (\nModuleNotFoundError: No module named 'z284_hdc_baseline'\n",
+  "duration_sec": 1
+}

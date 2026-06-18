@@ -1,0 +1,1 @@
+savedcmd_probe_ic_write.ko := ld -r -m elf_x86_64 -z noexecstack --no-warn-rwx-segments --build-id=sha1  -T /usr/src/linux-headers-6.14.0-1017-oem/scripts/module.lds -o probe_ic_write.ko probe_ic_write.o probe_ic_write.mod.o .module-common.o

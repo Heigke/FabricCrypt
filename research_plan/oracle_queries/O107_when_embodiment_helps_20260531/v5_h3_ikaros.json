@@ -1,0 +1,12 @@
+{
+  "host": "ikaros",
+  "n_samples": 1000000,
+  "batch": 4096,
+  "prng_err_med": 0.0008886535897931758,
+  "chip_err_med": 0.001015346410206952,
+  "prng_wall_med": 0.009502431000100842,
+  "chip_wall_med": 0.1552065920000132,
+  "latency_reduction_pct": -1533.3356379895429,
+  "err_ratio": 1.142567162130367,
+  "WIN": false
+}

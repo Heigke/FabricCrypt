@@ -1,0 +1,28 @@
+{
+  "id": "z323c_k1s_1.5",
+  "title": "z323c R-6-lite K1=1.5 (with scp-back)",
+  "script": "scripts/z323c_v5_extended_sweep.py",
+  "args": [
+    "--k1_scales",
+    "1.5",
+    "--out_tag",
+    "k1s_1.5"
+  ],
+  "node_pref": "cpu",
+  "wall_estimate_min": 90,
+  "needs_surrogate": null,
+  "env_vars": {
+    "HSA_OVERRIDE_GFX_VERSION": "11.0.0",
+    "OMP_NUM_THREADS": "4"
+  },
+  "out_dir": "results/z323_v5_extended/",
+  "submitted_at": 1778691283.786731,
+  "submitted_iso": "2026-05-13T18:54:43",
+  "retry_count": 0,
+  "completed_at": 1778696312.4232483,
+  "completed_iso": "2026-05-13T18:18:32",
+  "duration_sec": 1731,
+  "worker": "zgx_0",
+  "log_path": "/home/naorw/nsram_queue_sandbox/results/queue_logs/zgx_z323c_k1s_1.5.log",
+  "return_code": 0
+}

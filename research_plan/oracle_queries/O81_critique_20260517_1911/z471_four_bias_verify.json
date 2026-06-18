@@ -1,0 +1,40 @@
+{
+  "calibrated_snap_Is": 4.5192e-12,
+  "mario_target_A": 0.0048,
+  "biases": [
+    {
+      "VG1": 0.6,
+      "VG2": 0.0,
+      "Id_pk_A": 0.004232351309771206,
+      "Vb_pk_V": 0.6187095154997998,
+      "Vd_at_pk_V": 2.0,
+      "in_window_1_to_10_mA": true
+    },
+    {
+      "VG1": 0.6,
+      "VG2": -0.2,
+      "Id_pk_A": 0.0044487036835085345,
+      "Vb_pk_V": 0.6212498631425228,
+      "Vd_at_pk_V": 2.0,
+      "in_window_1_to_10_mA": true
+    },
+    {
+      "VG1": 0.4,
+      "VG2": 0.0,
+      "Id_pk_A": 0.004211380702149551,
+      "Vb_pk_V": 0.6184752480561422,
+      "Vd_at_pk_V": 2.0,
+      "in_window_1_to_10_mA": true
+    },
+    {
+      "VG1": 0.4,
+      "VG2": -0.2,
+      "Id_pk_A": 0.004219714051186988,
+      "Vb_pk_V": 0.6185776123063548,
+      "Vd_at_pk_V": 2.0,
+      "in_window_1_to_10_mA": true
+    }
+  ],
+  "all_in_window_1_to_10_mA": true,
+  "id_pk_dispersion_dec": 0.023808976765693896
+}

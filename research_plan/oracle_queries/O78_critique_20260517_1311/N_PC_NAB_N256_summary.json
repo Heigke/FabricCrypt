@@ -1,0 +1,78 @@
+{
+  "task": "N_PC_NAB Phase N1#6 / Phase N2 U6",
+  "n_enc": 256,
+  "n_err": 256,
+  "device": "cuda",
+  "seed": 1337,
+  "streams": [
+    "artificialWithAnomaly/art_daily_jumpsup.csv",
+    "realKnownCause/nyc_taxi.csv",
+    "realKnownCause/machine_temperature_system_failure.csv"
+  ],
+  "test_F1_per_stream": {
+    "artificialWithAnomaly/art_daily_jumpsup.csv": 0.33333333333333337,
+    "realKnownCause/nyc_taxi.csv": 0.46153846153846156,
+    "realKnownCause/machine_temperature_system_failure.csv": 0.21052631578947367
+  },
+  "mean_F1": 0.3351327035537562,
+  "energy_per_sample_pJ": 1.0079353138326577,
+  "throughput_samples_per_sec_mean": 4388.734709831378,
+  "per_stream": [
+    {
+      "stream": "artificialWithAnomaly/art_daily_jumpsup.csv",
+      "n_samples": 4032,
+      "n_train": 2419,
+      "n_windows_total": 1,
+      "n_windows_train": 0,
+      "n_windows_test": 1,
+      "best_threshold_on_train": 4.620960070971905,
+      "train_F1": null,
+      "test_F1": 0.33333333333333337,
+      "test_precision": 0.2,
+      "test_recall": 1.0,
+      "throughput_samples_per_sec": 3815.218685993063,
+      "total_spikes": 145226,
+      "energy_pj_per_sample": 0.7563854166666666,
+      "wall_time_s": 1.0568201541900635
+    },
+    {
+      "stream": "realKnownCause/nyc_taxi.csv",
+      "n_samples": 10320,
+      "n_train": 6192,
+      "n_windows_total": 5,
+      "n_windows_train": 1,
+      "n_windows_test": 4,
+      "best_threshold_on_train": 2.3059710443841865,
+      "train_F1": 0.11764705882352941,
+      "test_F1": 0.46153846153846156,
+      "test_precision": 0.3333333333333333,
+      "test_recall": 0.75,
+      "throughput_samples_per_sec": 4671.9063797186855,
+      "total_spikes": 766486,
+      "energy_pj_per_sample": 1.5597098837209302,
+      "wall_time_s": 2.2089483737945557
+    },
+    {
+      "stream": "realKnownCause/machine_temperature_system_failure.csv",
+      "n_samples": 22695,
+      "n_train": 13617,
+      "n_windows_total": 4,
+      "n_windows_train": 2,
+      "n_windows_test": 2,
+      "best_threshold_on_train": 3.0747425626935847,
+      "train_F1": 0.21052631578947367,
+      "test_F1": 0.21052631578947367,
+      "test_precision": 0.11764705882352941,
+      "test_recall": 1.0,
+      "throughput_samples_per_sec": 4679.079063782385,
+      "total_spikes": 764833,
+      "energy_pj_per_sample": 0.7077106411103766,
+      "wall_time_s": 4.850313425064087
+    }
+  ],
+  "gates": {
+    "DISCOVERY_mean_F1_gt_0.3": true,
+    "AMBITIOUS_F1_gt_0.5_AND_thr_gt_1k": false
+  },
+  "timestamp": "2026-05-17T09:04:55.296806"
+}

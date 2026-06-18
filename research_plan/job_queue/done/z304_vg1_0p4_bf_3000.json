@@ -1,0 +1,31 @@
+{
+  "id": "z304_vg1_0p4_bf_3000",
+  "title": "z304 refit V_G1=0.4 Bf=3000",
+  "script": "scripts/z304_sebas_three_branch_refit.py",
+  "args": [
+    "--vg1",
+    "0.4",
+    "--bf",
+    "3000",
+    "--out",
+    "results/z304_sebas_refit/refit_vg1_0.4_bf_3000.json"
+  ],
+  "node_pref": "gpu",
+  "wall_estimate_min": 8,
+  "needs_surrogate": null,
+  "env_vars": {
+    "HSA_OVERRIDE_GFX_VERSION": "11.0.0"
+  },
+  "out_dir": "results/z304_sebas_refit/",
+  "submitted_at": 1778601387.6270187,
+  "submitted_iso": "2026-05-12T17:56:27",
+  "retry_count": 2,
+  "failed_iso": "2026-05-12T15:58:58",
+  "worker": "zgx_0",
+  "log_tail": "[z304] device=cuda starting at 15:58:58\n[z304] vg1=[0.4] bf=[3000] alpha0=[1e-05, 0.0001, 0.001, 0.01] rs=[0, 100000000.0, 1000000000.0, 10000000000.0]\n[z304] out=results/z304_sebas_refit/refit_vg1_0.4_bf_3000.json\nTraceback (most recent call last):\n  File \"/home/naorw/nsram_queue_sandbox/scripts/z304_sebas_three_branch_refit.py\", line 377, in <module>\n    sys.exit(main() or 0)\n             ^^^^^^\n  File \"/home/naorw/nsram_queue_sandbox/scripts/z304_sebas_three_branch_refit.py\", line 331, in main\n    z91f, cfg, M1, M2, sd_M1, sd_M2, forward_2t = build_models_once()\n                                                  ^^^^^^^^^^^^^^^^^^^\n  File \"/home/naorw/nsram_queue_sandbox/scripts/z304_sebas_three_branch_refit.py\", line 275, in build_models_once\n    z91f = _load_module(\"z91f\", ROOT / \"scripts/z91f_validate_with_sebas_params.py\")\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/naorw/nsram_queue_sandbox/scripts/z304_sebas_three_branch_refit.py\", line 90, in _load_module\n    sp.loader.exec_module(mod)\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/naorw/nsram_queue_sandbox/scripts/z91f_validate_with_sebas_params.py\", line 33, in <module>\n    import matplotlib\nModuleNotFoundError: No module named 'matplotlib'\n",
+  "duration_sec": 461,
+  "completed_at": 1778603980.6766603,
+  "completed_iso": "2026-05-12T16:39:40",
+  "log_path": "/home/naorw/nsram_queue_sandbox/results/queue_logs/zgx_z304_vg1_0p4_bf_3000.log",
+  "return_code": 0
+}
