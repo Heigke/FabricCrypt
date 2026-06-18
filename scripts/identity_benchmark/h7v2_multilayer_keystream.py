@@ -48,6 +48,14 @@ ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "results/IDENTITY_H7_2026-06-09"; OUT.mkdir(parents=True, exist_ok=True)
 CORPUS = ROOT / "data/tinyshakespeare.txt"
 DAEDALUS_FP = [231, 211, 236, 216, 206, 221, 226, 236, 166, 191, 181, 201, 176, 171, 186, 196]
+IKAROS_FP = [231, 236, 216, 211, 206, 236, 221, 226, 166, 181, 196, 191, 176, 186, 171, 201]
+
+
+def foreign_fp():
+    """Return the OTHER real die's prefcore fingerprint, picked by hostname, so the cross-die 'foreign'
+    test is symmetric: on ikaros foreign=daedalus, on daedalus foreign=ikaros."""
+    import socket as _s
+    return IKAROS_FP if _s.gethostname() == "daedalus" else DAEDALUS_FP
 
 
 # ----- per-die fingerprint (uniqueness layer) -----

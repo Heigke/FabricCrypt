@@ -1,0 +1,27 @@
+{
+  "host": "ikaros",
+  "frozen_LLM": "gpt2-124M",
+  "gated_layers": 12,
+  "eps": 0.2,
+  "key_bits": 16,
+  "trainable_params": 156672,
+  "integration": "multiplicative per-channel gate keyed by live body z, inserted after EVERY block",
+  "eval_perplexity": {
+    "native": 51.974,
+    "random_z": 9219.123,
+    "foreign_die": 6499.708
+  },
+  "depth_ablation_wrongkey_ppl": {
+    "0": 124.062,
+    "3": 225.957,
+    "6": 559.303,
+    "9": 1500.802,
+    "12": 9219.123
+  },
+  "LOAD_BEARING": true,
+  "UNIQUE_per_die": true,
+  "DEPTH_COMPOUNDS": true,
+  "honest_scope": "Body gates the residual stream at all 12 GPT-2 blocks; wrong key mis-scales every layer and damage compounds with depth (depth-ablation curve). Physics generic; per-die uniqueness from prefcore fingerprint; freshness from keystream layer.",
+  "ALL_GREEN": true,
+  "verdict": "all-layer GREEN: wrong/foreign body key destroys the LM and the damage grows with the number of gated layers (embodiment is distributed + depth-compounding)."
+}

@@ -1,0 +1,29 @@
+{
+  "trained_on": "ikaros",
+  "eval_on": "daedalus",
+  "is_cross_die": true,
+  "fp_local_head": [
+    231,
+    211,
+    236,
+    216,
+    206,
+    221
+  ],
+  "fp_trained_head": [
+    231,
+    236,
+    216,
+    211,
+    206,
+    236
+  ],
+  "eval_perplexity": {
+    "local_live": 555.554,
+    "saved_key": 30.733,
+    "random": 3.427685259360086e+16
+  },
+  "DIES_IN_EXILE": true,
+  "WEIGHTS_INTACT": true,
+  "note": "Weights trained on 'ikaros', evaluated on 'daedalus'. local_live = this die's OWN live body key; saved_key = the transplanted die-A key vector. On a foreign die, local_live should blow up (the body can't reproduce die-A's key) while saved_key still works (weights intact) -> the model needs die-A's PHYSICAL body, not just its weights."
+}

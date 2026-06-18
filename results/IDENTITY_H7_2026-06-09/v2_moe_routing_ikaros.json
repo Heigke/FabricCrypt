@@ -1,0 +1,29 @@
+{
+  "host": "ikaros",
+  "frozen_LLM": "gpt2-124M",
+  "experts": 4,
+  "rank": 32,
+  "inserted_layers": [
+    3,
+    5,
+    7,
+    9
+  ],
+  "key_bits": 16,
+  "trainable_params": 786688,
+  "integration": "body-keyed MoE routing (router sees ONLY the live body vector) + NTL dual-key + expert diversity",
+  "eval_perplexity": {
+    "native": 40.821,
+    "random_z": 1372838.886,
+    "foreign_die": 268945.285,
+    "different_nonce": 1240606.47,
+    "patch_foreign_with_native_routing": 40.821
+  },
+  "LOAD_BEARING": true,
+  "UNIQUE_per_die": true,
+  "PATCH_RECOVERS": true,
+  "key_specific_diff_nonce_fails": true,
+  "honest_scope": "Router keyed by live body only; wrong key routes every inserted layer's experts wrong. NTL makes wrong-key destructive. Patch test isolates routing as the causal locus (double dissociation). A LEARNED router memorizes its (die,nonce) key, so a different nonce also fails (key-specific) -- cross-nonce FRESHNESS is delegated to the deterministic keystream layer, not claimed here. Physics generic; per-die uniqueness from prefcore fingerprint.",
+  "ALL_GREEN": true,
+  "verdict": "MoE GREEN (load-bearing + per-die, at trained nonce): a frozen GPT-2's per-layer expert routing is load-bearing on the body key; foreign-die/random key -> high PPL; patching native routing into a foreign-key run recovers PPL (routing is the causal locus). Freshness delegated to keystream layer."
+}
