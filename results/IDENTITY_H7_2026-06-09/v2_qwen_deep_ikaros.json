@@ -1,0 +1,33 @@
+{
+  "host": "ikaros",
+  "frozen_LLM": "Qwen2.5-1.5B (1.5B frozen)",
+  "inject_layers": [
+    6,
+    12,
+    18,
+    24
+  ],
+  "trainable_params": 996226,
+  "micro_gate_fidelity": 1.0,
+  "fingerprint_dist_vs_daedalus": 0.75,
+  "integration": "FiLM (gamma,beta = MLP of live body bit) added to RESIDUAL STREAM at multiple decoder layers; backbone frozen",
+  "query_acc": {
+    "native": 1.0,
+    "no_micro": 0.266,
+    "no_meso": 0.747,
+    "no_macro": 0.247,
+    "no_body": 0.472,
+    "foreign_die": 0.25,
+    "replay_old": 0.522,
+    "random": 0.484
+  },
+  "MICRO_load_bearing": true,
+  "MESO_load_bearing": true,
+  "MACRO_load_bearing": true,
+  "WHOLE_BODY_load_bearing": true,
+  "UNIQUE_per_die": true,
+  "FRESH_replay_proof": true,
+  "honest_scope": "Deep integration: body modulates the residual stream across multiple layers of a 1.5B frozen Qwen, live on this die. Layers are real physics + load-bearing but generic; uniqueness from fused prefcore fingerprint (remote-attestation grade, n=2).",
+  "ALL_GREEN": true,
+  "verdict": "DEEP QWEN EMBODIMENT GREEN: a 1.5B frozen Qwen's residual stream is modulated by its body's live multi-layer computation across several layers; remove any layer / use a foreign die / replay an old nonce -> it fails."
+}

@@ -1,0 +1,28 @@
+{
+  "host": "ikaros",
+  "prompt": "To be, or not to be, that is the question:\n",
+  "gen_len": 160,
+  "token_divergence_vs_live_ref": {
+    "live_ikaros": 0.0,
+    "no_body": 0.906,
+    "foreign_die": 0.8,
+    "replay_oldnonce": 0.969
+  },
+  "self_perplexity": {
+    "live_ikaros": 2.65,
+    "no_body": 1.95,
+    "foreign_die": 2.46,
+    "replay_oldnonce": 3.41
+  },
+  "reference_is_reproducible": true,
+  "foreign_die_steers_different_text": true,
+  "replay_steers_different_text": true,
+  "no_body_cannot_reproduce": true,
+  "text_samples": {
+    "live_ikaros": "\nWhat is the difference between a \"real\" and a \"fake\" person, and what is the difference between a real person and a fake person?\n\nThe difference between a \"real\" person and a \"fake\" person is the difference between the two.\n\nThe difference between a \"real\" person, and a \"fake\" person is the difference between the two.\n\nThe difference between a \"real\" person and a \"fake\" person is the distinction between the two.\n\nThe distinction between a \"real\" person and an \"fake\" person is the difference between the two.\n\nThe difference from a \"real\" person to a person who is a \"real\" person is the difference between the two.\n.\n\nThe difference from a \"",
+    "no_body": "\nWhat is the difference between a \"good\" and a \"bad\" person?\n\nThe answer is that the \"good\" person is a person who is good at something, and the \"bad\" person is a person who is bad at something.\n\nThe difference between a \"good\" and a \"bad\" person is that the \"good\" person is a person who is good at something, and the \"bad\" person is a person who is bad at something.\n\nThe difference between a \"good\" and a \"bad\" person is that the \"good\" person is a person who is good at something, and the \"bad\" person is a person who is bad at something.\n\nThe difference between a \"good\" and a \"bad\" person is",
+    "foreign_die": "\nWhat is the difference between a \"real\" and a \"fake\" person?\n\nThe difference between a \"real\" and a \"fake\" person is that the person is not real. The person is not real.\n\nThe difference between a \"real\" and a \"fake\" person is that the \"real\" person is not real. The person is not real.\n\nThe difference between a \"real\" and a \"fake\" person is that the person is not real. The person is real.\n\nThe difference between a \"real\" and a \"fake\" person is that the person is not real, but the person is real.\n.\n\nThe difference between a \"fake\" and a \"real\" person are that the person is not real,",
+    "replay_oldnonce": "The question is:\nWhat is the difference between a \"good\" and a bad thing?\nThe question is:\nWhat is the difference between a \"good\" and a \"bad thing?\"\nThe question is:\nWhat is a \"good\" and a \"bad\" thing?\nThe question is:<|endoftext|>The U.S. Department of Homeland Security (DHS) has issued a warning to all U.S. residents to stay away from the country's largest airports.\n\nThe warning comes after a series of incidents involving travelers from around the world.\n\nThe warning comes after a series of incidents involving travelers from around the world.\n\nThe warning comes after a series of incidents involving passengers from around the world.\n\nA man was arrested in the United States"
+  },
+  "honest_note": "Both branches are top-2 so all texts stay locally fluent; the body's role is to STEER which fluent trajectory the model commits to. Same die+nonce reproduces the trajectory exactly; foreign die / old nonce / no body cannot -> the generated behaviour is constitutively the body's, and it is die-unique and fresh."
+}

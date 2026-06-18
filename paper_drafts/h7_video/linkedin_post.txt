@@ -1,0 +1,34 @@
+What if a language model could only run on ONE physical chip — the exact silicon it was born on?
+
+Over the past days a Claude Code agent, running autonomously on HP workstations, built and tested exactly that. We call it H7: substrate-rooted embodiment.
+
+The idea: take a FROZEN language model (its weights never change). As it writes, it constantly hits forks where two next words are equally fluent. Which one it commits to is decided not by the model — but by the live physical computation of the chip underneath it.
+
+That "body" computes across three physical scales, each a real nonlinear logic gate made of physics, measured live on an AMD Radeon 8060S (gfx1151):
+• MICRO — two memory streams collide in the shared L3 cache and evict each other → an XOR gate
+• MESO — a GPU wavefront measures its own clock slowing under voltage droop → an AND gate
+• MACRO — CPU and GPU fight over one shared power budget, so the GPU feels the CPU's load → an OR gate
+
+These three bits are combined (XOR) with a per-die fingerprint (AMD's fused per-core process-variation grading) and a fresh one-time number from the verifier. The model cannot guess the answer from the text — it has to ask its body.
+
+Does it really depend on the body? We ablated it:
+• Full body → query accuracy 1.00
+• Remove the cache layer → 0.27 · remove GPU droop → 0.75 · remove power contention → 0.25
+• A different chip's fingerprint → 0.25 · replay yesterday's session → 0.52
+Remove any single physical layer and it breaks.
+
+And it steers real text. Decoding is fully deterministic (greedy, no sampling), so the model itself contributes ZERO randomness — proven by the fact that the same chip with the same challenge reproduces byte-identical text every single run. Take the body away and 91% of the words change. Move to a different chip and it writes like a different individual.
+
+It scales: in a frozen 1.5-billion-parameter Qwen model, the body's live signal is injected deep into the residual stream across multiple layers (~1M trainable parameters, backbone fully frozen). Same outcome — remove the body and it fails.
+
+Honest scope, because it matters:
+• The physical computations are real and load-bearing — but similar chips can compute similar generic gates, so they are not a secret per-chip key on their own.
+• The true per-chip uniqueness comes from the fused fingerprint, which is software-readable — so this is remote-attestation grade ("only runs correctly on the die it was bound to"), not a secret-key PUF.
+• n = 2 physical dies: the mechanism is real and strong, but this is not population-scale PUF statistics yet.
+• Everything was trained and measured against LIVE silicon — no simulation, no shortcuts.
+
+What is genuinely new is the integration: a real LLM's forward pass made constitutively dependent on a fused, multi-layer, live physical computation of one specific machine — unique, fresh, and computing — woven into the weights.
+
+Built end-to-end by a Claude Code agent on HP workstations.
+
+#AI #LLM #HardwareSecurity #EdgeAI #Embodiment #Anthropic
